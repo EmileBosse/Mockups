@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Karla:wght@400;500;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0B0B0C; font-family: 'Karla', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #F2C14E; text-decoration: none; } a:hover { color: #FFD37A; }
+  input, select { font-family: 'Karla', sans-serif; }
+  input::placeholder { color: #7C7C7C; }
+</style>
+</head>
+<body>
+<div style="width: 390px; height: 844px; background: #0B0B0C; color: #F4F2EE; display: flex; flex-direction: column;">
+
+  <div style="padding: 20px 16px 16px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1C1A16;">
+    <a href="Main.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #23211C; display: flex; align-items: center; justify-content: center; color: #F4F2EE;">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="flex-grow: 1; font-family: 'Oswald', sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0.03em;">AJOUTER DU MAT&Eacute;RIEL</div>
+    <div style="font-size: 12px; color: #A7A7A7;">17 sept.</div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 18px 16px 0 16px; display: flex; flex-direction: column; gap: 18px; overflow: hidden;">
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="mjob" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">CHANTIER</label>
+      <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; height: 48px;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8E8E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
+        <input id="mjob" type="text" placeholder="Nom, client ou date..." style="flex-grow: 1; height: 46px; background: none; border: none; color: #F4F2EE; font-size: 15px; outline: none;">
+      </div>
+      <div style="border: 1px solid #4A3D22; background: #14110A; border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2C14E" stroke-width="2" stroke-linecap="round"><path d="M5 13l4.5 4.5L19 7"></path></svg>
+        <div style="flex-grow: 1;">
+          <div style="font-size: 15px; font-weight: 700;">Tremblay &mdash; entr&eacute;e de cour</div>
+          <div style="font-size: 12px; color: #A7A7A7; margin-top: 2px;">Rang 4, Saint-Prime</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">MAT&Eacute;RIEL</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 14px; cursor: pointer;">Membrane g&eacute;otextile</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #E9A82C; background: #1A1408; color: #F2C14E; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;">Tuyau BNQ 6 po</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 14px; cursor: pointer;">Puisard</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 14px; cursor: pointer;">B&eacute;ton</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 14px; cursor: pointer;">Tourbe</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px dashed #5A4A28; background: #15120B; color: #F2C14E; font: inherit; font-size: 14px; cursor: pointer;">Autre</button>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">QUANTIT&Eacute;</div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button type="button" aria-label="Diminuer la quantit&eacute;" style="width: 52px; height: 56px; border-radius: 8px; border: 1px solid #2A2823; background: #100F0D; color: #F4F2EE; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg>
+          </button>
+          <div style="flex-grow: 1; height: 56px; border: 1px solid #4A3D22; background: #100F0D; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 28px; color: #F4F2EE;">12</span>
+          </div>
+          <button type="button" aria-label="Augmenter la quantit&eacute;" style="width: 52px; height: 56px; border-radius: 8px; border: 1px solid #2A2823; background: #100F0D; color: #F4F2EE; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+          </button>
+        </div>
+      </div>
+      <div style="width: 116px; display: flex; flex-direction: column; gap: 10px;">
+        <label for="munit" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">UNIT&Eacute;</label>
+        <select id="munit" style="height: 56px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 10px; color: #F4F2EE; font-size: 15px;">
+          <option>m&egrave;tre</option>
+          <option>unit&eacute;</option>
+          <option>tonne</option>
+          <option>sac</option>
+          <option>rouleau</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label for="mfour" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">FOURNISSEUR (OPTIONNEL)</label>
+      <select id="mfour" style="margin-top: 10px; width: 100%; height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px;">
+        <option>BMR Saint-F&eacute;licien</option>
+        <option>Ciment Qu&eacute;bec</option>
+        <option>Autre &mdash; pr&eacute;ciser</option>
+      </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="mnote" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOTE (OPTIONNEL)</label>
+      <input id="mnote" type="text" placeholder="Ex. fourni par le client" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
+    </div>
+
+  </div>
+
+  <div style="padding: 16px; border-top: 1px solid #1C1A16; display: flex; flex-direction: column; gap: 10px;">
+    <button type="button" style="width: 100%; height: 56px; border-radius: 8px; border: none; background: #E9A82C; color: #14100A; font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 0.1em; cursor: pointer;">AJOUTER</button>
+    <div style="text-align: center; font-size: 12px; color: #8E8E8E;">Gard&eacute; sur l&#39;appareil &mdash; synchronisez depuis l&#39;accueil</div>
+  </div>
+
+</div>
+</body>
+</html>

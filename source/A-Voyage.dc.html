@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Karla:wght@400;500;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0B0B0C; font-family: 'Karla', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #F2C14E; text-decoration: none; } a:hover { color: #FFD37A; }
+  input, select { font-family: 'Karla', sans-serif; }
+  input::placeholder { color: #7C7C7C; }
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; background: #0B0B0C; color: #F4F2EE; display: flex; flex-direction: column;">
+
+  <div style="padding: 20px 16px 16px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1C1A16;">
+    <a href="Main.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #23211C; display: flex; align-items: center; justify-content: center; color: #F4F2EE;">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="flex-grow: 1; font-family: 'Oswald', sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0.03em;">ENTRER UN VOYAGE</div>
+    <div style="font-size: 12px; color: #A7A7A7;">17 sept.</div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 18px 16px 0 16px; display: flex; flex-direction: column; gap: 18px; overflow: hidden;">
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="vjob" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">CHANTIER</label>
+      <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; height: 48px;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8E8E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
+        <input id="vjob" type="text" placeholder="Nom, client ou date..." style="flex-grow: 1; height: 46px; background: none; border: none; color: #F4F2EE; font-size: 15px; outline: none;">
+      </div>
+      <div style="border: 1px solid #4A3D22; background: #14110A; border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2C14E" stroke-width="2" stroke-linecap="round"><path d="M5 13l4.5 4.5L19 7"></path></svg>
+        <div style="flex-grow: 1;">
+          <div style="font-size: 15px; font-weight: 700;">Tremblay &mdash; entr&eacute;e de cour</div>
+          <div style="font-size: 12px; color: #A7A7A7; margin-top: 2px;">Rang 4, Saint-Prime</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">SORTE DE VOYAGE</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 14px; cursor: pointer;">Sable</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 14px; cursor: pointer;">Terre</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #E9A82C; background: #1A1408; color: #F2C14E; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;">Gravier 0-3/4</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 14px; cursor: pointer;">Pierre nette</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 14px; cursor: pointer;">MG-20</button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOMBRE DE VOYAGES</div>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button type="button" aria-label="Retirer un voyage" style="width: 58px; height: 58px; border-radius: 29px; border: 1px solid #2A2823; background: #100F0D; color: #F4F2EE; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg>
+        </button>
+        <div style="flex-grow: 1; height: 58px; border: 1px solid #4A3D22; background: #100F0D; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Oswald', sans-serif; font-size: 32px; color: #F4F2EE;">3</span>
+        </div>
+        <button type="button" aria-label="Ajouter un voyage" style="width: 58px; height: 58px; border-radius: 29px; border: 1px solid #2A2823; background: #100F0D; color: #F4F2EE; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="vpic" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOM DU PIC</label>
+      <select id="vpic" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px;">
+        <option>Pic Boucher</option>
+        <option>Carri&egrave;re Saint-Prime</option>
+        <option>Autre &mdash; pr&eacute;ciser</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 12px; border-top: 1px solid #1C1A16; padding-top: 16px;">
+      <div style="flex-grow: 1;">
+        <div style="font-size: 15px; font-weight: 700;">Dividende requis</div>
+        <div style="font-size: 12px; color: #A7A7A7; margin-top: 2px;">&Agrave; facturer au client</div>
+      </div>
+      <div style="width: 52px; height: 30px; border-radius: 15px; background: {{accent}}; display: flex; align-items: center; justify-content: flex-end; padding: 3px;">
+        <div style="width: 24px; height: 24px; border-radius: 12px; background: #14100A;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="padding: 16px; border-top: 1px solid #1C1A16; display: flex; flex-direction: column; gap: 10px;">
+    <button type="button" style="width: 100%; height: 56px; border-radius: 8px; border: none; background: {{accent}}; color: #14100A; font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 0.1em; cursor: pointer;">AJOUTER</button>
+    <div style="text-align: center; font-size: 12px; color: #8E8E8E;">Gard&eacute; sur l&#39;appareil &mdash; synchronisez depuis l&#39;accueil</div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#E9A82C","options":["#E9A82C","#F2C14E","#C8801C"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#E9A82C' };
+  }
+}
+</script>
+</body>
+</html>

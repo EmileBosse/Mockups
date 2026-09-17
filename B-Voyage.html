@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F6F4EF; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #8A5D0B; text-decoration: none; } a:hover { color: #6B4708; }
+  input, select { font-family: 'IBM Plex Sans', sans-serif; }
+  input::placeholder { color: #8E8A7E; }
+</style>
+</head>
+<body>
+<div style="width: 390px; height: 844px; background: #F6F4EF; color: #17160F; display: flex; flex-direction: column;">
+
+  <div style="height: 64px; flex-shrink: 0; padding: 0 12px 0 8px; background: #14130E; display: flex; align-items: center; gap: 8px;">
+    <a href="B-Bluehat-Journee.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #F7F5F0;">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="flex-grow: 1; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #F7F5F0;">Ajouter un voyage</div>
+    <div style="height: 26px; padding: 0 9px; border-radius: 4px; background: #1E2A3A; border: 1px solid #38516F; color: #9CC1F5; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; display: flex; align-items: center;">BLUEHAT</div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 18px 16px 0 16px; display: flex; flex-direction: column; gap: 18px; overflow: hidden;">
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="bv-job" style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">CHANTIER</label>
+      <div style="display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 12px; height: 48px;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8A7E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
+        <input id="bv-job" type="text" value="Tremblay &mdash; entr&eacute;e de cour" style="flex-grow: 1; height: 46px; background: none; border: none; color: #17160F; font-size: 14.5px; outline: none;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8A5D0B" stroke-width="2" stroke-linecap="round"><path d="M5 13l4.5 4.5L19 7"></path></svg>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">SORTE DE VOYAGE</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; font: inherit; font-size: 14px; cursor: pointer;">Sable</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; font: inherit; font-size: 14px; cursor: pointer;">Terre</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: none; background: #14130E; color: #F7F5F0; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Gravier 0-3/4</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; font: inherit; font-size: 14px; cursor: pointer;">Pierre nette</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; font: inherit; font-size: 14px; cursor: pointer;">MG-20</button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">NOMBRE DE VOYAGES</div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button type="button" aria-label="Retirer un voyage" style="width: 58px; height: 58px; border-radius: 10px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg>
+        </button>
+        <div style="flex-grow: 1; height: 58px; border-radius: 10px; background: #FFFFFF; border: 1px solid #D5CFC2; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700;">3</span>
+        </div>
+        <button type="button" aria-label="Ajouter un voyage" style="width: 58px; height: 58px; border-radius: 10px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="bv-pic" style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">NOM DU PIC</label>
+      <select id="bv-pic" style="height: 48px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 10px; color: #17160F; font-size: 14.5px;">
+        <option>Pic Boucher</option>
+        <option>Carri&egrave;re Saint-Prime</option>
+        <option>Autre &mdash; pr&eacute;ciser</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #E2DDD2; border-radius: 10px; padding: 12px 14px;">
+      <div style="flex-grow: 1;">
+        <div style="font-size: 14.5px; font-weight: 600;">Dividende requis</div>
+        <div style="font-size: 12px; color: #635F53; margin-top: 2px;">&Agrave; facturer au client</div>
+      </div>
+      <div style="width: 50px; height: 28px; border-radius: 14px; background: #C8801C; display: flex; align-items: center; justify-content: flex-end; padding: 3px;">
+        <div style="width: 22px; height: 22px; border-radius: 11px; background: #FFFFFF;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="flex-shrink: 0; padding: 14px 16px 20px 16px; border-top: 1px solid #E2DDD2; background: #FFFFFF; display: flex; gap: 10px;">
+    <a href="B-Bluehat-Journee.html" style="width: 118px; height: 54px; border-radius: 10px; border: 1px solid #D5CFC2; display: flex; align-items: center; justify-content: center; color: #17160F; font-family: 'Space Grotesk', sans-serif; font-size: 14.5px; font-weight: 600;">Annuler</a>
+    <button type="button" style="flex-grow: 1; height: 54px; border-radius: 10px; border: none; background: #E9A82C; color: #14130E; font-family: 'Space Grotesk', sans-serif; font-size: 15.5px; font-weight: 700; cursor: pointer;">Enregistrer</button>
+  </div>
+
+</div>
+</body>
+</html>
