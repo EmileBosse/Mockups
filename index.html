@@ -3,223 +3,52 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>J2B - Maquettes PWA Gestion de temps</title>
-<style>body{margin:0;background:#0B0B0C;color:#F4F2EE;font-family:system-ui,sans-serif;}</style>
+<title>Plans — maquettes</title>
+<style>
+:root{--ink:#1c2230;--muted:#667085;--bg:#f2f4f7;--line:#e4e7ec;--accent:#2563eb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+header{max-width:1200px;margin:0 auto;padding:40px 16px 8px}
+h1{margin:0 0 6px;font-size:30px}
+header p{margin:0 0 14px;color:var(--muted);max-width:720px;line-height:1.5}
+.cta{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:23px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+main{max-width:1200px;margin:0 auto;padding:24px 16px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px 24px}
+figure{margin:0}
+.phone{width:300px;height:650px;margin:0 auto;border-radius:44px;background:#111;padding:10px;box-shadow:0 12px 30px rgba(16,24,40,.18)}
+.phone iframe{width:390px;height:844px;border:0;border-radius:34px;transform:scale(.7179);transform-origin:0 0;background:#fff}
+.phone .clip{width:280px;height:630px;border-radius:34px;overflow:hidden}
+figcaption{max-width:300px;margin:14px auto 0;font-size:14.5px;line-height:1.45;color:var(--muted)}
+figcaption b{display:block;color:var(--ink);font-size:15.5px;margin-bottom:2px}
+figcaption a{color:var(--accent)}
+</style>
 </head>
 <body>
-  <header style="padding:40px 40px 28px 40px;border-bottom:1px solid #1C1A16;">
-    <img src="assets/logo_transparent.png" alt="Excavation J2B" style="display:block;width:220px;height:124px;object-fit:contain;">
-    <h1 style="font:600 28px/1.2 system-ui,sans-serif;margin:18px 0 6px 0;">Maquettes - PWA de gestion de temps</h1>
-    <p style="font:400 14px/1.6 system-ui,sans-serif;color:#A7A7A7;margin:0;max-width:70ch;">Trois directions de design (A, B, C), chacune declinee par role (bluehat, whitehat, admin) : saisie du temps, des voyages, du materiel et des photos, calendrier, ajout de chantier, configuration admin en mobile et en version PC, plus la synchronisation manuelle.</p>
-  </header>
-  <main style="padding:32px 40px;">
-    <section style="padding:0 0 48px 0;">
-      <h2 style="font:600 22px/1.2 system-ui,sans-serif;margin:0 0 4px 0;color:#F4F2EE;">Option A</h2>
-      <p style="font:400 14px/1.5 system-ui,sans-serif;margin:0 0 18px 0;color:#A7A7A7;">Cadran — hub de boutons rondes, inspiré du croquis</p>
-      <div style="display:flex;gap:28px;align-items:flex-start;overflow-x:auto;padding-bottom:10px;">
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Bluehat — accueil</figcaption>
-        <div style="width:405px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="Main.html" title="A · Bluehat — accueil" style="width:405px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="Main.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Whitehat — accueil</figcaption>
-        <div style="width:403px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Whitehat-Accueil.html" title="A · Whitehat — accueil" style="width:403px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Whitehat-Accueil.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Admin — accueil</figcaption>
-        <div style="width:407px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Admin-Accueil.html" title="A · Admin — accueil" style="width:407px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Admin-Accueil.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Entrer du temps</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Temps.html" title="A · Entrer du temps" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Temps.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Ajouter un voyage</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Voyage.html" title="A · Ajouter un voyage" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Voyage.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Ajouter du matériel</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Materiaux.html" title="A · Ajouter du matériel" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Materiaux.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Calendrier (whitehat)</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Calendrier.html" title="A · Calendrier (whitehat)" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Calendrier.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Ajouter un chantier</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Chantier-Add.html" title="A · Ajouter un chantier" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Chantier-Add.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Configuration (admin)</figcaption>
-        <div style="width:391px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Config.html" title="A · Configuration (admin)" style="width:391px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Config.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Configuration — version PC</figcaption>
-        <div style="width:797px;height:499px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Config-PC.html" title="A · Configuration — version PC" style="width:1287px;height:805px;border:0;transform:scale(0.62);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Config-PC.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      </div>
-    </section>
-    <section style="padding:0 0 48px 0;">
-      <h2 style="font:600 22px/1.2 system-ui,sans-serif;margin:0 0 4px 0;color:#F4F2EE;">Option B</h2>
-      <p style="font:400 14px/1.5 system-ui,sans-serif;margin:0 0 18px 0;color:#A7A7A7;">Chantier — clair, barre d'onglets, listes denses</p>
-      <div style="display:flex;gap:28px;align-items:flex-start;overflow-x:auto;padding-bottom:10px;">
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Bluehat — ma journée</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Bluehat-Journee.html" title="B · Bluehat — ma journée" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Bluehat-Journee.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Calendrier (whitehat)</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Whitehat-Calendrier.html" title="B · Calendrier (whitehat)" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Whitehat-Calendrier.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Chantier — tout le détail</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Chantier-Detail.html" title="B · Chantier — tout le détail" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Chantier-Detail.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Entrer du temps</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Temps.html" title="B · Entrer du temps" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Temps.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Ajouter un voyage</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Voyage.html" title="B · Ajouter un voyage" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Voyage.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Ajouter du matériel</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Materiaux.html" title="B · Ajouter du matériel" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Materiaux.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Ajouter un chantier</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Chantier-Add.html" title="B · Ajouter un chantier" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Chantier-Add.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Configuration (admin)</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Admin-Config.html" title="B · Configuration (admin)" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Admin-Config.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Configuration — version PC</figcaption>
-        <div style="width:797px;height:498px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Config-PC.html" title="B · Configuration — version PC" style="width:1286px;height:804px;border:0;transform:scale(0.62);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Config-PC.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      </div>
-    </section>
-    <section style="padding:0 0 48px 0;">
-      <h2 style="font:600 22px/1.2 system-ui,sans-serif;margin:0 0 4px 0;color:#F4F2EE;">Option C</h2>
-      <p style="font:400 14px/1.5 system-ui,sans-serif;margin:0 0 18px 0;color:#A7A7A7;">Journée — sombre, fil du jour, feuilles de saisie</p>
-      <div style="display:flex;gap:28px;align-items:flex-start;overflow-x:auto;padding-bottom:10px;">
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Bluehat — aujourd'hui</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Bluehat-Aujourdhui.html" title="C · Bluehat — aujourd'hui" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Bluehat-Aujourdhui.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Semaine (whitehat)</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Whitehat-Semaine.html" title="C · Semaine (whitehat)" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Whitehat-Semaine.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Entrer du temps</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Temps.html" title="C · Entrer du temps" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Temps.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Ajouter un voyage</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Voyage-Sheet.html" title="C · Ajouter un voyage" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Voyage-Sheet.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Ajouter du matériel</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Materiaux.html" title="C · Ajouter du matériel" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Materiaux.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Ajouter un chantier</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Chantier-Add.html" title="C · Ajouter un chantier" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Chantier-Add.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Console (admin)</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Admin-Console.html" title="C · Console (admin)" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Admin-Console.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Configuration — version PC</figcaption>
-        <div style="width:798px;height:497px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Config-PC.html" title="C · Configuration — version PC" style="width:1288px;height:803px;border:0;transform:scale(0.62);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Config-PC.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      </div>
-    </section>
-  </main>
+<header>
+  <h1>Plans — plans de coupe sur iPhone (PWA)</h1>
+  <p>Maquettes interactives : chaque écran ci-dessous est le vrai prototype, pré-ouvert dans un état différent (données de démonstration, rien n’est enregistré). Pour l’essayer en plein écran, ouvrez le prototype sur l’iPhone puis <em>Partager → Sur l’écran d’accueil</em>.</p>
+  <a class="cta" href="Dessin.html">Ouvrir le prototype</a>
+  <div class="note">Le prototype plein écran enregistre les dessins dans le navigateur de l’appareil.</div>
+</header>
+<main id="gallery"></main>
+<script>
+const screens = [
+  ['', 'Écran de dessin', 'Plan de coupe sur fond blanc : menu en haut à gauche, quadrillage en haut à droite, 5 outils en bas.'],
+  ['menu', 'Menu', 'Chevron en haut à gauche : nouveau, mes dessins, importer, exporter. Toucher le nom pour renommer.'],
+  ['formes', 'Formes (appui long sur « Ligne »)', 'Ligne, cote (flèches + valeur), flèche, rectangle, cercle, trou (avec axes), triangle, losange, cube, sphère. Le bouton prend l’icône de la forme choisie.'],
+  ['couleur', 'Couleur et épaisseur', 'Dix couleurs (le blanc sert de gomme) et trois épaisseurs. L’épaisseur règle aussi la taille du texte.'],
+  ['grille', 'Quadrillage', 'Les formes, cotes et lignes s’alignent sur la grille quand elle est active. Sans grille, les lignes se redressent à 0/45/90°.'],
+  ['selection', 'Déplacer', 'Toucher un élément pour le sélectionner, le glisser, le dupliquer ou le supprimer. Glisser dans le vide déplace la vue.'],
+  ['texte', 'Texte', 'Toucher la feuille à l’endroit voulu, taper le texte (matériau, quantité…). Toucher un texte ou une cote pour le modifier.'],
+  ['dessins', 'Mes dessins', 'Tous les plans gardés sur l’iPhone, avec aperçu. Enregistrement automatique à chaque trait.'],
+  ['exporter', 'Exporter', 'Image PNG pour partager, ou fichier modifiable à réimporter plus tard.'],
+  ['vide', 'Premier lancement', 'Feuille vide avec une courte consigne.']
+];
+document.getElementById('gallery').innerHTML = screens.map(([etat, title, desc]) => {
+  const src = 'Dessin.html?demo' + (etat === 'vide' ? '=vide' : '') + (etat && etat !== 'vide' ? '&etat=' + etat : '');
+  return `<figure><div class="phone"><div class="clip"><iframe src="${src}" title="${title}" loading="lazy"></iframe></div></div>
+    <figcaption><b>${title}</b>${desc} <a href="${src}">Ouvrir</a></figcaption></figure>`;
+}).join('');
+</script>
 </body>
 </html>
