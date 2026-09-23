@@ -33,107 +33,148 @@
   .combo-empty { padding: 11px 12px; color: #8E8E8E; font-size: 13.5px; }
 </style>
 </helmet>
-<div class="a-sheet" style="width: 390px; height: 844px; background: #0B0B0C; color: #F4F2EE; display: flex; flex-direction: column;">
+<div style="width: 390px; height: 844px; background: #0B0B0C; color: #F4F2EE; display: flex; flex-direction: column; overflow: hidden;">
 
-  <div style="padding: 20px 16px 16px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1C1A16;">
-    <a href="Main.dc.html" aria-label="Fermer" class="a-sheet-close" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #23211C; display: flex; align-items: center; justify-content: center; color: #F4F2EE;">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
-    </a>
-    <div style="flex-grow: 1; font-family: 'Oswald', sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0.03em;">AJOUTER DU MAT&Eacute;RIEL</div>
-    <div style="font-size: 12px; color: #A7A7A7;">17 sept.</div>
+  <div style="flex-shrink: 0;">
+    <div style="padding: 24px 20px 0 20px; display: flex; align-items: flex-start; justify-content: space-between;">
+      <div>
+        <div style="font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 500; letter-spacing: 0.02em;">Bonjour, Marc</div>
+        <div style="font-size: 13px; color: #A7A7A7; margin-top: 2px;">Mercredi 17 septembre</div>
+      </div>
+      <div style="border: 1px solid #3C5A86; color: #9CC1F5; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; padding: 6px 10px; border-radius: 4px;">BLUEHAT</div>
+    </div>
+
+    <div style="padding: 24px 20px 20px 20px; display: flex; justify-content: center;">
+      <img src="/_blob/596b240c49e10ca4df94cc5b5bd56ddd" alt="Excavation J2B" style="display: block; width: 250px; height: 140px; object-fit: contain;">
+    </div>
+
+    <div style="padding: 0 20px; display: flex; justify-content: space-between;">
+      <div style="width: 82px; height: 82px; border-radius: 41px; border: 1px solid #4A3D22; background: #141310; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: #E9A82C;">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5v5l3.5 2"></path></svg>
+        <span style="font-family: 'Oswald', sans-serif; font-size: 10.5px; letter-spacing: 0.1em; color: #F4F2EE;">TEMPS</span>
+      </div>
+      <div style="width: 82px; height: 82px; border-radius: 41px; border: 1px solid #4A3D22; background: #141310; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: #E9A82C;">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 16V7h10v9"></path><path d="M13 10h4.5l3 3.5V16"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg>
+        <span style="font-family: 'Oswald', sans-serif; font-size: 10.5px; letter-spacing: 0.1em; color: #F4F2EE;">VOYAGE</span>
+      </div>
+      <div style="width: 82px; height: 82px; border-radius: 41px; border: 1px solid #E9A82C; background: #1A1408; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: #F2C14E;">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3.5 20 7.5v9L12 20.5 4 16.5v-9z"></path><path d="M4 7.5l8 4 8-4M12 11.5v9"></path></svg>
+        <span style="font-family: 'Oswald', sans-serif; font-size: 9.5px; letter-spacing: 0.1em; color: #F4F2EE;">MAT&Eacute;RIAUX</span>
+      </div>
+      <div style="width: 82px; height: 82px; border-radius: 41px; border: 1px solid #4A3D22; background: #141310; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: #E9A82C;">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="7" width="18" height="12" rx="2.5"></rect><circle cx="12" cy="13" r="3.2"></circle><path d="M8.5 7l1.2-2h4.6l1.2 2"></path></svg>
+        <span style="font-family: 'Oswald', sans-serif; font-size: 10.5px; letter-spacing: 0.1em; color: #F4F2EE;">PHOTO</span>
+      </div>
+    </div>
   </div>
 
-  <div style="flex-grow: 1; padding: 18px 16px 0 16px; display: flex; flex-direction: column; gap: 18px; overflow: visible;">
+  <div class="a-sheet" style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column; background: #141310; border-top: 1px solid #2A2823; border-radius: 22px 22px 0 0; box-shadow: 0 -12px 32px rgba(0,0,0,.45); overflow: hidden;">
 
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <label for="mjob" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">CHANTIER</label>
-      <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; height: 48px;">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8E8E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
-        <input id="mjob" type="text" placeholder="Nom, client ou date..." style="flex-grow: 1; height: 46px; background: none; border: none; color: #F4F2EE; font-size: 15px; outline: none;">
-      </div>
-      <div style="border: 1px solid #4A3D22; background: #14110A; border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2C14E" stroke-width="2" stroke-linecap="round"><path d="M5 13l4.5 4.5L19 7"></path></svg>
-        <div style="flex-grow: 1;">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <div style="font-size: 15px; font-weight: 700;">Tremblay &mdash; entr&eacute;e de cour</div>
-            <span style="display: inline-flex; align-items: center; gap: 5px; height: 20px; padding: 0 8px; border-radius: 10px; background: #132016; border: 1px solid #2E4A34; color: #8FCB9B; font-size: 10px; font-weight: 700; letter-spacing: 0.08em;"><span style="width: 5px; height: 5px; border-radius: 3px; background: #7FA88A;"></span>ACTIF</span>
-          </div>
-          <div style="font-size: 12px; color: #A7A7A7; margin-top: 2px;">Rang 4, Saint-Prime</div>
-        </div>
-      </div>
+    <div style="flex-shrink: 0; display: flex; justify-content: center; padding: 10px 0 4px 0;">
+      <div style="width: 40px; height: 4px; border-radius: 2px; background: #3A3226;"></div>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 10px;">
-      <label for="mtype" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">MAT&Eacute;RIEL</label>
-      <div class="combo" data-combo>
-        <div class="combo-field">
+    <div style="flex-shrink: 0; padding: 6px 16px 14px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1C1A16;">
+      <div style="flex-grow: 1; font-family: 'Oswald', sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0.03em;">AJOUTER DU MAT&Eacute;RIEL</div>
+      <div style="font-size: 12px; color: #A7A7A7;">17 sept.</div>
+      <a href="Main.dc.html" aria-label="Fermer" class="a-sheet-close" style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 20px; border: 1px solid #2A2823; display: flex; align-items: center; justify-content: center; color: #F4F2EE;">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </a>
+    </div>
+
+    <div style="flex-grow: 1; min-height: 0; padding: 16px 16px 0 16px; display: flex; flex-direction: column; gap: 18px; overflow-y: auto;">
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label for="mjob" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">CHANTIER</label>
+        <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; height: 48px;">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8E8E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
-          <input id="mtype" class="combo-input" type="text" placeholder="Rechercher un mat&eacute;riel..." autocomplete="off" value="Tuyau BNQ 6 po">
-          <svg class="combo-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg>
+          <input id="mjob" type="text" placeholder="Nom, client ou date..." style="flex-grow: 1; height: 46px; background: none; border: none; color: #F4F2EE; font-size: 15px; outline: none;">
         </div>
-        <div class="combo-panel" hidden>
-          <button type="button" class="combo-option">Membrane g&eacute;otextile</button>
-          <button type="button" class="combo-option" aria-selected="true">Tuyau BNQ 6 po</button>
-          <button type="button" class="combo-option">Puisard</button>
-          <button type="button" class="combo-option">B&eacute;ton</button>
-          <button type="button" class="combo-option">Tourbe</button>
-          <button type="button" class="combo-option">Isolant rigide</button>
-          <button type="button" class="combo-option">Grillage &agrave; poule</button>
-          <button type="button" class="combo-option">Fil &agrave; cl&ocirc;ture</button>
-          <button type="button" class="combo-option">Bardeaux</button>
-          <button type="button" class="combo-option">Coffrage</button>
-          <button type="button" class="combo-option">Autre &mdash; pr&eacute;ciser</button>
-          <div class="combo-empty" hidden>Aucun r&eacute;sultat</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="display: flex; gap: 10px;">
-      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 10px;">
-        <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">QUANTIT&Eacute;</div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <button type="button" aria-label="Diminuer la quantit&eacute;" style="width: 52px; height: 56px; border-radius: 8px; border: 1px solid #2A2823; background: #100F0D; color: #F4F2EE; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg>
-          </button>
-          <div style="flex-grow: 1; height: 56px; border: 1px solid #4A3D22; background: #100F0D; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-            <span style="font-family: 'Oswald', sans-serif; font-size: 28px; color: #F4F2EE;">12</span>
+        <div style="border: 1px solid #4A3D22; background: #14110A; border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2C14E" stroke-width="2" stroke-linecap="round"><path d="M5 13l4.5 4.5L19 7"></path></svg>
+          <div style="flex-grow: 1;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="font-size: 15px; font-weight: 700;">Tremblay &mdash; entr&eacute;e de cour</div>
+              <span style="display: inline-flex; align-items: center; gap: 5px; height: 20px; padding: 0 8px; border-radius: 10px; background: #132016; border: 1px solid #2E4A34; color: #8FCB9B; font-size: 10px; font-weight: 700; letter-spacing: 0.08em;"><span style="width: 5px; height: 5px; border-radius: 3px; background: #7FA88A;"></span>ACTIF</span>
+            </div>
+            <div style="font-size: 12px; color: #A7A7A7; margin-top: 2px;">Rang 4, Saint-Prime</div>
           </div>
-          <button type="button" aria-label="Augmenter la quantit&eacute;" style="width: 52px; height: 56px; border-radius: 8px; border: 1px solid #2A2823; background: #100F0D; color: #F4F2EE; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
-          </button>
         </div>
       </div>
-      <div style="width: 116px; display: flex; flex-direction: column; gap: 10px;">
-        <label for="munit" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">UNIT&Eacute;</label>
-        <select id="munit" style="height: 56px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 10px; color: #F4F2EE; font-size: 15px;">
-          <option>m&egrave;tre</option>
-          <option>unit&eacute;</option>
-          <option>tonne</option>
-          <option>sac</option>
-          <option>rouleau</option>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <label for="mtype" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">MAT&Eacute;RIEL</label>
+        <div class="combo" data-combo>
+          <div class="combo-field">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8E8E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
+            <input id="mtype" class="combo-input" type="text" placeholder="Rechercher un mat&eacute;riel..." autocomplete="off" value="Tuyau BNQ 6 po">
+            <svg class="combo-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg>
+          </div>
+          <div class="combo-panel" hidden>
+            <button type="button" class="combo-option">Membrane g&eacute;otextile</button>
+            <button type="button" class="combo-option" aria-selected="true">Tuyau BNQ 6 po</button>
+            <button type="button" class="combo-option">Puisard</button>
+            <button type="button" class="combo-option">B&eacute;ton</button>
+            <button type="button" class="combo-option">Tourbe</button>
+            <button type="button" class="combo-option">Isolant rigide</button>
+            <button type="button" class="combo-option">Grillage &agrave; poule</button>
+            <button type="button" class="combo-option">Fil &agrave; cl&ocirc;ture</button>
+            <button type="button" class="combo-option">Bardeaux</button>
+            <button type="button" class="combo-option">Coffrage</button>
+            <button type="button" class="combo-option">Autre &mdash; pr&eacute;ciser</button>
+            <div class="combo-empty" hidden>Aucun r&eacute;sultat</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">QUANTIT&Eacute;</div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <button type="button" aria-label="Diminuer la quantit&eacute;" style="width: 52px; height: 56px; border-radius: 8px; border: 1px solid #2A2823; background: #100F0D; color: #F4F2EE; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg>
+            </button>
+            <div style="flex-grow: 1; height: 56px; border: 1px solid #4A3D22; background: #100F0D; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: 'Oswald', sans-serif; font-size: 28px; color: #F4F2EE;">12</span>
+            </div>
+            <button type="button" aria-label="Augmenter la quantit&eacute;" style="width: 52px; height: 56px; border-radius: 8px; border: 1px solid #2A2823; background: #100F0D; color: #F4F2EE; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+          </div>
+        </div>
+        <div style="width: 116px; display: flex; flex-direction: column; gap: 10px;">
+          <label for="munit" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">UNIT&Eacute;</label>
+          <select id="munit" style="height: 56px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 10px; color: #F4F2EE; font-size: 15px;">
+            <option>m&egrave;tre</option>
+            <option>unit&eacute;</option>
+            <option>tonne</option>
+            <option>sac</option>
+            <option>rouleau</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column;">
+        <label for="mfour" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">FOURNISSEUR (OPTIONNEL)</label>
+        <select id="mfour" style="margin-top: 10px; width: 100%; height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px;">
+          <option>BMR Saint-F&eacute;licien</option>
+          <option>Ciment Qu&eacute;bec</option>
+          <option>Autre &mdash; pr&eacute;ciser</option>
         </select>
       </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label for="mnote" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOTE (OPTIONNEL)</label>
+        <input id="mnote" type="text" placeholder="Ex. fourni par le client" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
+      </div>
+
     </div>
 
-    <div style="display: flex; flex-direction: column;">
-      <label for="mfour" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">FOURNISSEUR (OPTIONNEL)</label>
-      <select id="mfour" style="margin-top: 10px; width: 100%; height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px;">
-        <option>BMR Saint-F&eacute;licien</option>
-        <option>Ciment Qu&eacute;bec</option>
-        <option>Autre &mdash; pr&eacute;ciser</option>
-      </select>
+    <div style="flex-shrink: 0; padding: 16px; border-top: 1px solid #1C1A16; display: flex; flex-direction: column; gap: 10px;">
+      <button type="button" style="width: 100%; height: 56px; border-radius: 8px; border: none; background: {{accent}}; color: #14100A; font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 0.1em; cursor: pointer;">AJOUTER</button>
+      <div style="text-align: center; font-size: 12px; color: #8E8E8E;">Gard&eacute; sur l&#39;appareil &mdash; synchronisez depuis l&#39;accueil</div>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <label for="mnote" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOTE (OPTIONNEL)</label>
-      <input id="mnote" type="text" placeholder="Ex. fourni par le client" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
-    </div>
-
-  </div>
-
-  <div style="padding: 16px; border-top: 1px solid #1C1A16; display: flex; flex-direction: column; gap: 10px;">
-    <button type="button" style="width: 100%; height: 56px; border-radius: 8px; border: none; background: {{accent}}; color: #14100A; font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 0.1em; cursor: pointer;">AJOUTER</button>
-    <div style="text-align: center; font-size: 12px; color: #8E8E8E;">Gard&eacute; sur l&#39;appareil &mdash; synchronisez depuis l&#39;accueil</div>
   </div>
 
 </div>

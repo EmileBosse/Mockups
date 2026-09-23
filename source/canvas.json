@@ -66,124 +66,6 @@
       "x": 470,
       "y": 0
     },
-    "B-Admin-Config.dc.html": {
-      "h": 855,
-      "title": "B · Configuration (admin)",
-      "w": 390,
-      "x": 3290,
-      "y": 964
-    },
-    "B-Bluehat-Journee.dc.html": {
-      "h": 855,
-      "is_interactive": true,
-      "title": "B · Bluehat — ma journée",
-      "w": 390,
-      "x": 0,
-      "y": 964
-    },
-    "B-Chantier-Add.dc.html": {
-      "h": 855,
-      "is_interactive": true,
-      "title": "B · Ajouter un chantier",
-      "w": 390,
-      "x": 2820,
-      "y": 964
-    },
-    "B-Chantier-Detail.dc.html": {
-      "h": 855,
-      "is_interactive": true,
-      "title": "B · Chantier — tout le détail",
-      "w": 390,
-      "x": 940,
-      "y": 964
-    },
-    "B-Config-PC.dc.html": {
-      "h": 804,
-      "is_interactive": true,
-      "title": "B · Configuration — version PC",
-      "w": 1286,
-      "x": 3760,
-      "y": 964
-    },
-    "B-Temps.dc.html": {
-      "h": 855,
-      "is_interactive": true,
-      "title": "B · Entrer du temps",
-      "w": 390,
-      "x": 1410,
-      "y": 964
-    },
-    "B-Voyage.dc.html": {
-      "h": 855,
-      "is_interactive": true,
-      "title": "B · Ajouter un voyage",
-      "w": 390,
-      "x": 1880,
-      "y": 964
-    },
-    "B-Whitehat-Calendrier.dc.html": {
-      "h": 855,
-      "is_interactive": true,
-      "title": "B · Calendrier (whitehat)",
-      "w": 390,
-      "x": 470,
-      "y": 964
-    },
-    "C-Admin-Console.dc.html": {
-      "h": 852,
-      "title": "C · Console (admin)",
-      "w": 390,
-      "x": 2831,
-      "y": 1928
-    },
-    "C-Bluehat-Aujourdhui.dc.html": {
-      "h": 852,
-      "is_interactive": true,
-      "title": "C · Bluehat — aujourd'hui",
-      "w": 390,
-      "x": 0,
-      "y": 1928
-    },
-    "C-Chantier-Add.dc.html": {
-      "h": 852,
-      "is_interactive": true,
-      "title": "C · Ajouter un chantier",
-      "w": 390,
-      "x": 2350,
-      "y": 1928
-    },
-    "C-Config-PC.dc.html": {
-      "h": 803,
-      "is_interactive": true,
-      "title": "C · Configuration — version PC",
-      "w": 1288,
-      "x": 3290,
-      "y": 1928
-    },
-    "C-Temps.dc.html": {
-      "h": 852,
-      "is_interactive": true,
-      "title": "C · Entrer du temps",
-      "w": 390,
-      "x": 940,
-      "y": 1928
-    },
-    "C-Voyage-Sheet.dc.html": {
-      "h": 852,
-      "is_interactive": true,
-      "title": "C · Ajouter un voyage",
-      "w": 390,
-      "x": 1410,
-      "y": 1928
-    },
-    "C-Whitehat-Semaine.dc.html": {
-      "h": 852,
-      "is_interactive": true,
-      "title": "C · Semaine (whitehat)",
-      "w": 390,
-      "x": 470,
-      "y": 1928
-    },
     "Main.dc.html": {
       "h": 858,
       "is_interactive": true,
@@ -199,22 +81,6 @@
       "w": 390,
       "x": 2350,
       "y": 0
-    },
-    "B-Materiaux.dc.html": {
-      "h": 855,
-      "is_interactive": true,
-      "title": "B · Ajouter du matériel",
-      "w": 390,
-      "x": 2350,
-      "y": 964
-    },
-    "C-Materiaux.dc.html": {
-      "h": 852,
-      "is_interactive": true,
-      "title": "C · Ajouter du matériel",
-      "w": 390,
-      "x": 1880,
-      "y": 1928
     }
   },
   "createdOnFiles": {
@@ -229,26 +95,10 @@
     "titreA": {
       "kind": "title1",
       "maxW": 5040,
-      "text": "A — Cadran (inspiré du croquis)",
+      "text": "Option A — Cadran (inspiré du croquis)",
       "w": 240,
       "x": -1190,
       "y": 330
-    },
-    "titreB": {
-      "kind": "title1",
-      "maxW": 4570,
-      "text": "B — Chantier (clair, onglets)",
-      "w": 240,
-      "x": -1059,
-      "y": 1311
-    },
-    "titreC": {
-      "kind": "title1",
-      "maxW": 4100,
-      "text": "C — Journée (fil du jour)",
-      "w": 240,
-      "x": -929,
-      "y": 2118
     }
   },
   "order": [
@@ -261,24 +111,7 @@
     "A-Calendrier.dc.html",
     "A-Chantier-Add.dc.html",
     "A-Config.dc.html",
-    "A-Config-PC.dc.html",
-    "B-Bluehat-Journee.dc.html",
-    "B-Whitehat-Calendrier.dc.html",
-    "B-Chantier-Detail.dc.html",
-    "B-Temps.dc.html",
-    "B-Voyage.dc.html",
-    "B-Materiaux.dc.html",
-    "B-Chantier-Add.dc.html",
-    "B-Admin-Config.dc.html",
-    "B-Config-PC.dc.html",
-    "C-Bluehat-Aujourdhui.dc.html",
-    "C-Whitehat-Semaine.dc.html",
-    "C-Temps.dc.html",
-    "C-Voyage-Sheet.dc.html",
-    "C-Materiaux.dc.html",
-    "C-Chantier-Add.dc.html",
-    "C-Admin-Console.dc.html",
-    "C-Config-PC.dc.html"
+    "A-Config-PC.dc.html"
   ],
   "pages": [],
   "title": "J2B — Maquettes PWA Gestion de Temps"

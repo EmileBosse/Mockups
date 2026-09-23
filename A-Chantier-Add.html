@@ -16,77 +16,114 @@
 </style>
 </head>
 <body>
-<div class="a-sheet" style="width: 390px; height: 844px; background: #0B0B0C; color: #F4F2EE; display: flex; flex-direction: column;">
+<div style="width: 390px; height: 844px; background: #0B0B0C; color: #F4F2EE; display: flex; flex-direction: column; overflow: hidden;">
 
-  <div style="padding: 20px 16px 16px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1C1A16;">
-    <a href="A-Calendrier.html" aria-label="Fermer" class="a-sheet-close" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #23211C; display: flex; align-items: center; justify-content: center; color: #F4F2EE;">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
-    </a>
-    <div style="flex-grow: 1; font-family: 'Oswald', sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0.03em;">NOUVEAU CHANTIER</div>
+  <div style="flex-shrink: 0;">
+    <div style="padding: 20px 16px 16px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1C1A16;">
+      <div style="flex-grow: 1; font-family: 'Oswald', sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0.03em;">CALENDRIER</div>
+      <div style="border: 1px solid #797E84; color: #D8DCE1; font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; padding: 5px 9px; border-radius: 4px;">WHITEHAT</div>
+    </div>
+
+    <div style="padding: 14px 16px 10px 16px; display: flex; align-items: center; justify-content: space-between;">
+      <div style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid #23211C; background: #100F0D; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F4F2EE" stroke-width="1.9" stroke-linecap="round"><path d="M15 6l-6 6 6 6"></path></svg>
+      </div>
+      <div style="font-family: 'Oswald', sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0.06em;">SEPTEMBRE 2026</div>
+      <div style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid #23211C; background: #100F0D; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F4F2EE" stroke-width="1.9" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+      </div>
+    </div>
+
+    <div style="padding: 0 16px;">
+      <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; padding-bottom: 8px;">
+        <div style="text-align: center; font-family: 'Oswald', sans-serif; font-size: 11px; color: #8E8E8E;">L</div>
+        <div style="text-align: center; font-family: 'Oswald', sans-serif; font-size: 11px; color: #8E8E8E;">M</div>
+        <div style="text-align: center; font-family: 'Oswald', sans-serif; font-size: 11px; color: #8E8E8E;">M</div>
+        <div style="text-align: center; font-family: 'Oswald', sans-serif; font-size: 11px; color: #8E8E8E;">J</div>
+        <div style="text-align: center; font-family: 'Oswald', sans-serif; font-size: 11px; color: #8E8E8E;">V</div>
+        <div style="text-align: center; font-family: 'Oswald', sans-serif; font-size: 11px; color: #8E8E8E;">S</div>
+        <div style="text-align: center; font-family: 'Oswald', sans-serif; font-size: 11px; color: #8E8E8E;">D</div>
+      </div>
+    </div>
   </div>
 
-  <div style="flex-grow: 1; padding: 18px 16px 0 16px; display: flex; flex-direction: column; gap: 18px; overflow: hidden;">
+  <div class="a-sheet" style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column; background: #141310; border-top: 1px solid #2A2823; border-radius: 22px 22px 0 0; box-shadow: 0 -12px 32px rgba(0,0,0,.45); overflow: hidden;">
 
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <div style="display: flex; align-items: baseline; justify-content: space-between;">
-        <label for="cl" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">CLIENT</label>
-        <span style="font-size: 12px; font-weight: 700; color: #E9A82C;">+ Nouveau client</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; height: 48px;">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8E8E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
-        <input id="cl" type="text" value="Yves Tremblay" style="flex-grow: 1; height: 46px; background: none; border: none; color: #F4F2EE; font-size: 15px; outline: none;">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2C14E" stroke-width="2" stroke-linecap="round"><path d="M5 13l4.5 4.5L19 7"></path></svg>
-      </div>
+    <div style="flex-shrink: 0; display: flex; justify-content: center; padding: 10px 0 4px 0;">
+      <div style="width: 40px; height: 4px; border-radius: 2px; background: #3A3226;"></div>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <label for="nm" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOM DU CHANTIER</label>
-      <input id="nm" type="text" placeholder="Ex. entr&eacute;e de cour, rang 4" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
+    <div style="flex-shrink: 0; padding: 6px 16px 14px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1C1A16;">
+      <div style="flex-grow: 1; font-family: 'Oswald', sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0.03em;">NOUVEAU CHANTIER</div>
+      <a href="A-Calendrier.html" aria-label="Fermer" class="a-sheet-close" style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 20px; border: 1px solid #2A2823; display: flex; align-items: center; justify-content: center; color: #F4F2EE;">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </a>
     </div>
 
-    <div style="display: flex; gap: 10px;">
-      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px;">
-        <label for="d1" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">D&Eacute;BUT ESTIM&Eacute;</label>
-        <input id="d1" type="text" value="2026-09-17" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
-      </div>
-      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px;">
-        <label for="d2" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">FIN ESTIM&Eacute;E</label>
-        <input id="d2" type="text" value="2026-09-24" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
-      </div>
-    </div>
+    <div style="flex-grow: 1; min-height: 0; padding: 16px 16px 0 16px; display: flex; flex-direction: column; gap: 18px; overflow-y: auto;">
 
-    <div style="display: flex; flex-direction: column; gap: 10px;">
-      <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">COULEUR AU CALENDRIER</div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between;">
+          <label for="cl" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">CLIENT</label>
+          <span style="font-size: 12px; font-weight: 700; color: #E9A82C;">+ Nouveau client</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; height: 48px;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8E8E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
+          <input id="cl" type="text" value="Yves Tremblay" style="flex-grow: 1; height: 46px; background: none; border: none; color: #F4F2EE; font-size: 15px; outline: none;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2C14E" stroke-width="2" stroke-linecap="round"><path d="M5 13l4.5 4.5L19 7"></path></svg>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label for="nm" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOM DU CHANTIER</label>
+        <input id="nm" type="text" placeholder="Ex. entr&eacute;e de cour, rang 4" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
+      </div>
+
       <div style="display: flex; gap: 10px;">
-        <button type="button" aria-label="Or" style="width: 46px; height: 46px; border-radius: 23px; border: 2px solid #F4F2EE; background: #E9A82C; cursor: pointer;"></button>
-        <button type="button" aria-label="Bleu" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #6E9BD6; cursor: pointer;"></button>
-        <button type="button" aria-label="Vert" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #7FA88A; cursor: pointer;"></button>
-        <button type="button" aria-label="Rouille" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #C2603C; cursor: pointer;"></button>
-        <button type="button" aria-label="Mauve" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #9182C4; cursor: pointer;"></button>
-        <button type="button" aria-label="Gris" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #8E8E8E; cursor: pointer;"></button>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px;">
+          <label for="d1" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">D&Eacute;BUT ESTIM&Eacute;</label>
+          <input id="d1" type="text" value="2026-09-17" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
+        </div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px;">
+          <label for="d2" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">FIN ESTIM&Eacute;E</label>
+          <input id="d2" type="text" value="2026-09-24" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
+        </div>
       </div>
-    </div>
 
-    <div style="display: flex; flex-direction: column; gap: 10px;">
-      <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">&Eacute;TAT DU CHANTIER</div>
-      <div style="display: flex; gap: 8px;">
-        <button type="button" style="flex-grow: 1; height: 44px; border-radius: 22px; border: 1px solid #E9A82C; background: #1A1408; color: #F2C14E; font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer;">Actif</button>
-        <button type="button" style="flex-grow: 1; height: 44px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 13.5px; cursor: pointer;">En pause</button>
-        <button type="button" style="flex-grow: 1; height: 44px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 13.5px; cursor: pointer;">Termin&eacute;</button>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">COULEUR AU CALENDRIER</div>
+        <div style="display: flex; gap: 10px;">
+          <button type="button" aria-label="Or" style="width: 46px; height: 46px; border-radius: 23px; border: 2px solid #F4F2EE; background: #E9A82C; cursor: pointer;"></button>
+          <button type="button" aria-label="Bleu" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #6E9BD6; cursor: pointer;"></button>
+          <button type="button" aria-label="Vert" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #7FA88A; cursor: pointer;"></button>
+          <button type="button" aria-label="Rouille" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #C2603C; cursor: pointer;"></button>
+          <button type="button" aria-label="Mauve" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #9182C4; cursor: pointer;"></button>
+          <button type="button" aria-label="Gris" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #8E8E8E; cursor: pointer;"></button>
+        </div>
       </div>
-      <div style="font-size: 12px; color: #8E8E8E;">Modifiable par un whitehat ou un admin seulement</div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">&Eacute;TAT DU CHANTIER</div>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" style="flex-grow: 1; height: 44px; border-radius: 22px; border: 1px solid #E9A82C; background: #1A1408; color: #F2C14E; font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer;">Actif</button>
+          <button type="button" style="flex-grow: 1; height: 44px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 13.5px; cursor: pointer;">En pause</button>
+          <button type="button" style="flex-grow: 1; height: 44px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 13.5px; cursor: pointer;">Termin&eacute;</button>
+        </div>
+        <div style="font-size: 12px; color: #8E8E8E;">Modifiable par un whitehat ou un admin seulement</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label for="nt" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOTES DE LA JOB</label>
+        <textarea id="nt" rows="3" placeholder="Acc&egrave;s par le chemin de ferme, avertir avant d&#39;arriver" style="border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 12px; color: #F4F2EE; font-size: 14.5px; outline: none; resize: none;"></textarea>
+      </div>
+
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <label for="nt" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOTES DE LA JOB</label>
-      <textarea id="nt" rows="3" placeholder="Acc&egrave;s par le chemin de ferme, avertir avant d&#39;arriver" style="border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 12px; color: #F4F2EE; font-size: 14.5px; outline: none; resize: none;"></textarea>
+    <div style="flex-shrink: 0; padding: 16px; border-top: 1px solid #1C1A16; display: flex; gap: 10px;">
+      <a href="A-Calendrier.html" class="a-sheet-close" style="width: 120px; height: 56px; border-radius: 8px; border: 1px solid #2A2823; display: flex; align-items: center; justify-content: center; color: #F4F2EE; font-family: 'Oswald', sans-serif; font-size: 15px; letter-spacing: 0.08em;">ANNULER</a>
+      <button type="button" style="flex-grow: 1; height: 56px; border-radius: 8px; border: none; background: #E9A82C; color: #14100A; font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 0.08em; cursor: pointer;">CR&Eacute;ER</button>
     </div>
 
-  </div>
-
-  <div style="padding: 16px; border-top: 1px solid #1C1A16; display: flex; gap: 10px;">
-    <a href="A-Calendrier.html" class="a-sheet-close" style="width: 120px; height: 56px; border-radius: 8px; border: 1px solid #2A2823; display: flex; align-items: center; justify-content: center; color: #F4F2EE; font-family: 'Oswald', sans-serif; font-size: 15px; letter-spacing: 0.08em;">ANNULER</a>
-    <button type="button" style="flex-grow: 1; height: 56px; border-radius: 8px; border: none; background: #E9A82C; color: #14100A; font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 0.08em; cursor: pointer;">CR&Eacute;ER</button>
   </div>
 
 </div>
