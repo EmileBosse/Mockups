@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F6F4EF; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #8A5D0B; text-decoration: none; } a:hover { color: #6B4708; }
+  input { font-family: 'IBM Plex Sans', sans-serif; }
+  input::placeholder { color: #8E8A7E; }
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; background: #F6F4EF; color: #17160F; display: flex; flex-direction: column;">
+
+  <div style="height: 64px; flex-shrink: 0; padding: 0 12px 0 8px; background: #14130E; display: flex; align-items: center; gap: 8px;">
+    <a href="B-Bluehat-Journee.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #F7F5F0;">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="flex-grow: 1; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #F7F5F0;">Entrer du temps</div>
+    <div style="height: 26px; padding: 0 9px; border-radius: 4px; background: #1E2A3A; border: 1px solid #38516F; color: #9CC1F5; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; display: flex; align-items: center;">BLUEHAT</div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 18px 16px 0 16px; display: flex; flex-direction: column; gap: 20px; overflow: hidden;">
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="bt-job" style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">CHANTIER</label>
+      <div style="display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 12px; height: 48px;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8A7E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
+        <input id="bt-job" type="text" placeholder="Nom, client ou date..." style="flex-grow: 1; height: 46px; background: none; border: none; color: #17160F; font-size: 15px; outline: none;">
+      </div>
+      <div style="background: #FBF1DC; border: 1px solid #E3C079; border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8A5D0B" stroke-width="2" stroke-linecap="round"><path d="M5 13l4.5 4.5L19 7"></path></svg>
+        <div style="flex-grow: 1;">
+          <div style="font-size: 14.5px; font-weight: 600;">Tremblay &mdash; entr&eacute;e de cour</div>
+          <div style="font-size: 12px; color: #6B5A33; margin-top: 2px;">Rang 4, Saint-Prime</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">V&Eacute;HICULE OU TYPE DE TEMPS</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: none; background: #14130E; color: #F7F5F0; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Pelle m&eacute;canique</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; font: inherit; font-size: 14px; cursor: pointer;">Mini-pelle</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; font: inherit; font-size: 14px; cursor: pointer;">Camion 10 roues</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; font: inherit; font-size: 14px; cursor: pointer;">Manuel</button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">NOMBRE D&#39;HEURES</div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button type="button" aria-label="Retirer une demi-heure" style="width: 58px; height: 58px; border-radius: 10px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg>
+        </button>
+        <div style="flex-grow: 1; height: 58px; border-radius: 10px; background: #FFFFFF; border: 1px solid #D5CFC2; display: flex; align-items: baseline; justify-content: center; gap: 5px;">
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; line-height: 58px;">6,5</span>
+          <span style="font-size: 14px; color: #635F53;">h</span>
+        </div>
+        <button type="button" aria-label="Ajouter une demi-heure" style="width: 58px; height: 58px; border-radius: 10px; border: 1px solid #D5CFC2; background: #FFFFFF; color: #17160F; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+        </button>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <span style="height: 32px; padding: 0 11px; border-radius: 16px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 12.5px; display: flex; align-items: center;">4 h</span>
+        <span style="height: 32px; padding: 0 11px; border-radius: 16px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 12.5px; display: flex; align-items: center;">8 h</span>
+        <span style="height: 32px; padding: 0 11px; border-radius: 16px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 12.5px; display: flex; align-items: center;">10 h</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="bt-note" style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">NOTE (OPTIONNEL)</label>
+      <input id="bt-note" type="text" placeholder="Ex. bris de dent de godet" style="height: 48px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 12px; color: #17160F; font-size: 15px; outline: none;">
+    </div>
+
+  </div>
+
+  <div style="flex-shrink: 0; padding: 14px 16px 20px 16px; border-top: 1px solid #E2DDD2; background: #FFFFFF; display: flex; gap: 10px;">
+    <a href="B-Bluehat-Journee.dc.html" style="width: 118px; height: 54px; border-radius: 10px; border: 1px solid #D5CFC2; display: flex; align-items: center; justify-content: center; color: #17160F; font-family: 'Space Grotesk', sans-serif; font-size: 14.5px; font-weight: 600;">Annuler</a>
+    <button type="button" style="flex-grow: 1; height: 54px; border-radius: 10px; border: none; background: {{accent}}; color: #14130E; font-family: 'Space Grotesk', sans-serif; font-size: 15.5px; font-weight: 700; cursor: pointer;">Enregistrer</button>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#E9A82C","options":["#E9A82C","#F2C14E","#C8801C"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#E9A82C' };
+  }
+}
+</script>
+</body>
+</html>

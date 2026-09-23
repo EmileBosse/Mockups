@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #15171A; font-family: 'Public Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #F2C14E; text-decoration: none; } a:hover { color: #FFD37A; }
+  input, textarea, select { font-family: 'Public Sans', sans-serif; }
+  input::placeholder, textarea::placeholder { color: #5E656D; }
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; background: #15171A; color: #EDEFF2; display: flex; flex-direction: column;">
+
+  <div style="flex-shrink: 0; padding: 24px 20px 16px 20px; display: flex; align-items: center; gap: 12px;">
+    <a href="C-Whitehat-Semaine.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #2A2E34; display: flex; align-items: center; justify-content: center; color: #EDEFF2;">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="flex-grow: 1; font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 600;">Nouveau chantier</div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 4px 20px 0 20px; display: flex; flex-direction: column; gap: 18px; overflow: hidden;">
+
+    <div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between;">
+        <label for="cc-cl" style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; color: #78808A;">CLIENT</label>
+        <span style="font-size: 12.5px; font-weight: 600; color: #F2C14E;">+ Nouveau client</span>
+      </div>
+      <select id="cc-cl" style="margin-top: 10px; width: 100%; height: 52px; border-radius: 10px; border: 1px solid #3A4048; background: #1D2024; color: #EDEFF2; font-size: 14.5px; padding: 0 12px;">
+        <option>Yves Tremblay</option>
+        <option>Municipalit&eacute; de Saint-Prime</option>
+        <option>Nicolas Gauthier</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="cc-nm" style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; color: #78808A;">NOM DU CHANTIER</label>
+      <input id="cc-nm" type="text" placeholder="Ex. entr&eacute;e de cour, rang 4" style="margin-top: 10px; width: 100%; height: 52px; border-radius: 10px; border: 1px solid #3A4048; background: #1D2024; color: #EDEFF2; font-size: 15px; padding: 0 12px; outline: none;">
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+      <div style="flex-grow: 1;">
+        <label for="cc-d1" style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; color: #78808A;">D&Eacute;BUT ESTIM&Eacute;</label>
+        <input id="cc-d1" type="text" value="2026-09-17" style="margin-top: 10px; width: 100%; height: 52px; border-radius: 10px; border: 1px solid #3A4048; background: #1D2024; color: #EDEFF2; font-size: 14.5px; padding: 0 12px; outline: none;">
+      </div>
+      <div style="flex-grow: 1;">
+        <label for="cc-d2" style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; color: #78808A;">FIN ESTIM&Eacute;E</label>
+        <input id="cc-d2" type="text" value="2026-09-24" style="margin-top: 10px; width: 100%; height: 52px; border-radius: 10px; border: 1px solid #3A4048; background: #1D2024; color: #EDEFF2; font-size: 14.5px; padding: 0 12px; outline: none;">
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; color: #78808A;">COULEUR AU CALENDRIER</div>
+      <div style="margin-top: 10px; display: flex; gap: 10px;">
+        <button type="button" aria-label="Or" style="width: 46px; height: 46px; border-radius: 12px; border: 2px solid #EDEFF2; background: #E9A82C; cursor: pointer;"></button>
+        <button type="button" aria-label="Bleu" style="width: 46px; height: 46px; border-radius: 12px; border: 1px solid #3A4048; background: #7FA8DC; cursor: pointer;"></button>
+        <button type="button" aria-label="Vert" style="width: 46px; height: 46px; border-radius: 12px; border: 1px solid #3A4048; background: #79B086; cursor: pointer;"></button>
+        <button type="button" aria-label="Rouille" style="width: 46px; height: 46px; border-radius: 12px; border: 1px solid #3A4048; background: #C87A5B; cursor: pointer;"></button>
+        <button type="button" aria-label="Mauve" style="width: 46px; height: 46px; border-radius: 12px; border: 1px solid #3A4048; background: #9B93D1; cursor: pointer;"></button>
+        <button type="button" aria-label="Gris" style="width: 46px; height: 46px; border-radius: 12px; border: 1px solid #3A4048; background: #8A9199; cursor: pointer;"></button>
+      </div>
+    </div>
+
+    <div>
+      <label for="cc-nt" style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; color: #78808A;">NOTES DE LA JOB</label>
+      <textarea id="cc-nt" rows="3" placeholder="Acc&egrave;s par le chemin de ferme, avertir avant d&#39;arriver" style="margin-top: 10px; width: 100%; border-radius: 10px; border: 1px solid #3A4048; background: #1D2024; color: #EDEFF2; font-size: 14.5px; padding: 12px; outline: none; resize: none;"></textarea>
+    </div>
+
+    <div>
+      <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; color: #78808A;">OP&Eacute;RATEURS ASSIGN&Eacute;S</div>
+      <div style="margin-top: 10px; display: flex; gap: 8px;">
+        <span style="height: 38px; padding: 0 12px; border-radius: 19px; background: #24303E; border: 1px solid #38516F; color: #9CC1F5; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px;">Marc L. <span style="color: #7B8794;">&times;</span></span>
+        <span style="height: 38px; padding: 0 12px; border-radius: 19px; background: #24303E; border: 1px solid #38516F; color: #9CC1F5; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px;">Yan B. <span style="color: #7B8794;">&times;</span></span>
+        <span style="height: 38px; padding: 0 12px; border-radius: 19px; border: 1px dashed #3A4048; color: #9AA1AA; font-size: 13px; display: flex; align-items: center;">+ Ajouter</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="flex-shrink: 0; padding: 14px 20px 24px 20px; display: flex; gap: 10px;">
+    <a href="C-Whitehat-Semaine.dc.html" style="width: 118px; height: 56px; border-radius: 12px; border: 1px solid #3A4048; display: flex; align-items: center; justify-content: center; color: #EDEFF2; font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600;">Annuler</a>
+    <button type="button" style="flex-grow: 1; height: 56px; border-radius: 12px; border: none; background: {{accent}}; color: #14100A; font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer;">Cr&eacute;er le chantier</button>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#E9A82C","options":["#E9A82C","#F2C14E","#C8801C"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#E9A82C' };
+  }
+}
+</script>
+</body>
+</html>

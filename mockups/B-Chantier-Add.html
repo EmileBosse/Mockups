@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F6F4EF; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #8A5D0B; text-decoration: none; } a:hover { color: #6B4708; }
+  input, textarea, select { font-family: 'IBM Plex Sans', sans-serif; }
+  input::placeholder, textarea::placeholder { color: #8E8A7E; }
+</style>
+</head>
+<body>
+<div style="width: 390px; height: 844px; background: #F6F4EF; color: #17160F; display: flex; flex-direction: column;">
+
+  <div style="height: 64px; flex-shrink: 0; padding: 0 12px 0 8px; background: #14130E; display: flex; align-items: center; gap: 8px;">
+    <a href="B-Whitehat-Calendrier.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #F7F5F0;">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="flex-grow: 1; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #F7F5F0;">Nouveau chantier</div>
+    <div style="height: 26px; padding: 0 9px; border-radius: 4px; background: #24231C; border: 1px solid #6E6A5E; color: #E4E1D8; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; display: flex; align-items: center;">WHITEHAT</div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 18px 16px 0 16px; display: flex; flex-direction: column; gap: 16px; overflow: hidden;">
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between;">
+        <label for="bc-cl" style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">CLIENT</label>
+        <span style="font-size: 12.5px; font-weight: 600; color: #8A5D0B;">+ Nouveau client</span>
+      </div>
+      <select id="bc-cl" style="height: 48px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 10px; color: #17160F; font-size: 14.5px;">
+        <option>Yves Tremblay</option>
+        <option>Municipalit&eacute; de Saint-Prime</option>
+        <option>Nicolas Gauthier</option>
+      </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="bc-nm" style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">NOM DU CHANTIER</label>
+      <input id="bc-nm" type="text" placeholder="Ex. entr&eacute;e de cour, rang 4" style="height: 48px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 12px; color: #17160F; font-size: 15px; outline: none;">
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px;">
+        <label for="bc-d1" style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">D&Eacute;BUT ESTIM&Eacute;</label>
+        <input id="bc-d1" type="text" value="2026-09-17" style="height: 48px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 12px; color: #17160F; font-size: 14.5px; outline: none;">
+      </div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px;">
+        <label for="bc-d2" style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">FIN ESTIM&Eacute;E</label>
+        <input id="bc-d2" type="text" value="2026-09-24" style="height: 48px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 12px; color: #17160F; font-size: 14.5px; outline: none;">
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">COULEUR AU CALENDRIER</div>
+      <div style="display: flex; gap: 10px;">
+        <button type="button" aria-label="Or" style="width: 44px; height: 44px; border-radius: 10px; border: 2px solid #17160F; background: #C8801C; cursor: pointer;"></button>
+        <button type="button" aria-label="Bleu" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #D5CFC2; background: #2C4F7C; cursor: pointer;"></button>
+        <button type="button" aria-label="Vert" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #D5CFC2; background: #3C5A3C; cursor: pointer;"></button>
+        <button type="button" aria-label="Rouille" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #D5CFC2; background: #9B4A2A; cursor: pointer;"></button>
+        <button type="button" aria-label="Mauve" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #D5CFC2; background: #6A5A9B; cursor: pointer;"></button>
+        <button type="button" aria-label="Gris" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #D5CFC2; background: #6E6A5E; cursor: pointer;"></button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="bc-nt" style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">NOTES DE LA JOB</label>
+      <textarea id="bc-nt" rows="3" placeholder="Acc&egrave;s par le chemin de ferme, avertir avant d&#39;arriver" style="background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 12px; color: #17160F; font-size: 14.5px; outline: none; resize: none;"></textarea>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: #635F53;">OP&Eacute;RATEURS ASSIGN&Eacute;S</div>
+      <div style="display: flex; gap: 8px;">
+        <span style="height: 36px; padding: 0 12px; border-radius: 18px; background: #14130E; color: #F7F5F0; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 7px;">Marc L. <span style="color: #B7B3A8;">&times;</span></span>
+        <span style="height: 36px; padding: 0 12px; border-radius: 18px; background: #14130E; color: #F7F5F0; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 7px;">Yan B. <span style="color: #B7B3A8;">&times;</span></span>
+        <span style="height: 36px; padding: 0 12px; border-radius: 18px; border: 1px dashed #B4AFA2; color: #635F53; font-size: 13px; display: flex; align-items: center;">+ Ajouter</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="flex-shrink: 0; padding: 14px 16px 20px 16px; border-top: 1px solid #E2DDD2; background: #FFFFFF; display: flex; gap: 10px;">
+    <a href="B-Whitehat-Calendrier.html" style="width: 118px; height: 54px; border-radius: 10px; border: 1px solid #D5CFC2; display: flex; align-items: center; justify-content: center; color: #17160F; font-family: 'Space Grotesk', sans-serif; font-size: 14.5px; font-weight: 600;">Annuler</a>
+    <button type="button" style="flex-grow: 1; height: 54px; border-radius: 10px; border: none; background: #E9A82C; color: #14130E; font-family: 'Space Grotesk', sans-serif; font-size: 15.5px; font-weight: 700; cursor: pointer;">Cr&eacute;er le chantier</button>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #15171A; font-family: 'Public Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #F2C14E; text-decoration: none; } a:hover { color: #FFD37A; }
+  select { font-family: 'Public Sans', sans-serif; }
+</style>
+</head>
+<body>
+<div style="width: 390px; height: 844px; background: #15171A; color: #EDEFF2; display: flex; flex-direction: column;">
+
+  <div style="flex-shrink: 0; padding: 26px 20px 16px 20px; display: flex; align-items: flex-start; justify-content: space-between;">
+    <div>
+      <div style="font-family: 'Sora', sans-serif; font-size: 27px; font-weight: 600; letter-spacing: -0.01em;">Console</div>
+      <div style="font-size: 13px; color: #9AA1AA; margin-top: 4px;">Configuration et exports</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+      <div style="width: 42px; height: 42px; border-radius: 21px; background: #2A2209; border: 1px solid #E9A82C; color: #F2C14E; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600;">JB</div>
+      <div style="font-size: 9.5px; letter-spacing: 0.1em; color: #E9A82C; font-weight: 600;">ADMIN</div>
+    </div>
+  </div>
+
+  <div style="flex-shrink: 0; padding: 0 20px 14px 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;">
+    <div style="background: #1D2024; border: 1px solid #2A2E34; border-radius: 12px; padding: 11px 10px;">
+      <div style="font-family: 'Sora', sans-serif; font-size: 19px; font-weight: 700;">142,5</div>
+      <div style="font-size: 11px; color: #9AA1AA; margin-top: 3px;">heures / sem.</div>
+    </div>
+    <div style="background: #1D2024; border: 1px solid #2A2E34; border-radius: 12px; padding: 11px 10px;">
+      <div style="font-family: 'Sora', sans-serif; font-size: 19px; font-weight: 700;">46</div>
+      <div style="font-size: 11px; color: #9AA1AA; margin-top: 3px;">voyages / sem.</div>
+    </div>
+    <div style="background: #1D2024; border: 1px solid #2A2E34; border-radius: 12px; padding: 11px 10px;">
+      <div style="font-family: 'Sora', sans-serif; font-size: 19px; font-weight: 700;">5</div>
+      <div style="font-size: 11px; color: #9AA1AA; margin-top: 3px;">chantiers actifs</div>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 0 20px; overflow: hidden; display: flex; flex-direction: column; gap: 13px;">
+
+    <div>
+      <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; color: #78808A; padding-bottom: 10px;">EXPORT CSV</div>
+      <div style="background: #1D2024; border: 1px solid #2A2E34; border-radius: 14px; padding: 15px; display: flex; flex-direction: column; gap: 12px;">
+        <label for="c-job" style="font-size: 12px; color: #9AA1AA;">Chantier</label>
+        <select id="c-job" style="height: 48px; border-radius: 8px; border: 1px solid #3A4048; background: #23262B; color: #EDEFF2; font-size: 14.5px; padding: 0 10px;">
+          <option>Tremblay &mdash; entr&eacute;e de cour</option>
+          <option>Municipalit&eacute; &mdash; foss&eacute; rang 7</option>
+          <option>Tous les chantiers</option>
+        </select>
+        <div style="display: flex; gap: 8px;">
+          <span style="height: 34px; padding: 0 12px; border-radius: 17px; background: #2A2209; color: #F2C14E; font-size: 12.5px; font-weight: 600; display: flex; align-items: center;">Temps</span>
+          <span style="height: 34px; padding: 0 12px; border-radius: 17px; background: #2A2209; color: #F2C14E; font-size: 12.5px; font-weight: 600; display: flex; align-items: center;">Voyages</span>
+          <span style="height: 34px; padding: 0 12px; border-radius: 17px; background: #2A2209; color: #F2C14E; font-size: 12.5px; font-weight: 600; display: flex; align-items: center;">Mat.</span>
+          <span style="height: 34px; padding: 0 12px; border-radius: 17px; background: #23262B; color: #9AA1AA; font-size: 12.5px; display: flex; align-items: center;">Photos</span>
+        </div>
+        <button type="button" style="height: 52px; border-radius: 10px; border: none; background: #E9A82C; color: #14100A; font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v10M8 10.5l4 4 4-4M4.5 19h15"></path></svg>
+          T&eacute;l&eacute;charger le CSV
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; color: #78808A; padding-bottom: 10px;">CONFIGURATION</div>
+      <div style="background: #1D2024; border: 1px solid #2A2E34; border-radius: 14px; overflow: hidden;">
+        <div style="padding: 14px 15px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #23262B;">
+          <span style="flex-grow: 1; font-size: 14.5px; font-weight: 500;">Types de voyage</span>
+          <span style="font-size: 12.5px; color: #9AA1AA;">Sable, Terre, +3</span>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#78808A" stroke-width="1.8" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+        </div>
+        <div style="padding: 14px 15px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #23262B;">
+          <span style="flex-grow: 1; font-size: 14.5px; font-weight: 500;">Types de mat&eacute;riaux</span>
+          <span style="font-size: 12.5px; color: #9AA1AA;">Membrane, Tuyau, +3</span>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#78808A" stroke-width="1.8" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+        </div>
+        <div style="padding: 14px 15px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #23262B;">
+          <span style="flex-grow: 1; font-size: 14.5px; font-weight: 500;">V&eacute;hicules et &eacute;quipements</span>
+          <span style="font-size: 12.5px; color: #9AA1AA;">5 actifs</span>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#78808A" stroke-width="1.8" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+        </div>
+        <div style="padding: 14px 15px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #23262B;">
+          <span style="flex-grow: 1; font-size: 14.5px; font-weight: 500;">Types de temps et prix</span>
+          <span style="font-size: 12.5px; color: #9AA1AA;">4</span>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#78808A" stroke-width="1.8" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+        </div>
+        <div style="padding: 14px 15px; display: flex; align-items: center; gap: 12px;">
+          <span style="flex-grow: 1; font-size: 14.5px; font-weight: 500;">Utilisateurs et r&ocirc;les</span>
+          <span style="font-size: 12.5px; color: #9AA1AA;">7</span>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#78808A" stroke-width="1.8" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="flex-shrink: 0; padding: 12px 20px 18px 20px; display: flex; justify-content: center;">
+    <div style="height: 58px; padding: 0 8px; border-radius: 29px; background: #1D2024; border: 1px solid #2A2E34; display: flex; align-items: center; gap: 4px;">
+      <button type="button" aria-label="Semaine" style="width: 66px; height: 46px; border-radius: 23px; border: none; background: none; color: #9AA1AA; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 10h17M8 3.5v3M16 3.5v3"></path></svg>
+      </button>
+      <button type="button" aria-label="Chantiers" style="width: 66px; height: 46px; border-radius: 23px; border: none; background: none; color: #9AA1AA; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 4.5h6v3H9z"></path><path d="M7.5 6H6A1.5 1.5 0 0 0 4.5 7.5V19A1.5 1.5 0 0 0 6 20.5h12A1.5 1.5 0 0 0 19.5 19V7.5A1.5 1.5 0 0 0 18 6h-1.5"></path><path d="M8 11h8M8 15h5"></path></svg>
+      </button>
+      <button type="button" aria-label="Clients" style="width: 66px; height: 46px; border-radius: 23px; border: none; background: none; color: #9AA1AA; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8.5" r="3.2"></circle><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"></path><path d="M16 6.2a3 3 0 0 1 0 5.6M17.5 14.5c2 .7 3 2.3 3 4.5"></path></svg>
+      </button>
+      <button type="button" aria-label="Console" style="width: 66px; height: 46px; border-radius: 23px; border: none; background: #23262B; color: #E9A82C; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 3.5v2.2M12 18.3v2.2M4.9 7.7l1.9 1.1M17.2 15.2l1.9 1.1M4.9 16.3l1.9-1.1M17.2 8.8l1.9-1.1"></path></svg>
+      </button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

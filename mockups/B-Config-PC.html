@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F6F4EF; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #8A5D0B; text-decoration: none; } a:hover { color: #6B4708; }
+  input, select { font-family: 'IBM Plex Sans', sans-serif; }
+  input::placeholder { color: #8E8A7E; }
+</style>
+</head>
+<body>
+<div style="width: 1280px; height: 800px; background: #F6F4EF; color: #17160F; display: flex; flex-direction: column;">
+
+  <div style="height: 64px; flex-shrink: 0; background: #14130E; padding: 0 24px; display: flex; align-items: center; gap: 14px;">
+    <div style="width: 34px; height: 34px; border-radius: 6px; background: #E9A82C; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: #14130E; font-style: italic;">J2B</div>
+    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15.5px; font-weight: 600; color: #F7F5F0;">Gestion de temps</div>
+    <div style="flex-grow: 1;"></div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div style="height: 26px; padding: 0 9px; border-radius: 4px; background: #33260C; border: 1px solid #E9A82C; color: #F2C14E; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; display: flex; align-items: center;">ADMIN</div>
+      <div style="width: 32px; height: 32px; border-radius: 16px; background: #33260C; border: 1px solid #E9A82C; color: #F2C14E; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">JB</div>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; display: flex; min-height: 0;">
+
+    <div style="width: 232px; flex-shrink: 0; background: #FFFFFF; border-right: 1px solid #E2DDD2; padding: 16px 12px; display: flex; flex-direction: column; gap: 3px;">
+      <a href="B-Whitehat-Calendrier.html" style="height: 44px; border-radius: 8px; padding: 0 12px; display: flex; align-items: center; gap: 11px; color: #17160F; font-size: 14.5px;">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#6E6A5E" stroke-width="1.7" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 10h17M8 3.5v3M16 3.5v3"></path></svg>
+        Calendrier
+      </a>
+      <a href="B-Chantier-Detail.html" style="height: 44px; border-radius: 8px; padding: 0 12px; display: flex; align-items: center; gap: 11px; color: #17160F; font-size: 14.5px;">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#6E6A5E" stroke-width="1.7" stroke-linecap="round"><path d="M9 4.5h6v3H9z"></path><path d="M7.5 6H6A1.5 1.5 0 0 0 4.5 7.5V19A1.5 1.5 0 0 0 6 20.5h12A1.5 1.5 0 0 0 19.5 19V7.5A1.5 1.5 0 0 0 18 6h-1.5"></path><path d="M8 11h8M8 15h5"></path></svg>
+        Chantiers
+      </a>
+      <div style="height: 44px; border-radius: 8px; padding: 0 12px; display: flex; align-items: center; gap: 11px; color: #17160F; font-size: 14.5px;">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#6E6A5E" stroke-width="1.7" stroke-linecap="round"><circle cx="9" cy="8.5" r="3.2"></circle><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"></path><path d="M16 6.2a3 3 0 0 1 0 5.6M17.5 14.5c2 .7 3 2.3 3 4.5"></path></svg>
+        Clients
+      </div>
+      <div style="height: 44px; border-radius: 8px; padding: 0 12px; display: flex; align-items: center; gap: 11px; color: #17160F; font-size: 14.5px;">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#6E6A5E" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5v5l3.5 2"></path></svg>
+        Temps et voyages
+      </div>
+      <div style="height: 44px; border-radius: 8px; padding: 0 12px; display: flex; align-items: center; gap: 11px; background: #F2EEE5; color: #17160F; font-size: 14.5px; font-weight: 600;">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#8A5D0B" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 3.5v2.2M12 18.3v2.2M4.9 7.7l1.9 1.1M17.2 15.2l1.9 1.1M4.9 16.3l1.9-1.1M17.2 8.8l1.9-1.1"></path></svg>
+        Configuration
+      </div>
+    </div>
+
+    <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column;">
+
+      <div style="flex-shrink: 0; padding: 22px 28px 16px 28px; display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid #E2DDD2;">
+        <div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600;">Configuration</div>
+          <div style="font-size: 13px; color: #635F53; margin-top: 3px;">Types de voyage, v&eacute;hicules, prix, utilisateurs et exports</div>
+        </div>
+        <button type="button" style="height: 44px; padding: 0 18px; border-radius: 8px; border: none; background: #14130E; color: #F7F5F0; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer;">Enregistrer</button>
+      </div>
+
+      <div style="flex-grow: 1; padding: 22px 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-content: start; overflow: hidden;">
+
+        <div style="background: #FFFFFF; border: 1px solid #E2DDD2; border-radius: 12px; padding: 20px;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600;">Types de voyage et de mat&eacute;riaux</div>
+            <span style="font-size: 12.5px; color: #635F53;">5 + 5</span>
+          </div>
+          <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="height: 36px; padding: 0 12px; border-radius: 18px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13.5px; display: flex; align-items: center; gap: 7px;">Sable <span style="color: #8E8A7E;">&times;</span></span>
+            <span style="height: 36px; padding: 0 12px; border-radius: 18px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13.5px; display: flex; align-items: center; gap: 7px;">Terre <span style="color: #8E8A7E;">&times;</span></span>
+            <span style="height: 36px; padding: 0 12px; border-radius: 18px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13.5px; display: flex; align-items: center; gap: 7px;">Gravier 0-3/4 <span style="color: #8E8A7E;">&times;</span></span>
+            <span style="height: 36px; padding: 0 12px; border-radius: 18px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13.5px; display: flex; align-items: center; gap: 7px;">Pierre nette <span style="color: #8E8A7E;">&times;</span></span>
+            <span style="height: 36px; padding: 0 12px; border-radius: 18px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13.5px; display: flex; align-items: center; gap: 7px;">MG-20 <span style="color: #8E8A7E;">&times;</span></span>
+          </div>
+          <div style="margin-top: 14px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; color: #635F53;">MAT&Eacute;RIAUX</div>
+          <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="height: 34px; padding: 0 11px; border-radius: 17px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13px; display: flex; align-items: center; gap: 7px;">Membrane g&eacute;otextile <span style="color: #8E8A7E;">&times;</span></span>
+            <span style="height: 34px; padding: 0 11px; border-radius: 17px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13px; display: flex; align-items: center; gap: 7px;">Tuyau BNQ 6 po <span style="color: #8E8A7E;">&times;</span></span>
+            <span style="height: 34px; padding: 0 11px; border-radius: 17px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13px; display: flex; align-items: center; gap: 7px;">Puisard <span style="color: #8E8A7E;">&times;</span></span>
+            <span style="height: 34px; padding: 0 11px; border-radius: 17px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13px; display: flex; align-items: center; gap: 7px;">B&eacute;ton <span style="color: #8E8A7E;">&times;</span></span>
+            <span style="height: 34px; padding: 0 11px; border-radius: 17px; background: #F2EEE5; border: 1px solid #DDD8CE; font-size: 13px; display: flex; align-items: center; gap: 7px;">Tourbe <span style="color: #8E8A7E;">&times;</span></span>
+          </div>
+          <div style="margin-top: 14px; display: flex; gap: 10px;">
+            <input type="text" aria-label="Nouveau type de voyage ou de mat&eacute;riau" placeholder="Nouveau type de voyage ou de mat&eacute;riau..." style="flex-grow: 1; height: 44px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 12px; font-size: 14.5px; outline: none;">
+            <button type="button" style="width: 104px; height: 44px; border-radius: 8px; border: none; background: #E9A82C; color: #14130E; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer;">Ajouter</button>
+          </div>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2DDD2; border-radius: 12px; padding: 20px;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600;">V&eacute;hicules et types de temps</div>
+            <span style="font-size: 12.5px; font-weight: 600; color: #8A5D0B;">+ Ajouter</span>
+          </div>
+          <div style="margin-top: 12px; display: flex; align-items: center; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid #E2DDD2;">
+            <span style="flex-grow: 1; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; color: #635F53;">NOM</span>
+            <span style="width: 120px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; color: #635F53;">PRIX / H</span>
+            <span style="width: 50px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; color: #635F53;">ACTIF</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #EDE9E0;">
+            <span style="flex-grow: 1; font-size: 14.5px; font-weight: 600;">Pelle m&eacute;canique</span>
+            <span style="width: 120px; font-size: 14px; color: #635F53;">[VOTRE TAUX]</span>
+            <div style="width: 46px; height: 26px; border-radius: 13px; background: #C8801C; display: flex; align-items: center; justify-content: flex-end; padding: 3px;"><div style="width: 20px; height: 20px; border-radius: 10px; background: #FFFFFF;"></div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #EDE9E0;">
+            <span style="flex-grow: 1; font-size: 14.5px; font-weight: 600;">Mini-pelle</span>
+            <span style="width: 120px; font-size: 14px; color: #635F53;">[VOTRE TAUX]</span>
+            <div style="width: 46px; height: 26px; border-radius: 13px; background: #C8801C; display: flex; align-items: center; justify-content: flex-end; padding: 3px;"><div style="width: 20px; height: 20px; border-radius: 10px; background: #FFFFFF;"></div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #EDE9E0;">
+            <span style="flex-grow: 1; font-size: 14.5px; font-weight: 600;">Camion 10 roues</span>
+            <span style="width: 120px; font-size: 14px; color: #635F53;">[VOTRE TAUX]</span>
+            <div style="width: 46px; height: 26px; border-radius: 13px; background: #C8801C; display: flex; align-items: center; justify-content: flex-end; padding: 3px;"><div style="width: 20px; height: 20px; border-radius: 10px; background: #FFFFFF;"></div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 11px 0;">
+            <span style="flex-grow: 1; font-size: 14.5px; font-weight: 600; color: #6E6A5E;">Bulldozer D6</span>
+            <span style="width: 120px; font-size: 14px; color: #8E8A7E;">&mdash;</span>
+            <div style="width: 46px; height: 26px; border-radius: 13px; background: #DDD8CE; display: flex; align-items: center; justify-content: flex-start; padding: 3px;"><div style="width: 20px; height: 20px; border-radius: 10px; background: #FFFFFF;"></div></div>
+          </div>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2DDD2; border-radius: 12px; padding: 20px;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600;">Utilisateurs et r&ocirc;les</div>
+          <div style="margin-top: 12px; display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #EDE9E0;">
+            <div style="width: 30px; height: 30px; border-radius: 15px; background: #E9EFF8; color: #2C4F7C; display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 600;">ML</div>
+            <span style="flex-grow: 1; font-size: 14.5px;">Marc Lavoie</span>
+            <span style="height: 26px; padding: 0 9px; border-radius: 4px; background: #E9EFF8; color: #2C4F7C; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center;">BLUEHAT</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #EDE9E0;">
+            <div style="width: 30px; height: 30px; border-radius: 15px; background: #EAF0EA; color: #3C5A3C; display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 600;">YB</div>
+            <span style="flex-grow: 1; font-size: 14.5px;">Yan Bouchard</span>
+            <span style="height: 26px; padding: 0 9px; border-radius: 4px; background: #E9EFF8; color: #2C4F7C; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center;">BLUEHAT</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
+            <div style="width: 30px; height: 30px; border-radius: 15px; background: #FBF1DC; color: #8A5D0B; display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 600;">JB</div>
+            <span style="flex-grow: 1; font-size: 14.5px;">Jordan Boucher</span>
+            <span style="height: 26px; padding: 0 9px; border-radius: 4px; background: #FBF1DC; color: #8A5D0B; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; display: flex; align-items: center;">ADMIN</span>
+          </div>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2DDD2; border-radius: 12px; padding: 20px;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600;">Export CSV</div>
+          <div style="margin-top: 14px; display: flex; gap: 10px;">
+            <select aria-label="Chantier &agrave; exporter" style="flex-grow: 1; height: 44px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 10px; font-size: 14.5px; color: #17160F;">
+              <option>Tremblay &mdash; entr&eacute;e de cour</option>
+              <option>Municipalit&eacute; &mdash; foss&eacute; rang 7</option>
+              <option>Tous les chantiers</option>
+            </select>
+            <input type="text" aria-label="P&eacute;riode" value="2026-09-01 &rarr; 2026-09-30" style="width: 210px; height: 44px; background: #FFFFFF; border: 1px solid #D5CFC2; border-radius: 8px; padding: 0 12px; font-size: 14px; outline: none;">
+          </div>
+          <div style="margin-top: 12px; display: flex; gap: 8px;">
+            <span style="height: 34px; padding: 0 12px; border-radius: 17px; background: #33260C; color: #F2C14E; font-size: 13px; font-weight: 600; display: flex; align-items: center;">Temps</span>
+            <span style="height: 34px; padding: 0 12px; border-radius: 17px; background: #33260C; color: #F2C14E; font-size: 13px; font-weight: 600; display: flex; align-items: center;">Voyages</span>
+            <span style="height: 34px; padding: 0 12px; border-radius: 17px; background: #33260C; color: #F2C14E; font-size: 13px; font-weight: 600; display: flex; align-items: center;">Mat&eacute;riaux</span>
+            <span style="height: 34px; padding: 0 12px; border-radius: 17px; background: #F2EEE5; border: 1px solid #DDD8CE; color: #635F53; font-size: 13px; display: flex; align-items: center;">Photos</span>
+          </div>
+          <button type="button" style="margin-top: 14px; width: 100%; height: 50px; border-radius: 8px; border: none; background: #E9A82C; color: #14130E; font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 9px;">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v10M8 10.5l4 4 4-4M4.5 19h15"></path></svg>
+            T&eacute;l&eacute;charger le CSV
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Karla:wght@400;500;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0B0B0C; font-family: 'Karla', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #F2C14E; text-decoration: none; } a:hover { color: #FFD37A; }
+  input, textarea, select { font-family: 'Karla', sans-serif; }
+  input::placeholder, textarea::placeholder { color: #7C7C7C; }
+  @keyframes sheet-in { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  @keyframes sheet-out { from { transform: translateY(0); } to { transform: translateY(100%); } }
+  .a-sheet { animation: sheet-in .34s cubic-bezier(.22,.9,.32,1) both; }
+  .a-sheet.a-sheet-closing { animation: sheet-out .26s cubic-bezier(.4,0,1,1) both; }
+</style>
+</helmet>
+<div class="a-sheet" style="width: 390px; height: 844px; background: #0B0B0C; color: #F4F2EE; display: flex; flex-direction: column;">
+
+  <div style="padding: 20px 16px 16px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1C1A16;">
+    <a href="A-Calendrier.dc.html" aria-label="Fermer" class="a-sheet-close" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #23211C; display: flex; align-items: center; justify-content: center; color: #F4F2EE;">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </a>
+    <div style="flex-grow: 1; font-family: 'Oswald', sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0.03em;">NOUVEAU CHANTIER</div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 18px 16px 0 16px; display: flex; flex-direction: column; gap: 18px; overflow: hidden;">
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between;">
+        <label for="cl" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">CLIENT</label>
+        <span style="font-size: 12px; font-weight: 700; color: {{accent}};">+ Nouveau client</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; height: 48px;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8E8E8E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"></circle><path d="M15.5 15.5 20 20"></path></svg>
+        <input id="cl" type="text" value="Yves Tremblay" style="flex-grow: 1; height: 46px; background: none; border: none; color: #F4F2EE; font-size: 15px; outline: none;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2C14E" stroke-width="2" stroke-linecap="round"><path d="M5 13l4.5 4.5L19 7"></path></svg>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="nm" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOM DU CHANTIER</label>
+      <input id="nm" type="text" placeholder="Ex. entr&eacute;e de cour, rang 4" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px;">
+        <label for="d1" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">D&Eacute;BUT ESTIM&Eacute;</label>
+        <input id="d1" type="text" value="2026-09-17" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
+      </div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px;">
+        <label for="d2" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">FIN ESTIM&Eacute;E</label>
+        <input id="d2" type="text" value="2026-09-24" style="height: 48px; border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 0 12px; color: #F4F2EE; font-size: 15px; outline: none;">
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">COULEUR AU CALENDRIER</div>
+      <div style="display: flex; gap: 10px;">
+        <button type="button" aria-label="Or" style="width: 46px; height: 46px; border-radius: 23px; border: 2px solid #F4F2EE; background: #E9A82C; cursor: pointer;"></button>
+        <button type="button" aria-label="Bleu" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #6E9BD6; cursor: pointer;"></button>
+        <button type="button" aria-label="Vert" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #7FA88A; cursor: pointer;"></button>
+        <button type="button" aria-label="Rouille" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #C2603C; cursor: pointer;"></button>
+        <button type="button" aria-label="Mauve" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #9182C4; cursor: pointer;"></button>
+        <button type="button" aria-label="Gris" style="width: 46px; height: 46px; border-radius: 23px; border: 1px solid #2A2823; background: #8E8E8E; cursor: pointer;"></button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">&Eacute;TAT DU CHANTIER</div>
+      <div style="display: flex; gap: 8px;">
+        <button type="button" style="flex-grow: 1; height: 44px; border-radius: 22px; border: 1px solid #E9A82C; background: #1A1408; color: #F2C14E; font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer;">Actif</button>
+        <button type="button" style="flex-grow: 1; height: 44px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 13.5px; cursor: pointer;">En pause</button>
+        <button type="button" style="flex-grow: 1; height: 44px; border-radius: 22px; border: 1px solid #2A2823; background: #100F0D; color: #D6D3CD; font: inherit; font-size: 13.5px; cursor: pointer;">Termin&eacute;</button>
+      </div>
+      <div style="font-size: 12px; color: #8E8E8E;">Modifiable par un whitehat ou un admin seulement</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label for="nt" style="font-family: 'Oswald', sans-serif; font-size: 11.5px; letter-spacing: 0.16em; color: #8E8E8E;">NOTES DE LA JOB</label>
+      <textarea id="nt" rows="3" placeholder="Acc&egrave;s par le chemin de ferme, avertir avant d&#39;arriver" style="border: 1px solid #23211C; background: #100F0D; border-radius: 8px; padding: 12px; color: #F4F2EE; font-size: 14.5px; outline: none; resize: none;"></textarea>
+    </div>
+
+  </div>
+
+  <div style="padding: 16px; border-top: 1px solid #1C1A16; display: flex; gap: 10px;">
+    <a href="A-Calendrier.dc.html" class="a-sheet-close" style="width: 120px; height: 56px; border-radius: 8px; border: 1px solid #2A2823; display: flex; align-items: center; justify-content: center; color: #F4F2EE; font-family: 'Oswald', sans-serif; font-size: 15px; letter-spacing: 0.08em;">ANNULER</a>
+    <button type="button" style="flex-grow: 1; height: 56px; border-radius: 8px; border: none; background: {{accent}}; color: #14100A; font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 0.08em; cursor: pointer;">CR&Eacute;ER</button>
+  </div>
+
+</div>
+</x-dc>
+<script>
+(function () {
+  var closeBtns = document.querySelectorAll('.a-sheet-close');
+  var sheet = document.querySelector('.a-sheet');
+  if (sheet) {
+    closeBtns.forEach(function (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var href = closeBtn.getAttribute('href');
+        sheet.classList.add('a-sheet-closing');
+        setTimeout(function () { window.location.href = href; }, 220);
+      });
+    });
+  }
+})();
+</script>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#E9A82C","options":["#E9A82C","#F2C14E","#C8801C"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#E9A82C' };
+  }
+}
+</script>
+</body>
+</html>
