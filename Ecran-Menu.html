@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Plans — Menu</title>
+<!-- Généré par source/generer-maquettes.py — ne pas modifier à la main. -->
+<style>
+:root{--ink:#1c2230;--muted:#667085;--line:#e4e7ec;--chrome:#fff;--soft:#f2f4f7;--accent:#2563eb;--danger:#d92d20;
+  --shadow:0 4px 14px rgba(16,24,40,.14),0 1px 3px rgba(16,24,40,.08);
+  --safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px);--tb-h:72px}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:#fff;color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;-webkit-user-select:none;user-select:none}
+button{font-family:inherit;color:inherit;cursor:default}
+.board{position:fixed;left:0;right:0;top:76px;bottom:110px;width:100%;height:calc(100% - 186px);overflow:visible;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif}
+.fab{position:fixed;width:52px;height:52px;border-radius:50%;background:var(--chrome);border:1px solid var(--line);box-shadow:var(--shadow);display:grid;place-items:center;padding:0}
+.fab svg{width:24px;height:24px}
+.fab.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.menu-btn{top:calc(var(--safe-t) + 12px);left:14px}
+.top-right{position:fixed;top:calc(var(--safe-t) + 12px);right:14px;display:flex;gap:10px}
+.top-right .fab{position:static}
+.pill{display:flex;background:var(--chrome);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);height:52px;padding:0 2px}
+.pill button{width:48px;height:50px;border:0;background:none;display:grid;place-items:center;padding:0}
+.pill svg{width:22px;height:22px}
+.pill .off{opacity:.3}
+.toolbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 16px);display:flex;gap:4px;padding:6px;
+  background:var(--chrome);border:1px solid var(--line);border-radius:40px;box-shadow:var(--shadow)}
+.tool{width:60px;height:60px;border-radius:50%;border:0;background:transparent;padding:0;position:relative;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;font-size:10.5px;font-weight:600}
+.tool svg{width:24px;height:24px}
+.tool.on{background:var(--accent);color:#fff}
+.tool .more{position:absolute;right:10px;bottom:10px;width:0;height:0;border-left:6px solid transparent;border-bottom:6px solid currentColor;opacity:.55}
+.sw{width:24px;height:24px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--line)}
+.pop{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 16px + var(--tb-h) + 12px);background:var(--chrome);
+  border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:12px}
+.pop h3{margin:2px 6px 10px;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.shape-grid{display:grid;grid-template-columns:repeat(5,60px);gap:6px}
+.shape-grid button{height:64px;padding:0;border:0;border-radius:16px;background:var(--soft);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:600}
+.shape-grid svg{width:26px;height:26px}
+.shape-grid .on{background:var(--accent);color:#fff}
+.colors{display:grid;grid-template-columns:repeat(5,44px);gap:8px;padding:0 4px}
+.colors span{width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.colors .on{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--ink)}
+.widths{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:4px}
+.widths button{height:52px;border:0;border-radius:14px;background:var(--soft);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:11.5px;font-weight:600}
+.widths i{display:block;width:34px;border-radius:9px}
+.widths .on{background:var(--ink);color:#fff}
+.sep{height:1px;background:var(--line);margin:12px 2px}
+.menu{position:fixed;top:calc(var(--safe-t) + 12px);left:14px;width:min(300px,calc(100vw - 28px));background:var(--chrome);border:1px solid var(--line);
+  border-radius:22px;box-shadow:var(--shadow);overflow:hidden;z-index:5}
+.menu-head{display:flex;align-items:center;gap:8px;padding:16px 16px 2px}
+.menu-head b{font-size:17px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.menu-head svg{width:18px;height:18px;color:var(--muted)}
+.menu-status{padding:0 16px 12px;font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.menu-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#12b76a}
+.menu-item{display:flex;align-items:center;gap:14px;min-height:56px;border-top:1px solid var(--line);padding:0 18px;font-size:16.5px;font-weight:500}
+.menu-item svg{width:22px;height:22px;color:var(--muted)}
+.menu-foot{border-top:1px solid var(--line);padding:6px 8px}
+.menu-foot span{width:48px;height:44px;display:grid;place-items:center}
+.menu-foot svg{width:26px;height:26px}
+.selbar{position:fixed;top:calc(var(--safe-t) + 78px);left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.selbar button{height:44px;border:0;border-radius:22px;padding:0 16px 0 12px;display:flex;align-items:center;gap:6px;font-size:14.5px;font-weight:600;background:var(--ink);color:#fff;box-shadow:var(--shadow);white-space:nowrap}
+.selbar .danger{background:var(--danger)}
+.selbar svg{width:18px;height:18px}
+.scrim{position:fixed;inset:0;background:rgba(16,24,40,.38)}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-height:88%;display:flex;flex-direction:column;background:#fff;border-radius:24px 24px 0 0;
+  box-shadow:0 -8px 30px rgba(16,24,40,.18);padding-bottom:var(--safe-b)}
+.grab{width:40px;height:5px;border-radius:3px;background:#d0d5dd;margin:8px auto 0}
+.sheet-head{display:flex;align-items:center;padding:8px 10px 8px 20px}
+.sheet-head h2{flex:1;margin:0;font-size:20px}
+.sheet-head span{width:44px;height:44px;border-radius:50%;background:var(--soft);display:grid;place-items:center}
+.sheet-head svg{width:20px;height:20px}
+.sheet-body{overflow:hidden;padding:4px 16px 20px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.card.current{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.card svg.th{display:block;width:100%;aspect-ratio:4/3;border-bottom:1px solid var(--line);background:#fff;font-family:inherit}
+.card-name{display:block;padding:9px 44px 0 11px;font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-date{display:block;padding:2px 44px 10px 11px;font-size:12px;color:var(--muted)}
+.card .del{position:absolute;right:2px;bottom:2px;width:44px;height:44px;display:grid;place-items:center;color:var(--muted)}
+.card .del svg{width:19px;height:19px}
+.opt{display:flex;align-items:center;gap:14px;min-height:72px;border:1px solid var(--line);border-radius:16px;padding:12px 16px;margin-bottom:10px}
+.opt>svg{width:28px;height:28px;flex:none;color:var(--accent)}
+.opt b{display:block;font-size:16.5px}
+.opt span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.dlg-wrap{position:fixed;inset:0;background:rgba(16,24,40,.38);display:flex;justify-content:center;align-items:flex-start;padding:calc(var(--safe-t) + 70px) 16px 0}
+.dlg{width:min(420px,100%);background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:16px}
+.dlg label{display:block;font-weight:600;font-size:16px;margin:2px 2px 10px}
+.dlg .field{font-size:18px;border:1.5px solid var(--accent);border-radius:12px;padding:10px 12px;min-height:48px}
+.dlg .field::after{content:"";display:inline-block;width:2px;height:21px;background:var(--accent);vertical-align:-4px;margin-left:1px}
+.dlg .help{font-size:13px;color:var(--muted);margin:8px 2px 0}
+.dlg-actions{display:flex;gap:10px;margin-top:12px}
+.dlg-actions span{flex:1;height:48px;border-radius:14px;background:var(--soft);font-size:16px;font-weight:600;display:grid;place-items:center}
+.dlg-actions .primary{background:var(--accent);color:#fff}
+.kb{position:fixed;left:0;right:0;bottom:0;background:#d1d4db;padding:8px 3px calc(var(--safe-b) + 30px)}
+.kb-row{display:flex;justify-content:center;gap:6px;margin-bottom:11px}
+.kb-row span{flex:1;max-width:33px;height:43px;background:#fff;border-radius:5px;box-shadow:0 1px 0 #898a8d;display:grid;place-items:center;font-size:21px}
+.kb-row .fn{max-width:44px;background:#abb0ba;font-size:15px}
+.kb-row .space{max-width:none;flex:5;font-size:15px}
+.kb-row .ret{max-width:88px;flex:2;background:#abb0ba;font-size:15px}
+.hint{position:fixed;left:50%;top:44%;transform:translate(-50%,-50%);text-align:center;color:#98a2b3;width:260px}
+.hint svg{width:44px;height:44px;margin-bottom:8px}
+.hint b{display:block;color:#667085;font-size:17px;margin-bottom:4px}
+.hint span{font-size:14.5px;line-height:1.4}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 16px + var(--tb-h) + 14px);width:max-content;max-width:calc(100vw - 32px);
+  background:var(--ink);color:#fff;border-radius:14px;padding:11px 16px;font-size:14.5px;line-height:1.35;text-align:center;box-shadow:var(--shadow)}
+</style>
+</head>
+<body>
+<svg class="board" viewBox="-180 -316.9 390 658" preserveAspectRatio="xMidYMid meet" stroke-linecap="round" stroke-linejoin="round" aria-label="Dessin"><rect x="-140" y="-85" width="280" height="170" stroke="#1c2230" stroke-width="4" fill="none"/><ellipse cx="-105" cy="-50" rx="11" ry="11" stroke="#1c2230" stroke-width="2" fill="none"/><path d="M-105 -67.6 L-105 -32.4 M-122.6 -50 L-87.4 -50" stroke="#1c2230" stroke-width="1" fill="none" stroke-dasharray="6 2.4 1.2 2.4"/><ellipse cx="-105" cy="50" rx="11" ry="11" stroke="#1c2230" stroke-width="2" fill="none"/><path d="M-105 32.4 L-105 67.6 M-122.6 50 L-87.4 50" stroke="#1c2230" stroke-width="1" fill="none" stroke-dasharray="6 2.4 1.2 2.4"/><ellipse cx="105" cy="-50" rx="11" ry="11" stroke="#1c2230" stroke-width="2" fill="none"/><path d="M105 -67.6 L105 -32.4 M87.4 -50 L122.6 -50" stroke="#1c2230" stroke-width="1" fill="none" stroke-dasharray="6 2.4 1.2 2.4"/><ellipse cx="105" cy="50" rx="11" ry="11" stroke="#1c2230" stroke-width="2" fill="none"/><path d="M105 32.4 L105 67.6 M87.4 50 L122.6 50" stroke="#1c2230" stroke-width="1" fill="none" stroke-dasharray="6 2.4 1.2 2.4"/><rect x="-45" y="-18" width="90" height="36" stroke="#1c2230" stroke-width="3" fill="none"/><path d="M-140 -120 L140 -120 M-128.1 -125.3 L-140 -120 L-128.1 -114.7 M-140 -130 L-140 -110 M128.1 -114.7 L140 -120 L128.1 -125.3 M140 -130 L140 -110" stroke="#d92d20" stroke-width="2" fill="none"/><g transform="translate(0 -120) rotate(0)"><rect x="-29.2" y="-21" width="58.4" height="17" fill="#fff"/><text x="0" y="-5" text-anchor="middle" font-size="15" font-weight="600" fill="#d92d20">280 mm</text></g><path d="M170 -85 L170 85 M175.3 -73.1 L170 -85 L164.7 -73.1 M180 -85 L160 -85 M164.7 73.1 L170 85 L175.3 73.1 M180 85 L160 85" stroke="#d92d20" stroke-width="2" fill="none"/><g transform="translate(170 0) rotate(90)"><rect x="-29.2" y="-21" width="58.4" height="17" fill="#fff"/><text x="0" y="-5" text-anchor="middle" font-size="15" font-weight="600" fill="#d92d20">170 mm</text></g><path d="M-105 120 L105 120 M-93.1 114.7 L-105 120 L-93.1 125.3 M-105 110 L-105 130 M93.1 125.3 L105 120 L93.1 114.7 M105 110 L105 130" stroke="#d92d20" stroke-width="2" fill="none"/><g transform="translate(0 120) rotate(0)"><rect x="-29.2" y="-21" width="58.4" height="17" fill="#fff"/><text x="0" y="-5" text-anchor="middle" font-size="15" font-weight="600" fill="#d92d20">210 mm</text></g><path d="M-18 -62 L-88 -54 M-75.3 -62 L-88 -54 L-73.8 -49.1" stroke="#2563eb" stroke-width="2" fill="none"/><text x="-12" y="-58.2" font-size="15" font-weight="600" fill="#2563eb">4 × Ø 12</text><text x="-50" y="38" font-size="13" font-weight="600" fill="#2563eb">Oblong 90 × 36</text><text x="-140" y="165.6" font-size="17" font-weight="600" fill="#1c2230">Acier 1/4 po — Qté : 4</text></svg><div class="menu"><div class="menu-head"><b>Plaque de fixation</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4.2-1L19 8.2 15.8 5 5 15.8 4 20z"/><path d="M13.5 7.3l3.2 3.2"/></svg></div><div class="menu-status">Enregistré sur cet iPhone à 14 h 32</div><div class="menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M12 11v6M9 14h6"/></svg>Nouveau dessin</div><div class="menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Mes dessins</div><div class="menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Importer un dessin</div><div class="menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 002 2h10a2 2 0 002-2v-6"/></svg>Exporter le dessin</div><div class="menu-foot"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></span></div></div><div class="top-right"><div class="pill"><button class="" aria-label="Annuler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 010 11H11"/></svg></button><button class="off" aria-label="Rétablir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14l5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 000 11H13"/></svg></button></div><button class="fab" aria-label="Quadrillage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 4v16M4 12h16"/></svg></button></div><nav class="toolbar" aria-label="Outils"><button class="tool on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4.2-1L19 8.2 15.8 5 5 15.8 4 20z"/><path d="M13.5 7.3l3.2 3.2"/></svg>Crayon</button><button class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19L19 5"/></svg>Ligne<i class="more"></i></button><button class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7V5h14v2M12 5v14M9 19h6"/></svg>Texte</button><button class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3"/></svg>Déplacer</button><button class="tool"><span class="sw" style="background:#1c2230"></span>Couleur</button></nav>
+</body>
+</html>

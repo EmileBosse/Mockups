@@ -4,51 +4,42 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plans — maquettes</title>
+<!-- Généré par source/generer-maquettes.py — ne pas modifier à la main. -->
 <style>
-:root{--ink:#1c2230;--muted:#667085;--bg:#f2f4f7;--line:#e4e7ec;--accent:#2563eb}
+:root{--ink:#1c2230;--muted:#667085;--bg:#f2f4f7;--accent:#2563eb}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-header{max-width:1200px;margin:0 auto;padding:40px 16px 8px}
-h1{margin:0 0 6px;font-size:30px}
-header p{margin:0 0 14px;color:var(--muted);max-width:720px;line-height:1.5}
-.cta{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:23px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
-.note{font-size:14px;color:var(--muted);margin-top:10px}
-main{max-width:1200px;margin:0 auto;padding:24px 16px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px 24px}
+header,section{max-width:1240px;margin:0 auto;padding:0 16px}
+header{padding-top:40px}
+h1{margin:0 0 8px;font-size:30px}
+h2{margin:44px 0 4px;font-size:22px}
+p{margin:0;color:var(--muted);max-width:760px;line-height:1.5}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px 24px;padding:22px 0 10px}
 figure{margin:0}
 .phone{width:300px;height:650px;margin:0 auto;border-radius:44px;background:#111;padding:10px;box-shadow:0 12px 30px rgba(16,24,40,.18)}
-.phone iframe{width:390px;height:844px;border:0;border-radius:34px;transform:scale(.7179);transform-origin:0 0;background:#fff}
-.phone .clip{width:280px;height:630px;border-radius:34px;overflow:hidden}
+.clip{width:280px;height:630px;border-radius:34px;overflow:hidden;background:#fff}
+.clip iframe{width:390px;height:877px;border:0;transform:scale(.718);transform-origin:0 0;pointer-events:none}
 figcaption{max-width:300px;margin:14px auto 0;font-size:14.5px;line-height:1.45;color:var(--muted)}
 figcaption b{display:block;color:var(--ink);font-size:15.5px;margin-bottom:2px}
-figcaption a{color:var(--accent)}
+figcaption a{color:var(--accent);white-space:nowrap}
+footer{max-width:1240px;margin:0 auto;padding:40px 16px 60px;color:var(--muted);font-size:13.5px}
 </style>
 </head>
 <body>
 <header>
-  <h1>Plans — plans de coupe sur iPhone (PWA)</h1>
-  <p>Maquettes interactives : chaque écran ci-dessous est le vrai prototype, pré-ouvert dans un état différent (données de démonstration, rien n’est enregistré). Pour l’essayer en plein écran, ouvrez le prototype sur l’iPhone puis <em>Partager → Sur l’écran d’accueil</em>.</p>
-  <a class="cta" href="Dessin.html">Ouvrir le prototype</a>
-  <div class="note">Le prototype plein écran enregistre les dessins dans le navigateur de l’appareil.</div>
+  <h1>Plans — maquettes de l’application</h1>
+  <p>Une application simple pour iPhone pour dessiner des plans de coupe et les garder. Ce sont des maquettes : elles montrent l’apparence et le fonctionnement prévus, elles ne sont pas encore interactives.</p>
 </header>
-<main id="gallery"></main>
-<script>
-const screens = [
-  ['', 'Écran de dessin', 'Plan de coupe sur fond blanc : menu en haut à gauche, quadrillage en haut à droite, 5 outils en bas.'],
-  ['menu', 'Menu', 'Chevron en haut à gauche : nouveau, mes dessins, importer, exporter. Toucher le nom pour renommer.'],
-  ['formes', 'Formes (appui long sur « Ligne »)', 'Ligne, cote (flèches + valeur), flèche, rectangle, cercle, trou (avec axes), triangle, losange, cube, sphère. Le bouton prend l’icône de la forme choisie.'],
-  ['couleur', 'Couleur et épaisseur', 'Dix couleurs (le blanc sert de gomme) et trois épaisseurs. L’épaisseur règle aussi la taille du texte.'],
-  ['grille', 'Quadrillage', 'Les formes, cotes et lignes s’alignent sur la grille quand elle est active. Sans grille, les lignes se redressent à 0/45/90°.'],
-  ['selection', 'Déplacer', 'Toucher un élément pour le sélectionner, le glisser, le dupliquer ou le supprimer. Glisser dans le vide déplace la vue.'],
-  ['texte', 'Texte', 'Toucher la feuille à l’endroit voulu, taper le texte (matériau, quantité…). Toucher un texte ou une cote pour le modifier.'],
-  ['dessins', 'Mes dessins', 'Tous les plans gardés sur l’iPhone, avec aperçu. Enregistrement automatique à chaque trait.'],
-  ['exporter', 'Exporter', 'Image PNG pour partager, ou fichier modifiable à réimporter plus tard.'],
-  ['vide', 'Premier lancement', 'Feuille vide avec une courte consigne.']
-];
-document.getElementById('gallery').innerHTML = screens.map(([etat, title, desc]) => {
-  const src = 'Dessin.html?demo' + (etat === 'vide' ? '=vide' : '') + (etat && etat !== 'vide' ? '&etat=' + etat : '');
-  return `<figure><div class="phone"><div class="clip"><iframe src="${src}" title="${title}" loading="lazy"></iframe></div></div>
-    <figcaption><b>${title}</b>${desc} <a href="${src}">Ouvrir</a></figcaption></figure>`;
-}).join('');
-</script>
+<section>
+  <h2>Les écrans</h2>
+  <p>Le dessin prend tout l’écran. Le menu est en haut à gauche, le quadrillage en haut à droite, et les outils en bas : crayon, ligne (et autres formes), texte, déplacer, couleur.</p>
+  <div class="grid"><figure><div class="phone"><div class="clip"><iframe src="Ecran-Dessin.html" title="Écran de dessin" loading="lazy"></iframe></div></div><figcaption><b>Écran de dessin</b>Fond blanc, menu en haut à gauche, quadrillage en haut à droite, les 5 outils en bas. <a href="Ecran-Dessin.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Menu.html" title="Menu" loading="lazy"></iframe></div></div><figcaption><b>Menu</b>Le chevron ouvre le menu : nouveau, mes dessins, importer, exporter. On touche le nom pour renommer le dessin. <a href="Ecran-Menu.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Formes.html" title="Choix de la forme" loading="lazy"></iframe></div></div><figcaption><b>Choix de la forme</b>Un appui long sur « Ligne » ouvre les formes. Le bouton prend ensuite l’icône de la forme choisie. <a href="Ecran-Formes.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Couleur.html" title="Couleur et épaisseur" loading="lazy"></iframe></div></div><figcaption><b>Couleur et épaisseur</b>Dix couleurs (le blanc sert de gomme) et trois épaisseurs. L’épaisseur règle aussi la taille du texte. <a href="Ecran-Couleur.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Quadrillage.html" title="Quadrillage" loading="lazy"></iframe></div></div><figcaption><b>Quadrillage</b>Le bouton en haut à droite affiche la grille. Les formes, les trous et les cotes s’alignent dessus. <a href="Ecran-Quadrillage.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Deplacer.html" title="Déplacer un élément" loading="lazy"></iframe></div></div><figcaption><b>Déplacer un élément</b>Avec « Déplacer », on touche un élément pour le glisser, le dupliquer ou le supprimer. <a href="Ecran-Deplacer.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Cote.html" title="Valeur d’une cote" loading="lazy"></iframe></div></div><figcaption><b>Valeur d’une cote</b>Après avoir tiré une cote, on tape sa valeur. Elle s’affiche au milieu de la cote. <a href="Ecran-Cote.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Texte.html" title="Ajouter du texte" loading="lazy"></iframe></div></div><figcaption><b>Ajouter du texte</b>On touche la feuille à l’endroit voulu, puis on tape le texte (matériau, quantité, note). <a href="Ecran-Texte.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Mes-dessins.html" title="Mes dessins" loading="lazy"></iframe></div></div><figcaption><b>Mes dessins</b>Tous les plans gardés sur l’iPhone, avec un aperçu. L’enregistrement se fait tout seul à chaque trait. <a href="Ecran-Mes-dessins.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Exporter.html" title="Exporter" loading="lazy"></iframe></div></div><figcaption><b>Exporter</b>En image pour la partager, ou en fichier modifiable à rouvrir plus tard. <a href="Ecran-Exporter.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Ecran-Vide.html" title="Premier lancement" loading="lazy"></iframe></div></div><figcaption><b>Premier lancement</b>Une feuille vide avec une courte consigne. <a href="Ecran-Vide.html">Plein écran</a></figcaption></figure></div>
+</section>
+<section>
+  <h2>Exemples avec chaque forme</h2>
+  <p>Le même écran de dessin, avec un exemple de plan pour chaque outil ou forme. Les cotes (en rouge) et les notes (en bleu) se font avec les outils Cote et Texte.</p>
+  <div class="grid"><figure><div class="phone"><div class="clip"><iframe src="Exemple-Crayon.html" title="Crayon — croquis à main levée" loading="lazy"></iframe></div></div><figcaption><b>Crayon — croquis à main levée</b>Un croquis rapide d’un support, avec une note entourée en rouge. <a href="Exemple-Crayon.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Exemple-Ligne.html" title="Ligne — profil découpé" loading="lazy"></iframe></div></div><figcaption><b>Ligne — profil découpé</b>Un plat aux coins chanfreinés. Les lignes se redressent seules à 0°, 45° et 90°. <a href="Exemple-Ligne.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Exemple-Fleche-Texte.html" title="Flèche et texte — annotations" loading="lazy"></iframe></div></div><figcaption><b>Flèche et texte — annotations</b>Un arbre de moteur avec ses notes : clavette, chanfrein, roulement. <a href="Exemple-Fleche-Texte.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Exemple-Rectangle.html" title="Rectangle — découpes" loading="lazy"></iframe></div></div><figcaption><b>Rectangle — découpes</b>La porte d’un panneau électrique : ouvertures pour les disjoncteurs, l’écran et les boutons. <a href="Exemple-Rectangle.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Exemple-Cercle-Trou.html" title="Cercle et trou — bride" loading="lazy"></iframe></div></div><figcaption><b>Cercle et trou — bride</b>Une bride avec son alésage et 6 trous de boulons, chacun avec ses axes. <a href="Exemple-Cercle-Trou.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Exemple-Triangle.html" title="Triangle — gousset" loading="lazy"></iframe></div></div><figcaption><b>Triangle — gousset</b>Un gousset de renfort percé de 3 trous. <a href="Exemple-Triangle.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Exemple-Losange.html" title="Losange — plaque de jonction" loading="lazy"></iframe></div></div><figcaption><b>Losange — plaque de jonction</b>Une plaque de jonction en losange avec 5 trous. <a href="Exemple-Losange.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Exemple-Cube.html" title="Cube — boîtier en 3D" loading="lazy"></iframe></div></div><figcaption><b>Cube — boîtier en 3D</b>Un boîtier en tôle vu en 3D, avec ses trois cotes et la découpe du connecteur. <a href="Exemple-Cube.html">Plein écran</a></figcaption></figure><figure><div class="phone"><div class="clip"><iframe src="Exemple-Sphere.html" title="Sphère — rotule" loading="lazy"></iframe></div></div><figcaption><b>Sphère — rotule</b>Une rotule de vérin : la sphère et sa tige filetée. <a href="Exemple-Sphere.html">Plein écran</a></figcaption></figure></div>
+</section>
+<footer>Maquettes Plans — BossLabs</footer>
 </body>
 </html>

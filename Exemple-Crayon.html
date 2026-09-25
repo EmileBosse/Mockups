@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Plans — Crayon — croquis à main levée</title>
+<!-- Généré par source/generer-maquettes.py — ne pas modifier à la main. -->
+<style>
+:root{--ink:#1c2230;--muted:#667085;--line:#e4e7ec;--chrome:#fff;--soft:#f2f4f7;--accent:#2563eb;--danger:#d92d20;
+  --shadow:0 4px 14px rgba(16,24,40,.14),0 1px 3px rgba(16,24,40,.08);
+  --safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px);--tb-h:72px}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:#fff;color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;-webkit-user-select:none;user-select:none}
+button{font-family:inherit;color:inherit;cursor:default}
+.board{position:fixed;left:0;right:0;top:76px;bottom:110px;width:100%;height:calc(100% - 186px);overflow:visible;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif}
+.fab{position:fixed;width:52px;height:52px;border-radius:50%;background:var(--chrome);border:1px solid var(--line);box-shadow:var(--shadow);display:grid;place-items:center;padding:0}
+.fab svg{width:24px;height:24px}
+.fab.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.menu-btn{top:calc(var(--safe-t) + 12px);left:14px}
+.top-right{position:fixed;top:calc(var(--safe-t) + 12px);right:14px;display:flex;gap:10px}
+.top-right .fab{position:static}
+.pill{display:flex;background:var(--chrome);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);height:52px;padding:0 2px}
+.pill button{width:48px;height:50px;border:0;background:none;display:grid;place-items:center;padding:0}
+.pill svg{width:22px;height:22px}
+.pill .off{opacity:.3}
+.toolbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 16px);display:flex;gap:4px;padding:6px;
+  background:var(--chrome);border:1px solid var(--line);border-radius:40px;box-shadow:var(--shadow)}
+.tool{width:60px;height:60px;border-radius:50%;border:0;background:transparent;padding:0;position:relative;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;font-size:10.5px;font-weight:600}
+.tool svg{width:24px;height:24px}
+.tool.on{background:var(--accent);color:#fff}
+.tool .more{position:absolute;right:10px;bottom:10px;width:0;height:0;border-left:6px solid transparent;border-bottom:6px solid currentColor;opacity:.55}
+.sw{width:24px;height:24px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--line)}
+.pop{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 16px + var(--tb-h) + 12px);background:var(--chrome);
+  border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:12px}
+.pop h3{margin:2px 6px 10px;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.shape-grid{display:grid;grid-template-columns:repeat(5,60px);gap:6px}
+.shape-grid button{height:64px;padding:0;border:0;border-radius:16px;background:var(--soft);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:600}
+.shape-grid svg{width:26px;height:26px}
+.shape-grid .on{background:var(--accent);color:#fff}
+.colors{display:grid;grid-template-columns:repeat(5,44px);gap:8px;padding:0 4px}
+.colors span{width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.colors .on{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--ink)}
+.widths{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:4px}
+.widths button{height:52px;border:0;border-radius:14px;background:var(--soft);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:11.5px;font-weight:600}
+.widths i{display:block;width:34px;border-radius:9px}
+.widths .on{background:var(--ink);color:#fff}
+.sep{height:1px;background:var(--line);margin:12px 2px}
+.menu{position:fixed;top:calc(var(--safe-t) + 12px);left:14px;width:min(300px,calc(100vw - 28px));background:var(--chrome);border:1px solid var(--line);
+  border-radius:22px;box-shadow:var(--shadow);overflow:hidden;z-index:5}
+.menu-head{display:flex;align-items:center;gap:8px;padding:16px 16px 2px}
+.menu-head b{font-size:17px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.menu-head svg{width:18px;height:18px;color:var(--muted)}
+.menu-status{padding:0 16px 12px;font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.menu-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#12b76a}
+.menu-item{display:flex;align-items:center;gap:14px;min-height:56px;border-top:1px solid var(--line);padding:0 18px;font-size:16.5px;font-weight:500}
+.menu-item svg{width:22px;height:22px;color:var(--muted)}
+.menu-foot{border-top:1px solid var(--line);padding:6px 8px}
+.menu-foot span{width:48px;height:44px;display:grid;place-items:center}
+.menu-foot svg{width:26px;height:26px}
+.selbar{position:fixed;top:calc(var(--safe-t) + 78px);left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.selbar button{height:44px;border:0;border-radius:22px;padding:0 16px 0 12px;display:flex;align-items:center;gap:6px;font-size:14.5px;font-weight:600;background:var(--ink);color:#fff;box-shadow:var(--shadow);white-space:nowrap}
+.selbar .danger{background:var(--danger)}
+.selbar svg{width:18px;height:18px}
+.scrim{position:fixed;inset:0;background:rgba(16,24,40,.38)}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-height:88%;display:flex;flex-direction:column;background:#fff;border-radius:24px 24px 0 0;
+  box-shadow:0 -8px 30px rgba(16,24,40,.18);padding-bottom:var(--safe-b)}
+.grab{width:40px;height:5px;border-radius:3px;background:#d0d5dd;margin:8px auto 0}
+.sheet-head{display:flex;align-items:center;padding:8px 10px 8px 20px}
+.sheet-head h2{flex:1;margin:0;font-size:20px}
+.sheet-head span{width:44px;height:44px;border-radius:50%;background:var(--soft);display:grid;place-items:center}
+.sheet-head svg{width:20px;height:20px}
+.sheet-body{overflow:hidden;padding:4px 16px 20px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.card.current{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.card svg.th{display:block;width:100%;aspect-ratio:4/3;border-bottom:1px solid var(--line);background:#fff;font-family:inherit}
+.card-name{display:block;padding:9px 44px 0 11px;font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-date{display:block;padding:2px 44px 10px 11px;font-size:12px;color:var(--muted)}
+.card .del{position:absolute;right:2px;bottom:2px;width:44px;height:44px;display:grid;place-items:center;color:var(--muted)}
+.card .del svg{width:19px;height:19px}
+.opt{display:flex;align-items:center;gap:14px;min-height:72px;border:1px solid var(--line);border-radius:16px;padding:12px 16px;margin-bottom:10px}
+.opt>svg{width:28px;height:28px;flex:none;color:var(--accent)}
+.opt b{display:block;font-size:16.5px}
+.opt span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.dlg-wrap{position:fixed;inset:0;background:rgba(16,24,40,.38);display:flex;justify-content:center;align-items:flex-start;padding:calc(var(--safe-t) + 70px) 16px 0}
+.dlg{width:min(420px,100%);background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:16px}
+.dlg label{display:block;font-weight:600;font-size:16px;margin:2px 2px 10px}
+.dlg .field{font-size:18px;border:1.5px solid var(--accent);border-radius:12px;padding:10px 12px;min-height:48px}
+.dlg .field::after{content:"";display:inline-block;width:2px;height:21px;background:var(--accent);vertical-align:-4px;margin-left:1px}
+.dlg .help{font-size:13px;color:var(--muted);margin:8px 2px 0}
+.dlg-actions{display:flex;gap:10px;margin-top:12px}
+.dlg-actions span{flex:1;height:48px;border-radius:14px;background:var(--soft);font-size:16px;font-weight:600;display:grid;place-items:center}
+.dlg-actions .primary{background:var(--accent);color:#fff}
+.kb{position:fixed;left:0;right:0;bottom:0;background:#d1d4db;padding:8px 3px calc(var(--safe-b) + 30px)}
+.kb-row{display:flex;justify-content:center;gap:6px;margin-bottom:11px}
+.kb-row span{flex:1;max-width:33px;height:43px;background:#fff;border-radius:5px;box-shadow:0 1px 0 #898a8d;display:grid;place-items:center;font-size:21px}
+.kb-row .fn{max-width:44px;background:#abb0ba;font-size:15px}
+.kb-row .space{max-width:none;flex:5;font-size:15px}
+.kb-row .ret{max-width:88px;flex:2;background:#abb0ba;font-size:15px}
+.hint{position:fixed;left:50%;top:44%;transform:translate(-50%,-50%);text-align:center;color:#98a2b3;width:260px}
+.hint svg{width:44px;height:44px;margin-bottom:8px}
+.hint b{display:block;color:#667085;font-size:17px;margin-bottom:4px}
+.hint span{font-size:14.5px;line-height:1.4}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 16px + var(--tb-h) + 14px);width:max-content;max-width:calc(100vw - 32px);
+  background:var(--ink);color:#fff;border-radius:14px;padding:11px 16px;font-size:14.5px;line-height:1.35;text-align:center;box-shadow:var(--shadow)}
+</style>
+</head>
+<body>
+<svg class="board" viewBox="-199.5 -335.1 390 658" preserveAspectRatio="xMidYMid meet" stroke-linecap="round" stroke-linejoin="round" aria-label="Dessin"><path d="M-111.6 -168.5 Q-108.8 -157.1 -109.4 -149.6 Q-110 -142.2 -109.7 -134.5 Q-109.3 -126.7 -110.6 -121.4 Q-111.8 -116.1 -110.2 -108.2 Q-108.5 -100.3 -108.7 -94.2 Q-108.8 -88.2 -109.5 -79.6 Q-110.2 -71 -110.7 -63.5 Q-111.2 -56 -109.7 -51.1 Q-108.2 -46.1 -110.2 -37.9 Q-112.1 -29.8 -110.1 -23.2 Q-108.1 -16.5 -109.7 -9.4 Q-111.2 -2.3 -111.7 4.2 Q-112.1 10.8 -111.2 18.4 Q-110.3 26 -110.7 32.4 Q-111.2 38.8 -111.2 46.3 Q-111.2 53.8 -111.1 59.9 Q-110.9 65.9 -109.7 74.1 Q-108.5 82.2 -108.9 88.4 Q-109.4 94.6 -108.6 103.1 Q-107.8 111.6 -102.7 110.4 Q-97.6 109.3 -89.2 110.1 Q-80.8 110.9 -73.3 110.3 Q-65.7 109.7 -58.9 110.2 Q-52.1 110.7 -46.2 110.6 Q-40.3 110.4 -31.9 111 Q-23.6 111.5 -17.4 111 Q-11.2 110.4 -5.1 109.6 Q0.9 108.9 9.6 109.2 Q18.4 109.6 24.1 109.9 Q29.7 110.2 38 110.5 Q46.2 110.8 52.5 110.2 Q58.9 109.7 66.2 110.5 Q73.6 111.2 80.7 110.4 Q87.7 109.5 94.7 108.7 Q101.7 107.9 107.8 109.4 Q113.9 110.9 123 110.7 L132.1 110.4" stroke="#1c2230" stroke-width="4" fill="none"/><path d="M-78 -168 Q-82 -157.1 -80.2 -148.3 Q-78.5 -139.5 -78.9 -133.1 Q-79.3 -126.7 -79.4 -118.7 Q-79.5 -110.7 -79.6 -104.3 Q-79.6 -98 -80 -90.1 Q-80.3 -82.2 -79.7 -73.6 Q-79 -64.9 -78.5 -58.5 Q-78 -52.2 -79.1 -45.4 Q-80.2 -38.7 -81.1 -31.8 Q-82 -25 -81.1 -17 Q-80.2 -9 -80.3 -0.4 Q-80.5 8.2 -80.2 14.8 Q-79.9 21.4 -80.5 27.6 Q-81.2 33.8 -81 41.4 Q-80.8 49 -80.4 58.2 Q-80 67.5 -79.6 73 Q-79.2 78.6 -71.8 80 Q-64.3 81.3 -57.6 81.5 Q-51 81.8 -43.9 81.5 Q-36.8 81.3 -30.7 81.7 Q-24.6 82.1 -16.3 80.3 Q-8 78.5 -1.4 79.7 Q5.1 80.9 11.5 80.5 Q17.8 80.1 24.9 81 Q32 81.9 39 81.7 Q46 81.5 52.7 81.6 Q59.4 81.7 67.6 80.8 Q75.8 79.8 82 80.8 Q88.3 81.8 95.6 80.9 Q103 79.9 108.9 79.6 Q114.8 79.2 122.8 78.9 L130.9 78.5" stroke="#1c2230" stroke-width="4" fill="none"/><path d="M-81.2 -39.8 Q-71.6 -27.5 -66.5 -22.7 Q-61.4 -17.9 -58.3 -10.2 Q-55.1 -2.5 -50.1 2.2 Q-45.1 6.8 -38.9 13.4 Q-32.8 19.9 -28.7 25.9 Q-24.5 31.9 -20.5 37.2 Q-16.4 42.5 -11.9 50 Q-7.4 57.6 -3.2 63.3 Q1.1 69.1 5.9 73.6 L10.8 78.1" stroke="#1c2230" stroke-width="3" fill="none"/><path d="M-87.2 -124.2 Q-86.5 -122.8 -86.4 -122 Q-86.3 -121.3 -86.1 -120.5 Q-85.8 -119.7 -85.9 -118.9 Q-86.1 -118.1 -86.4 -117.4 Q-86.7 -116.6 -87.1 -115.9 Q-87.6 -115.3 -88 -114.5 Q-88.5 -113.7 -89 -113.2 Q-89.5 -112.7 -90.2 -112.4 Q-90.9 -112.1 -91.7 -111.7 Q-92.5 -111.3 -93.2 -111.1 Q-94 -110.9 -94.8 -111.1 Q-95.6 -111.2 -96.4 -111.2 Q-97.2 -111.2 -97.9 -111.6 Q-98.7 -111.9 -99.4 -112.3 Q-100.1 -112.8 -100.8 -113.1 Q-101.5 -113.4 -101.9 -114.2 Q-102.4 -114.9 -102.9 -115.5 Q-103.4 -116.2 -103.6 -116.9 Q-103.9 -117.6 -103.9 -118.5 Q-104 -119.3 -104 -120.1 Q-104 -120.9 -103.7 -121.6 Q-103.5 -122.4 -103.4 -123.1 Q-103.2 -123.8 -102.7 -124.6 Q-102.1 -125.3 -101.6 -125.9 Q-101.1 -126.5 -100.5 -127 Q-100 -127.4 -99.3 -127.8 Q-98.7 -128.1 -97.8 -128.4 Q-97 -128.6 -96.2 -128.7 Q-95.5 -128.9 -94.7 -129 Q-93.9 -129.1 -93.1 -128.8 Q-92.3 -128.6 -91.5 -128.2 Q-90.7 -127.8 -90.2 -127.4 Q-89.6 -127 -88.9 -126.5 Q-88.2 -126 -87.8 -125.4 Q-87.5 -124.7 -87.1 -124 L-86.8 -123.3" stroke="#1c2230" stroke-width="3" fill="none"/><path d="M68 90.6 Q68.7 92.1 68.9 92.9 Q69 93.7 68.9 94.5 Q68.7 95.3 68.9 96.1 Q69 96.9 68.8 97.6 Q68.5 98.3 68 99.1 Q67.6 99.8 67.1 100.5 Q66.6 101.1 65.9 101.6 Q65.3 102.1 64.6 102.6 Q64 103.2 63.3 103.3 Q62.6 103.4 61.8 103.6 Q61 103.7 60.2 103.8 Q59.4 103.8 58.7 103.9 Q57.9 103.9 57.1 103.5 Q56.4 103.1 55.6 102.8 Q54.8 102.6 54.3 102.1 Q53.8 101.6 53.2 100.9 Q52.6 100.2 52.3 99.6 Q52 98.9 51.6 98.1 Q51.2 97.4 51 96.5 Q50.8 95.7 51 94.9 Q51.1 94.1 51.3 93.4 Q51.5 92.6 51.8 91.8 Q52 91 52.5 90.3 Q52.9 89.6 53.4 89.1 Q53.8 88.6 54.4 88 Q54.9 87.5 55.7 87.1 Q56.5 86.7 57.2 86.6 Q57.9 86.5 58.7 86.4 Q59.5 86.3 60.4 86.1 Q61.2 85.9 61.9 86.1 Q62.6 86.3 63.4 86.6 Q64.2 87 64.8 87.5 Q65.4 88.1 66 88.5 Q66.6 88.8 67 89.5 Q67.5 90.2 68.1 90.9 L68.6 91.6" stroke="#1c2230" stroke-width="3" fill="none"/><path d="M137.2 137.3 Q144.1 142.1 144.8 144.5 Q145.5 146.8 147.5 149.3 Q149.5 151.7 147.4 154.2 Q145.3 156.6 141.1 159 Q137 161.3 132.6 163.3 Q128.2 165.3 120.2 167.2 Q112.1 169.2 102.5 170.6 Q92.9 172.1 83.8 173 Q74.7 173.9 63.6 174.8 Q52.6 175.8 41.1 175.8 Q29.7 175.7 18.7 175.9 Q7.8 176 -3.8 175 Q-15.3 174.1 -24.1 172.8 Q-33 171.5 -43 170.1 Q-53 168.7 -61.5 167 Q-69.9 165.3 -73.3 163.2 Q-76.8 161.1 -81 158.8 Q-85.3 156.6 -89 154.1 Q-92.7 151.6 -91.4 149.1 Q-90 146.6 -88.1 144.2 Q-86.1 141.7 -79.1 139.6 Q-72 137.5 -67.4 135.5 Q-62.8 133.6 -54.7 132 Q-46.7 130.4 -37.7 128.8 Q-28.8 127.1 -17.4 126.1 Q-5.9 125 4.8 124.8 Q15.4 124.7 26.6 124.6 Q37.8 124.6 48.7 124.5 Q59.6 124.3 70.8 125.7 Q82 127.2 92 128.4 Q102 129.6 109.4 130.7 Q116.8 131.8 124.5 134.1 Q132.2 136.3 136.5 138.4 Q140.9 140.6 143.1 142.8 Q145.3 145.1 146 147.6 L146.8 150.1" stroke="#d92d20" stroke-width="3" fill="none"/><text x="-160" y="-15.3" font-size="16" font-weight="600" fill="#2563eb">≈ 250</text><text x="10" y="142.7" font-size="16" font-weight="600" fill="#2563eb">≈ 220</text><text x="-55" y="197.8" font-size="15" font-weight="600" fill="#d92d20">Longueur à valider</text><text x="-160" y="-199.4" font-size="17" font-weight="600" fill="#1c2230">Support moteur — croquis</text></svg><button class="fab menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="top-right"><div class="pill"><button class="" aria-label="Annuler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 010 11H11"/></svg></button><button class="off" aria-label="Rétablir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14l5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 000 11H13"/></svg></button></div><button class="fab" aria-label="Quadrillage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 4v16M4 12h16"/></svg></button></div><nav class="toolbar" aria-label="Outils"><button class="tool on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4.2-1L19 8.2 15.8 5 5 15.8 4 20z"/><path d="M13.5 7.3l3.2 3.2"/></svg>Crayon</button><button class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19L19 5"/></svg>Ligne<i class="more"></i></button><button class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7V5h14v2M12 5v14M9 19h6"/></svg>Texte</button><button class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3"/></svg>Déplacer</button><button class="tool"><span class="sw" style="background:#1c2230"></span>Couleur</button></nav>
+</body>
+</html>

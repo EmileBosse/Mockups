@@ -4,26 +4,39 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this branch is
 
-Branch `PaintAlexisBP`: mockups for **Plans**, a simple French-language drawing PWA for a single client (Alexis BP) who uses an **iPhone**. He is an electromechanic: his drawings are mostly **cutting plans for metal parts** (plates, flanges, brackets, with dimensions in mm/inches, hole callouts, material and quantity notes). The app must stay simple.
+Branch `PaintAlexisBP` holds **static mockups** for **Plans**, a simple French-language drawing PWA for a single client (Alexis BP) who uses an **iPhone**. He's an electromechanic, and his drawings are mostly **cutting plans for metal parts**: plates, flanges, brackets, gussets, panel doors, with dimensions (mm or inches), hole callouts, and material/quantity notes. The mockups get shared with him directly, so all visible text is in French.
 
-Other branches in this repo (`main`, `GestionTempsJordanBoucher`) hold unrelated mockups for other clients. `private-mockups/` is a local, git-ignored folder belonging to the time-tracking project. Leave it alone.
+Other branches in this repo (`main`, `GestionTempsJordanBoucher`) hold unrelated mockups for other clients. `private-mockups/` is a local, git-ignored folder belonging to the time-tracking project, so leave it alone.
+
+**Mockups only, no prototype.** The client asked for mockups at this stage, so don't add interactive JavaScript to the pages. An earlier interactive prototype was removed. Its technical notes are in [NOTES-TECHNIQUES.md](NOTES-TECHNIQUES.md), and its code is still in git history (commit `2c910be`, `Dessin.html`).
 
 ## Files
 
-- `Dessin.html` is the working prototype: one self-contained page (inline CSS + JS, no build, no framework) that actually draws on a `<canvas>`. Edit this file directly. There is no export step on this branch.
-- `index.html` is the gallery GitHub Pages serves. It embeds `Dessin.html?demo&etat=<state>` in phone frames. Adding a state means adding a `case` in the `ETAT` switch at the bottom of `Dessin.html` and a row in `screens` in `index.html`.
-- `?demo` loads sample metal-part plans and disables saving. `?demo=vide` shows the empty first-run screen. Without `?demo`, drawings persist in `localStorage` (`plans.v1`, `plans.current`).
+- `source/generer-maquettes.py` is the **source of truth**. Run it to regenerate every page:
+  ```bash
+  python source/generer-maquettes.py
+  ```
+- `Ecran-*.html` are the app screens: drawing, menu, shape picker, colour, grid, move/selection, dimension value, text, Mes dessins, export, first launch.
+- `Exemple-*.html` are one screen per tool/shape, each showing a realistic metal-part plan (crayon, ligne, flèche+texte, rectangle, cercle+trou, triangle, losange, cube, sphère).
+- `index.html` is the gallery GitHub Pages serves, with two sections (écrans, exemples).
+- These `*.html` files are **generated, so don't hand-edit them**. Change the script and re-run it.
+
+How the script works:
+- Plans are lists of shape dicts built with small helpers (`rect`, `hole`, `dim`, `arrow`, `text`, `pen`, `shape('cube', …)`…).
+- `draw()` renders each shape to SVG, in the same way the prototype's canvas did.
+- `board()` places the drawing at 1 unit = 1 CSS px, in a 390 × 658 view between the top bar and the toolbar. Keep new example plans within about ±180 × ±300 units so stroke and text sizes stay consistent across screens.
+- To add a screen, add an entry to `SCREENS` or `EXAMPLES`. The gallery picks it up automatically.
 
 ## Layout (from the client's sketch; keep it)
 
-- Top left: round chevron button that opens the menu (Nouveau dessin, Mes dessins, Importer, Exporter; close with the chevron-up).
-- Top right: grid toggle (quadrillage). Undo/redo sits next to it (added, not in the sketch).
-- Bottom: a pill toolbar with 5 round tools: Crayon, Ligne, Texte, Déplacer, Couleur. **Long-press on Ligne** (or tap it again once it's active) opens the shape picker: ligne, cote, flèche, rectangle, cercle, trou, triangle, losange, cube, sphère.
-- White drawing background. Two fingers pinch/pan in every tool.
+- Top left: a round chevron button that opens the menu (Nouveau dessin, Mes dessins, Importer, Exporter; closed with a chevron-up).
+- Top right: the grid toggle (quadrillage), with undo/redo next to it.
+- Bottom: a pill toolbar with 5 round tools: Crayon, Ligne, Texte, Déplacer, Couleur.
+- **Long-press on Ligne** opens the shape picker: ligne, cote, flèche, rectangle, cercle, trou, triangle, losange, cube, sphère. The Ligne button then shows the chosen shape's icon and label.
+- White drawing background. Conventions in the examples: plan outlines are black, dimensions (cotes) are red, notes and callouts are blue.
 
 ## Conventions
 
-- All UI text is in French (Québec: « Courriel », « texto », `fr-CA` dates).
-- Touch targets must be at least 44px and the layout must respect the iPhone safe areas (`env(safe-area-inset-*)`).
-- Drawing objects are plain JSON (`{t, c, w, x1, y1, x2, y2 | pts | text | label}`) so the `.plan.json` export and undo history can serialise them. Keep new shapes in that form. Add the drawing code in `drawObj`, the hit-testing in `hitTest`/`bbox`, and the icon in `I` + `SHAPES`.
-- `localStorage` is a mockup shortcut. A real build should use IndexedDB (photos/imports quickly exceed ~5 MB) plus a service worker + manifest for offline and home-screen install.
+- All UI text is in French (Québec: « courriel », « texto », dates like « 22 sept. »).
+- Touch targets must be at least 44px, and pages must respect the iPhone safe areas (`env(safe-area-inset-*)`).
+- Pages are self-contained: inline CSS and inline SVG, no external fonts (the iOS system font), no JS.
