@@ -10,542 +10,305 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Outfit:wght@300..700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --lake-900:#0F2E44; --lake-800:#16405E; --lake-700:#1D6A9E; --lake-500:#2E8BC9; --lake-200:#BFE0F4; --lake-100:#E6F3FB;
-  --forest-800:#2C5A18; --forest-700:#3B7A20; --forest-500:#6DB33F; --forest-200:#CFE8BC; --forest-100:#EDF7E5;
+  --lake-900:#0F2E44; --lake-800:#16405E; --lake-700:#1D6A9E; --lake-500:#2E8BC9; --lake-100:#E6F3FB;
+  --forest-800:#2C5A18; --forest-700:#3B7A20; --forest-500:#6DB33F; --forest-100:#EDF7E5;
   --maple-700:#B4500F; --maple-600:#C9601A; --maple-500:#E8762B; --maple-300:#F2A33A; --maple-100:#FEF1E2;
   --ink:#1B2A33; --ink-2:#34444F; --muted:#5B6B76; --line:#E7E1D6; --line-2:#F0EBE2;
   --bg:#FBF8F2; --bg-2:#F5F0E6; --surface:#FFFFFF;
-  --r-sm:12px; --r:20px; --r-lg:28px; --r-xl:36px;
+  --r-sm:12px; --r:20px; --r-lg:28px;
   --sh-1:0 1px 2px rgba(23,45,60,.06),0 2px 8px rgba(23,45,60,.05);
   --sh-2:0 2px 6px rgba(23,45,60,.05),0 12px 32px -8px rgba(23,45,60,.14);
-  --sh-3:0 4px 10px rgba(23,45,60,.06),0 24px 60px -12px rgba(23,45,60,.22);
   --f-title:"Fraunces",Georgia,serif; --f-ui:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --wrap:1200px;
+  --wrap:1120px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%}
 body{margin:0;font-family:var(--f-ui);font-size:17px;line-height:1.6;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,svg{display:block;max-width:100%}
-a{color:var(--lake-700);text-decoration-thickness:1.5px;text-underline-offset:3px}
+a{color:var(--lake-700);text-underline-offset:3px}
 a:hover{color:var(--lake-900)}
-h1,h2,h3,h4{font-family:var(--f-title);font-weight:600;line-height:1.15;margin:0 0 .5em;color:var(--lake-900);letter-spacing:-.01em;font-variation-settings:"SOFT" 50,"WONK" 0}
-h1{font-size:clamp(2.2rem,5vw,3.9rem)}
-h2{font-size:clamp(1.7rem,3vw,2.5rem)}
-h3{font-size:1.3rem}
+h1,h2,h3{font-family:var(--f-title);font-weight:600;line-height:1.15;margin:0 0 .5em;color:var(--lake-900);letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,5vw,3.4rem)}
+h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+h3{font-size:1.2rem}
 p{margin:0 0 1em}
 :focus-visible{outline:3px solid var(--maple-500);outline-offset:3px;border-radius:8px}
-[hidden]{display:none!important}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
 .skip{position:absolute;left:12px;top:-60px;background:var(--lake-900);color:#fff;padding:10px 16px;border-radius:10px;z-index:200}
 .skip:focus{top:12px}
-
-/* mockup strip */
-.mock-strip{background:var(--lake-900);color:#C9DCE8;font-size:12.5px;letter-spacing:.02em}
+.mock-strip{background:var(--lake-900);color:#C9DCE8;font-size:12.5px}
 .mock-strip .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:30px}
-.mock-strip a{color:#fff;text-decoration:none;opacity:.85;white-space:nowrap}
-.mock-strip a:hover{opacity:1;text-decoration:underline}
+.mock-strip a{color:#fff;text-decoration:none;white-space:nowrap}
+.mock-strip a:hover{text-decoration:underline}
 .mock-strip b{color:var(--maple-300);font-weight:600}
-
-/* alert */
-.alert{background:linear-gradient(90deg,var(--maple-100),#FFF7EC);border-bottom:1px solid #F6D9B8;color:#5B300C;font-size:15px}
-.alert .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
-.alert .pill{flex:none;background:var(--maple-600);color:#fff;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
+.alert{background:var(--maple-100);border-bottom:1px solid #F6D9B8;color:#5B300C;font-size:15px}
+.alert .wrap{display:flex;align-items:center;gap:12px;padding-top:9px;padding-bottom:9px}
 .alert p{margin:0;flex:1}
 .alert a{color:#7A3A08;font-weight:600}
 .alert button{flex:none;background:none;border:0;color:#7A3A08;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
-.alert button:hover{background:rgba(200,96,26,.12)}
-
-/* header */
-.site-head{position:sticky;top:0;z-index:50;background:rgba(251,248,242,.88);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid rgba(231,225,214,.8)}
-.site-head .wrap{display:flex;align-items:center;gap:24px;min-height:82px}
-.brand{display:flex;align-items:center;flex:none}
-.brand img{height:60px;width:auto}
-.nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+.site-head{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;gap:24px;min-height:78px}
+.brand img{height:56px;width:auto}
+.nav{margin-left:auto}
 .nav>ul{display:flex;list-style:none;margin:0;padding:0;gap:2px;align-items:center}
 .nav li{position:relative}
-.nav a.top,.nav button.top{display:flex;align-items:center;gap:6px;font:500 15.5px/1 var(--f-ui);color:var(--ink-2);text-decoration:none;padding:12px 14px;border-radius:99px;background:none;border:0;cursor:pointer;transition:background .2s,color .2s}
-.nav a.top:hover,.nav button.top:hover,.nav li:focus-within>.top{background:var(--bg-2);color:var(--lake-900)}
+.nav .top{display:flex;align-items:center;gap:6px;font:500 15.5px/1 var(--f-ui);color:var(--ink-2);text-decoration:none;padding:12px 14px;border-radius:99px;background:none;border:0;cursor:pointer}
+.nav .top:hover,.nav li:focus-within>.top{background:var(--bg-2);color:var(--lake-900)}
 .nav .top[aria-current="page"]{color:var(--forest-800);background:var(--forest-100)}
-.nav .chev{width:10px;height:10px;transition:transform .2s}
-.nav li:hover .chev,.nav li:focus-within .chev{transform:rotate(180deg)}
-.mega{position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,6px);background:#fff;border-radius:var(--r);box-shadow:var(--sh-3);padding:22px;display:grid;gap:4px 24px;opacity:0;visibility:hidden;transition:.2s;min-width:260px;border:1px solid var(--line-2)}
-.mega.two{grid-template-columns:1fr 1fr;min-width:520px}
-.mega::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
-.nav li:hover>.mega,.nav li:focus-within>.mega{opacity:1;visibility:visible;transform:translate(-50%,0)}
-.mega h4{grid-column:1/-1;font:600 12px/1 var(--f-ui);text-transform:uppercase;letter-spacing:.1em;color:var(--maple-700);margin:0 0 8px}
-.mega a{display:block;padding:8px 10px;border-radius:10px;text-decoration:none;color:var(--ink);font-size:15px;line-height:1.3}
-.mega a small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
-.mega a:hover{background:var(--lake-100);color:var(--lake-900)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15.5px/1 var(--f-ui);padding:14px 22px;border-radius:99px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s,color .2s;white-space:nowrap}
-.btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--forest-700);color:#fff;box-shadow:0 6px 16px -6px rgba(59,122,32,.6)}
+.nav .chev{width:10px;height:10px}
+.drop{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border-radius:16px;box-shadow:var(--sh-2);padding:10px;min-width:250px;border:1px solid var(--line-2);opacity:0;visibility:hidden;transition:.15s;list-style:none;margin:0}
+.drop::before{content:"";position:absolute;top:-10px;left:0;right:0;height:10px}
+.nav li:hover>.drop,.nav li:focus-within>.drop{opacity:1;visibility:visible}
+.drop a{display:block;padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--ink);font-size:15px}
+.drop a:hover{background:var(--lake-100)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15.5px/1 var(--f-ui);padding:14px 22px;border-radius:99px;text-decoration:none;border:2px solid transparent;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s}
+.btn-primary{background:var(--forest-700);color:#fff}
 .btn-primary:hover{background:var(--forest-800);color:#fff}
-.btn-maple{background:var(--maple-600);color:#fff;box-shadow:0 6px 16px -6px rgba(201,96,26,.6)}
+.btn-maple{background:var(--maple-600);color:#fff}
 .btn-maple:hover{background:var(--maple-700);color:#fff}
 .btn-ghost{background:#fff;color:var(--lake-900);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--lake-500);color:var(--lake-900)}
-.btn-light{background:rgba(255,255,255,.95);color:var(--lake-900)}
-.btn-sm{padding:10px 16px;font-size:14px}
-.btn svg{width:18px;height:18px}
+.btn-light{background:#fff;color:var(--lake-900)}
+.btn-sm{padding:10px 16px;font-size:14.5px}
 .burger{display:none;margin-left:auto;width:48px;height:48px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
-.burger span{display:block;width:20px;height:2px;background:var(--lake-900);border-radius:2px;position:relative}
-.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:inherit;border-radius:2px}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--lake-900);border-radius:2px}
+.burger span{position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
 .burger span::before{top:-6px}.burger span::after{top:6px}
-
-/* page header (inner pages) */
-.page-hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#FDF3E4 0%,#E9F4F9 100%);padding:64px 0 120px}
-.page-hero .wrap{position:relative;z-index:2}
-.page-hero .scene{position:absolute;inset:auto 0 0 0;height:150px;z-index:1}
-.page-hero .scene svg{width:100%;height:100%}
-.crumbs{font-size:14px;color:var(--muted);margin-bottom:14px;display:flex;gap:8px;flex-wrap:wrap}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--lake-700);text-decoration:underline}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font:600 13px/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--maple-700);margin-bottom:14px}
-.eyebrow::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
-.lead{font-size:1.2rem;color:var(--ink-2);max-width:640px}
-
-.section{padding:88px 0}
-.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.page-head{background:var(--bg-2);padding:56px 0 52px;border-bottom:1px solid var(--line)}
+.page-head h1{margin-bottom:.25em}
+.crumbs{font-size:14px;color:var(--muted);margin-bottom:12px}
+.crumbs a{color:var(--muted)}
+.eyebrow{display:block;font:600 13px/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--maple-700);margin-bottom:12px}
+.lead{font-size:1.15rem;color:var(--ink-2);max-width:600px;margin:0}
+.section{padding:80px 0}
+.section+.section{padding-top:0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 24px;margin-bottom:28px;flex-wrap:wrap}
 .section-head h2{margin:0}
-.link-more{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;color:var(--lake-700)}
-.link-more::after{content:"→";transition:transform .2s}
-.link-more:hover::after{transform:translateX(4px)}
-.card{background:var(--surface);border-radius:var(--r);box-shadow:var(--sh-2);border:1px solid rgba(231,225,214,.6)}
-.tag{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--f-ui);letter-spacing:.04em;padding:6px 10px;border-radius:99px;white-space:nowrap}
-.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.link-more{font-weight:600;text-decoration:none;color:var(--lake-700)}
+.link-more::after{content:" →"}
+.link-more:hover{text-decoration:underline}
+.card{background:var(--surface);border-radius:var(--r);box-shadow:var(--sh-1);border:1px solid var(--line-2)}
+.tag{display:inline-block;font:600 12px/1 var(--f-ui);letter-spacing:.03em;padding:6px 10px;border-radius:99px;white-space:nowrap}
 .t-loisirs{background:var(--forest-100);color:var(--forest-800)}
 .t-communautaire{background:var(--maple-100);color:var(--maple-700)}
 .t-municipal{background:var(--lake-100);color:var(--lake-800)}
 .t-culture{background:#F3EAF7;color:#6A3A86}
 .t-sport{background:#E5F5F1;color:#1C6B5A}
-
-.ic-g{background:var(--forest-100);color:var(--forest-700)}
-.ic-b{background:var(--lake-100);color:var(--lake-700)}
-.ic-o{background:var(--maple-100);color:var(--maple-600)}
-/* photo blocks */
-.photo{position:relative;border-radius:var(--r);overflow:hidden;background:var(--lake-200)}
-.photo svg{width:100%;height:100%}
-.photo figcaption{position:absolute;left:12px;bottom:12px;background:rgba(15,46,68,.72);color:#fff;font-size:12.5px;padding:5px 10px;border-radius:99px;backdrop-filter:blur(4px)}
-
-/* footer */
-.site-foot{position:relative;background:var(--lake-900);color:#C4D6E2;margin-top:40px}
-.site-foot .ridge{position:absolute;left:0;right:0;top:-79px;height:80px}
-.site-foot .ridge svg{width:100%;height:100%}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding:64px 0 40px}
-.site-foot h3{font:600 13px/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--maple-300);margin-bottom:18px}
-.site-foot a{color:#fff;text-decoration:none}
-.site-foot a:hover{text-decoration:underline}
-.site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15.5px}
-.foot-logo{background:#fff;border-radius:18px;padding:10px 14px;display:inline-block;margin-bottom:18px}
-.foot-logo img{height:64px}
-.foot-slogan{font-family:var(--f-title);font-style:italic;font-size:1.25rem;color:#fff;margin-bottom:6px}
+.photo{margin:0;border-radius:var(--r);overflow:hidden;background:var(--lake-100)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.date{flex:none;width:62px;text-align:center;border-radius:14px;background:var(--maple-100);color:var(--maple-700);padding:8px 0}
+.date small{display:block;font:600 11.5px/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase}
+.date b{display:block;font:600 1.7rem/1.1 var(--f-title);color:var(--lake-900)}
+.site-foot{background:var(--lake-900);color:#C4D6E2;margin-top:40px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding:56px 0 36px}
+.site-foot h3{font:600 13px/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--maple-300);margin-bottom:16px}
+.site-foot a{color:#fff}
+.foot-logo{background:#fff;border-radius:16px;padding:8px 12px;display:inline-block;margin-bottom:14px}
+.foot-logo img{height:56px;width:auto}
+.foot-slogan{font-family:var(--f-title);font-style:italic;font-size:1.2rem;color:#fff;margin:0}
 .foot-contact{font-size:15.5px;line-height:1.75}
-.social{display:flex;gap:10px;margin-top:18px}
-.social a{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background .2s}
-.social a:hover{background:var(--lake-500)}
-.social svg{width:20px;height:20px;fill:#fff}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#93AEC0}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding:20px 0;font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#93AEC0}
 .foot-bottom a{color:#C4D6E2}
-
-@media (max-width:1080px){
-  .nav{position:fixed;inset:0 0 0 auto;width:min(380px,92vw);background:#fff;flex-direction:column;align-items:stretch;padding:96px 20px 24px;box-shadow:var(--sh-3);transform:translateX(105%);transition:transform .3s;overflow-y:auto;z-index:60}
-  .nav.open{transform:none}
+@media (max-width:1000px){
+  .nav{position:fixed;inset:0 0 0 auto;width:min(360px,90vw);background:#fff;padding:92px 20px 24px;box-shadow:var(--sh-2);display:none;overflow-y:auto;z-index:60}
+  .nav.open{display:block}
   .nav>ul{flex-direction:column;align-items:stretch}
-  .nav a.top,.nav button.top{width:100%;justify-content:space-between;font-size:17px;padding:14px 16px}
-  .mega{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:0;padding:0 0 8px 12px;min-width:0;display:none}
-  .mega.two{grid-template-columns:1fr;min-width:0}
-  .nav li.open>.mega{display:grid}
-  .nav li:hover>.mega{transform:none}
-  .nav .cta{margin-top:16px}
+  .nav .top{width:100%;justify-content:space-between;font-size:17px;padding:14px 16px}
+  .drop{position:static;opacity:1;visibility:visible;box-shadow:none;border:0;padding:0 0 6px 12px;min-width:0;display:none}
+  .nav li.open>.drop{display:block}
+  .nav .cta{margin-top:14px}
+  .nav .cta .btn{width:100%}
   .burger{display:inline-flex;position:relative;z-index:70}
-  .foot-grid{grid-template-columns:1fr 1fr}
 }
-@media (max-width:640px){
+@media (max-width:700px){
   body{font-size:16px}
   .wrap{padding:0 16px}
-  .site-head .wrap{min-height:68px}
-  .brand img{height:46px}
-  .section{padding:60px 0}
-  .foot-grid{grid-template-columns:1fr;gap:32px}
+  .site-head .wrap{min-height:66px}
+  .brand img{height:44px}
+  .section{padding:56px 0}
+  .page-head{padding:36px 0 34px}
+  .foot-grid{grid-template-columns:1fr;gap:28px}
   .mock-strip .hide-sm{display:none}
-  .page-hero{padding:40px 0 96px}
-  .page-hero .scene{height:100px}
-  .alert .wrap{align-items:flex-start;font-size:14px}
+  .alert .wrap{font-size:14px;align-items:flex-start}
 }
 
-/* ===== Conseil ===== */
-.next{margin-top:-80px;position:relative;z-index:3;display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;padding:32px 36px;border-radius:var(--r-lg)}
-.big-date{width:132px;border-radius:24px;overflow:hidden;text-align:center;background:#fff;box-shadow:var(--sh-2);border:1px solid var(--line)}
-.big-date span{display:block;background:linear-gradient(135deg,var(--maple-500),var(--maple-600));color:#fff;font:700 13px/1 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;padding:9px 0}
-.big-date b{display:block;font:600 3.6rem/1 var(--f-title);color:var(--lake-900);padding:12px 0 2px}
-.big-date small{display:block;color:var(--muted);font-size:13.5px;padding-bottom:12px}
-.next h2{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:6px 0 10px}
-.next .facts{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--ink-2);font-size:15.5px}
-.next .facts span{display:flex;gap:8px;align-items:center}
-.next .facts svg{width:18px;height:18px;color:var(--lake-700)}
-.count{text-align:center;padding:18px 22px;background:var(--forest-100);border-radius:var(--r);min-width:150px}
-.count b{display:block;font:600 2.6rem/1 var(--f-title);color:var(--forest-800)}
-.count span{font-size:14px;color:var(--forest-800)}
-.next .acts{grid-column:2/4;display:flex;gap:10px;flex-wrap:wrap}
-.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;transform:none}
-
-.members{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.mayor{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;padding:30px 34px;background:linear-gradient(120deg,#fff 55%,var(--maple-100));}
-.av{flex:none;border-radius:50%;display:grid;place-items:center;font:600 1.15rem/1 var(--f-title);color:#fff;width:64px;height:64px;position:relative}
-.av::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px dashed currentColor;opacity:.25}
-.mayor .av{width:104px;height:104px;font-size:2rem}
-.mayor h3{font-size:1.9rem;margin:6px 0 4px}
-.mayor p{margin:0;color:var(--muted)}
-.mayor blockquote{margin:0;max-width:380px;font:italic 500 1.1rem/1.45 var(--f-title);color:var(--lake-900);border-left:3px solid var(--maple-500);padding-left:18px}
-.member{display:flex;gap:18px;align-items:center;padding:22px;transition:transform .2s,box-shadow .2s}
-.member:hover{transform:translateY(-3px);box-shadow:var(--sh-3)}
-.member h3{font-size:1.15rem;margin:0 0 2px}
-.member .post{font:600 12px/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--maple-700)}
-.member p{margin:6px 0 0;font-size:14.5px;color:var(--muted);line-height:1.4}
-.member a{font-size:14px}
-
-.timeline{display:grid;grid-template-columns:repeat(12,1fr);gap:8px;margin-bottom:12px}
-.sess{border-radius:16px;padding:14px 6px;text-align:center;background:#fff;border:1px solid var(--line);position:relative}
-.sess small{display:block;font:600 11px/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.sess b{display:block;font:600 1.6rem/1.15 var(--f-title);color:var(--ink-2)}
-.sess b sup{font-size:.5em}
-.sess i{display:block;font-style:normal;font-size:11.5px;color:var(--muted)}
-.sess.done{background:var(--forest-100);border-color:transparent}
-.sess.done b{color:var(--forest-800)}
-.sess.done::after{content:"✓";position:absolute;top:6px;right:8px;font-size:11px;color:var(--forest-700);font-weight:700}
-.sess.next-s{background:var(--maple-500);border-color:var(--maple-500);box-shadow:0 10px 24px -10px rgba(232,118,43,.9);transform:translateY(-4px)}
-.sess.next-s *{color:#fff!important}
-.tl-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
-.tl-legend span{display:flex;gap:6px;align-items:center}
-.tl-legend i{width:12px;height:12px;border-radius:4px}
-
-.pv{padding:28px}
-.pv-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
-.tabs{display:inline-flex;background:var(--bg-2);padding:4px;border-radius:99px;border:1px solid var(--line)}
-.tabs button{font:600 14.5px/1 var(--f-ui);border:0;background:none;padding:10px 18px;border-radius:99px;cursor:pointer;color:var(--muted)}
-.tabs button[aria-selected="true"]{background:#fff;color:var(--lake-900);box-shadow:var(--sh-1)}
-.types{display:flex;gap:8px}
-.types button{font:500 14px/1 var(--f-ui);padding:9px 14px;border-radius:99px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink-2)}
-.types button[aria-pressed="true"]{border-color:var(--lake-700);color:var(--lake-800);background:var(--lake-100)}
-.pv-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
-.pv-list li{display:flex;align-items:center;gap:14px;padding:12px 12px 12px 14px;border-radius:14px;border:1px solid var(--line-2);transition:background .15s}
-.pv-list li:hover{background:var(--bg)}
-.pdf{flex:none;width:40px;height:48px;border-radius:8px;background:#FDECEC;color:#B42318;font:700 10.5px/1 var(--f-ui);display:flex;align-items:flex-end;justify-content:center;padding-bottom:7px;position:relative}
-.pdf::before{content:"";position:absolute;top:0;right:0;width:12px;height:12px;background:linear-gradient(225deg,var(--bg) 50%,#F7C9C9 50%);border-radius:0 8px 0 0}
-.pv-list .txt{flex:1;min-width:0}
-.pv-list strong{display:block;font-weight:600;font-size:15.5px}
-.pv-list small{color:var(--muted);font-size:13px}
-.kind{font:600 11px/1 var(--f-ui);padding:5px 8px;border-radius:99px;letter-spacing:.03em}
-.k-o{background:var(--lake-100);color:var(--lake-800)}
-.k-e{background:var(--maple-100);color:var(--maple-700)}
-.dl{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:var(--lake-700);border:1.5px solid var(--line);background:#fff}
-.dl:hover{background:var(--lake-100);border-color:var(--lake-500)}
-.dl svg{width:18px;height:18px}
-
-.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.box{padding:28px}
-.box h3{font-size:1.4rem;display:flex;align-items:center;gap:12px}
-.box h3 .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center}
-.box h3 .ic svg{width:20px;height:20px}
-.notice{list-style:none;margin:0;padding:0}
-.notice li{border-bottom:1px solid var(--line-2)}
-.notice li:last-child{border:0}
-.notice a{display:grid;grid-template-columns:70px 1fr;gap:14px;padding:14px 0;text-decoration:none;color:var(--ink)}
-.notice a:hover strong{color:var(--lake-700);text-decoration:underline}
-.notice time{font:600 13px/1.3 var(--f-ui);color:var(--maple-700);text-transform:uppercase;letter-spacing:.04em}
-.notice strong{font-weight:500;font-size:15.5px;line-height:1.4}
-.search{position:relative;margin-bottom:10px}
-.search input{width:100%;font:400 15.5px var(--f-ui);padding:13px 16px 13px 44px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg)}
-.search input:focus{outline:none;border-color:var(--lake-500);box-shadow:0 0 0 4px var(--lake-100);background:#fff}
-.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
-.reg{list-style:none;margin:0;padding:0}
-.reg li a{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line-2);text-decoration:none;color:var(--ink)}
-.reg code{font:600 13px/1 var(--f-ui);background:var(--forest-100);color:var(--forest-800);padding:6px 9px;border-radius:8px;flex:none}
-.reg span{flex:1;font-size:15.5px}
-.reg em{font-style:normal;font-size:13px;color:var(--muted);flex:none}
-.reg a:hover span{color:var(--lake-700);text-decoration:underline}
-.contact-dg{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:28px 34px;border-radius:var(--r-lg);background:linear-gradient(120deg,var(--lake-100),var(--forest-100))}
-.contact-dg h3{margin:0 0 4px}
-.contact-dg p{margin:0;color:var(--ink-2)}
-
-@media (max-width:1080px){
-  .members{grid-template-columns:1fr 1fr}
-  .mayor{grid-template-columns:auto 1fr}
-  .mayor blockquote{grid-column:1/-1}
-  .timeline{grid-template-columns:repeat(6,1fr)}
-  .pv-list{grid-template-columns:1fr}
+.top-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:20px}
+.next-card{background:var(--lake-900);color:#D7E5EE;border-radius:var(--r);padding:32px}
+.next-card .eyebrow{color:var(--maple-300)}
+.next-card h2{color:#fff;margin-bottom:6px}
+.next-card p{margin:0 0 22px}
+.sched{padding:28px 32px}
+.sched h3{margin-bottom:16px}
+.sched ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.sched li{text-align:center;padding:10px 0;border-radius:12px;background:var(--bg-2);font-size:13px;color:var(--muted);line-height:1.2}
+.sched li b{display:block;font:600 1.15rem/1.2 var(--f-title);color:var(--ink-2)}
+.sched li.past{opacity:.55}
+.sched li.next{background:var(--maple-500);color:#fff}
+.sched li.next b{color:#fff}
+.sched p{margin:14px 0 0;font-size:14px;color:var(--muted)}
+.mems{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.mem{display:flex;gap:14px;align-items:center;padding:16px 18px}
+.mem .av{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;font:600 15px/1 var(--f-ui)}
+.mem strong{display:block;font-size:15.5px;line-height:1.3}
+.mem small{color:var(--muted);font-size:13.5px}
+.docs{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start}
+.box{padding:28px 30px}
+.box h3{margin-bottom:12px}
+.box ul{list-style:none;margin:0;padding:0}
+.pv{columns:2;column-gap:28px}
+.pv li{break-inside:avoid}
+.pv a,.lst a{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line-2);text-decoration:none;color:var(--ink)}
+.pv a:hover,.lst a:hover{color:var(--lake-700)}
+.pv span{flex:1}
+.pv small{color:var(--muted);font-size:13px}
+.pv svg{width:16px;height:16px;flex:none;color:var(--lake-700)}
+.lst time{flex:none;width:64px;font-size:13.5px;color:var(--muted)}
+.box .more{margin:14px 0 0;font-size:14.5px;color:var(--muted)}
+.stack{display:grid;gap:20px}
+@media (max-width:1000px){
+  .top-grid,.docs{grid-template-columns:1fr}
+  .mems{grid-template-columns:repeat(2,1fr)}
 }
-@media (max-width:760px){
-  .next{grid-template-columns:1fr;gap:20px;padding:24px 22px;margin-top:-60px}
-  .big-date{display:flex;width:auto;align-items:center}
-  .big-date span{writing-mode:horizontal-tb;padding:0 14px;align-self:stretch;display:flex;align-items:center}
-  .big-date b{font-size:2.4rem;padding:10px 14px}
-  .big-date small{padding:0 14px 0 0}
-  .count{display:flex;align-items:baseline;gap:8px;justify-content:center;padding:12px}
-  .count b{font-size:1.8rem}
-  .next .acts{grid-column:auto}
-  .members{grid-template-columns:1fr}
-  .mayor{grid-template-columns:1fr;padding:24px}
-  .mayor .av{width:80px;height:80px;font-size:1.6rem}
-  .timeline{grid-template-columns:repeat(4,1fr)}
-  .two{grid-template-columns:1fr}
-  .pv{padding:20px 16px}
-  .tabs{width:100%;overflow-x:auto}
-  .tabs button{padding:10px 14px}
-  .box{padding:22px 18px}
-  .contact-dg{padding:24px 22px}
+@media (max-width:700px){
+  .next-card,.sched,.box{padding:24px 20px}
+  .sched ul{grid-template-columns:repeat(4,1fr)}
+  .mems{grid-template-columns:1fr}
+  .pv{columns:1}
 }
 </style>
 </head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
-<div class="mock-strip"><div class="wrap"><span>Maquette · <b>Option A<span class="hide-sm"> — « Lac &amp; Montagne »</span></b><span class="hide-sm"> · Municipalité de Biencourt</span></span><a href="../index.html">← Retour aux options</a></div></div>
-<div class="alert" role="region" aria-label="Avis important"><div class="wrap"><span class="pill">Avis</span><p><strong>Collecte des encombrants le samedi 17 octobre.</strong> Déposez vos objets en bordure de rue la veille au soir. <a href="evenements.html">Détails</a></p><button type="button" aria-label="Masquer cet avis">×</button></div></div>
+<div class="mock-strip"><div class="wrap"><span>Maquette · <b>Option A<span class="hide-sm"> — « Lac &amp; Montagne »</span></b></span><a href="../index.html">← Retour aux options</a></div></div>
+<div class="alert" role="region" aria-label="Avis important"><div class="wrap"><p><strong>Collecte des encombrants le samedi 17 octobre.</strong> <a href="evenements.html">Détails</a></p><button type="button" aria-label="Masquer cet avis">×</button></div></div>
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="accueil.html" aria-label="Municipalité de Biencourt — Accueil"><img src="../assets/logo-biencourt.png" alt="Municipalité de Biencourt" width="120" height="60"></a>
+    <a class="brand" href="accueil.html" aria-label="Municipalité de Biencourt — Accueil"><img src="../assets/logo-biencourt.png" alt="Municipalité de Biencourt" width="112" height="56"></a>
     <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <ul>
-        <li><a class="top" data-nav="accueil" href="accueil.html">Accueil</a></li>
-        <li>
-          <button class="top" aria-haspopup="true" data-nav="conseil" aria-current="page">Municipalité <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-          <div class="mega two">
-            <h4>Municipalité</h4>
-            <a href="conseil.html">Conseil municipal<small>Élus, séances, procès-verbaux</small></a>
-            <a href="#">Administration<small>Taxes, contrats, éthique, plaintes</small></a>
-            <a href="#">Urbanisme<small>Permis et règlements</small></a>
-            <a href="#">Office municipal d'habitation<small>13 logements 50 ans et +</small></a>
-            <a href="#">Politiques<small>Familles, aînés, gestion contractuelle</small></a>
-            <a href="#">Eau potable<small>Avis et qualité de l'eau</small></a>
-            <a href="#">Infos RIDT<small>Collectes et matières résiduelles</small></a>
-            <a href="#">Station de lavage &amp; débarcadère<small>Lac Biencourt</small></a>
-            <a href="#">Cartes et rôles d'évaluation<small>Matrice graphique, rôle</small></a>
-            <a href="#">Liens utiles<small>MRC, gouvernements, services</small></a>
-          </div>
+        <li><a class="top" href="accueil.html">Accueil</a></li>
+        <li><button class="top" type="button" aria-haspopup="true" aria-current="page">Municipalité <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+          <ul class="drop">
+            <li><a href="conseil.html">Conseil municipal</a></li>
+            <li><a href="#">Administration et taxes</a></li>
+            <li><a href="#">Urbanisme</a></li>
+            <li><a href="#">Office municipal d'habitation</a></li>
+            <li><a href="#">Politiques</a></li>
+            <li><a href="#">Infos RIDT</a></li>
+            <li><a href="#">Station de lavage et débarcadère</a></li>
+            <li><a href="#">Cartes et rôles d'évaluation</a></li>
+            <li><a href="#">Liens utiles</a></li>
+          </ul>
         </li>
-        <li><a class="top" data-nav="evenements" href="evenements.html">Événements</a></li>
-        <li><a class="top" data-nav="journal" href="journal.html">Journal</a></li>
-        <li>
-          <button class="top" aria-haspopup="true">Vivre à Biencourt <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-          <div class="mega">
-            <h4>Vivre à Biencourt</h4>
-            <a href="#">Commerces</a>
-            <a href="#">Organismes</a>
-            <a href="#">Album photo</a>
-            <a href="#">Camping &amp; chalets</a>
-            <a href="#">Mont Biencourt</a>
-            <a href="#">Un brin d'histoire</a>
-          </div>
+        <li><a class="top" href="evenements.html">Événements</a></li>
+        <li><a class="top" href="journal.html">Journal</a></li>
+        <li><button class="top" type="button" aria-haspopup="true">Vivre à Biencourt <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+          <ul class="drop">
+            <li><a href="#">Commerces</a></li>
+            <li><a href="#">Organismes</a></li>
+            <li><a href="#">Album photo</a></li>
+            <li><a href="#">Camping et chalets</a></li>
+            <li><a href="#">Mont Biencourt</a></li>
+            <li><a href="#">Un brin d'histoire</a></li>
+          </ul>
         </li>
         <li class="cta"><a class="btn btn-primary btn-sm" href="#joindre">Nous joindre</a></li>
       </ul>
     </nav>
   </div>
 </header>
-
 <main id="contenu">
-  <section class="page-hero">
+  <section class="page-head">
     <div class="wrap">
-      <div class="crumbs"><a href="accueil.html">Accueil</a><span aria-hidden="true">/</span><a href="#">Municipalité</a><span aria-hidden="true">/</span><span>Conseil municipal</span></div>
-      <span class="eyebrow">Municipalité</span>
+      <div class="crumbs"><a href="accueil.html">Accueil</a> › Municipalité › Conseil municipal</div>
       <h1>Conseil municipal</h1>
-      <p class="lead">Sept élus au service des Biencourtois et Biencourtoises. Les séances sont publiques : venez poser vos questions!</p>
+      <p class="lead">Vos élus, les séances publiques et les documents officiels.</p>
     </div>
-    <div class="scene" aria-hidden="true"><svg viewBox="0 0 1440 150" preserveAspectRatio="xMidYMax slice">
-  <defs><symbol id="pn" viewBox="-14 0 28 52"><path d="M0 0 L-9 16 H-4 L-12 30 H-5 L-14 44 H-2 V52 H2 V44 H14 L5 30 H12 L4 16 H9Z"/></symbol>
-  <linearGradient id="lk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BA9DB"/><stop offset="1" stop-color="#2E8BC9"/></linearGradient></defs>
-  <circle cx="1180" cy="58" r="30" fill="#F2A33A" opacity=".85"/>
-  <path d="M0 110 L140 70 L250 92 L380 40 L520 96 L660 64 L780 88 L900 30 L1040 90 L1160 62 L1300 86 L1440 56 V150 H0Z" fill="#BCDDEB"/>
-  <path d="M0 120 C120 96 220 86 330 98 C450 110 520 76 640 72 C760 68 860 100 980 102 C1100 104 1200 80 1320 84 C1380 86 1420 92 1440 96 V150 H0Z" fill="#8CC56A"/>
-  <g fill="#3B7A20"><use href="#pn" x="80" y="88" width="20" height="38"/><use href="#pn" x="104" y="96" width="16" height="30"/><use href="#pn" x="560" y="66" width="22" height="42"/><use href="#pn" x="586" y="78" width="16" height="30"/><use href="#pn" x="1240" y="70" width="22" height="42"/><use href="#pn" x="1266" y="82" width="16" height="30"/><use href="#pn" x="1290" y="78" width="18" height="34"/></g>
-  <path d="M0 126 C200 118 380 122 560 120 C760 118 980 124 1180 120 C1300 118 1400 121 1440 122 V150 H0Z" fill="url(#lk)"/>
-  <g stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55"><path d="M1150 132 h60"/><path d="M1168 140 h30"/><path d="M300 136 h44"/></g>
-</svg></div>
-
   </section>
 
-  <div class="wrap">
-    <article class="card next" aria-labelledby="next-t">
-      <div class="big-date"><span>Nov.</span><b>2</b><small>lundi</small></div>
-      <div>
-        <span class="eyebrow" style="margin-bottom:4px">Prochaine séance ordinaire</span>
+  <section class="section" aria-labelledby="next-t">
+    <div class="wrap top-grid">
+      <div class="next-card">
+        <span class="eyebrow">Prochaine séance ordinaire</span>
         <h2 id="next-t">Lundi 2 novembre 2026</h2>
-        <div class="facts"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>19 h 30</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Salle du conseil, 5, rue Berger</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 0 0-5.4-1.8M9 20H2v-2a4 4 0 0 1 7-2.6M15 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>Ouverte au public</span></div>
+        <p>19 h 30 · Salle du conseil, 5, rue Berger. Ouverte au public.</p>
+        <a class="btn btn-light btn-sm" href="#">Ordre du jour · dès le 30 oct.</a>
       </div>
-      <div class="count" aria-live="polite"><b id="days">25</b><span>jours restants</span></div>
-      <div class="acts">
-        <a class="btn btn-ghost btn-sm" href="#" aria-disabled="true" title="Disponible le vendredi 30 octobre">Ordre du jour · dispo. le 30 oct.</a>
-        <a class="btn btn-primary btn-sm" href="#">Soumettre une question</a>
-        <a class="btn btn-ghost btn-sm" href="#">Ajouter à mon calendrier</a>
+      <div class="card sched">
+        <h3>Séances ordinaires 2026</h3>
+        <ul><li class="past"><b>13</b> janv.</li><li class="past"><b>2</b> févr.</li><li class="past"><b>2</b> mars.</li><li class="past"><b>14</b> avr.</li><li class="past"><b>4</b> mai.</li><li class="past"><b>1er</b> juin.</li><li class="past"><b>6</b> juil.</li><li class="past"><b>18</b> août.</li><li class="past"><b>15</b> sept.</li><li class="past"><b>5</b> oct.</li><li class="next"><b>2</b> nov.</li><li class=""><b>7</b> déc.</li></ul>
+        <p>Toutes à 19 h 30, à la salle du conseil.</p>
       </div>
-    </article>
-  </div>
+    </div>
+  </section>
 
   <section class="section" aria-labelledby="mem-t">
     <div class="wrap">
-      <div class="section-head"><div><span class="eyebrow">Vos élus</span><h2 id="mem-t">Membres du conseil</h2></div><a class="link-more" href="#">Code d'éthique des élus</a></div>
-      <div class="members">
-        <article class="card mayor">
-          <span class="av" style="background:linear-gradient(135deg,#F2A33A,#C9601A);color:#C9601A"><span style="color:#fff">DD</span></span>
-          <div><span class="post" style="font:600 12px/1 var(--f-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--maple-700)">Maire</span><h3>Daniel Dumont</h3><p>Administration générale · Représentant à la MRC de Témiscouata</p><p style="margin-top:8px"><a href="#">maire@biencourt.ca</a></p></div>
-          <blockquote>« Notre priorité : un budget 2027 responsable qui préserve nos services de proximité et nos attraits. »</blockquote>
-        </article>
-        <article class="card member"><span class="av" style="background:linear-gradient(135deg,#6DB33F,#3B7A20);color:#3B7A20"><span style="color:#fff">DR</span></span><div><span class="post">Poste 1</span><h3>Daniel Rioux</h3><p>Voirie, déneigement et sécurité civile</p></div></article>
-        <article class="card member"><span class="av" style="background:linear-gradient(135deg,#2E8BC9,#1D6A9E);color:#1D6A9E"><span style="color:#fff">SB</span></span><div><span class="post">Poste 2</span><h3>Sébastien Beaulieu</h3><p>Loisirs, sports et Mont Biencourt</p></div></article>
-        <article class="card member"><span class="av" style="background:linear-gradient(135deg,#F2A33A,#E8762B);color:#E8762B"><span style="color:#fff">KL</span></span><div><span class="post">Poste 3</span><h3>Kathleen Lebel</h3><p>Familles, aînés et Office municipal d'habitation</p></div></article>
-        <article class="card member"><span class="av" style="background:linear-gradient(135deg,#4FA3D9,#16405E);color:#16405E"><span style="color:#fff">FG</span></span><div><span class="post">Poste 4</span><h3>Francis Godin</h3><p>Hygiène du milieu et eau potable</p></div></article>
-        <article class="card member"><span class="av" style="background:linear-gradient(135deg,#8CC56A,#2C5A18);color:#2C5A18"><span style="color:#fff">SJ</span></span><div><span class="post">Poste 5</span><h3>Sylvie Jacques</h3><p>Culture, patrimoine et journal local</p></div></article>
-        <article class="card member"><span class="av" style="background:linear-gradient(135deg,#E8762B,#B4500F);color:#B4500F"><span style="color:#fff">LL</span></span><div><span class="post">Poste 6</span><h3>Linda Lavoie</h3><p>Développement communautaire et entraide</p></div></article>
-      </div>
+      <div class="section-head"><h2 id="mem-t">Membres du conseil</h2><a class="link-more" href="#">Code d'éthique des élus</a></div>
+      <ul class="mems"><li class="card mem"><span class="av" style="background:#E8762B" aria-hidden="true">DD</span><span><strong>Daniel Dumont</strong><small>Maire</small></span></li><li class="card mem"><span class="av" style="background:#3B7A20" aria-hidden="true">DR</span><span><strong>Daniel Rioux</strong><small>Conseiller · poste 1</small></span></li><li class="card mem"><span class="av" style="background:#1D6A9E" aria-hidden="true">SB</span><span><strong>Sébastien Beaulieu</strong><small>Conseiller · poste 2</small></span></li><li class="card mem"><span class="av" style="background:#C9601A" aria-hidden="true">KL</span><span><strong>Kathleen Lebel</strong><small>Conseillère · poste 3</small></span></li><li class="card mem"><span class="av" style="background:#16405E" aria-hidden="true">FG</span><span><strong>Francis Godin</strong><small>Conseiller · poste 4</small></span></li><li class="card mem"><span class="av" style="background:#2C5A18" aria-hidden="true">SJ</span><span><strong>Sylvie Jacques</strong><small>Conseillère · poste 5</small></span></li><li class="card mem"><span class="av" style="background:#B4500F" aria-hidden="true">LL</span><span><strong>Linda Lavoie</strong><small>Conseillère · poste 6</small></span></li></ul>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0" aria-labelledby="cal-t">
+  <section class="section" aria-labelledby="doc-t">
     <div class="wrap">
-      <div class="section-head"><div><span class="eyebrow">Calendrier</span><h2 id="cal-t">Séances ordinaires 2026</h2></div><span style="color:var(--muted);font-size:15px">Toutes à 19 h 30, salle du conseil</span></div>
-      <ol class="timeline" style="list-style:none;padding:0;margin:0 0 12px">
-        <li class="sess done"><small>janv.</small><b>13</b><i>mardi</i></li>
-        <li class="sess done"><small>févr.</small><b>2</b><i>lundi</i></li>
-        <li class="sess done"><small>mars</small><b>2</b><i>lundi</i></li>
-        <li class="sess done"><small>avr.</small><b>14</b><i>mardi</i></li>
-        <li class="sess done"><small>mai</small><b>4</b><i>lundi</i></li>
-        <li class="sess done"><small>juin</small><b>1<sup>er</sup></b><i>lundi</i></li>
-        <li class="sess done"><small>juil.</small><b>6</b><i>lundi</i></li>
-        <li class="sess done"><small>août</small><b>18</b><i>mardi</i></li>
-        <li class="sess done"><small>sept.</small><b>15</b><i>mardi</i></li>
-        <li class="sess done"><small>oct.</small><b>5</b><i>lundi</i></li>
-        <li class="sess next-s" aria-current="date"><small>nov.</small><b>2</b><i>prochaine</i></li>
-        <li class="sess"><small>déc.</small><b>7</b><i>lundi</i></li>
-      </ol>
-      <div class="tl-legend"><span><i style="background:var(--forest-100);border:1px solid var(--forest-200)"></i>Tenue</span><span><i style="background:var(--maple-500)"></i>Prochaine séance</span><span><i style="background:#fff;border:1px solid var(--line)"></i>À venir</span></div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0" aria-labelledby="pv-t">
-    <div class="wrap">
-      <div class="section-head"><div><span class="eyebrow">Documents</span><h2 id="pv-t">Procès-verbaux</h2></div></div>
-      <div class="card pv">
-        <div class="pv-top">
-          <div class="tabs" role="tablist" aria-label="Année" id="years"></div>
-          <div class="types" role="group" aria-label="Type de séance">
-            <button type="button" aria-pressed="true" data-k="all">Toutes</button>
-            <button type="button" aria-pressed="false" data-k="o">Ordinaires</button>
-            <button type="button" aria-pressed="false" data-k="e">Extraordinaires</button>
+      <div class="section-head"><h2 id="doc-t">Documents</h2></div>
+      <div class="docs">
+        <div class="card box">
+          <h3>Procès-verbaux 2026</h3>
+          <ul class="pv"><li><a href="#"><span>15 sept. 2026</span><small>Ordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>18 août 2026</span><small>Ordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>6 juil. 2026</span><small>Ordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>1er juin 2026</span><small>Ordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>25 mai 2026</span><small>Extraordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>4 mai 2026</span><small>Ordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>14 avr. 2026</span><small>Ordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>30 mars 2026</span><small>Extraordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>2 mars 2026</span><small>Ordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>19 févr. 2026</span><small>Extraordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>2 févr. 2026</span><small>Ordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li><li><a href="#"><span>13 janv. 2026</span><small>Ordinaire</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li></ul>
+          <p class="more">Archives : <a href="#">2025</a> · <a href="#">2024</a> · <a href="#">2023</a></p>
+        </div>
+        <div class="stack">
+          <div class="card box" id="avis">
+            <h3>Avis publics</h3>
+            <ul class="lst">
+              <li><a href="#"><time datetime="2026-10-06">6 oct.</time>Levée de l'avis d'ébullition préventif</a></li>
+              <li><a href="#"><time datetime="2026-10-01">1er oct.</time>Consultation sur le budget 2027</a></li>
+              <li><a href="#"><time datetime="2026-09-22">22 sept.</time>Dépôt du rôle d'évaluation</a></li>
+            </ul>
+          </div>
+          <div class="card box">
+            <h3>Règlements</h3>
+            <ul class="lst">
+              <li><a href="#"><time>2026-03</time>Taxation et tarification 2026</a></li>
+              <li><a href="#"><time>2025-07</time>Nuisances et brûlage</a></li>
+              <li><a href="#"><time>2024-11</time>Zonage (refonte)</a></li>
+            </ul>
           </div>
         </div>
-        <ul class="pv-list" id="pvList" role="tabpanel" aria-live="polite"></ul>
-        <p style="margin:18px 0 0;font-size:14px;color:var(--muted)">Le procès-verbal de la séance du 5 octobre sera publié après son adoption, le 2 novembre.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="two">
-        <section class="card box" aria-labelledby="av-t">
-          <h3 id="av-t"><span class="ic ic-o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 11l14-6v14L3 13z"/><path d="M7 13v5a2 2 0 0 0 4 0v-3.5M20 9v4"/></svg></span>Avis publics</h3>
-          <ul class="notice">
-            <li><a href="#"><time datetime="2026-10-06">6 oct.</time><strong>Levée de l'avis d'ébullition préventif — secteur rue Principale</strong></a></li>
-            <li><a href="#"><time datetime="2026-09-30">30 sept.</time><strong>Dépôt du rôle d'évaluation foncière triennal 2027-2028-2029</strong></a></li>
-            <li><a href="#"><time datetime="2026-09-22">22 sept.</time><strong>Demande de dérogation mineure — 12, rang Saint-Joseph</strong></a></li>
-            <li><a href="#"><time datetime="2026-09-09">9 sept.</time><strong>Avis de promulgation — Règlement 2026-04 sur la gestion contractuelle</strong></a></li>
-            <li><a href="#"><time datetime="2026-08-20">20 août</time><strong>Fermeture temporaire du débarcadère du lac Biencourt (travaux)</strong></a></li>
-          </ul>
-          <a class="link-more" href="#" style="margin-top:12px">Tous les avis publics</a>
-        </section>
-        <section class="card box" aria-labelledby="re-t">
-          <h3 id="re-t"><span class="ic ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0zM8 21h8"/></svg></span>Règlements municipaux</h3>
-          <label class="search"><span class="sr-only">Rechercher un règlement</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="regQ" type="search" placeholder="Rechercher : zonage, nuisances, brûlage…"></label>
-          <ul class="reg" id="reg">
-            <li><a href="#"><code>2026-04</code><span>Gestion contractuelle</span><em>PDF · 2026</em></a></li>
-            <li><a href="#"><code>2026-02</code><span>Code d'éthique et de déontologie des élus</span><em>PDF · 2026</em></a></li>
-            <li><a href="#"><code>2026-01</code><span>Taxation et tarification 2026</span><em>PDF · 2026</em></a></li>
-            <li><a href="#"><code>2025-05</code><span>Nuisances, paix et bon ordre</span><em>PDF · 2025</em></a></li>
-            <li><a href="#"><code>2024-03</code><span>Zonage (refonte)</span><em>PDF · 2024</em></a></li>
-            <li><a href="#"><code>2023-02</code><span>Brûlage et feux à ciel ouvert</span><em>PDF · 2023</em></a></li>
-            <li><a href="#"><code>2022-06</code><span>Utilisation de l'eau potable</span><em>PDF · 2022</em></a></li>
-          </ul>
-          <p id="regEmpty" hidden style="color:var(--muted);margin:12px 0 0">Aucun règlement ne correspond à votre recherche.</p>
-        </section>
-      </div>
-      <div class="contact-dg">
-        <div><h3>Une question pour le conseil?</h3><p>Écrivez à la direction générale ou appelez-nous au 418-499-2423, du lundi au jeudi.</p></div>
-        <a class="btn btn-primary" href="mailto:info@biencourt.ca">info@biencourt.ca</a>
       </div>
     </div>
   </section>
 </main>
 <footer class="site-foot" id="joindre">
-  <div class="ridge" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 80 L0 52 C120 40 180 18 270 22 C360 26 420 52 520 50 C640 47 700 8 820 6 C930 4 990 40 1090 44 C1190 48 1260 26 1340 28 C1390 29 1420 36 1440 40 L1440 80Z" fill="#6DB33F" opacity=".35"/><path d="M0 80 L0 62 C160 54 260 40 380 44 C520 49 600 64 760 60 C900 56 980 34 1120 36 C1250 38 1350 54 1440 56 L1440 80Z" fill="#0F2E44"/></svg></div>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-logo"><img src="../assets/logo-biencourt.png" alt="Municipalité de Biencourt" width="128" height="64"></div>
+        <div class="foot-logo"><img src="../assets/logo-biencourt.png" alt="Municipalité de Biencourt" width="112" height="56"></div>
         <p class="foot-slogan">« Biencourt, un endroit à découvrir! »</p>
-        <p style="font-size:15px;margin:0">Érigée en 1947 au cœur du Témiscouata, entre lac et montagne.</p>
-        <div class="social">
-          <a href="#" aria-label="Biencourt sur Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6.5c0-.8.2-1.2 1.4-1.2H17V2.2C16.6 2.1 15.6 2 14.5 2 12 2 10.6 3.5 10.6 6.1V8H8v3.2h2.6V22H14V11.2h2.7L17 8h-3z"/></svg></a>
-          <a href="#" aria-label="Infolettre par courriel"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm9 7.2L4 7.3V17h16V7.3l-8 4.9zM19 7H5l7 4.3L19 7z"/></svg></a>
-        </div>
       </div>
       <div>
         <h3>Nous joindre</h3>
-        <div class="foot-contact">5, rue Berger, C.P. 70<br>Biencourt (Québec) G0K 1T0<br><a href="tel:4184992423">418-499-2423</a><br>Téléc. 418-499-2708<br><a href="mailto:info@biencourt.ca">info@biencourt.ca</a></div>
+        <div class="foot-contact">5, rue Berger, C.P. 70<br>Biencourt (Québec) G0K 1T0<br><a href="tel:4184992423">418-499-2423</a> · <a href="mailto:info@biencourt.ca">info@biencourt.ca</a></div>
       </div>
       <div>
         <h3>Heures de bureau</h3>
-        <div class="foot-contact">Lundi au jeudi<br>8 h 30 – 12 h<br>13 h – 16 h 30<br><span style="color:#93AEC0">Fermé vendredi, samedi et dimanche</span></div>
-      </div>
-      <div>
-        <h3>Accès rapide</h3>
-        <ul>
-          <li><a href="conseil.html">Conseil municipal</a></li>
-          <li><a href="evenements.html">Activités à venir</a></li>
-          <li><a href="journal.html">Le Biencourtois</a></li>
-          <li><a href="#">Camping municipal · 418-499-2353</a></li>
-          <li><a href="#">Mont Biencourt — montbiencourt.com</a></li>
-        </ul>
+        <div class="foot-contact">Lundi au jeudi<br>8 h 30 – 12 h · 13 h – 16 h 30</div>
       </div>
     </div>
-    <div class="foot-bottom"><span>© 2026 Municipalité de Biencourt · MRC de Témiscouata</span><span><a href="#">Accessibilité</a> · <a href="#">Confidentialité</a> · <a href="admin.html">Espace administrateur</a></span></div>
+    <div class="foot-bottom"><span>© 2026 Municipalité de Biencourt · MRC de Témiscouata</span><span><a href="#">Facebook</a> · <a href="#">Accessibilité</a> · <a href="admin.html">Espace administrateur</a></span></div>
   </div>
 </footer>
 <script>
 (function(){
   var b=document.querySelector('.burger'),n=document.getElementById('nav');
-  if(b&&n){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu');});
-    n.querySelectorAll('button.top').forEach(function(t){t.addEventListener('click',function(){if(window.innerWidth<=1080){t.parentNode.classList.toggle('open');}});});}
-  var a=document.querySelector('.alert button');
-  if(a)a.addEventListener('click',function(){a.closest('.alert').remove();});
+  b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu');});
+  n.querySelectorAll('button.top').forEach(function(t){t.addEventListener('click',function(){if(window.innerWidth<=1000)t.parentNode.classList.toggle('open');});});
+  var a=document.querySelector('.alert button');a.addEventListener('click',function(){a.closest('.alert').remove();});
 })();
-</script>
 
-<script>
-(function(){
-  var today=new Date('2026-10-08T12:00:00'),next=new Date('2026-11-02T12:00:00');
-  document.getElementById('days').textContent=Math.round((next-today)/864e5);
-  var PV={
-    2026:[['2026-09-15','o'],['2026-08-18','o'],['2026-07-06','o'],['2026-06-01','o'],['2026-05-25','e'],['2026-05-04','o'],['2026-04-14','o'],['2026-03-30','e'],['2026-03-02','o'],['2026-02-19','e'],['2026-02-02','o'],['2026-01-13','o']],
-    2025:[['2025-12-08','o'],['2025-12-15','e'],['2025-11-17','o'],['2025-10-06','o'],['2025-09-08','o'],['2025-08-11','o'],['2025-07-07','o'],['2025-06-02','o'],['2025-05-05','o'],['2025-04-07','o'],['2025-03-03','o'],['2025-02-03','o'],['2025-01-13','o']],
-    2024:[['2024-12-02','o'],['2024-12-16','e'],['2024-11-04','o'],['2024-10-07','o'],['2024-09-09','o'],['2024-08-12','o'],['2024-07-08','o'],['2024-06-03','o'],['2024-05-06','o'],['2024-04-08','o'],['2024-03-04','o'],['2024-02-05','o'],['2024-01-15','o']],
-    2023:[['2023-12-04','o'],['2023-11-06','o'],['2023-10-02','o'],['2023-09-11','o'],['2023-08-14','o'],['2023-07-10','o'],['2023-06-05','o'],['2023-05-01','o'],['2023-04-03','o'],['2023-03-06','o'],['2023-02-06','o'],['2023-01-16','o']]
-  };
-  var M=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
-  var year='2026',kind='all',ys=document.getElementById('years');
-  ys.innerHTML=Object.keys(PV).sort().reverse().map(function(y){return '<button role="tab" type="button" aria-selected="'+(y===year)+'" data-y="'+y+'">'+y+'</button>';}).join('');
-  ys.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;year=b.dataset.y;ys.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected',x===b);});draw();});
-  document.querySelectorAll('.types button').forEach(function(b){b.addEventListener('click',function(){kind=b.dataset.k;document.querySelectorAll('.types button').forEach(function(x){x.setAttribute('aria-pressed',x===b);});draw();});});
-  function fmt(s){var d=new Date(s+'T12:00:00');return (d.getDate()===1?'1er':d.getDate())+' '+M[d.getMonth()]+' '+d.getFullYear();}
-  function draw(){
-    var rows=PV[year].slice().sort(function(a,b){return a[0]<b[0]?1:-1;}).filter(function(r){return kind==='all'||r[1]===kind;});
-    document.getElementById('pvList').innerHTML=rows.length?rows.map(function(r,i){var sz=(180+((r[0].charCodeAt(8)*37+i*53)%260));return '<li><span class="pdf" aria-hidden="true">PDF</span><span class="txt"><strong>Séance du '+fmt(r[0])+'</strong><small><span class="kind '+(r[1]==='o'?'k-o':'k-e')+'">'+(r[1]==='o'?'Ordinaire':'Extraordinaire')+'</span> · '+sz+' Ko</small></span><a class="dl" href="#" aria-label="Télécharger le procès-verbal du '+fmt(r[0])+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></li>';}).join(''):'<li style="grid-column:1/-1;color:var(--muted)">Aucune séance extraordinaire en '+year+'.</li>';
-  }
-  draw();
-  var q=document.getElementById('regQ');
-  q.addEventListener('input',function(){var v=q.value.trim().toLowerCase(),n=0;document.querySelectorAll('#reg li').forEach(function(li){var ok=li.textContent.toLowerCase().indexOf(v)>-1;li.hidden=!ok;if(ok)n++;});document.getElementById('regEmpty').hidden=n>0;});
-})();
 </script>
 </body>
 </html>

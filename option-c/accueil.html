@@ -4,442 +4,241 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accueil — Municipalité de Biencourt</title>
-<meta name="description" content="Site de la Municipalité de Biencourt, Témiscouata. Nouvelles, agenda, conseil municipal et le journal Le Biencourtois.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<meta name="description" content="Site de la Municipalité de Biencourt, Témiscouata : nouvelles, agenda, conseil municipal et le journal Le Biencourtois.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F5EFE1;
-  --paper-2:#EDE4CF;
-  --paper-3:#E4D8BD;
-  --card:#FBF8F0;
-  --ink:#1D1A15;
-  --ink-2:#3E382E;
-  --ink-3:#6A6152;
-  --rule:#1D1A15;
-  --rule-soft:#CDBF9F;
-  --forest:#24452F;
-  --forest-2:#2F5A3D;
-  --forest-tint:#DCE3D3;
-  --ochre:#A8611A;
-  --ochre-2:#C9822F;
-  --ochre-tint:#F1DDBD;
-  --maple:#E8762B;
-  --leaf:#6DB33F;
-  --sky:#2E8BC9;
-  --red:#9E2B1F;
-  --display:'Playfair Display', 'Times New Roman', serif;
-  --serif:'Source Serif 4', Georgia, serif;
-  --sans:'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
-  --wrap:1240px;
+  --paper:#F5EFE1;--paper-2:#EDE4CF;--paper-3:#E4D8BD;--card:#FBF8F0;
+  --ink:#1D1A15;--ink-2:#3E382E;--ink-3:#6A6152;--rule:#1D1A15;--rule-soft:#D6CAAE;
+  --forest:#24452F;--forest-2:#2F5A3D;--forest-tint:#DCE3D3;
+  --ochre:#A8611A;--ochre-2:#C9822F;--ochre-tint:#F1DDBD;--red:#9E2B1F;
+  --display:'Playfair Display','Times New Roman',serif;
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'Libre Franklin','Helvetica Neue',Arial,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:var(--serif);font-size:17px;line-height:1.6;
-  font-feature-settings:"onum" 1,"kern" 1;
-  background-image:
-    radial-gradient(rgba(120,90,40,.05) 1px, transparent 1px),
-    radial-gradient(rgba(120,90,40,.035) 1px, transparent 1px);
-  background-size:7px 7px, 13px 13px;
-  background-position:0 0, 3px 5px;
-  overflow-x:hidden;
-}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.65;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration-color:var(--ochre-2);text-underline-offset:3px;text-decoration-thickness:1px}
 a:hover{color:var(--forest)}
-:focus-visible{outline:3px solid var(--ochre-2);outline-offset:3px;border-radius:2px}
-h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.08;margin:0;letter-spacing:-.01em}
+:focus-visible{outline:3px solid var(--ochre-2);outline-offset:3px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.1;margin:0;letter-spacing:-.01em}
 p{margin:0 0 1em}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.kicker{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre)}
-.kicker.forest{color:var(--forest)}
-.smallcaps{font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
-.rule{border:0;border-top:1px solid var(--rule);margin:0}
-.rule-2{border:0;border-top:3px double var(--rule);margin:0}
-.rule-thick{border:0;border-top:4px solid var(--rule);margin:0}
-.dropcap::first-letter{
-  font-family:var(--display);font-weight:900;float:left;font-size:4.6em;line-height:.82;
-  padding:.06em .1em 0 0;color:var(--forest);
-}
-.btn{
-  display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:13px;
-  letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;border:1.5px solid var(--ink);
-  background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer;transition:.2s;
-}
+.sr-only:focus{position:fixed;top:8px;left:8px;width:auto;height:auto;clip:auto;background:var(--ink);color:var(--paper);padding:8px 12px;z-index:200}
+.kicker{display:inline-block;font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre)}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer;transition:.2s}
 .btn:hover{background:var(--forest);border-color:var(--forest);color:#fff}
 .btn.ghost{background:transparent;color:var(--ink)}
 .btn.ghost:hover{background:var(--ink);color:var(--paper)}
-.btn.ochre{background:var(--ochre);border-color:var(--ochre);color:#fff}
-.btn.ochre:hover{background:#8A4E12;border-color:#8A4E12}
 .more{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--forest);text-decoration:none;border-bottom:1.5px solid var(--ochre-2);padding-bottom:2px}
 .more:hover{color:var(--ochre)}
+.pimg{position:relative;overflow:hidden;background:var(--paper-3);margin:0}
+.pimg img{width:100%;height:100%;object-fit:cover}
+.caption{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:8px;line-height:1.45}
+.dropcap::first-letter{font-family:var(--display);font-weight:900;float:left;font-size:3.9em;line-height:.85;padding:.05em .09em 0 0;color:var(--forest)}
 
-/* ---------- mockup strip ---------- */
-.mockbar{background:var(--ink);color:#D9CFB8;font-family:var(--sans);font-size:11.5px;letter-spacing:.06em}
-.mockbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:30px}
+/* mockup strip */
+.mockbar{background:var(--ink);color:#D9CFB8;font-family:var(--sans);font-size:11.5px;letter-spacing:.05em}
+.mockbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:28px}
 .mockbar a{color:#F0E6CF;text-decoration:none}
 .mockbar a:hover{color:var(--ochre-2)}
 .mockbar b{color:var(--ochre-2);font-weight:600}
 
-/* ---------- masthead ---------- */
-.ears{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0 10px;font-family:var(--sans);font-size:12px;color:var(--ink-2);letter-spacing:.04em}
-.ears .ear{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.ears .ear span{white-space:nowrap}
-.ears .fire{display:inline-flex;align-items:center;gap:7px;text-decoration:none}
-.ears .fire i{width:9px;height:9px;border-radius:50%;background:#3F8F3A;box-shadow:0 0 0 3px rgba(63,143,58,.2)}
-.masthead{text-align:center;padding:10px 0 18px;border-top:1px solid var(--rule)}
-.masthead .brand{display:inline-flex;align-items:center;gap:22px;text-decoration:none;color:var(--ink)}
-.masthead .brand img{width:150px;height:auto}
-.masthead .bt{text-align:left;border-left:1px solid var(--rule-soft);padding-left:22px}
-.masthead .bt small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
-.masthead .bt strong{display:block;font-family:var(--display);font-weight:900;font-size:44px;line-height:1;letter-spacing:-.02em}
-.masthead .bt em{display:block;font-family:var(--display);font-style:italic;font-size:16px;color:var(--ochre);margin-top:4px}
+/* masthead */
+.mast{text-align:center;padding:30px 0 24px}
+.mast .brand{display:inline-flex;align-items:center;gap:22px;text-decoration:none;color:var(--ink)}
+.mast .brand img{width:132px;height:auto}
+.mast .bt{text-align:left;border-left:1px solid var(--rule-soft);padding-left:22px}
+.mast .bt small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.mast .bt strong{display:block;font-family:var(--display);font-weight:900;font-size:42px;line-height:1;letter-spacing:-.02em}
+.mast .bt em{display:block;font-family:var(--display);font-style:italic;font-size:15px;color:var(--ochre);margin-top:4px}
 
-.mainnav{border-top:3px double var(--rule);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:50;background:rgba(245,239,225,.96);backdrop-filter:blur(6px)}
-.mainnav .wrap{display:flex;justify-content:center;align-items:stretch;position:relative}
+/* nav */
+.mainnav{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:50;background:rgba(245,239,225,.97)}
+.mainnav .wrap{display:flex;justify-content:center;position:relative}
 .mainnav ul{list-style:none;margin:0;padding:0;display:flex}
 .mainnav > .wrap > ul > li{position:relative}
-.mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{
-  display:flex;align-items:center;gap:6px;height:48px;padding:0 20px;font-family:var(--sans);font-size:13px;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:none;border:0;cursor:pointer;
-}
-.mainnav > .wrap > ul > li + li::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:1px;background:var(--rule-soft)}
-.mainnav a[aria-current="page"]{color:var(--forest);box-shadow:inset 0 -3px 0 var(--ochre-2)}
+.mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{display:flex;align-items:center;gap:6px;height:48px;padding:0 18px;font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:none;border:0;cursor:pointer}
 .mainnav > .wrap > ul > li > a:hover,.mainnav > .wrap > ul > li > button:hover{color:var(--ochre)}
-.mainnav .caret{width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-3px)}
-.mainnav .drop{
-  position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);min-width:300px;background:var(--card);
-  border:1px solid var(--rule);box-shadow:6px 6px 0 var(--paper-3);padding:14px 0;opacity:0;visibility:hidden;transition:.18s;display:block;
-}
-.mainnav li:hover > .drop,.mainnav li:focus-within > .drop,.mainnav li.open > .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.mainnav .drop li a{display:block;padding:7px 22px;font-family:var(--serif);font-size:15.5px;text-decoration:none;color:var(--ink)}
+.mainnav a[aria-current="page"],.mainnav button.is-current{color:var(--forest);box-shadow:inset 0 -3px 0 var(--ochre-2)}
+.mainnav .caret{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-3px)}
+.mainnav .drop{position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:250px;background:var(--card);border:1px solid var(--rule);padding:10px 0;opacity:0;visibility:hidden;transition:opacity .15s;display:block}
+.mainnav li:hover > .drop,.mainnav li:focus-within > .drop,.mainnav li.open > .drop{opacity:1;visibility:visible}
+.mainnav .drop li a{display:block;padding:7px 20px;font-size:15.5px;text-decoration:none;color:var(--ink)}
 .mainnav .drop li a:hover{background:var(--paper-2);color:var(--forest)}
-.mainnav .drop .dh{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre);padding:6px 22px 4px}
-.mainnav .drop.wide{min-width:540px;display:grid;grid-template-columns:1fr 1fr;padding:14px 0}
-.mainnav .drop small{display:block;font-family:var(--sans);font-size:11.5px;color:var(--ink-3)}
 .navtoggle{display:none}
 
-/* ---------- alert ribbon ---------- */
+/* avis */
 .ribbon{background:var(--forest);color:#F3EEDF;font-family:var(--sans);font-size:13.5px}
 .ribbon .wrap{display:flex;align-items:center;gap:14px;min-height:42px;padding-top:6px;padding-bottom:6px}
-.ribbon .tag{background:var(--ochre-2);color:#1D1A15;font-weight:800;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:4px 9px;flex-shrink:0}
+.ribbon .tag{background:var(--ochre-2);color:var(--ink);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:3px 8px;flex-shrink:0}
 .ribbon a{color:#fff;font-weight:600}
 .ribbon .x{margin-left:auto;background:none;border:0;color:#F3EEDF;font-size:20px;cursor:pointer;line-height:1;padding:4px 8px}
 
-/* ---------- page head (inner pages) ---------- */
-.pagehead{padding:46px 0 26px;border-bottom:1px solid var(--rule)}
-.pagehead .crumbs{font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:var(--ink-3);margin-bottom:18px}
+/* en-têtes de page */
+.pagehead{padding:64px 0 8px}
+.pagehead .crumbs{font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:var(--ink-3);margin-bottom:16px}
 .pagehead .crumbs a{color:var(--ink-3);text-decoration:none}
-.pagehead .crumbs a:hover{color:var(--forest)}
-.pagehead h1{font-size:clamp(46px,7vw,96px);font-weight:900;letter-spacing:-.03em;line-height:.95}
+.pagehead h1{font-size:clamp(40px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1}
 .pagehead h1 em{font-style:italic;font-weight:400;color:var(--forest)}
-.pagehead .dek{font-family:var(--display);font-style:italic;font-size:21px;color:var(--ink-2);max-width:720px;margin-top:16px;line-height:1.4}
-.pagehead .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
-.secthead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:4px solid var(--rule);padding-top:10px;margin-bottom:22px}
-.secthead h2{font-size:30px;font-weight:800}
-.secthead h2 .num{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--ochre);vertical-align:middle;margin-right:12px}
+.pagehead .dek{font-family:var(--display);font-style:italic;font-size:20px;color:var(--ink-2);max-width:640px;margin:16px 0 0;line-height:1.45}
+.sect{margin-top:88px}
+.sect-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:2px solid var(--rule);padding-top:14px;margin-bottom:30px;flex-wrap:wrap}
+.sect-h h2{font-size:30px;font-weight:700}
 
-/* ---------- photo blocks ---------- */
-.photo{position:relative;overflow:hidden;background:var(--paper-3);border:1px solid rgba(29,26,21,.15)}
-.photo svg{display:block;width:100%;height:100%}
-.caption{font-family:var(--sans);font-size:12px;color:var(--ink-3);margin-top:8px;line-height:1.4}
-.caption b{color:var(--ink-2);font-weight:600}
+/* couverture typographique */
+.cov{display:flex;flex-direction:column;background:#FCFAF4;border:1px solid rgba(29,26,21,.16);padding:7% 7% 6%;color:var(--ink);text-decoration:none;container-type:inline-size;aspect-ratio:8.5/11;box-shadow:10px 10px 0 var(--paper-2);text-align:left;font:inherit;cursor:pointer;width:100%}
+.cov .ct{display:flex;justify-content:space-between;gap:6px;font-family:var(--sans);font-size:max(9px,3.3cqw);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--ink);padding-bottom:1.6cqw}
+.cov .cn{font-family:var(--display);font-weight:900;font-size:12.6cqw;line-height:1;text-align:center;letter-spacing:-.03em;padding:2.6cqw 0 3cqw;border-bottom:3px double var(--ink)}
+.cov .ch{font-family:var(--display);font-weight:700;font-size:8cqw;line-height:1.1;margin:6cqw 0 5cqw}
+.cov.plain .ch{font-size:10.5cqw;margin-top:auto}
+.cov .pimg{aspect-ratio:3/2}
+.cov .cf{font-family:var(--sans);font-size:max(9px,3.2cqw);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:auto;padding-top:3cqw;border-top:1px solid var(--rule-soft)}
 
-/* ---------- footer ---------- */
-.foot{background:var(--forest);color:#E7E1CF;margin-top:90px;position:relative}
-.foot::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px;background:repeating-linear-gradient(90deg,var(--forest) 0 14px,transparent 14px 18px)}
-.foot .wrap{padding-top:56px;padding-bottom:26px}
-.foot .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px}
-.foot .fname{font-family:var(--display);font-size:34px;font-weight:900;color:#fff;line-height:1}
-.foot .fname em{display:block;font-weight:400;font-style:italic;font-size:17px;color:var(--ochre-2);margin-top:8px}
-.foot .flogo{background:#FBF8F0;display:inline-block;padding:10px 14px;margin-bottom:18px}
-.foot .flogo img{width:120px}
+/* pied de page */
+.foot{background:var(--forest);color:#E7E1CF;margin-top:112px}
+.foot .wrap{padding-top:56px;padding-bottom:28px}
+.foot .fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px}
+.foot .flogo{background:#FBF8F0;display:inline-block;padding:10px 14px;margin-bottom:16px}
+.foot .flogo img{width:110px}
+.foot .fname{font-family:var(--display);font-size:26px;font-weight:700;color:#fff;line-height:1.1}
+.foot .fname em{display:block;font-weight:400;font-style:italic;font-size:16px;color:var(--ochre-2);margin-top:6px}
 .foot h4{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre-2);font-weight:700;margin-bottom:14px}
 .foot ul{list-style:none;margin:0;padding:0}
 .foot li{margin:0 0 7px}
 .foot a{color:#E7E1CF;text-decoration:none}
 .foot a:hover{color:#fff;text-decoration:underline}
-.foot address{font-style:normal;font-size:15px;line-height:1.7}
-.foot .colophon{border-top:1px solid rgba(231,225,207,.25);margin-top:44px;padding-top:18px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:#BFC8B5}
-.foot .fb{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--sans);font-size:13px;font-weight:600;border:1px solid rgba(231,225,207,.4);padding:8px 14px}
-.foot .fb:hover{background:rgba(255,255,255,.08);text-decoration:none}
+.foot address{font-style:normal;font-size:15.5px;line-height:1.75}
+.foot .hrs{margin-top:14px;font-size:14.5px;color:#C9D0BF}
+.foot .colophon{border-top:1px solid rgba(231,225,207,.22);margin-top:44px;padding-top:18px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:#BFC8B5}
 
-/* ---------- responsive shell ---------- */
-@media (max-width:1100px){
-  .mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{padding:0 13px;font-size:12px}
-  .foot .fgrid{grid-template-columns:1fr 1fr}
+@media (max-width:1000px){
+  .mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{padding:0 12px;font-size:12px}
 }
 @media (max-width:860px){
   body{font-size:16.5px}
   .wrap{padding:0 20px}
-  .ears{font-size:11px;justify-content:center;text-align:center}
-  .ears .ear.r{display:none}
-  .masthead .brand{flex-direction:column;gap:6px}
-  .masthead .bt{border:0;padding:0;text-align:center}
-  .masthead .bt strong{font-size:32px}
-  .masthead .brand img{width:130px}
-  .mainnav .wrap{justify-content:space-between;padding:0}
+  .mast{padding:22px 0 18px}
+  .mast .brand{flex-direction:column;gap:8px}
+  .mast .bt{border:0;padding:0;text-align:center}
+  .mast .bt strong{font-size:32px}
+  .mast .brand img{width:116px}
+  .mainnav .wrap{padding:0}
   .navtoggle{display:flex;align-items:center;gap:10px;width:100%;justify-content:center;height:48px;background:none;border:0;font-family:var(--sans);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);cursor:pointer}
   .navtoggle .bars{width:18px;height:2px;background:currentColor;position:relative}
   .navtoggle .bars::before,.navtoggle .bars::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
   .navtoggle .bars::before{top:-6px}.navtoggle .bars::after{top:6px}
-  .mainnav > .wrap > ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--card);border-bottom:3px double var(--rule);max-height:75vh;overflow:auto}
+  .mainnav > .wrap > ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--card);border-bottom:1px solid var(--rule);max-height:75vh;overflow:auto}
   .mainnav.open > .wrap > ul{display:flex}
-  .mainnav > .wrap > ul > li + li::before{display:none}
   .mainnav > .wrap > ul > li{border-top:1px solid var(--rule-soft)}
   .mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{width:100%;padding:0 22px;justify-content:space-between;font-size:13px}
-  .mainnav .drop,.mainnav .drop.wide{position:static;transform:none!important;opacity:1;visibility:visible;display:none;box-shadow:none;border:0;border-top:1px dashed var(--rule-soft);min-width:0;background:var(--paper)}
+  .mainnav .drop{position:static;transform:none;opacity:1;visibility:visible;display:none;border:0;border-top:1px dashed var(--rule-soft);min-width:0;background:var(--paper)}
   .mainnav li.open > .drop{display:block}
-  .mainnav .drop.wide{grid-template-columns:1fr}
-  .foot .fgrid{grid-template-columns:1fr;gap:30px}
-  .pagehead{padding:30px 0 20px}
+  .ribbon .wrap{font-size:13px}
+  .pagehead{padding:40px 0 4px}
   .pagehead .dek{font-size:18px}
-  .secthead h2{font-size:24px}
+  .sect{margin-top:64px}
+  .sect-h h2{font-size:25px}
+  .foot{margin-top:80px}
+  .foot .fgrid{grid-template-columns:1fr;gap:32px}
 }
+@media (max-width:560px){.mockbar .mk{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
-.mainnav .drop ul{display:block;list-style:none;margin:0;padding:0}
-.mainnav button.is-current{color:var(--forest);box-shadow:inset 0 -3px 0 var(--ochre-2)}
-/* ---------- press photos ---------- */
-.pimg{position:relative;overflow:hidden;background:var(--paper-3);margin:0}
-.pimg img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .5s,transform .8s}
-.pimg::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(29,26,21,.22) 1px,transparent 1.2px);background-size:3px 3px;mix-blend-mode:multiply;opacity:.35;transition:opacity .4s}
-.pimg.press img{filter:sepia(.45) saturate(.7) contrast(1.05) brightness(.98)}
-.pimg.press:hover img,a:hover .pimg.press img,button:hover .pimg.press img{filter:none}
-.pimg:hover::after{opacity:.12}
-.pimg.color::after{opacity:.18}
-.credit{position:absolute;right:0;bottom:0;background:rgba(29,26,21,.72);color:#F3EEDF;font-family:var(--sans);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;z-index:1}
-@media (max-width:560px){.mockbar .mk{display:none}.mockbar .wrap{font-size:11px;white-space:nowrap}}
 
-
-/* ---- UNE ---- */
-.une{display:grid;grid-template-columns:250px minmax(0,1fr) 300px;gap:0;border-bottom:1px solid var(--rule);margin-top:30px}
-.une > *{padding:0 28px}
-.une > *:first-child{padding-left:0}
-.une > *:last-child{padding-right:0}
-.une > * + *{border-left:1px solid var(--rule-soft)}
-.colhead{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;border-top:3px solid var(--rule);border-bottom:1px solid var(--rule);padding:7px 0;margin-bottom:18px;display:flex;justify-content:space-between}
-.colhead span{color:var(--ink-3);font-weight:600;letter-spacing:.08em}
-.brief{padding-bottom:16px;margin-bottom:16px;border-bottom:1px dotted var(--rule-soft)}
-.brief:last-child{border-bottom:0}
-.brief h3{font-size:19px;font-weight:700;margin:5px 0 6px;line-height:1.18}
-.brief h3 a{text-decoration:none}
-.brief h3 a:hover{text-decoration:underline}
-.brief p{font-size:14.5px;color:var(--ink-2);margin:0;line-height:1.5}
-.brief .big{font-family:var(--display);font-weight:900;font-size:40px;line-height:1;color:var(--ochre)}
-.brief .big small{font-size:16px;font-weight:700;color:var(--ink);font-family:var(--sans);letter-spacing:.06em;text-transform:uppercase;margin-left:4px}
-
-.lead .kicker{display:block;margin-bottom:10px}
-.lead h1{font-size:clamp(34px,4.2vw,58px);font-weight:900;letter-spacing:-.025em;line-height:1}
+.une{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:72px;margin-top:56px}
+.lead .kicker{margin-bottom:12px}
+.lead h1{font-size:clamp(34px,4.6vw,56px);font-weight:900;letter-spacing:-.025em;line-height:1.02}
 .lead h1 em{font-weight:400;font-style:italic;color:var(--forest)}
-.lead .dek{font-family:var(--display);font-style:italic;font-size:20px;color:var(--ink-2);margin:16px 0 18px;line-height:1.4}
-.lead .byline{font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);padding:8px 0;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.lead .byline b{color:var(--ink)}
-.lead .photo{aspect-ratio:16/9}
-.lead .cols{columns:2;column-gap:30px;column-rule:1px solid var(--rule-soft);margin-top:22px;font-size:16.5px;hyphens:auto;text-align:left}
-.lead .cols p{margin-bottom:.8em}
-.lead .pull{column-span:all;font-family:var(--display);font-style:italic;font-size:25px;line-height:1.3;color:var(--forest);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:16px 0;margin:6px 0 18px;text-align:left}
-.lead .pull cite{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);margin-top:8px}
-.lead .after{display:flex;gap:18px;align-items:center;margin:8px 0 30px;flex-wrap:wrap}
+.lead .dek{font-family:var(--display);font-style:italic;font-size:20px;color:var(--ink-2);margin:18px 0 26px;line-height:1.45;max-width:640px}
+.lead figure{margin:0 0 26px}
+.lead .pimg{aspect-ratio:16/9}
+.lead p.txt{max-width:640px}
+.lead .after{display:flex;gap:22px;align-items:center;margin-top:24px;flex-wrap:wrap}
 
-.agenda-mini li{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:12px 0;border-bottom:1px dotted var(--rule-soft);align-items:start}
-.agenda-mini ol{list-style:none;margin:0;padding:0}
-.agenda-mini .d{text-align:center;border:1px solid var(--rule);background:var(--card);line-height:1}
-.agenda-mini .d b{display:block;font-family:var(--display);font-weight:900;font-size:30px;padding:6px 0 2px}
-.agenda-mini .d span{display:block;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:3px 0}
-.agenda-mini .d.m span{background:var(--forest)}
-.agenda-mini h4{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.25;margin:0 0 3px}
-.agenda-mini p{margin:0;font-family:var(--sans);font-size:12px;color:var(--ink-3)}
-.agenda-mini .cat{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre)}
+.agenda h2{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border-top:2px solid var(--rule);padding-top:12px;margin-bottom:8px}
+.agenda ol{list-style:none;margin:0 0 22px;padding:0}
+.agenda li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule-soft);align-items:baseline}
+.agenda li:last-child{border-bottom:0}
+.agenda .d{font-family:var(--display);font-weight:900;font-size:32px;line-height:1;color:var(--ochre)}
+.agenda .d small{display:block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:4px}
+.agenda h3{font-family:var(--serif);font-weight:600;font-size:16.5px;line-height:1.3}
+.agenda p{margin:3px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
 
-.sopfeu{margin:26px 0 30px;border:1px solid var(--rule);background:var(--card);padding:16px 18px}
-.sopfeu .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.sopfeu h3{font-size:18px}
-.sopfeu .z{font-family:var(--sans);font-size:11.5px;color:var(--ink-3);margin:4px 0 12px;line-height:1.4}
-.gauge{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
-.gauge span{height:12px;background:var(--paper-3)}
-.gauge span:nth-child(1){background:#3F8F3A}
-.gauge-l{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;font-family:var(--sans);font-size:9.5px;letter-spacing:.02em;color:var(--ink-3);margin-top:5px;text-align:center}
-.gauge-l b{color:#2F6F2B}
-.sopfeu .now{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:28px;font-weight:900;color:#2F6F2B;margin:2px 0 10px}
-.sopfeu .now small{font-family:var(--sans);font-size:11px;color:var(--ink-3);font-weight:500;letter-spacing:0}
-.sopfeu a{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--forest)}
+.infos{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:88px}
+.infos > div{padding:30px 32px}
+.infos > div:first-child{padding-left:0}
+.infos > div:last-child{padding-right:0}
+.infos > div + div{border-left:1px solid var(--rule-soft)}
+.infos .big{font-family:var(--display);font-weight:900;font-size:44px;line-height:1;margin:12px 0 8px;color:var(--ink)}
+.infos h3{font-family:var(--serif);font-weight:600;font-size:17px;margin-bottom:4px}
+.infos p{font-size:15px;color:var(--ink-2);margin:0 0 14px}
+.infos .lvl{color:#2F6F2B}
+.gauge{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin:0 0 14px;max-width:200px}
+.gauge span{height:6px;background:var(--paper-3)}
+.gauge span:first-child{background:#3F8F3A}
 
-.chiffre{margin-bottom:30px}
-.chiffre b{display:inline-block;font-family:var(--display);font-weight:900;font-size:96px;line-height:.85;color:var(--ochre);letter-spacing:-.04em}
-.chiffre em{font-family:var(--display);font-style:italic;font-size:22px;margin-left:8px;color:var(--ink-2)}
-.chiffre p{font-size:14.5px;color:var(--ink-2);margin-top:10px}
-/* ---- Journal band ---- */
-.band{background:var(--forest);color:#EFE9D8;margin-top:70px;position:relative}
-.band .wrap{display:grid;grid-template-columns:380px 1fr;gap:60px;padding-top:60px;padding-bottom:60px;align-items:center}
-.band .kicker{color:var(--ochre-2)}
-.band h2{font-size:clamp(36px,5vw,64px);font-weight:900;color:#fff;line-height:.95;margin:10px 0 14px}
-.band h2 em{font-weight:400;color:var(--ochre-2)}
-.band .dek{font-family:var(--display);font-style:italic;font-size:19px;color:#D8D9C6;max-width:560px}
-.toc{list-style:none;padding:0;margin:26px 0 28px;counter-reset:t;border-top:1px solid rgba(239,233,216,.35)}
-.toc li{counter-increment:t;display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(239,233,216,.2)}
-.toc li::before{content:counter(t,decimal-leading-zero);font-family:var(--display);font-style:italic;font-size:22px;color:var(--ochre-2)}
-.toc a{color:#fff;text-decoration:none;font-family:var(--display);font-size:20px;font-weight:500}
-.toc a:hover{text-decoration:underline;text-decoration-color:var(--ochre-2)}
-.toc span{font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#B7C2AE}
-.band .btn{background:var(--ochre-2);border-color:var(--ochre-2);color:#1D1A15}
-.band .btn:hover{background:#fff;border-color:#fff}
-.band .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
-.band .btn.ghost:hover{background:#fff;color:var(--forest)}
+.jband{background:var(--forest);color:#EFE9D8;margin-top:96px}
+.jband .wrap{display:grid;grid-template-columns:300px minmax(0,1fr);gap:80px;padding-top:72px;padding-bottom:72px;align-items:center}
+.jband .cov{box-shadow:12px 12px 0 rgba(0,0,0,.2)}
+.jband .kicker{color:var(--ochre-2)}
+.jband h2{font-size:clamp(34px,4.6vw,54px);font-weight:900;color:#fff;line-height:1;margin:12px 0 16px}
+.jband h2 em{font-weight:400;color:var(--ochre-2)}
+.jband .dek{font-family:var(--display);font-style:italic;font-size:19px;color:#D8D9C6;max-width:520px;margin-bottom:26px}
+.jband ul{list-style:none;padding:0;margin:0 0 32px;max-width:560px}
+.jband li{padding:11px 0;border-top:1px solid rgba(239,233,216,.22);font-family:var(--display);font-size:19px}
+.jband li a{color:#fff;text-decoration:none}
+.jband li a:hover{text-decoration:underline;text-decoration-color:var(--ochre-2)}
+.jband .btn{background:var(--ochre-2);border-color:var(--ochre-2);color:var(--ink)}
+.jband .btn:hover{background:#fff;border-color:#fff}
+.jband .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.55);margin-left:8px}
+.jband .btn.ghost:hover{background:#fff;color:var(--forest)}
 
-.cover{background:#FBF8F0;color:var(--ink);padding:18px 18px 16px;box-shadow:14px 14px 0 rgba(0,0,0,.22);transform:rotate(-2deg);transition:transform .35s}
-.cover:hover{transform:rotate(0) translateY(-4px)}
-.cover .cm{text-align:center;border-bottom:3px double var(--ink);padding-bottom:8px}
-.cover .cm small{display:flex;justify-content:space-between;font-family:var(--sans);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--ink);padding-bottom:4px;margin-bottom:4px}
-.cover .cm strong{font-family:var(--display);font-weight:900;font-size:40px;letter-spacing:-.02em;line-height:1}
-.cover .cm em{display:block;font-family:var(--display);font-style:italic;font-size:11px;color:var(--ink-3)}
-.cover .ch{font-family:var(--display);font-weight:900;font-size:24px;line-height:1.02;margin:12px 0 8px}
-.cover .cp{aspect-ratio:4/2.6;margin-bottom:8px}
-.cover .cp img{height:100%}
-.cover .cc{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.cover .cc div{font-family:var(--display);font-size:12.5px;font-weight:700;line-height:1.15;border-top:1px solid var(--ink);padding-top:5px}
-.cover .lines{height:28px;margin-top:4px;background:repeating-linear-gradient(180deg,#CFC4AA 0 2px,transparent 2px 6px)}
-
-/* ---- Services index ---- */
-.services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
-.services a{display:block;padding:22px 22px 24px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);text-decoration:none;position:relative;transition:background .2s;min-height:150px}
-.services a:hover{background:var(--card)}
-.services a:hover h3{color:var(--forest)}
-.services .n{font-family:var(--display);font-style:italic;font-size:30px;color:var(--ochre);line-height:1}
-.services h3{font-size:21px;margin:14px 0 6px;font-weight:700}
-.services p{font-size:14px;color:var(--ink-3);margin:0;line-height:1.45}
-.services a::after{content:"→";position:absolute;top:20px;right:22px;font-family:var(--sans);font-size:18px;color:var(--ink-3);transition:transform .2s}
-.services a:hover::after{transform:translateX(4px);color:var(--forest)}
-
-/* ---- Vivre ---- */
-.vivre{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px}
-.feat .photo{aspect-ratio:4/3}
-.feat.main .photo{aspect-ratio:4/3.2}
-.feat .kicker{display:block;margin:16px 0 6px}
-.feat h3{font-size:28px;margin-bottom:10px}
-.feat.main h3{font-size:36px}
-.feat p{font-size:15.5px;color:var(--ink-2)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:14px 0}
-.stats div{padding:10px 0;text-align:center}
-.stats div + div{border-left:1px solid var(--rule-soft)}
-.stats b{display:block;font-family:var(--display);font-weight:900;font-size:30px;line-height:1;color:var(--forest)}
-.stats span{font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
-.orgs{list-style:none;padding:0;margin:0}
-.orgs li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dotted var(--rule-soft);font-size:15px}
-.orgs li span{font-family:var(--sans);font-size:12px;color:var(--ink-3);text-align:right}
-
-/* ---- Histoire ---- */
-.histoire{display:grid;grid-template-columns:auto 1fr;gap:50px;align-items:center;border-top:4px solid var(--rule);border-bottom:1px solid var(--rule);padding:40px 0;margin-top:80px}
-.histoire .yr{font-family:var(--display);font-weight:900;font-size:clamp(110px,16vw,220px);line-height:.8;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2px var(--forest);position:relative}
-.histoire .yr span{position:absolute;left:0;top:0;color:var(--forest);clip-path:inset(55% 0 0 0)}
-.histoire h2{font-size:38px;margin:8px 0 14px}
-.histoire h2 em{font-weight:400;color:var(--ochre)}
-.histoire p{font-size:17.5px;max-width:680px;color:var(--ink-2)}
-section.block{margin-top:80px}
-.album{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.album figure{margin:0}
-.album .pimg{aspect-ratio:4/3}
-.album figcaption{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:8px;line-height:1.4}
-.album figcaption b{font-family:var(--display);font-size:15px;color:var(--ink);font-weight:700}
-.histoire{margin-top:80px}
-@media (max-width:1100px){.album{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.album{gap:14px}.album figcaption{font-size:11.5px}}
-
-
-@media (max-width:1100px){
-  .une{grid-template-columns:220px minmax(0,1fr)}
-  .une > .rightcol{grid-column:1 / -1;border-left:0;padding:0;border-top:1px solid var(--rule);margin-top:10px;padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
-  .une > .rightcol .sopfeu{margin-top:0}
-  .services{grid-template-columns:repeat(2,1fr)}
-  .vivre{grid-template-columns:1fr 1fr}
-  .vivre .feat.main{grid-column:1 / -1}
-  .band .wrap{grid-template-columns:300px 1fr;gap:40px}
+.jband + .foot{margin-top:64px}
+@media (max-width:960px){
+  .une{grid-template-columns:1fr;gap:48px;margin-top:36px}
+  .infos{grid-template-columns:1fr;margin-top:64px}
+  .infos > div{padding:26px 0!important}
+  .infos > div + div{border-left:0;border-top:1px solid var(--rule-soft)}
+  .jband .wrap{grid-template-columns:1fr;gap:44px;padding-top:52px;padding-bottom:56px}
+  .jband .cov{max-width:260px}
 }
-@media (max-width:860px){
-  .une{grid-template-columns:1fr;margin-top:20px}
-  .une > *{padding:0!important;border-left:0!important}
-  .une > .lead{order:-1;padding-bottom:10px!important}
-  .une > .leftcol{border-top:1px solid var(--rule)!important;padding-top:20px!important}
-  .une > .rightcol{grid-template-columns:1fr}
-  .lead .cols{columns:1;text-align:left}
-  .lead .pull{font-size:21px}
-  .band .wrap{grid-template-columns:1fr;gap:40px;padding-top:44px;padding-bottom:44px}
-  .band .cover{max-width:320px;margin:0 auto}
-  .toc li{grid-template-columns:38px 1fr}
-  .toc li span{grid-column:2}
-  .toc a{font-size:18px}
-  .services{grid-template-columns:1fr}
-  .services a{min-height:0}
-  .vivre{grid-template-columns:1fr}
-  .histoire{grid-template-columns:1fr;gap:20px;padding:30px 0}
-  .histoire h2{font-size:30px}
-  section.block{margin-top:56px}
-}
+@media (max-width:420px){.jband .btn.ghost{margin:10px 0 0}}
 </style>
 </head>
 <body>
 <a class="sr-only" href="#contenu">Aller au contenu</a>
-<div class="mockbar">
-  <div class="wrap">
-    <a href="../index.html">← Retour aux options</a>
-    <span><span class="mk">Maquette · </span><b>Option C — « La Gazette »</b></span>
-  </div>
-</div>
+<div class="mockbar"><div class="wrap"><a href="../index.html">← Retour aux options</a><span><span class="mk">Maquette · </span><b>Option C — « La Gazette »</b></span></div></div>
 <header>
-  <div class="wrap">
-    <div class="ears">
-      <div class="ear l">
-        <span>Jeudi 8 octobre 2026</span>
-        <span aria-hidden="true">·</span>
-        <span>Biencourt, Témiscouata</span>
-      </div>
-      <div class="ear r">
-        <a class="fire" href="#sopfeu" title="Indice SOPFEU — zone Kamouraska-RDL-Témis-Les Basques"><i aria-hidden="true"></i>Danger d’incendie : <b>&nbsp;Bas</b></a>
-        <span aria-hidden="true">·</span>
-        <span>418 499-2423</span>
-      </div>
-    </div>
-    <div class="masthead">
-      <a class="brand" href="accueil.html" aria-label="Municipalité de Biencourt — accueil">
-        <img src="../assets/logo-biencourt.png" alt="Logo de Biencourt : feuille d’érable, montagne et lettrage bleu" width="150" height="75">
-        <span class="bt">
-          <small>Municipalité de</small>
-          <strong>Biencourt</strong>
-          <em>Un endroit à découvrir — depuis 1947</em>
-        </span>
-      </a>
-    </div>
+  <div class="wrap mast">
+    <a class="brand" href="accueil.html" aria-label="Municipalité de Biencourt — accueil">
+      <img src="../assets/logo-biencourt.png" alt="Logo de Biencourt : feuille d’érable, montagne et lettrage bleu" width="132" height="66">
+      <span class="bt"><small>Municipalité de</small><strong>Biencourt</strong><em>Un endroit à découvrir</em></span>
+    </a>
   </div>
   <nav class="mainnav" aria-label="Navigation principale">
     <div class="wrap">
-      <button class="navtoggle" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"></span> Sommaire</button>
+      <button class="navtoggle" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"></span> Menu</button>
       <ul id="menu">
         <li><a href="accueil.html" aria-current="page">Accueil</a></li>
         <li class="has-drop">
-          <button type="button" aria-expanded="false" >Municipalité <span class="caret" aria-hidden="true"></span></button>
-          <ul class="drop wide">
-            <li><div class="dh">Gouvernance</div>
-              <ul>
-                <li><a href="conseil.html">Conseil municipal<small>Membres, séances, procès-verbaux</small></a></li>
-                <li><a href="#">Administration<small>Taxes, contrats, éthique, eau potable, plaintes</small></a></li>
-                <li><a href="#">Politiques<small>Gestion contractuelle et autres</small></a></li>
-                <li><a href="#">Cartes et rôles d’évaluation</a></li>
-              </ul>
-            </li>
-            <li><div class="dh">Services</div>
-              <ul>
-                <li><a href="#">Urbanisme</a></li>
-                <li><a href="#">Office municipal d’habitation</a></li>
-                <li><a href="#">Infos RIDT</a></li>
-                <li><a href="#">Station de lavage et débarcadère</a></li>
-                <li><a href="#">Liens utiles</a></li>
-              </ul>
-            </li>
+          <button type="button" aria-expanded="false">Municipalité <span class="caret" aria-hidden="true"></span></button>
+          <ul class="drop">
+            <li><a href="conseil.html">Conseil municipal</a></li>
+            <li><a href="#">Administration et taxes</a></li>
+            <li><a href="#">Urbanisme</a></li>
+            <li><a href="#">Office municipal d’habitation</a></li>
+            <li><a href="#">Politiques</a></li>
+            <li><a href="#">Infos RIDT</a></li>
+            <li><a href="#">Station de lavage et débarcadère</a></li>
+            <li><a href="#">Cartes et rôles d’évaluation</a></li>
+            <li><a href="#">Liens utiles</a></li>
           </ul>
         </li>
-        <li><a href="evenements.html" >Événements</a></li>
-        <li><a href="journal.html" >Le Journal</a></li>
+        <li><a href="evenements.html">Événements</a></li>
+        <li><a href="journal.html">Le Journal</a></li>
         <li class="has-drop">
           <button type="button" aria-expanded="false">Vivre à Biencourt <span class="caret" aria-hidden="true"></span></button>
           <ul class="drop">
@@ -456,231 +255,100 @@ section.block{margin-top:80px}
     </div>
   </nav>
 </header>
-
 <div class="ribbon" role="region" aria-label="Avis important">
   <div class="wrap">
     <span class="tag">Avis</span>
-    <span>Collecte des encombrants le <b>samedi 17 octobre</b> — déposez vos objets en bordure de rue la veille au soir. <a href="#">Ce qui est accepté</a></span>
+    <span>Collecte des encombrants le <b>samedi 17 octobre</b> — objets en bordure de rue la veille au soir. <a href="#">Ce qui est accepté</a></span>
     <button class="x" type="button" aria-label="Fermer l’avis">×</button>
   </div>
 </div>
 
 <main id="contenu" class="wrap">
   <div class="une">
-    <!-- colonne gauche -->
-    <aside class="leftcol" aria-label="En bref">
-      <div class="colhead">En bref <span>Oct. 2026</span></div>
-      <article class="brief">
-        <div class="big">19<small>oct.</small></div>
-        <span class="kicker">Taxes municipales</span>
-        <h3><a href="#">Le 6<sup>e</sup> et dernier versement arrive à échéance</a></h3>
-        <p>Paiement en ligne, au guichet ou par téléphone. Référence : votre matricule à 10 chiffres.</p>
-      </article>
-      <article class="brief">
-        <span class="kicker forest">Eau potable</span>
-        <h3><a href="#">Avis d’ébullition préventif levé</a></h3>
-        <p>Les analyses sont conformes depuis le 2 octobre. L’eau du réseau peut être consommée normalement.</p>
-      </article>
-      <article class="brief">
-        <span class="kicker">Conseil municipal</span>
-        <h3><a href="conseil.html">Séance ordinaire le lundi 2 novembre, 19 h 30</a></h3>
-        <p>Salle du conseil, 5, rue Berger. L’ordre du jour sera publié le 30 octobre.</p>
-      </article>
-      <article class="brief">
-        <span class="kicker">Camping municipal</span>
-        <h3><a href="#">Les chalets à l’année encore disponibles</a></h3>
-        <p>4 des 10 chalets quatre-saisons sont libres pour l’hiver. 418 499-2353.</p>
-      </article>
-    </aside>
-
-    <!-- article vedette -->
     <article class="lead">
       <span class="kicker">À la une · Le Biencourtois, octobre 2026</span>
       <h1>Fête des récoltes : <em>tout un village</em> autour de la même table</h1>
-      <p class="dek">Plus de 300 personnes — soit la moitié de Biencourt — ont célébré la fin de l’été au Centre des loisirs. Retour sur une journée qui sentait la tire, le foin et la soupe aux légumes.</p>
-      <div class="byline"><span>Par <b>Marie-Ève Thériault</b>, collaboratrice</span><span>Lecture : 4 min</span></div>
-      <figure style="margin:0">
-        <div class="pimg color" style="aspect-ratio:3/2">
-          <img src="../assets/vue_biencourt_montagne_de_la_tour.png" alt="Vue aérienne du village de Biencourt entouré de forêts aux couleurs d’automne flamboyantes, prise depuis la montagne de la Tour" width="640" height="426">
-          <span class="credit">Photo : Municipalité de Biencourt</span>
-        </div>
-        <figcaption class="caption"><b>Biencourt vu de la montagne de la Tour.</b> Les couleurs étaient au rendez-vous pour la Fête des récoltes, le 26 septembre. <i>Photo : Municipalité de Biencourt</i></figcaption>
+      <p class="dek">Plus de 300 personnes ont célébré la fin de l’été au Centre des loisirs, le 26 septembre.</p>
+      <figure>
+        <div class="pimg"><img src="../assets/vue_biencourt_montagne_de_la_tour.png" alt="Vue aérienne du village de Biencourt entouré de forêts aux couleurs d’automne, prise depuis la montagne de la Tour" width="640" height="426"></div>
+        <figcaption class="caption">Biencourt vu de la montagne de la Tour, fin septembre. Photo : Municipalité de Biencourt</figcaption>
       </figure>
-      <div class="cols">
-        <p class="dropcap">Dès 10 heures, samedi le 26 septembre, le stationnement du Centre des loisirs débordait déjà. Les bénévoles du Comité des loisirs avaient monté le chapiteau la veille, sous une petite pluie que personne n’a regrettée : le soleil s’est pointé juste à temps pour l’ouverture du marché des producteurs.</p>
-        <p>Une douzaine d’exposants — légumes, miel, produits de l’érable, tricots et conserves — ont vu défiler les familles toute la journée. La soupe collective, préparée par les Cuisines collectives du Haut-Pays avec les légumes donnés par les jardiniers du village, s’est envolée avant 13 h.</p>
-        <blockquote class="pull">« On a fait le compte : la moitié du village est passée sous le chapiteau. C’est ça, Biencourt. »<cite>— Yvan Beaulieu, Comité des loisirs</cite></blockquote>
-        <p>L’après-midi, le concours de la plus grosse citrouille a été remporté par la famille Godin avec un spécimen de 212 livres. Les plus jeunes se sont disputé le labyrinthe de bottes de foin, pendant que la Chorale de Biencourt offrait un court tour de chant.</p>
-        <p>Le comité remercie les commanditaires et la vingtaine de bénévoles. Les profits serviront à la Fête de Noël des enfants, le 13 décembre.</p>
-      </div>
+      <p class="txt dropcap">Marché des producteurs, soupe collective préparée par les Cuisines collectives du Haut-Pays, concours de citrouilles et tour de chant de la Chorale : la moitié du village est passée sous le chapiteau. Les profits serviront à la Fête de Noël des enfants, le 13 décembre.</p>
       <div class="after">
         <a class="btn" href="journal.html">Lire l’édition d’octobre</a>
-        <a class="more" href="#">Voir l’album photo</a>
+        <a class="more" href="#">Album photo</a>
       </div>
     </article>
 
-    <!-- colonne droite -->
-    <aside class="rightcol" aria-label="Agenda et danger d’incendie">
-      <div class="agenda-mini">
-        <div class="colhead">L’agenda <span>À venir</span></div>
-        <ol>
-          <li><div class="d"><b>10</b><span>oct.</span></div><div><span class="cat">Communautaire</span><h4>Souper spaghetti du Club des 50 ans et plus</h4><p>Salle communautaire · 17 h 30</p></div></li>
-          <li><div class="d"><b>14</b><span>oct.</span></div><div><span class="cat">Communautaire</span><h4>Cuisines collectives du Haut-Pays</h4><p>2, rue St-Marc · 9 h</p></div></li>
-          <li><div class="d m"><b>17</b><span>oct.</span></div><div><span class="cat">Municipal</span><h4>Collecte des encombrants</h4><p>Tout le territoire</p></div></li>
-          <li><div class="d"><b>24</b><span>oct.</span></div><div><span class="cat">Loisirs</span><h4>Bingo de l’Halloween pour les familles</h4><p>Centre des loisirs · 18 h 30</p></div></li>
-          <li><div class="d"><b>31</b><span>oct.</span></div><div><span class="cat">Loisirs</span><h4>Parcours d’Halloween</h4><p>Centre des loisirs · 17 h</p></div></li>
-        </ol>
-        <p style="margin-top:14px"><a class="more" href="evenements.html">Tout l’agenda →</a></p>
-      </div>
-      <div class="sopfeu" id="sopfeu">
-        <div class="t"><h3>Danger d’incendie</h3><span class="kicker forest">SOPFEU</span></div>
-        <p class="z">Zone Kamouraska – RDL – Témis – Les Basques · mis à jour ce matin, 8 h</p>
-        <div class="now">Bas <small>Feux à ciel ouvert permis<br>avec précaution</small></div>
-        <div class="gauge" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="gauge-l" aria-hidden="true"><b>Bas</b><span>Modéré</span><span>Élevé</span><span>Très élevé</span><span>Extrême</span></div>
-        <p style="margin:12px 0 0"><a href="#">Voir sur la carte →</a></p>
-      </div>
-      <div class="chiffre">
-        <div class="colhead">Le chiffre du mois <span>Oct.</span></div>
-        <b>212</b><em>livres</em>
-        <p>Le poids de la citrouille gagnante de la famille Godin, à la Fête des récoltes. Un record pour Biencourt.</p>
-      </div>
+    <aside class="agenda" aria-labelledby="agt">
+      <h2 id="agt">Agenda</h2>
+      <ol>
+        <li><div class="d">10<small>oct.</small></div><div><h3>Souper spaghetti du Club des 50 ans et plus</h3><p>Salle communautaire · 17 h 30</p></div></li>
+        <li><div class="d">17<small>oct.</small></div><div><h3>Collecte des encombrants</h3><p>Tout le territoire</p></div></li>
+        <li><div class="d">24<small>oct.</small></div><div><h3>Bingo de l’Halloween pour les familles</h3><p>Centre des loisirs · 18 h 30</p></div></li>
+        <li><div class="d">31<small>oct.</small></div><div><h3>Parcours d’Halloween</h3><p>Centre des loisirs · 17 h</p></div></li>
+      </ol>
+      <a class="more" href="evenements.html">Tout l’agenda</a>
     </aside>
   </div>
+
+  <section class="infos" aria-label="Infos pratiques">
+    <div>
+      <span class="kicker">Taxes municipales</span>
+      <div class="big">19 oct.</div>
+      <h3>6<sup>e</sup> et dernier versement</h3>
+      <p>En ligne, au guichet ou par téléphone, avec votre matricule à 10 chiffres.</p>
+      <a class="more" href="#">Payer mes taxes</a>
+    </div>
+    <div>
+      <span class="kicker">Conseil municipal</span>
+      <div class="big">2 nov.</div>
+      <h3>Prochaine séance ordinaire</h3>
+      <p>19 h 30, salle du conseil, 5, rue Berger. Séance publique.</p>
+      <a class="more" href="conseil.html">Ordre du jour et PV</a>
+    </div>
+    <div id="sopfeu">
+      <span class="kicker">Danger d’incendie · SOPFEU</span>
+      <div class="big lvl">Bas</div>
+      <div class="gauge" role="img" aria-label="Niveau 1 sur 5 : bas"><span></span><span></span><span></span><span></span><span></span></div>
+      <p>Zone Kamouraska – RDL – Témis – Les Basques. Mis à jour ce matin.</p>
+      <a class="more" href="#">Voir sur la carte</a>
+    </div>
+  </section>
 </main>
 
-<!-- Journal band -->
-<section class="band" aria-labelledby="jtitle">
+<section class="jband" aria-labelledby="jt">
   <div class="wrap">
-    <a href="journal.html" class="cover" aria-label="Couverture du Biencourtois, octobre 2026" style="text-decoration:none;display:block">
-      <div class="cm"><small><span>Vol. 12 · No 10</span><span>Octobre 2026</span><span>Gratuit</span></small><strong>Le Biencourtois</strong><em>Le journal de la communauté de Biencourt</em></div>
+    <a class="cov plain" href="journal.html" aria-label="Couverture du Biencourtois, octobre 2026">
+      <div class="ct"><span>Vol. 12 · No 10</span><span>Octobre 2026</span></div>
+      <div class="cn">Le Biencourtois</div>
       <div class="ch">Fête des récoltes : tout un village à la même table</div>
-      <div class="pimg color cp"><img src="../assets/vue_biencourt_montagne_de_la_tour.png" alt="" width="640" height="426"></div>
-      <div class="cc"><div>Le Mont Biencourt prépare sa saison</div><div>40 ans d’acériculture chez les Beaulieu</div></div>
-      <div class="lines"></div>
+      <div class="cf">Le journal de la communauté · 12 pages</div>
     </a>
     <div>
-      <span class="kicker">Le journal local · Parution mensuelle</span>
-      <h2 id="jtitle">Le Biencourtois <em>d’octobre</em> est arrivé.</h2>
-      <p class="dek">Douze pages de nouvelles d’ici, écrites par des gens d’ici. Lisez-le en ligne, téléchargez le PDF ou prenez votre copie papier au bureau de poste.</p>
-      <ol class="toc">
-        <li><a href="journal.html#a1">Retour sur la Fête des récoltes</a><span>p. 1</span></li>
-        <li><a href="journal.html#a2">Le Mont Biencourt prépare sa saison 2026-2027</a><span>p. 3</span></li>
-        <li><a href="journal.html#a3">Mot du maire : budget 2027 en préparation</a><span>p. 2</span></li>
-        <li><a href="journal.html#a4">Portrait : 40 ans d’acériculture chez les Beaulieu</a><span>p. 6</span></li>
-        <li><a href="journal.html#a5">Collecte des encombrants le 17 octobre</a><span>p. 9</span></li>
-      </ol>
-      <a class="btn" href="journal.html">Feuilleter le journal</a>
-      <a class="btn ghost" href="#" style="margin-left:8px">PDF · 4,2 Mo</a>
+      <span class="kicker">Le journal local</span>
+      <h2 id="jt">Le Biencourtois <em>d’octobre</em> est arrivé.</h2>
+      <p class="dek">Des nouvelles d’ici, écrites par des gens d’ici. En ligne, en PDF ou en papier au bureau de poste.</p>
+      <ul>
+        <li><a href="journal.html#lecteur">Le Mont Biencourt prépare sa saison 2026-2027</a></li>
+        <li><a href="journal.html#lecteur">Mot du maire : budget 2027 en préparation</a></li>
+        <li><a href="journal.html#lecteur">Portrait : 40 ans d’acériculture chez les Beaulieu</a></li>
+      </ul>
+      <a class="btn" href="journal.html">Feuilleter le journal</a><a class="btn ghost" href="#">PDF · 4,2 Mo</a>
     </div>
   </div>
 </section>
-
-<div class="wrap">
-  <section class="block" aria-labelledby="stitle">
-    <div class="secthead"><h2 id="stitle"><span class="num">N° 02</span>Services aux citoyens</h2><a class="more" href="#">Tous les services</a></div>
-    <nav class="services" aria-label="Services">
-      <a href="#"><span class="n">01</span><h3>Payer mes taxes</h3><p>Six versements en 2026 ; prochain le 19 octobre.</p></a>
-      <a href="conseil.html"><span class="n">02</span><h3>Séances du conseil</h3><p>Calendrier 2026, ordres du jour et procès-verbaux.</p></a>
-      <a href="#"><span class="n">03</span><h3>Urbanisme &amp; permis</h3><p>Construction, rénovation, installation septique.</p></a>
-      <a href="#"><span class="n">04</span><h3>Collectes &amp; RIDT</h3><p>Calendrier des matières résiduelles et écocentre.</p></a>
-      <a href="#"><span class="n">05</span><h3>Eau potable</h3><p>Qualité de l’eau, avis et analyses.</p></a>
-      <a href="#"><span class="n">06</span><h3>Station de lavage</h3><p>Débarcadère du lac et lavage des embarcations.</p></a>
-      <a href="#"><span class="n">07</span><h3>Rôle d’évaluation</h3><p>Cartes et valeurs foncières en ligne.</p></a>
-      <a href="#joindre"><span class="n">08</span><h3>Formuler une plainte</h3><p>Une requête, un problème ? Écrivez-nous.</p></a>
-    </nav>
-  </section>
-
-  <section class="block" aria-labelledby="vtitle">
-    <div class="secthead"><h2 id="vtitle"><span class="num">N° 03</span>Vivre à Biencourt</h2><a class="more" href="#">Album photo</a></div>
-    <div class="vivre">
-      <article class="feat main">
-        <div class="pimg press" style="aspect-ratio:4/3">
-          <img src="../assets/centre_de_ski_vue_de_la_trois_automne.png" alt="Vue du haut d’une piste du Mont Biencourt en automne : érables rouges et jaunes, chalet du centre de ski et lacs au loin sous un ciel bleu" width="640" height="426" loading="lazy">
-          <span class="credit">Photo : Municipalité de Biencourt</span>
-        </div>
-        <p class="caption"><b>Le Mont Biencourt en automne,</b> vu du haut de la piste « la Trois ».</p>
-        <span class="kicker">Plein air · à 3 km du village</span>
-        <h3>Le Mont Biencourt, notre montagne</h3>
-        <div class="stats"><div><b>13</b><span>pentes</span></div><div><b>185 m</b><span>dénivelé</span></div><div><b>100 %</b><span>neige naturelle</span></div></div>
-        <p>Quatre sous-bois, glissade sur tube et parc à neige : une station familiale gérée par des bénévoles passionnés. Ouverture prévue le 6 décembre, selon dame Nature.</p>
-        <a class="more" href="#">montbiencourt.com</a>
-      </article>
-      <article class="feat">
-        <div class="photo" role="img" aria-label="Illustration : le lac Biencourt et un chalet du camping">
-          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <rect width="400" height="300" fill="#F3E3C0"/>
-            <path d="M0 150 Q100 100 200 130 T400 120 V300H0Z" fill="#4F7449"/>
-            <rect y="170" width="400" height="130" fill="#2E8BC9" opacity=".75"/>
-            <g stroke="#F5EFE1" stroke-width="2" opacity=".7"><line x1="40" y1="200" x2="110" y2="200"/><line x1="160" y1="225" x2="260" y2="225"/><line x1="280" y1="195" x2="350" y2="195"/><line x1="60" y1="255" x2="180" y2="255"/></g>
-            <g transform="translate(270 120)"><path d="M0 30 L35 0 L70 30Z" fill="#9E2B1F"/><rect x="6" y="30" width="58" height="34" fill="#C7A36A" stroke="#1D1A15" stroke-width="2"/><rect x="26" y="42" width="16" height="22" fill="#1D1A15"/></g>
-            <path d="M120 205 l50 0 l-8 10 l-34 0z" fill="#E8762B" stroke="#1D1A15" stroke-width="1.5"/><line x1="145" y1="205" x2="145" y2="170" stroke="#1D1A15" stroke-width="1.5"/><path d="M147 172 l20 28 h-20z" fill="#F5EFE1" stroke="#1D1A15"/>
-          </svg>
-        </div>
-        <p class="caption"><b>Photo :</b> Lac Biencourt, depuis la plage du camping.</p>
-        <span class="kicker">Villégiature</span>
-        <h3>Lac &amp; camping municipal</h3>
-        <p>18 chalets, dont 10 ouverts à l’année, emplacements pour roulottes, buanderie et douches. Nautisme, pêche et piste cyclable au bord de l’eau.</p>
-        <p style="font-family:var(--sans);font-size:13px">1, chemin du Camping · <b>418 499-2353</b></p>
-      </article>
-      <article class="feat">
-        <div class="colhead">Organismes <span>Qui contacter</span></div>
-        <ul class="orgs">
-          <li>Comité des loisirs <span>Yvan Beaulieu</span></li>
-          <li>Comité Solidarité, partage <span>Linda Lavoie</span></li>
-          <li>Chorale de Biencourt <span>Monique Thériault</span></li>
-          <li>Club des 50 ans et plus <span>Marc Pelletier</span></li>
-          <li>OPP de l’école <span>Weena Beaulieu</span></li>
-          <li>Cuisines collectives <span>Mercredis</span></li>
-          <li>Club de motoneige <span>—</span></li>
-          <li>Fabrique <span>—</span></li>
-        </ul>
-        <div class="colhead" style="margin-top:28px">Commerces <span>Achat local</span></div>
-        <ul class="orgs">
-          <li>Épicerie Chez Lelou <span>19, Principale Est</span></li>
-          <li>Coiffure Karo <span>20, rue Berger</span></li>
-          <li>Coiffure Linda <span>4, de la Nativité</span></li>
-          <li>Bureau de poste <span>14, Principale Ouest</span></li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="block" aria-labelledby="altitle">
-    <div class="secthead"><h2 id="altitle"><span class="num">N° 04</span>L’album de Biencourt</h2><a class="more" href="#">Toutes les photos</a></div>
-    <div class="album">
-      <figure><div class="pimg press"><img src="../assets/Cascade_saut.png" alt="Chute et rapides du Saut en pleine forêt, sous un ciel bleu" width="640" height="426" loading="lazy"><span class="credit">Municipalité de Biencourt</span></div><figcaption><b>Le Saut.</b> La cascade, à quelques minutes du village.</figcaption></figure>
-      <figure><div class="pimg press"><img src="../assets/Pont_saut.png" alt="Passerelle blanche au-dessus de la rivière, vue à travers les arbres" width="640" height="426" loading="lazy"><span class="credit">Municipalité de Biencourt</span></div><figcaption><b>La passerelle du Saut.</b> Un sentier pour toute la famille.</figcaption></figure>
-      <figure><div class="pimg press"><img src="../assets/centre_de_ski_cours_motoneige.png" alt="Foule rassemblée de nuit dans la cour enneigée du centre de ski, devant le chalet illuminé" width="640" height="426" loading="lazy"><span class="credit">Municipalité de Biencourt</span></div><figcaption><b>Soirée au Mont.</b> Rassemblement des motoneigistes dans la cour du chalet.</figcaption></figure>
-      <figure><div class="pimg press"><img src="../assets/chevreuille.png" alt="Chevreuils dans une forêt enneigée" width="640" height="426" loading="lazy"><span class="credit">Municipalité de Biencourt</span></div><figcaption><b>Voisins à quatre pattes.</b> Chevreuils aperçus en bordure du rang.</figcaption></figure>
-    </div>
-  </section>
-
-  <section class="histoire" aria-labelledby="htitle">
-    <div class="yr" aria-hidden="true">1947<span>1947</span></div>
-    <div>
-      <span class="kicker">Un brin d’histoire</span>
-      <h2 id="htitle">Un canton, un baron <em>et une érablière</em></h2>
-      <p>Érigée en municipalité en 1947, Biencourt porte le nom du baron Charles de Biencourt de Saint-Just, vice-amiral de l’Acadie et commandant de Port-Royal en 1611. Aujourd’hui, moins de 600 Biencourtoises et Biencourtois y vivent au rythme des saisons — et des sucres : l’acériculture demeure la principale source d’emplois du territoire.</p>
-      <a class="more" href="#">Lire l’histoire complète</a>
-    </div>
-  </section>
-</div>
 <footer class="foot" id="joindre">
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="flogo"><img src="../assets/logo-biencourt.png" alt="Logo de Biencourt" width="120" height="60"></div>
+        <div class="flogo"><img src="../assets/logo-biencourt.png" alt="Logo de Biencourt" width="110" height="55"></div>
         <div class="fname">Municipalité de Biencourt<em>« Biencourt, un endroit à découvrir! »</em></div>
-        <a class="fb" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.6 2 10.7 3.4 10.7 5.8V8H8.5v3h2.2v11H14V11h2.6l.4-3H14z"/></svg>Suivez-nous sur Facebook</a>
       </div>
       <div>
         <h4>Nous joindre</h4>
-        <address>5, rue Berger, C.P. 70<br>Biencourt (Québec) G0K 1T0<br>Tél. <a href="tel:+14184992423">418 499-2423</a><br>Téléc. 418 499-2708<br><a href="mailto:info@biencourt.ca">info@biencourt.ca</a></address>
-      </div>
-      <div>
-        <h4>Heures du bureau</h4>
-        <ul><li>Lundi au jeudi</li><li>8 h 30 – 12 h</li><li>13 h – 16 h 30</li><li style="margin-top:12px;color:#BFC8B5">Fermé le vendredi</li></ul>
+        <address>5, rue Berger, C.P. 70<br>Biencourt (Québec) G0K 1T0<br>Tél. <a href="tel:+14184992423">418 499-2423</a><br><a href="mailto:info@biencourt.ca">info@biencourt.ca</a></address>
+        <p class="hrs">Lundi au jeudi · 8 h 30 – 12 h, 13 h – 16 h 30</p>
       </div>
       <div>
         <h4>Raccourcis</h4>
@@ -689,35 +357,27 @@ section.block{margin-top:80px}
           <li><a href="evenements.html">Agenda des activités</a></li>
           <li><a href="journal.html">Le Biencourtois</a></li>
           <li><a href="#">Paiement des taxes</a></li>
-          <li><a href="#">Camping municipal</a></li>
+          <li><a href="#">Facebook</a></li>
           <li><a href="admin.html">Accès administrateur</a></li>
         </ul>
       </div>
     </div>
     <div class="colophon">
-      <span>© 2026 Municipalité de Biencourt · MRC de Témiscouata · Bas-Saint-Laurent</span>
-      <span>Accessibilité · Confidentialité · Plan du site</span>
+      <span>© 2026 Municipalité de Biencourt · MRC de Témiscouata</span>
+      <span>Accessibilité · Confidentialité</span>
     </div>
   </div>
 </footer>
 <script>
 (function(){
-  var nav=document.querySelector('.mainnav');
-  var t=nav.querySelector('.navtoggle');
+  var nav=document.querySelector('.mainnav'),t=nav.querySelector('.navtoggle');
+  function closeAll(except){nav.querySelectorAll('.has-drop.open').forEach(function(x){if(x!==except){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')}})}
   t.addEventListener('click',function(){var o=nav.classList.toggle('open');t.setAttribute('aria-expanded',o)});
-  nav.querySelectorAll('.has-drop > button').forEach(function(b){
-    b.addEventListener('click',function(){
-      var li=b.parentNode,o=!li.classList.contains('open');
-      nav.querySelectorAll('.has-drop.open').forEach(function(x){if(x!==li){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')}});
-      li.classList.toggle('open',o);b.setAttribute('aria-expanded',o);
-    });
-  });
-  document.addEventListener('click',function(e){if(!nav.contains(e.target)){nav.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')})}});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){nav.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open')})}});
-  var r=document.querySelector('.ribbon .x');
-  if(r)r.addEventListener('click',function(){r.closest('.ribbon').remove()});
+  nav.querySelectorAll('.has-drop > button').forEach(function(b){b.addEventListener('click',function(){var li=b.parentNode,o=!li.classList.contains('open');closeAll(li);li.classList.toggle('open',o);b.setAttribute('aria-expanded',o)})});
+  document.addEventListener('click',function(e){if(!nav.contains(e.target))closeAll()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
+  var r=document.querySelector('.ribbon .x');if(r)r.addEventListener('click',function(){r.closest('.ribbon').remove()});
 })();
 </script>
-
 </body>
 </html>

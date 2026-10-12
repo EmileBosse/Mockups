@@ -101,7 +101,7 @@
     { title: 'Lac Biencourt', desc: 'Villégiature, nautisme, pêche et piste cyclable près du lac.', img: 'Cascade_saut.png', url: '#', kw: 'lac peche bateau velo plage', meta: 'Vivre à Biencourt' },
     { title: 'Centre des loisirs', desc: 'Terrain de baseball, patinoire et deck hockey.', url: '#', kw: 'loisirs patinoire hockey baseball sport', meta: 'Vivre à Biencourt' },
     { title: 'Album photo', desc: 'Les plus belles images de Biencourt au fil des saisons.', img: 'Pont_saut.png', url: '#', kw: 'photos images galerie', meta: 'Vivre à Biencourt' },
-    { title: 'Un brin d\'histoire', desc: 'Érigée en 1947, Biencourt honore le baron Charles de Biencourt de Saint-Just, commandant de Port-Royal en 1611.', img: 'vue_biencourt_montagne_de_la_tour.png', url: 'accueil.html#histoire', kw: 'histoire fondation 1947 acadie patrimoine', meta: 'Municipalité' },
+    { title: 'Un brin d\'histoire', desc: 'Érigée en 1947, Biencourt honore le baron Charles de Biencourt de Saint-Just, commandant de Port-Royal en 1611.', img: 'vue_biencourt_montagne_de_la_tour.png', url: '#', kw: 'histoire fondation 1947 acadie patrimoine', meta: 'Municipalité' },
     { title: 'Nous joindre', desc: '5, rue Berger, C.P. 70 · 418-499-2423 · info@biencourt.ca · Lun-jeu 8 h 30-12 h, 13 h-16 h 30.', url: '#nous-joindre', kw: 'contact telephone courriel adresse heures bureau', meta: 'Municipalité' },
     { title: 'Événements et activités à venir', desc: 'Tout ce qui se passe à Biencourt : loisirs, culture, vie communautaire.', url: 'evenements.html', kw: 'activites calendrier agenda', meta: 'Événements' }
   ];
@@ -260,7 +260,7 @@
     INDEX = [];
     PAGES.forEach(function (p) { INDEX.push(prep({ t: 'page', title: p.title, desc: p.desc, url: p.url, kw: p.kw, meta: p.meta, img: p.img })); });
     DATA.events.forEach(function (e) { INDEX.push(eventItem(e)); });
-    DATA.news.forEach(function (n) { INDEX.push(prep({ t: 'nouvelle', title: n.title, desc: n.desc, url: 'accueil.html#' + n.id, kw: n.kw + ' ' + n.type, meta: n.type + ' · ' + fmtShort(n.date), date: n.date })); });
+    DATA.news.forEach(function (n) { INDEX.push(prep({ t: 'nouvelle', title: n.title, desc: n.desc, url: 'conseil.html#avis', kw: n.kw + ' ' + n.type, meta: n.type + ' · ' + fmtShort(n.date), date: n.date })); });
     DATA.pv.forEach(function (p) {
       INDEX.push(prep({ t: 'pv', title: 'Procès-verbal — séance ' + p.type.toLowerCase() + ' du ' + fmtShort(p.date), desc: 'Document PDF, ' + p.size + '. Résolutions adoptées et période de questions.', url: 'conseil.html#pv-' + p.date, kw: 'pv proces verbal ' + MOIS[parseD(p.date).getMonth()] + ' 2026 seance', meta: 'PDF · ' + p.size, date: p.date }));
     });
@@ -419,13 +419,7 @@
     r.unshift(q); store.set('bc-recentes', r.slice(0, 4));
   }
 
-  var POPULAR = ['taxes', 'procès-verbaux', 'camping', 'collecte', 'séance du conseil', 'journal', 'permis', 'Mont Biencourt'];
-  var QUICK = [
-    { label: 'Payer mes taxes', url: 'accueil.html#taxes', ico: 'page' },
-    { label: 'Prochaine séance du conseil', url: 'conseil.html#prochaine-seance', ico: 'conseil' },
-    { label: 'Activités à venir', url: 'evenements.html', ico: 'evenement' },
-    { label: 'Le Biencourtois d\'octobre', img: 'centre_de_ski_cours_motoneige.png', url: 'journal.html#edition-courante', ico: 'journal' }
-  ];
+  var POPULAR = ['taxes', 'procès-verbaux', 'collecte', 'camping', 'séance du conseil'];
 
   /* ---------- Composant de recherche ---------- */
   var uid = 0;
@@ -448,55 +442,38 @@
     function close() { panel.hidden = true; input.setAttribute('aria-expanded', 'false'); input.removeAttribute('aria-activedescendant'); form.classList.remove('is-open'); active = -1; }
     function opts() { return panel.querySelectorAll('[data-opt]'); }
 
-    function chip(q, ico) { return '<button type="button" class="sb-chip" data-opt data-q="' + esc(q) + '">' + icon(ico || 'search', 'ico ico-s') + esc(q) + '</button>'; }
+    function chip(q) { return '<button type="button" class="sb-chip" data-opt data-q="' + esc(q) + '">' + esc(q) + '</button>'; }
 
     function renderEmpty() {
-      var rec = store.get('bc-recentes', []);
-      var h = '<div class="sb-empty">';
-      if (rec.length) h += '<div class="sb-sec"><p class="sb-label">Recherches récentes</p><div class="sb-chips">' + rec.map(function (r) { return chip(r, 'clock'); }).join('') + '</div></div>';
-      h += '<div class="sb-sec"><p class="sb-label">Recherches populaires</p><div class="sb-chips">' + POPULAR.map(function (p) { return chip(p, 'trend'); }).join('') + '</div></div>';
-      h += '<div class="sb-sec"><p class="sb-label">Accès rapides</p><ul class="sb-quick">' + QUICK.map(function (x) { return '<li><a data-opt href="' + x.url + '">' + icon(x.ico) + '<span>' + esc(x.label) + '</span>' + icon('arrow', 'ico ico-go') + '</a></li>'; }).join('') + '</ul></div>';
-      return h + '</div>' + footer();
-    }
-    function footer() {
-      return '<div class="sb-foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> naviguer</span><span><kbd>Entrée</kbd> ouvrir</span><span><kbd>Échap</kbd> fermer</span><span class="sb-foot-r"><kbd>/</kbd> pour rechercher partout</span></div>';
+      return '<div class="sb-sec"><p class="sb-label">Recherches fréquentes</p><div class="sb-chips">' + POPULAR.map(chip).join('') + '</div></div>';
     }
     function renderResults(q, r) {
       var groups = {}, order = [];
       r.items.forEach(function (x) { var t = x.item.t; if (!groups[t]) { groups[t] = []; order.push(t); } groups[t].push(x.item); });
       var n = r.items.length;
-      var h = '<div class="sb-head"><span><strong>' + n + '</strong> résultat' + (n > 1 ? 's' : '') + ' pour « ' + esc(q.trim()) + ' »</span>';
-      h += '<span class="sb-types">' + order.map(function (t) { return '<span class="sb-type-pill">' + esc(TYPES[t].label) + ' <b>' + groups[t].length + '</b></span>'; }).join('') + '</span></div>';
-      if (r.partial) h += '<p class="sb-note">Aucun contenu ne contient tous les mots. Voici les résultats les plus proches.</p>';
+      var h = '<div class="sb-head">' + n + ' résultat' + (n > 1 ? 's' : '') + '</div>';
+      if (r.partial) h += '<p class="sb-note">Résultats les plus proches.</p>';
       order.forEach(function (t) {
         var list = groups[t], show = expanded[t] ? list : list.slice(0, limit);
-        h += '<div class="sb-group" role="group" aria-label="' + esc(TYPES[t].label) + '"><p class="sb-label">' + icon(t === 'conseil' ? 'conseil' : t, 'ico ico-s') + esc(TYPES[t].label) + '<span class="sb-count">' + list.length + '</span></p><ul>';
+        h += '<div class="sb-group" role="group" aria-label="' + esc(TYPES[t].label) + '"><p class="sb-label">' + esc(TYPES[t].label) + '</p><ul>';
         show.forEach(function (it) {
           var demo = it.url === '#';
-          var isNew = it.added && (Date.now() - it.added < 864e5 * 7);
           h += '<li><a class="sb-item" data-opt role="option" href="' + esc(demo ? '#' : it.url) + '"' + (demo ? ' data-demo' : '') + '>';
-          h += it.img ? '<span class="sb-ico sb-thumb"><img src="../assets/' + esc(it.img) + '" alt="" loading="lazy"></span>' : '<span class="sb-ico sb-ico-' + t + '">' + icon(t) + '</span>';
-          h += '<span class="sb-txt"><span class="sb-title">' + highlight(it.title, r.terms) + (isNew ? ' <span class="sb-new">Nouveau</span>' : '') + '</span>';
+          h += '<span class="sb-txt"><span class="sb-title">' + highlight(it.title, r.terms) + '</span>';
           h += '<span class="sb-desc">' + highlight(snippet(it.desc || '', r.terms), r.terms) + '</span></span>';
           h += '<span class="sb-meta">' + esc(it.meta || '') + '</span></a></li>';
         });
         h += '</ul>';
-        if (list.length > show.length) h += '<button type="button" class="sb-more" data-opt data-more="' + t + '">Afficher ' + (list.length - show.length) + ' autre' + (list.length - show.length > 1 ? 's' : '') + ' — ' + esc(TYPES[t].label.toLowerCase()) + '</button>';
+        if (list.length > show.length) h += '<button type="button" class="sb-more" data-opt data-more="' + t + '">Voir ' + (list.length - show.length) + ' de plus</button>';
         h += '</div>';
       });
-      return h + footer();
+      return h;
     }
     function renderNone(q, r) {
-      var h = '<div class="sb-none"><div class="sb-none-ico">' + icon('search') + '</div>';
-      h += '<p class="sb-none-title">Aucun résultat pour « ' + esc(q.trim()) + ' »</p>';
+      var h = '<div class="sb-none"><p class="sb-none-title">Aucun résultat pour « ' + esc(q.trim()) + ' »</p>';
       if (r.suggestion) h += '<p class="sb-dym">Vouliez-vous dire <button type="button" class="sb-dym-btn" data-opt data-q="' + esc(r.suggestion) + '">' + esc(r.suggestion) + '</button> ?</p>';
-      h += '<ul class="sb-tips"><li>Vérifiez l\'orthographe ou essayez un mot plus général (ex. « taxes » plutôt que « 3e versement »).</li><li>Essayez un synonyme : « séance » pour réunion, « collecte » pour vidanges.</li></ul>';
-      h += '<p class="sb-label">Essayez plutôt</p><div class="sb-chips">' + POPULAR.slice(0, 5).map(function (p) { return chip(p, 'trend'); }).join('') + '</div>';
-      h += '<div class="sb-help"><p><strong>Vous ne trouvez pas?</strong> L\'équipe municipale vous répond.</p><div class="sb-help-links">';
-      h += '<a data-opt href="tel:4184992423">' + icon('phone', 'ico ico-s') + '418-499-2423</a>';
-      h += '<a data-opt href="mailto:info@biencourt.ca">' + icon('mail', 'ico ico-s') + 'info@biencourt.ca</a>';
-      h += '<a data-opt href="#" data-demo>' + icon('page', 'ico ico-s') + 'Plan du site</a></div></div></div>';
-      return h + footer();
+      h += '<p class="sb-help">Essayez un mot plus général, ou appelez-nous au <a data-opt href="tel:4184992423">418-499-2423</a>.</p></div>';
+      return h;
     }
 
     function render() {
