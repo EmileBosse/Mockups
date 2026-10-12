@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administration — Municipalité de Biencourt</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Outfit:wght@300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lake-900:#0F2E44; --lake-800:#16405E; --lake-700:#1D6A9E; --lake-500:#2E8BC9; --lake-200:#BFE0F4; --lake-100:#E6F3FB;
+  --forest-800:#2C5A18; --forest-700:#3B7A20; --forest-500:#6DB33F; --forest-200:#CFE8BC; --forest-100:#EDF7E5;
+  --maple-700:#B4500F; --maple-600:#C9601A; --maple-500:#E8762B; --maple-300:#F2A33A; --maple-100:#FEF1E2;
+  --ink:#1B2A33; --ink-2:#34444F; --muted:#5B6B76; --line:#E7E1D6; --line-2:#F0EBE2;
+  --bg:#FBF8F2; --bg-2:#F5F0E6; --surface:#FFFFFF;
+  --r-sm:12px; --r:20px; --r-lg:28px; --r-xl:36px;
+  --sh-1:0 1px 2px rgba(23,45,60,.06),0 2px 8px rgba(23,45,60,.05);
+  --sh-2:0 2px 6px rgba(23,45,60,.05),0 12px 32px -8px rgba(23,45,60,.14);
+  --sh-3:0 4px 10px rgba(23,45,60,.06),0 24px 60px -12px rgba(23,45,60,.22);
+  --f-title:"Fraunces",Georgia,serif; --f-ui:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1200px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--f-ui);font-size:17px;line-height:1.6;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:var(--lake-700);text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{color:var(--lake-900)}
+h1,h2,h3,h4{font-family:var(--f-title);font-weight:600;line-height:1.15;margin:0 0 .5em;color:var(--lake-900);letter-spacing:-.01em;font-variation-settings:"SOFT" 50,"WONK" 0}
+h1{font-size:clamp(2.2rem,5vw,3.9rem)}
+h2{font-size:clamp(1.7rem,3vw,2.5rem)}
+h3{font-size:1.3rem}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--maple-500);outline-offset:3px;border-radius:8px}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--lake-900);color:#fff;padding:10px 16px;border-radius:10px;z-index:200}
+.skip:focus{top:12px}
+
+/* mockup strip */
+.mock-strip{background:var(--lake-900);color:#C9DCE8;font-size:12.5px;letter-spacing:.02em}
+.mock-strip .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:30px}
+.mock-strip a{color:#fff;text-decoration:none;opacity:.85;white-space:nowrap}
+.mock-strip a:hover{opacity:1;text-decoration:underline}
+.mock-strip b{color:var(--maple-300);font-weight:600}
+
+/* alert */
+.alert{background:linear-gradient(90deg,var(--maple-100),#FFF7EC);border-bottom:1px solid #F6D9B8;color:#5B300C;font-size:15px}
+.alert .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
+.alert .pill{flex:none;background:var(--maple-600);color:#fff;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
+.alert p{margin:0;flex:1}
+.alert a{color:#7A3A08;font-weight:600}
+.alert button{flex:none;background:none;border:0;color:#7A3A08;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
+.alert button:hover{background:rgba(200,96,26,.12)}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:50;background:rgba(251,248,242,.88);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid rgba(231,225,214,.8)}
+.site-head .wrap{display:flex;align-items:center;gap:24px;min-height:82px}
+.brand{display:flex;align-items:center;flex:none}
+.brand img{height:60px;width:auto}
+.nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav>ul{display:flex;list-style:none;margin:0;padding:0;gap:2px;align-items:center}
+.nav li{position:relative}
+.nav a.top,.nav button.top{display:flex;align-items:center;gap:6px;font:500 15.5px/1 var(--f-ui);color:var(--ink-2);text-decoration:none;padding:12px 14px;border-radius:99px;background:none;border:0;cursor:pointer;transition:background .2s,color .2s}
+.nav a.top:hover,.nav button.top:hover,.nav li:focus-within>.top{background:var(--bg-2);color:var(--lake-900)}
+.nav .top[aria-current="page"]{color:var(--forest-800);background:var(--forest-100)}
+.nav .chev{width:10px;height:10px;transition:transform .2s}
+.nav li:hover .chev,.nav li:focus-within .chev{transform:rotate(180deg)}
+.mega{position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,6px);background:#fff;border-radius:var(--r);box-shadow:var(--sh-3);padding:22px;display:grid;gap:4px 24px;opacity:0;visibility:hidden;transition:.2s;min-width:260px;border:1px solid var(--line-2)}
+.mega.two{grid-template-columns:1fr 1fr;min-width:520px}
+.mega::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
+.nav li:hover>.mega,.nav li:focus-within>.mega{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.mega h4{grid-column:1/-1;font:600 12px/1 var(--f-ui);text-transform:uppercase;letter-spacing:.1em;color:var(--maple-700);margin:0 0 8px}
+.mega a{display:block;padding:8px 10px;border-radius:10px;text-decoration:none;color:var(--ink);font-size:15px;line-height:1.3}
+.mega a small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.mega a:hover{background:var(--lake-100);color:var(--lake-900)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15.5px/1 var(--f-ui);padding:14px 22px;border-radius:99px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s,color .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--forest-700);color:#fff;box-shadow:0 6px 16px -6px rgba(59,122,32,.6)}
+.btn-primary:hover{background:var(--forest-800);color:#fff}
+.btn-maple{background:var(--maple-600);color:#fff;box-shadow:0 6px 16px -6px rgba(201,96,26,.6)}
+.btn-maple:hover{background:var(--maple-700);color:#fff}
+.btn-ghost{background:#fff;color:var(--lake-900);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--lake-500);color:var(--lake-900)}
+.btn-light{background:rgba(255,255,255,.95);color:var(--lake-900)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.btn svg{width:18px;height:18px}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:20px;height:2px;background:var(--lake-900);border-radius:2px;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:inherit;border-radius:2px}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+
+/* page header (inner pages) */
+.page-hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#FDF3E4 0%,#E9F4F9 100%);padding:64px 0 120px}
+.page-hero .wrap{position:relative;z-index:2}
+.page-hero .scene{position:absolute;inset:auto 0 0 0;height:150px;z-index:1}
+.page-hero .scene svg{width:100%;height:100%}
+.crumbs{font-size:14px;color:var(--muted);margin-bottom:14px;display:flex;gap:8px;flex-wrap:wrap}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--lake-700);text-decoration:underline}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font:600 13px/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--maple-700);margin-bottom:14px}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
+.lead{font-size:1.2rem;color:var(--ink-2);max-width:640px}
+
+.section{padding:88px 0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.section-head h2{margin:0}
+.link-more{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;color:var(--lake-700)}
+.link-more::after{content:"→";transition:transform .2s}
+.link-more:hover::after{transform:translateX(4px)}
+.card{background:var(--surface);border-radius:var(--r);box-shadow:var(--sh-2);border:1px solid rgba(231,225,214,.6)}
+.tag{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--f-ui);letter-spacing:.04em;padding:6px 10px;border-radius:99px;white-space:nowrap}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.t-loisirs{background:var(--forest-100);color:var(--forest-800)}
+.t-communautaire{background:var(--maple-100);color:var(--maple-700)}
+.t-municipal{background:var(--lake-100);color:var(--lake-800)}
+.t-culture{background:#F3EAF7;color:#6A3A86}
+.t-sport{background:#E5F5F1;color:#1C6B5A}
+
+.ic-g{background:var(--forest-100);color:var(--forest-700)}
+.ic-b{background:var(--lake-100);color:var(--lake-700)}
+.ic-o{background:var(--maple-100);color:var(--maple-600)}
+/* photo blocks */
+.photo{position:relative;border-radius:var(--r);overflow:hidden;background:var(--lake-200)}
+.photo svg{width:100%;height:100%}
+.photo figcaption{position:absolute;left:12px;bottom:12px;background:rgba(15,46,68,.72);color:#fff;font-size:12.5px;padding:5px 10px;border-radius:99px;backdrop-filter:blur(4px)}
+
+/* footer */
+.site-foot{position:relative;background:var(--lake-900);color:#C4D6E2;margin-top:40px}
+.site-foot .ridge{position:absolute;left:0;right:0;top:-79px;height:80px}
+.site-foot .ridge svg{width:100%;height:100%}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding:64px 0 40px}
+.site-foot h3{font:600 13px/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--maple-300);margin-bottom:18px}
+.site-foot a{color:#fff;text-decoration:none}
+.site-foot a:hover{text-decoration:underline}
+.site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15.5px}
+.foot-logo{background:#fff;border-radius:18px;padding:10px 14px;display:inline-block;margin-bottom:18px}
+.foot-logo img{height:64px}
+.foot-slogan{font-family:var(--f-title);font-style:italic;font-size:1.25rem;color:#fff;margin-bottom:6px}
+.foot-contact{font-size:15.5px;line-height:1.75}
+.social{display:flex;gap:10px;margin-top:18px}
+.social a{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.social a:hover{background:var(--lake-500)}
+.social svg{width:20px;height:20px;fill:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#93AEC0}
+.foot-bottom a{color:#C4D6E2}
+
+@media (max-width:1080px){
+  .nav{position:fixed;inset:0 0 0 auto;width:min(380px,92vw);background:#fff;flex-direction:column;align-items:stretch;padding:96px 20px 24px;box-shadow:var(--sh-3);transform:translateX(105%);transition:transform .3s;overflow-y:auto;z-index:60}
+  .nav.open{transform:none}
+  .nav>ul{flex-direction:column;align-items:stretch}
+  .nav a.top,.nav button.top{width:100%;justify-content:space-between;font-size:17px;padding:14px 16px}
+  .mega{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:0;padding:0 0 8px 12px;min-width:0;display:none}
+  .mega.two{grid-template-columns:1fr;min-width:0}
+  .nav li.open>.mega{display:grid}
+  .nav li:hover>.mega{transform:none}
+  .nav .cta{margin-top:16px}
+  .burger{display:inline-flex;position:relative;z-index:70}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .site-head .wrap{min-height:68px}
+  .brand img{height:46px}
+  .section{padding:60px 0}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+  .mock-strip .hide-sm{display:none}
+  .page-hero{padding:40px 0 96px}
+  .page-hero .scene{height:100px}
+  .alert .wrap{align-items:flex-start;font-size:14px}
+}
+
+/* ===== Admin ===== */
+body{background:#F4F1EA}
+.app{display:grid;grid-template-columns:268px 1fr;min-height:calc(100vh - 30px)}
+.sb{background:#fff;border-right:1px solid var(--line);padding:22px 16px;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;gap:18px}
+.sb-brand{display:flex;align-items:center;gap:10px;padding:0 8px}
+.sb-brand img{height:46px;width:auto}
+.sb-brand small{display:block;font:600 11px/1.2 var(--f-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.premium{display:flex;align-items:center;gap:10px;background:linear-gradient(120deg,#FFF3E2,#FDE6CB);border:1px solid #F6D3A8;border-radius:16px;padding:12px 14px}
+.premium svg{width:22px;height:22px;flex:none}
+.premium b{display:block;font:700 13px/1.2 var(--f-ui);color:var(--maple-700);letter-spacing:.04em;text-transform:uppercase}
+.premium span{font-size:12.5px;color:#7A4A1E;line-height:1.3;display:block}
+.sb nav{display:flex;flex-direction:column;gap:2px}
+.sb nav h4{font:600 11px/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:14px 10px 8px}
+.sb nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;text-decoration:none;color:var(--ink-2);font-size:15px;font-weight:500;transition:background .15s}
+.sb nav a svg{width:19px;height:19px;flex:none;color:var(--muted)}
+.sb nav a:hover{background:var(--bg-2);color:var(--ink)}
+.sb nav a[aria-current="page"]{background:var(--forest-100);color:var(--forest-800)}
+.sb nav a[aria-current="page"] svg{color:var(--forest-700)}
+.sb nav a .badge{margin-left:auto;font:600 11.5px/1 var(--f-ui);background:var(--maple-500);color:#fff;border-radius:99px;padding:4px 7px}
+.sb-foot{margin-top:auto;font-size:13px;color:var(--muted);padding:0 10px}
+.main{min-width:0}
+.topbar{display:flex;align-items:center;gap:16px;padding:16px 32px;background:rgba(244,241,234,.9);backdrop-filter:blur(10px);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}
+.topbar .q{flex:1;max-width:420px;position:relative}
+.topbar .q input{width:100%;font:400 15px var(--f-ui);padding:11px 14px 11px 40px;border-radius:12px;border:1px solid var(--line);background:#fff}
+.topbar .q svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--muted)}
+.topbar .sp{flex:1}
+.user{display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.25}
+.user i{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--lake-500),var(--lake-800));color:#fff;display:grid;place-items:center;font:600 14px var(--f-ui);font-style:normal}
+.user small{display:block;color:var(--muted)}
+.content{padding:32px;max-width:1280px}
+.ph{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.welcome{background:linear-gradient(90deg,rgba(12,38,58,.88),rgba(12,38,58,.55) 60%,rgba(12,38,58,.2)),url(../assets/vue_biencourt_montagne_de_la_tour.png) center 40%/cover;border-radius:var(--r-lg);padding:34px 32px;align-items:center!important;box-shadow:var(--sh-2)}
+.welcome h1{color:#fff}
+.welcome p{color:rgba(255,255,255,.88)!important}
+.welcome .btn-ghost{background:rgba(255,255,255,.95)}
+.ph h1{font-size:clamp(1.7rem,3vw,2.3rem);margin:0}
+.ph p{margin:4px 0 0;color:var(--muted)}
+.panel{background:#fff;border-radius:var(--r);box-shadow:var(--sh-1);border:1px solid var(--line-2);padding:24px}
+.panel h2{font-size:1.25rem;margin:0 0 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.panel h2 small{font:400 14px var(--f-ui);color:var(--muted)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g32{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stack{display:grid;gap:20px}
+.kpi{padding:20px 22px}
+.kpi span{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.kpi span i{width:30px;height:30px;border-radius:10px;display:grid;place-items:center}
+.kpi span i svg{width:16px;height:16px}
+.kpi b{display:block;font:600 2.1rem/1.1 var(--f-title);color:var(--lake-900);margin:10px 0 4px}
+.kpi small{font-size:13px;color:var(--muted)}
+.kpi small.up{color:var(--forest-700);font-weight:600}
+.chart{display:flex;align-items:flex-end;gap:6px;height:170px;padding-top:10px}
+.chart div{flex:1;background:linear-gradient(180deg,var(--lake-500),var(--lake-700));border-radius:6px 6px 3px 3px;position:relative;min-width:6px;transition:opacity .2s}
+.chart div.we{background:linear-gradient(180deg,var(--forest-500),var(--forest-700))}
+.chart div:hover{opacity:.8}
+.chart div:hover::after{content:attr(data-v);position:absolute;bottom:100%;left:50%;transform:translate(-50%,-4px);background:var(--lake-900);color:#fff;font-size:11.5px;padding:3px 6px;border-radius:6px;white-space:nowrap}
+.chart-x{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px}
+.todo{list-style:none;margin:0;padding:0}
+.todo li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line-2);font-size:15px}
+.todo li:last-child{border:0}
+.todo input{width:19px;height:19px;accent-color:var(--forest-700);margin-top:2px;flex:none}
+.todo label{flex:1;cursor:pointer}
+.todo small{display:block;color:var(--muted);font-size:13px}
+.todo input:checked+label{text-decoration:line-through;color:var(--muted)}
+.feed{list-style:none;margin:0;padding:0}
+.feed li{display:flex;gap:12px;padding:10px 0;font-size:14.5px;line-height:1.4}
+.feed i{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex:none;font-style:normal}
+.feed i svg{width:16px;height:16px}
+.feed small{display:block;color:var(--muted);font-size:12.5px}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quick button{display:flex;align-items:center;gap:10px;padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--bg);font:500 14.5px var(--f-ui);color:var(--ink);cursor:pointer;text-align:left;transition:.15s}
+.quick button:hover{border-color:var(--forest-500);background:var(--forest-100)}
+.quick button svg{width:18px;height:18px;color:var(--forest-700);flex:none}
+
+.f{display:grid;gap:6px;margin-bottom:16px}
+.f label,.lbl{font:600 13.5px/1.2 var(--f-ui);color:var(--ink-2)}
+.f .hint{font-size:12.5px;color:var(--muted)}
+.in,.f input[type=text],.f input[type=date],.f input[type=time],.f input[type=url],.f input[type=email],.f select,.f textarea{font:400 15px var(--f-ui);padding:11px 13px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+.f textarea{min-height:90px;resize:vertical;line-height:1.5}
+.in:focus,.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--lake-500);box-shadow:0 0 0 4px var(--lake-100);background:#fff}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.switch{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-size:15px;font-weight:500}
+.switch input{appearance:none;-webkit-appearance:none;width:44px;height:26px;border-radius:99px;background:#D5D0C5;position:relative;cursor:pointer;transition:background .2s;margin:0;flex:none}
+.switch input::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .2s}
+.switch input:checked{background:var(--forest-700)}
+.switch input:checked::after{transform:translateX(18px)}
+.seg{display:inline-flex;background:var(--bg-2);padding:4px;border-radius:12px;border:1px solid var(--line);flex-wrap:wrap}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;padding:8px 14px;border-radius:9px;font:600 14px var(--f-ui);color:var(--muted);cursor:pointer}
+.seg input:checked+span{background:#fff;color:var(--lake-900);box-shadow:var(--sh-1)}
+.seg input:focus-visible+span{outline:3px solid var(--maple-500)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn-danger{background:#fff;color:#B42318;border-color:#F3C5C1}
+.btn-danger:hover{background:#FEF0EF;color:#B42318}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl th{text-align:left;font:600 12px/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line)}
+.tbl td{padding:12px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+.tbl tr:last-child td{border:0}
+.tbl tr.new td{animation:flash 1.6s ease}
+@keyframes flash{0%{background:#FFF1DD}100%{background:transparent}}
+.tbl strong{font-weight:600}
+.st{font:600 12px/1 var(--f-ui);padding:5px 9px;border-radius:99px;white-space:nowrap}
+.st-pub{background:var(--forest-100);color:var(--forest-800)}
+.st-draft{background:var(--bg-2);color:var(--muted)}
+.st-sched{background:var(--lake-100);color:var(--lake-800)}
+.st-todo{background:var(--maple-100);color:var(--maple-700)}
+.ibtn{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:#fff;display:inline-grid;place-items:center;cursor:pointer;color:var(--ink-2)}
+.ibtn:hover{background:var(--bg-2)}
+.ibtn svg{width:16px;height:16px}
+.ibtn.del:hover{color:#B42318;border-color:#F3C5C1;background:#FEF0EF}
+.tbl-wrap{overflow-x:auto}
+
+/* preview */
+.preview{border-radius:16px;border:1px solid var(--line);overflow:hidden;background:var(--bg)}
+.preview .pv-bar{display:flex;gap:6px;align-items:center;padding:9px 12px;background:#EDE8DE;font-size:12px;color:var(--muted)}
+.preview .pv-bar i{width:10px;height:10px;border-radius:50%;background:#D5CEC0}
+.preview .pv-bar span{margin-left:10px;background:#fff;border-radius:6px;padding:3px 10px;flex:1}
+.pv-alert{display:flex;gap:10px;align-items:center;padding:10px 14px;font-size:13.5px;transition:background .2s,color .2s}
+.pv-alert .pill{font:700 10.5px/1 var(--f-ui);letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:99px;color:#fff;flex:none}
+.pv-alert.info{background:linear-gradient(90deg,var(--lake-100),#F1F8FD);color:var(--lake-900)}.pv-alert.info .pill{background:var(--lake-700)}
+.pv-alert.imp{background:linear-gradient(90deg,var(--maple-100),#FFF7EC);color:#5B300C}.pv-alert.imp .pill{background:var(--maple-600)}
+.pv-alert.urg{background:#B42318;color:#fff}.pv-alert.urg .pill{background:#fff;color:#B42318}
+.pv-alert a{color:inherit;font-weight:600}
+.pv-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#fff;border-bottom:1px solid var(--line-2)}
+.pv-head img{height:30px}
+.pv-head span{display:flex;gap:10px}
+.pv-head span i{width:44px;height:7px;background:var(--line);border-radius:4px}
+.pv-hero{height:90px;background:url(../assets/vue_biencourt_montagne_de_la_tour.png) center/cover;position:relative}
+.pv-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,38,58,.7),transparent)}
+.pv-off{padding:10px 14px;font-size:13px;color:var(--muted);background:#fff;font-style:italic}
+
+.editor-tb{display:flex;gap:4px;padding:6px;border:1.5px solid var(--line);border-bottom:0;border-radius:12px 12px 0 0;background:var(--bg-2);flex-wrap:wrap}
+.editor-tb button{min-width:34px;height:32px;border-radius:8px;border:0;background:none;cursor:pointer;font:600 14px var(--f-ui);color:var(--ink-2);padding:0 8px}
+.editor-tb button:hover{background:#fff}
+.editor{min-height:140px;padding:12px 14px;border:1.5px solid var(--line);border-radius:0 0 12px 12px;background:#fff;font-size:15px;line-height:1.6}
+.editor:focus{outline:none;border-color:var(--lake-500);box-shadow:0 0 0 4px var(--lake-100)}
+.pics{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.pics label{position:relative;cursor:pointer;border-radius:10px;overflow:hidden;aspect-ratio:1}
+.pics input{position:absolute;opacity:0}
+.pics img{width:100%;height:100%;object-fit:cover;display:block;transition:.15s}
+.pics input:checked+img{outline:3px solid var(--maple-500);outline-offset:-3px;filter:none}
+.pics input:not(:checked)+img{filter:saturate(.6) opacity(.75)}
+.pics input:focus-visible+img{outline:3px solid var(--lake-500);outline-offset:-3px}
+.news-prev{border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--sh-2);border:1px solid var(--line-2)}
+.news-prev img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.news-prev .b{padding:16px 18px}
+.news-prev h3{font-size:1.2rem;margin:8px 0 6px}
+.news-prev p{font-size:14.5px;color:var(--muted);margin:0}
+.ev-prev{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;background:#fff;box-shadow:var(--sh-2);border:1px solid var(--line-2)}
+.ev-prev .d{width:62px;text-align:center;border-radius:14px;overflow:hidden;border:1px solid var(--line);flex:none}
+.ev-prev .d span{display:block;background:var(--maple-500);color:#fff;font:700 11px/1 var(--f-ui);letter-spacing:.1em;padding:5px 0;text-transform:uppercase}
+.ev-prev .d b{display:block;font:600 1.7rem/1 var(--f-title);color:var(--lake-900);padding:8px 0}
+.ev-prev h3{font-size:1.1rem;margin:6px 0 4px}
+.ev-prev p{margin:0;font-size:14px;color:var(--muted)}
+
+.drop{border:2px dashed var(--lake-200);border-radius:16px;background:var(--lake-100);padding:26px;text-align:center;cursor:pointer;transition:.15s;display:block}
+.drop:hover,.drop.over{border-color:var(--lake-500);background:#DCEEFA}
+.drop svg{width:34px;height:34px;color:var(--lake-700);margin:0 auto 8px}
+.drop b{display:block;color:var(--lake-900)}
+.drop small{color:var(--muted)}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
+.file{display:none;align-items:center;gap:12px;margin-top:12px;padding:12px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.file.show{display:flex}
+.file .pdf{width:34px;height:40px;border-radius:6px;background:#FDECEC;color:#B42318;font:700 10px/40px var(--f-ui);text-align:center;flex:none}
+.file .meta{flex:1;min-width:0;font-size:14px}
+.file .meta strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;width:0;background:var(--forest-500);transition:width 1.2s ease}
+.list-art{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:8px}
+.list-art li{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:var(--bg);border:1px solid var(--line-2);font-size:14.5px}
+.list-art li .grip{color:var(--muted);cursor:grab}
+.list-art li span.t{flex:1}
+.mem-row{display:grid;grid-template-columns:48px 1.2fr 1fr 1.6fr 40px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line-2)}
+.mem-row .av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font:600 14px var(--f-title)}
+.tree{list-style:none;margin:0;padding:0}
+.tree li{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;cursor:pointer;font-size:15px}
+.tree li:hover{background:var(--bg)}
+.tree li.on{background:var(--forest-100);color:var(--forest-800);font-weight:600}
+.tree li.sub{padding-left:34px;font-size:14.5px}
+.tree li small{margin-left:auto;font-size:12px;color:var(--muted);font-weight:400}
+.album{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ph-card{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line-2);box-shadow:var(--sh-1)}
+.ph-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.ph-card .b{padding:10px 12px;display:grid;gap:8px}
+.ph-card input.in{padding:8px 10px;font-size:13.5px}
+.ph-card .row{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted)}
+.ph-up{border:2px dashed var(--line);border-radius:16px;display:grid;place-items:center;text-align:center;color:var(--muted);padding:20px;cursor:pointer;min-height:220px;background:var(--bg)}
+.ph-up:hover{border-color:var(--forest-500);color:var(--forest-800)}
+.ph-up svg{width:30px;height:30px;margin:0 auto 6px}
+.sub-tabs{display:flex;gap:6px;margin-bottom:16px}
+.sub-tabs button{font:600 14.5px var(--f-ui);padding:9px 16px;border-radius:99px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink-2)}
+.sub-tabs button[aria-selected="true"]{background:var(--lake-900);color:#fff;border-color:var(--lake-900)}
+.toast{position:fixed;right:24px;bottom:24px;background:var(--lake-900);color:#fff;padding:14px 18px;border-radius:14px;box-shadow:var(--sh-3);transform:translateY(calc(100% + 48px));visibility:hidden;transition:transform .3s,visibility .3s;z-index:90;font-size:15px;display:flex;gap:10px;align-items:center;max-width:calc(100vw - 32px)}
+.toast.show{transform:none;visibility:visible}
+.toast svg{width:20px;height:20px;color:var(--forest-500);flex:none}
+.sec{display:none}
+.sec.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.empty-note{font-size:14px;color:var(--muted)}
+
+@media (max-width:1180px){.g4{grid-template-columns:1fr 1fr}.album{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:980px){
+  .app{grid-template-columns:1fr;grid-template-rows:auto 1fr;min-height:0}
+  .sb>*{flex:none}
+  .sb{position:sticky;top:0;height:auto;z-index:30;flex-direction:row;align-items:center;padding:10px 12px;overflow-x:auto;gap:10px;border-right:0;border-bottom:1px solid var(--line)}
+  .sb-brand small,.premium span,.sb nav h4,.sb-foot{display:none}
+  .sb-brand img{height:36px}
+  .premium{padding:8px 10px;flex:none}
+  .sb nav{flex-direction:row;gap:4px}
+  .sb nav a{white-space:nowrap;padding:9px 12px}
+  .topbar{position:static;padding:12px 16px}
+  .g2,.g32{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .content{padding:20px 16px}
+  .topbar .q{display:none}
+  .user span{display:none}
+  .g4{grid-template-columns:1fr 1fr;gap:10px}
+  .kpi{padding:14px}
+  .kpi b{font-size:1.6rem}
+  .row2,.row3{grid-template-columns:1fr}
+  .pics{grid-template-columns:repeat(3,1fr)}
+  .album{grid-template-columns:1fr 1fr}
+  .panel{padding:18px}
+  .mem-row{grid-template-columns:44px 1fr;}
+  .mem-row .in:nth-of-type(3),.mem-row .ibtn{grid-column:2}
+  .tbl .hide-m{display:none}
+  .quick{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="mock-strip"><div class="wrap" style="max-width:none"><span>Maquette · <b>Option A<span class="hide-sm"> — « Lac &amp; Montagne »</span></b> · Admin</span><a href="../index.html">← Retour aux options</a></div></div>
+<div class="app">
+  <aside class="sb" aria-label="Menu d'administration">
+    <div class="sb-brand"><img src="../assets/logo-biencourt.png" alt="Municipalité de Biencourt" width="92" height="46"><small>Gestion<br>du site</small></div>
+    <div class="premium"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z" fill="#E8762B"/></svg><div><b>Option Premium</b><span>CMS complet · tout est modifiable</span></div></div>
+    <nav id="sbnav">
+      <h4>Général</h4>
+      <a href="#dashboard" data-s="dashboard" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg>Tableau de bord</a>
+      <a href="#alerte" data-s="alerte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 11l14-6v14L3 13z"/><path d="M7 13v5a2 2 0 0 0 4 0"/></svg>Bannière d'avis<span class="badge">1</span></a>
+      <h4>Contenu</h4>
+      <a href="#nouvelles" data-s="nouvelles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4h13v16H6a2 2 0 0 1-2-2zM17 8h3v10a2 2 0 0 1-2 2M8 8h5M8 12h5"/></svg>Nouvelles</a>
+      <a href="#evenements" data-s="evenements"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Événements</a>
+      <a href="#journal" data-s="journal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2zM22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg>Journal local</a>
+      <a href="#conseil" data-s="conseil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M2 10l10-6 10 6z"/></svg>Conseil &amp; séances<span class="badge">2</span></a>
+      <a href="#pages" data-s="pages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>Pages de contenu</a>
+      <a href="#repertoire" data-s="repertoire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0zM5 13v8h14v-8"/></svg>Commerces &amp; organismes</a>
+      <a href="#photos" data-s="photos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg>Album photo</a>
+      <h4>Site</h4>
+      <a href="#parametres" data-s="parametres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.8 1.2V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-2.8-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3.2 14H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.2-2.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 10 3.2V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 2.8 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0 1.2 2.8H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Paramètres</a>
+    </nav>
+    <div class="sb-foot">Dernière sauvegarde : aujourd'hui, 14 h 12<br>Aide : 1 877 555-0199</div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <label class="q"><span class="sr-only">Rechercher dans l'administration</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input type="search" placeholder="Rechercher un contenu, un document…"></label>
+      <span class="sp"></span>
+      <a class="btn btn-ghost btn-sm" href="accueil.html" target="_blank" rel="noopener">Voir le site ↗</a>
+      <div class="user"><i>MO</i><span>Marie-Ève Ouellet<small>Direction générale</small></span></div>
+    </header>
+
+    <div class="content">
+      <!-- DASHBOARD -->
+      <section class="sec on" id="s-dashboard" aria-labelledby="h-dash">
+        <div class="ph welcome"><div><h1 id="h-dash">Bonjour, Marie-Ève</h1><p>Jeudi 8 octobre 2026 · Voici l'état de votre site aujourd'hui.</p></div><div class="actions"><button class="btn btn-primary btn-sm" data-go="evenements">+ Nouvel événement</button><button class="btn btn-ghost btn-sm" data-go="nouvelles">+ Nouvelle</button></div></div>
+        <div class="g4" style="margin-bottom:20px">
+          <div class="panel kpi"><span><i class="ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></i>Visites (30 jours)</span><b>4 812</b><small class="up">▲ 18 % vs septembre</small></div>
+          <div class="panel kpi"><span><i class="ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18"/></svg></i>Événements à venir</span><b id="kpiEv">11</b><small>Prochain : samedi 10 oct.</small></div>
+          <div class="panel kpi"><span><i class="ic-o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h13v16H6a2 2 0 0 1-2-2z"/></svg></i>Journal de novembre</span><b>12 j</b><small>avant la tombée (20 oct.)</small></div>
+          <div class="panel kpi"><span><i class="ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="M3 5l9 7 9-7"/></svg></i>Abonnés infolettre</span><b>214</b><small class="up">▲ 9 ce mois-ci</small></div>
+        </div>
+        <div class="g32" style="margin-bottom:20px">
+          <div class="panel">
+            <h2>Fréquentation <small>14 derniers jours</small></h2>
+            <div class="chart" id="chart" role="img" aria-label="Graphique des visites quotidiennes des 14 derniers jours"></div>
+            <div class="chart-x"><span>25 sept.</span><span>1<sup>er</sup> oct.</span><span>Aujourd'hui</span></div>
+            <p class="empty-note" style="margin:14px 0 0">Pages les plus consultées : <strong>Taxes municipales</strong>, <strong>Événements</strong>, <strong>Camping &amp; chalets</strong>.</p>
+          </div>
+          <div class="panel">
+            <h2>À faire <small id="todoN">3 tâches</small></h2>
+            <ul class="todo" id="todo">
+              <li><input type="checkbox" id="t1"><label for="t1">Publier l'ordre du jour du 2 novembre<small>Échéance : vendredi 30 octobre</small></label></li>
+              <li><input type="checkbox" id="t2"><label for="t2">Téléverser le procès-verbal du 5 octobre<small>Après adoption le 2 novembre</small></label></li>
+              <li><input type="checkbox" id="t3"><label for="t3">Retirer l'avis « encombrants » après le 17 oct.<small>Ou programmer une date de fin</small></label></li>
+              <li><input type="checkbox" id="t4" checked><label for="t4">Mettre en ligne Le Biencourtois d'octobre<small>Fait le 1<sup>er</sup> octobre</small></label></li>
+            </ul>
+          </div>
+        </div>
+        <div class="g2">
+          <div class="panel">
+            <h2>Activité récente</h2>
+            <ul class="feed" id="feed">
+              <li><i class="ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></i><div>Nouvelle publiée : <strong>Avis d'ébullition préventif levé</strong><small>Marie-Ève Ouellet · 6 oct., 10 h 04</small></div></li>
+              <li><i class="ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></i><div>Page modifiée : <strong>Camping &amp; chalets</strong> (tarifs 2027)<small>Yvan Beaulieu · 5 oct., 16 h 40</small></div></li>
+              <li><i class="ic-o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></i><div>PDF ajouté : <strong>Le Biencourtois — octobre 2026</strong><small>Sylvie Jacques · 1<sup>er</sup> oct., 9 h 15</small></div></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h2>Actions rapides</h2>
+            <div class="quick">
+              <button type="button" data-go="alerte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l14-6v14L3 13z"/></svg>Modifier la bannière d'avis</button>
+              <button type="button" data-go="journal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Téléverser un journal</button>
+              <button type="button" data-go="conseil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/></svg>Ajouter un procès-verbal</button>
+              <button type="button" data-go="photos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/></svg>Ajouter des photos</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALERTE -->
+      <section class="sec" id="s-alerte" aria-labelledby="h-al">
+        <div class="ph"><div><h1 id="h-al">Bannière d'avis</h1><p>Le bandeau affiché en haut de toutes les pages du site.</p></div></div>
+        <div class="g2">
+          <form class="panel" id="alForm">
+            <div class="f"><label class="switch"><input type="checkbox" id="alOn" checked> Bannière active sur le site</label></div>
+            <div class="f"><span class="lbl">Niveau</span>
+              <div class="seg" role="radiogroup" aria-label="Niveau de l'avis">
+                <label><input type="radio" name="lvl" value="info"><span>Information</span></label>
+                <label><input type="radio" name="lvl" value="imp" checked><span>Important</span></label>
+                <label><input type="radio" name="lvl" value="urg"><span>Urgence</span></label>
+              </div>
+            </div>
+            <div class="f"><label for="alMsg">Message</label><textarea id="alMsg" maxlength="180">Collecte des encombrants le samedi 17 octobre. Déposez vos objets en bordure de rue la veille au soir.</textarea><span class="hint"><span id="alCount">0</span>/180 caractères</span></div>
+            <div class="row2"><div class="f"><label for="alLink">Texte du lien</label><input type="text" id="alLink" value="Détails"></div><div class="f"><label for="alUrl">Destination</label><select id="alUrl"><option>Page Événements</option><option>Nouvelle liée</option><option>Lien externe…</option></select></div></div>
+            <div class="row2"><div class="f"><label for="alFrom">Afficher du</label><input type="date" id="alFrom" value="2026-10-05"></div><div class="f"><label for="alTo">au</label><input type="date" id="alTo" value="2026-10-17"></div></div>
+            <div class="f"><label class="switch"><input type="checkbox" checked> Publier aussi sur Facebook</label></div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Enregistrer et publier</button><button class="btn btn-ghost" type="button" id="alTpl">Modèle : ébullition</button></div>
+          </form>
+          <div class="panel">
+            <h2>Aperçu en direct <small>mise à jour pendant la saisie</small></h2>
+            <div class="preview">
+              <div class="pv-bar"><i></i><i></i><i></i><span>biencourt.ca</span></div>
+              <div class="pv-alert imp" id="pvAlert"><span class="pill" id="pvPill">Avis</span><span><strong id="pvMsg"></strong> <a href="#" id="pvLink" onclick="return false">Détails</a></span></div>
+              <div class="pv-off" id="pvOff" hidden>Aucune bannière n'est affichée.</div>
+              <div class="pv-head"><img src="../assets/logo-biencourt.png" alt=""><span><i></i><i></i><i></i><i></i></span></div>
+              <div class="pv-hero"></div>
+            </div>
+            <p class="empty-note" style="margin-top:14px">Astuce : en mode <strong>Urgence</strong>, la bannière devient rouge et ne peut pas être masquée par les visiteurs.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOUVELLES -->
+      <section class="sec" id="s-nouvelles" aria-labelledby="h-nw">
+        <div class="ph"><div><h1 id="h-nw">Nouvelles</h1><p>Rédigez, illustrez et publiez les nouvelles municipales.</p></div></div>
+        <div class="g32" style="margin-bottom:20px">
+          <form class="panel" id="nwForm">
+            <h2>Rédiger une nouvelle</h2>
+            <div class="f"><label for="nwT">Titre</label><input type="text" id="nwT" value="Le Mont Biencourt recrute ses bénévoles"></div>
+            <div class="row2"><div class="f"><label for="nwC">Catégorie</label><select id="nwC"><option>Communauté</option><option>Avis public</option><option>Plein air</option><option>Budget</option></select></div><div class="f"><label for="nwD">Date de publication</label><input type="date" id="nwD" value="2026-10-08"></div></div>
+            <div class="f"><label for="nwR">Résumé</label><textarea id="nwR" style="min-height:70px">Billetterie, patrouille, cantine : joignez-vous à l'équipe pour la saison 2026-2027. Rencontre d'information le 22 octobre.</textarea></div>
+            <div class="f"><span class="lbl" id="nwBodyL">Contenu</span>
+              <div class="editor-tb" role="toolbar" aria-label="Mise en forme"><button type="button" data-cmd="bold" aria-label="Gras"><b>G</b></button><button type="button" data-cmd="italic" aria-label="Italique"><i>I</i></button><button type="button" data-cmd="insertUnorderedList" aria-label="Liste à puces">• ≡</button><button type="button" data-cmd="formatBlock" data-v="h3" aria-label="Intertitre">H</button><button type="button" aria-label="Insérer un lien">Lien</button></div>
+              <div class="editor" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="nwBodyL"><p>Le Mont Biencourt se prépare pour une nouvelle saison! Nous cherchons des <b>bénévoles</b> pour la billetterie, la patrouille et la cantine.</p></div>
+            </div>
+            <div class="f"><span class="lbl">Image (album photo)</span>
+              <div class="pics" id="nwPics"></div>
+            </div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Publier</button><button class="btn btn-ghost" type="button" data-toast="Brouillon enregistré">Enregistrer le brouillon</button></div>
+          </form>
+          <div class="panel">
+            <h2>Aperçu</h2>
+            <div class="news-prev"><img id="npImg" src="../assets/centre_de_ski_vue_de_la_trois_automne.png" alt=""><div class="b"><span class="tag t-communautaire" id="npC">Communauté</span><h3 id="npT"></h3><p id="npR"></p></div></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Nouvelles publiées <small id="nwCount"></small></h2>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Titre</th><th class="hide-m">Catégorie</th><th>Statut</th><th class="hide-m">Date</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="nwRows">
+            <tr><td><strong>Sentier du Saut : la passerelle rénovée est rouverte</strong></td><td class="hide-m">Plein air</td><td><span class="st st-pub">Publiée</span></td><td class="hide-m">5 oct.</td><td><button class="ibtn" aria-label="Modifier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button></td></tr>
+            <tr><td><strong>Avis d'ébullition préventif levé</strong></td><td class="hide-m">Avis public</td><td><span class="st st-pub">Publiée</span></td><td class="hide-m">6 oct.</td><td><button class="ibtn" aria-label="Modifier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button></td></tr>
+            <tr><td><strong>Budget 2027 : donnez votre avis</strong></td><td class="hide-m">Budget</td><td><span class="st st-pub">Publiée</span></td><td class="hide-m">1<sup>er</sup> oct.</td><td><button class="ibtn" aria-label="Modifier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button></td></tr>
+            <tr><td><strong>Ouverture des inscriptions au hockey mineur</strong></td><td class="hide-m">Communauté</td><td><span class="st st-sched">Programmée</span></td><td class="hide-m">12 oct.</td><td><button class="ibtn" aria-label="Modifier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button></td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <!-- EVENEMENTS -->
+      <section class="sec" id="s-evenements" aria-labelledby="h-ev">
+        <div class="ph"><div><h1 id="h-ev">Événements</h1><p>Ajoutez une activité : elle apparaît dans le calendrier public et sur l'accueil.</p></div></div>
+        <div class="g32" style="margin-bottom:20px">
+          <form class="panel" id="evForm">
+            <h2>Ajouter un événement</h2>
+            <div class="f"><label for="evT">Titre de l'activité *</label><input type="text" id="evT" required placeholder="Ex. : Atelier de tricot intergénérationnel"></div>
+            <div class="row3"><div class="f"><label for="evD">Date *</label><input type="date" id="evD" required value="2026-11-21"></div><div class="f"><label for="evH">Heure</label><input type="time" id="evH" value="13:30"></div><div class="f"><label for="evC">Catégorie</label><select id="evC"><option value="loisirs">Loisirs</option><option value="communautaire">Communautaire</option><option value="municipal">Municipal</option><option value="culture">Culture</option><option value="sport">Sport / plein air</option></select></div></div>
+            <div class="f"><label for="evL">Lieu</label><input type="text" id="evL" value="Salle communautaire"></div>
+            <div class="f"><label for="evX">Description</label><textarea id="evX" style="min-height:70px" placeholder="Quelques lignes pour donner envie de venir…"></textarea></div>
+            <div class="f"><label class="switch"><input type="checkbox" id="evF"> Mettre en vedette sur l'accueil</label></div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Ajouter au calendrier</button><span class="empty-note" id="evErr" role="alert"></span></div>
+          </form>
+          <div class="panel">
+            <h2>Aperçu de la carte</h2>
+            <div class="ev-prev"><div class="d"><span id="epM">Nov</span><b id="epD">21</b></div><div><span class="tag t-loisirs" id="epC">Loisirs</span><h3 id="epT">Titre de l'activité</h3><p id="epW">13 h 30 · Salle communautaire</p></div></div>
+            <p class="empty-note" style="margin-top:14px">Les organismes peuvent aussi proposer des activités depuis le site public : elles arrivent ici pour approbation.</p>
+            <div style="margin-top:10px;padding:12px 14px;border-radius:12px;background:var(--maple-100);font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:10px"><span><strong>1 proposition en attente</strong><br>Tournoi de deck hockey — Comité des loisirs</span><button class="btn btn-sm btn-maple" type="button" data-toast="Proposition approuvée et publiée">Approuver</button></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Calendrier des activités <small id="evCount"></small></h2>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Date</th><th>Activité</th><th class="hide-m">Catégorie</th><th class="hide-m">Lieu</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="evRows"></tbody></table></div>
+        </div>
+      </section>
+
+      <!-- JOURNAL -->
+      <section class="sec" id="s-journal" aria-labelledby="h-jo">
+        <div class="ph"><div><h1 id="h-jo">Journal local — Le Biencourtois</h1><p>Téléversez le PDF de l'édition et publiez ses articles en ligne.</p></div></div>
+        <div class="g2" style="margin-bottom:20px">
+          <form class="panel" id="joForm">
+            <h2>Nouvelle édition</h2>
+            <div class="row3"><div class="f"><label for="joM">Mois</label><select id="joM"><option>Novembre 2026</option><option>Décembre 2026</option></select></div><div class="f"><label for="joV">Volume</label><input type="text" id="joV" value="12"></div><div class="f"><label for="joN">Numéro</label><input type="text" id="joN" value="11"></div></div>
+            <label class="drop" id="drop"><input type="file" id="joFile" accept="application/pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><b>Déposez le PDF ici ou cliquez pour choisir</b><small>PDF, 25 Mo maximum · la couverture est générée automatiquement</small></label>
+            <div class="file" id="fileBox"><span class="pdf">PDF</span><div class="meta"><strong id="fName">—</strong><small id="fSize"></small><div class="bar"><i id="fBar"></i></div></div></div>
+            <div class="f" style="margin-top:16px"><span class="lbl">Articles publiés en ligne avec cette édition</span></div>
+            <ul class="list-art" id="artList">
+              <li><span class="grip" aria-hidden="true">⋮⋮</span><span class="t">Mot du maire : présentation du budget 2027</span><span class="st st-draft">Brouillon</span></li>
+              <li><span class="grip" aria-hidden="true">⋮⋮</span><span class="t">Retour sur le Parcours d'Halloween</span><span class="st st-draft">Brouillon</span></li>
+            </ul>
+            <div class="row2" style="align-items:end"><div class="f" style="margin:0"><label for="artT">Ajouter un article</label><input type="text" id="artT" placeholder="Titre de l'article"></div><button class="btn btn-ghost" type="button" id="artAdd">+ Ajouter</button></div>
+            <div class="actions" style="margin-top:18px"><button class="btn btn-primary" type="submit">Publier l'édition</button><button class="btn btn-ghost" type="button" data-toast="Envoi programmé aux 214 abonnés">Programmer l'envoi courriel</button></div>
+          </form>
+          <div class="panel">
+            <h2>Éditions en ligne</h2>
+            <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Édition</th><th>Statut</th><th class="hide-m">Téléchargements</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="joRows">
+              <tr><td><strong>Octobre 2026</strong><br><small style="color:var(--muted)">Vol. 12, n° 10 · 3,2 Mo</small></td><td><span class="st st-pub">En ligne</span></td><td class="hide-m">286</td><td><button class="ibtn" aria-label="Modifier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button></td></tr>
+              <tr><td><strong>Septembre 2026</strong><br><small style="color:var(--muted)">Vol. 12, n° 9 · 2,8 Mo</small></td><td><span class="st st-pub">Archivée</span></td><td class="hide-m">341</td><td><button class="ibtn" aria-label="Modifier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button></td></tr>
+              <tr><td><strong>Juillet-août 2026</strong><br><small style="color:var(--muted)">Vol. 12, n° 7-8 · 4,1 Mo</small></td><td><span class="st st-pub">Archivée</span></td><td class="hide-m">402</td><td><button class="ibtn" aria-label="Modifier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button></td></tr>
+            </tbody></table></div>
+            <div style="margin-top:16px;padding:14px;border-radius:14px;background:var(--forest-100);font-size:14.5px;color:var(--forest-800)"><strong>Date de tombée de novembre :</strong> 20 octobre · 6 textes reçus</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONSEIL -->
+      <section class="sec" id="s-conseil" aria-labelledby="h-co">
+        <div class="ph"><div><h1 id="h-co">Conseil &amp; séances</h1><p>Membres du conseil, calendrier des séances, ordres du jour et procès-verbaux.</p></div></div>
+        <div class="panel" style="margin-bottom:20px">
+          <h2>Séances 2026 <small>Cliquez sur « Téléverser » pour publier un document</small></h2>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Séance</th><th>Statut</th><th>Ordre du jour</th><th>Procès-verbal</th></tr></thead><tbody id="seRows"></tbody></table></div>
+        </div>
+        <div class="panel">
+          <h2>Membres du conseil <button class="btn btn-ghost btn-sm" type="button" data-toast="Modifications des membres enregistrées">Enregistrer</button></h2>
+          <div id="memRows"></div>
+        </div>
+      </section>
+
+      <!-- PAGES -->
+      <section class="sec" id="s-pages" aria-labelledby="h-pa">
+        <div class="ph"><div><h1 id="h-pa">Pages de contenu</h1><p>Toutes les pages du site, modifiables sans programmeur.</p></div><button class="btn btn-primary btn-sm" type="button" data-toast="Nouvelle page créée (brouillon)">+ Nouvelle page</button></div>
+        <div class="g32" style="grid-template-columns:1fr 1.6fr">
+          <div class="panel"><ul class="tree" id="tree">
+            <li data-p="Accueil">Accueil<small>auj.</small></li>
+            <li>Municipalité<small>—</small></li>
+            <li class="sub" data-p="Administration — Taxes municipales">Taxes municipales<small>2 oct.</small></li>
+            <li class="sub" data-p="Code d'éthique">Code d'éthique<small>mars</small></li>
+            <li class="sub" data-p="Urbanisme et permis">Urbanisme et permis<small>sept.</small></li>
+            <li class="sub" data-p="Eau potable">Eau potable<small>6 oct.</small></li>
+            <li class="sub" data-p="Infos RIDT">Infos RIDT<small>août</small></li>
+            <li class="sub" data-p="Station de lavage et débarcadère">Station de lavage &amp; débarcadère<small>juin</small></li>
+            <li>Vivre à Biencourt<small>—</small></li>
+            <li class="sub on" data-p="Camping &amp; chalets">Camping &amp; chalets<small>5 oct.</small></li>
+            <li class="sub" data-p="Mont Biencourt">Mont Biencourt<small>sept.</small></li>
+            <li class="sub" data-p="Un brin d'histoire">Un brin d'histoire<small>2025</small></li>
+            <li data-p="Nous joindre">Nous joindre<small>janv.</small></li>
+          </ul></div>
+          <form class="panel" id="pgForm">
+            <h2><span id="pgTitle">Camping &amp; chalets</span> <span class="st st-pub">Publiée</span></h2>
+            <div class="f"><label for="pgH">Titre de la page</label><input type="text" id="pgH" value="Camping & chalets"></div>
+            <div class="f"><span class="lbl" id="pgBL">Contenu</span>
+              <div class="editor-tb" role="toolbar" aria-label="Mise en forme"><button type="button" data-cmd="bold" aria-label="Gras"><b>G</b></button><button type="button" data-cmd="italic" aria-label="Italique"><i>I</i></button><button type="button" data-cmd="insertUnorderedList" aria-label="Liste à puces">• ≡</button><button type="button" data-cmd="formatBlock" data-v="h3" aria-label="Intertitre">H</button></div>
+              <div class="editor" id="pgBody" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="pgBL"><h3>Camping municipal du lac Biencourt</h3><p>1, chemin du camping · <b>418-499-2353</b></p><ul><li>18 chalets, dont 10 ouverts à l'année</li><li>Sites pour roulottes</li><li>Buanderie et douches</li></ul></div>
+            </div>
+            <div class="row2"><div class="f"><label for="pgS">Statut</label><select id="pgS"><option>Publiée</option><option>Brouillon</option><option>Masquée</option></select></div><div class="f"><label for="pgM">Dans le menu</label><select id="pgM"><option>Vivre à Biencourt</option><option>Municipalité</option><option>Aucun</option></select></div></div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Enregistrer</button><button class="btn btn-ghost" type="button" data-toast="Historique : 12 versions disponibles">Historique des versions</button></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- REPERTOIRE -->
+      <section class="sec" id="s-repertoire" aria-labelledby="h-re">
+        <div class="ph"><div><h1 id="h-re">Commerces &amp; organismes</h1><p>Le répertoire affiché dans « Vivre à Biencourt ».</p></div></div>
+        <div class="panel">
+          <div class="sub-tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-t="com">Commerces</button><button type="button" role="tab" aria-selected="false" data-t="org">Organismes</button></div>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Nom</th><th class="hide-m">Adresse / responsable</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="reRows"></tbody></table></div>
+          <form class="row3" id="reForm" style="margin-top:16px;align-items:end"><div class="f" style="margin:0"><label for="reN">Nom</label><input type="text" id="reN" placeholder="Nom"></div><div class="f" style="margin:0"><label for="reA">Adresse ou responsable</label><input type="text" id="reA" placeholder="Ex. : 12, rue Principale"></div><button class="btn btn-primary" type="submit">+ Ajouter</button></form>
+        </div>
+      </section>
+
+      <!-- PHOTOS -->
+      <section class="sec" id="s-photos" aria-labelledby="h-ph">
+        <div class="ph"><div><h1 id="h-ph">Album photo</h1><p>Photos utilisées sur le site : bannière, nouvelles, journal et album public.</p></div><div class="f" style="margin:0"><label for="alb" class="sr-only">Album</label><select id="alb" class="in"><option>Tous les albums</option><option>Paysages</option><option>Mont Biencourt</option><option>Événements</option></select></div></div>
+        <div class="album" id="album"></div>
+      </section>
+
+      <!-- PARAMETRES -->
+      <section class="sec" id="s-parametres" aria-labelledby="h-pr">
+        <div class="ph"><div><h1 id="h-pr">Paramètres du site</h1><p>Coordonnées, heures d'ouverture et widgets.</p></div></div>
+        <form class="g2" id="prForm">
+          <div class="panel">
+            <h2>Coordonnées</h2>
+            <div class="f"><label for="p1">Adresse</label><input type="text" id="p1" value="5, rue Berger, C.P. 70, Biencourt (Québec) G0K 1T0"></div>
+            <div class="row2"><div class="f"><label for="p2">Téléphone</label><input type="text" id="p2" value="418-499-2423"></div><div class="f"><label for="p3">Télécopieur</label><input type="text" id="p3" value="418-499-2708"></div></div>
+            <div class="f"><label for="p4">Courriel</label><input type="email" id="p4" value="info@biencourt.ca"></div>
+            <div class="f"><label for="p5">Heures de bureau</label><input type="text" id="p5" value="Lun-jeu 8 h 30-12 h, 13 h-16 h 30"></div>
+          </div>
+          <div class="panel">
+            <h2>Widgets et liens</h2>
+            <div class="f"><label class="switch"><input type="checkbox" checked> Danger d'incendie SOPFEU (mise à jour automatique)</label></div>
+            <div class="f"><label class="switch"><input type="checkbox" checked> Échéances de taxes sur l'accueil</label></div>
+            <div class="f"><label class="switch"><input type="checkbox" checked> Météo du jour</label></div>
+            <div class="f"><label for="p6">Page Facebook</label><input type="url" id="p6" value="https://facebook.com/municipalitebiencourt"></div>
+            <div class="f"><label for="p7">Mont Biencourt</label><input type="url" id="p7" value="https://montbiencourt.com"></div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Enregistrer</button></div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span id="toastT"></span></div>
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s);},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+  var tm;function toast(m){$('#toastT').textContent=m;$('#toast').classList.add('show');clearTimeout(tm);tm=setTimeout(function(){$('#toast').classList.remove('show');},2800);}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  /* navigation */
+  function show(id){if(!$('#s-'+id))id='dashboard';$$('.sec').forEach(function(s){s.classList.toggle('on',s.id==='s-'+id);});$$('#sbnav a').forEach(function(a){if(a.dataset.s===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});window.scrollTo(0,0);}
+  $$('#sbnav a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();history.replaceState(null,'','#'+a.dataset.s);show(a.dataset.s);});});
+  $$('[data-go]').forEach(function(b){b.addEventListener('click',function(){history.replaceState(null,'','#'+b.dataset.go);show(b.dataset.go);});});
+  show(location.hash.slice(1)||'dashboard');
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-toast]');if(b)toast(b.dataset.toast);});
+  /* chart */
+  var V=[132,148,121,96,88,154,171,166,142,119,104,98,189,214];
+  $('#chart').innerHTML=V.map(function(v,i){var d=new Date(2026,8,25+i),we=d.getDay()===0||d.getDay()===6;return '<div class="'+(we?'we':'')+'" style="height:'+(v/220*100)+'%" data-v="'+v+' visites"></div>';}).join('');
+  /* todo */
+  function todoN(){var n=$$('#todo input').filter(function(i){return !i.checked;}).length;$('#todoN').textContent=n+' tâche'+(n>1?'s':'');}
+  $$('#todo input').forEach(function(i){i.addEventListener('change',todoN);});todoN();
+  /* alerte */
+  function al(){var on=$('#alOn').checked,l=$('input[name=lvl]:checked').value,m=$('#alMsg').value;
+    $('#alCount').textContent=m.length;$('#pvAlert').hidden=!on;$('#pvOff').hidden=on;$('#pvAlert').className='pv-alert '+l;
+    $('#pvPill').textContent={info:'Info',imp:'Avis',urg:'Urgence'}[l];$('#pvMsg').textContent=m||'Votre message…';$('#pvLink').textContent=$('#alLink').value;}
+  ['#alOn','#alMsg','#alLink'].forEach(function(s){$(s).addEventListener('input',al);});$$('input[name=lvl]').forEach(function(r){r.addEventListener('change',al);});al();
+  $('#alTpl').addEventListener('click',function(){$('#alMsg').value="Avis d'ébullition préventif en vigueur pour le secteur de la rue Principale jusqu'à nouvel ordre.";$('input[value=urg]').checked=true;al();});
+  $('#alForm').addEventListener('submit',function(e){e.preventDefault();toast($('#alOn').checked?'Bannière publiée sur toutes les pages':'Bannière désactivée');});
+  /* editor toolbar */
+  $$('.editor-tb button[data-cmd]').forEach(function(b){b.addEventListener('mousedown',function(e){e.preventDefault();document.execCommand(b.dataset.cmd,false,b.dataset.v||null);});});
+  /* photos */
+  var PH=[['vue_biencourt_montagne_de_la_tour','Vue du village depuis la montagne de la Tour','Paysages'],['centre_de_ski_vue_de_la_trois_automne','Mont Biencourt en automne','Mont Biencourt'],['Cascade_saut','La chute du Saut','Paysages'],['Pont_saut','Passerelle du Saut','Paysages'],['centre_de_ski_cours_motoneige','Soirée au centre de ski','Événements'],['chevreuille','Chevreuils en forêt','Paysages']];
+  $('#nwPics').innerHTML=PH.map(function(p,i){return '<label><input type="radio" name="nwp" value="'+p[0]+'"'+(i===1?' checked':'')+'><img src="../assets/'+p[0]+'.png" alt="'+esc(p[1])+'"></label>';}).join('');
+  /* news preview */
+  var TAGC={'Communauté':'t-communautaire','Avis public':'t-municipal','Plein air':'t-sport','Budget':'t-municipal'};
+  function np(){$('#npT').textContent=$('#nwT').value||'Titre de la nouvelle';$('#npR').textContent=$('#nwR').value;$('#npC').textContent=$('#nwC').value;$('#npC').className='tag '+TAGC[$('#nwC').value];var p=$('input[name=nwp]:checked');$('#npImg').src='../assets/'+p.value+'.png';}
+  ['#nwT','#nwR','#nwC'].forEach(function(s){$(s).addEventListener('input',np);});$('#nwPics').addEventListener('change',np);np();
+  function nwCount(){$('#nwCount').textContent=$$('#nwRows tr').length+' nouvelles';}nwCount();
+  var EDIT='<button class="ibtn" type="button" aria-label="Modifier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>';
+  var MS=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+  $('#nwForm').addEventListener('submit',function(e){e.preventDefault();var t=$('#nwT').value.trim();if(!t){$('#nwT').focus();return;}var d=new Date($('#nwD').value+'T12:00:00');
+    var tr=document.createElement('tr');tr.className='new';tr.innerHTML='<td><strong>'+esc(t)+'</strong></td><td class="hide-m">'+esc($('#nwC').value)+'</td><td><span class="st st-pub">Publiée</span></td><td class="hide-m">'+(isNaN(d)?'—':d.getDate()+' '+MS[d.getMonth()])+'</td><td>'+EDIT+'</td>';
+    $('#nwRows').insertBefore(tr,$('#nwRows').firstChild);nwCount();toast('Nouvelle publiée : '+t);});
+  /* events */
+  var CAT={loisirs:'Loisirs',communautaire:'Communautaire',municipal:'Municipal',culture:'Culture',sport:'Sport / plein air'};
+  var EV=[['2026-10-10','Souper spaghetti du Club des 50 ans et plus','communautaire','Salle communautaire'],['2026-10-14','Cuisines collectives du Haut-Pays','communautaire','2, rue St-Marc'],['2026-10-17','Collecte des encombrants','municipal','Tout le territoire'],['2026-10-19','Échéance du 6e versement de taxes','municipal','—'],['2026-10-24',"Bingo de l'Halloween pour les familles",'loisirs','Salle communautaire'],['2026-10-31',"Parcours d'Halloween",'loisirs','Centre des loisirs'],['2026-11-02','Séance ordinaire du conseil','municipal','Salle du conseil'],['2026-11-14','Concert de la Chorale','culture','Église'],['2026-11-28','Marché de Noël artisanal','culture','Salle communautaire'],['2026-12-06','Ouverture prévue du Mont Biencourt','sport','Mont Biencourt'],['2026-12-13','Fête de Noël des enfants (0-12 ans)','loisirs','Salle communautaire']];
+  var lastNew=null;
+  function fd(s){var d=new Date(s+'T12:00:00');return d.getDate()+' '+MS[d.getMonth()];}
+  function drawEv(){EV.sort(function(a,b){return a[0]<b[0]?-1:1;});
+    $('#evRows').innerHTML=EV.map(function(e,i){return '<tr'+(e===lastNew?' class="new"':'')+'><td><strong>'+fd(e[0])+'</strong></td><td>'+esc(e[1])+(e[4]?' <span class="st st-todo">Vedette</span>':'')+'</td><td class="hide-m"><span class="tag t-'+e[2]+'">'+CAT[e[2]]+'</span></td><td class="hide-m">'+esc(e[3])+'</td><td><button class="ibtn del" type="button" data-del="'+i+'" aria-label="Supprimer '+esc(e[1])+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></button></td></tr>';}).join('');
+    $('#evCount').textContent=EV.length+' activités à venir';$('#kpiEv').textContent=EV.length;}
+  $('#evRows').addEventListener('click',function(e){var b=e.target.closest('[data-del]');if(!b)return;var r=EV.splice(+b.dataset.del,1)[0];lastNew=null;drawEv();toast('Événement retiré : '+r[1]);});
+  function ep(){var d=new Date(($('#evD').value||'2026-11-21')+'T12:00:00'),h=$('#evH').value;$('#epM').textContent=MS[d.getMonth()].replace('.','');$('#epD').textContent=isNaN(d)?'–':d.getDate();$('#epT').textContent=$('#evT').value||"Titre de l'activité";$('#epC').textContent=CAT[$('#evC').value];$('#epC').className='tag t-'+$('#evC').value;$('#epW').textContent=(h?h.replace(':',' h ').replace(' h 00',' h'):'')+($('#evL').value?' · '+$('#evL').value:'');}
+  ['#evT','#evD','#evH','#evC','#evL'].forEach(function(s){$(s).addEventListener('input',ep);});ep();
+  $('#evForm').addEventListener('submit',function(e){e.preventDefault();var t=$('#evT').value.trim(),d=$('#evD').value;if(!t||!d){$('#evErr').textContent='Le titre et la date sont requis.';(t?$('#evD'):$('#evT')).focus();return;}$('#evErr').textContent='';
+    lastNew=[d,t,$('#evC').value,$('#evL').value||'—',$('#evF').checked];EV.push(lastNew);drawEv();toast('Ajouté au calendrier public : '+t);$('#evT').value='';$('#evX').value='';ep();
+    var row=$('#evRows tr.new');if(row)row.scrollIntoView({behavior:'smooth',block:'center'});});
+  drawEv();
+  /* journal */
+  function setFile(f){if(!f)return;$('#fileBox').classList.add('show');$('#fName').textContent=f.name;$('#fSize').textContent=(f.size/1048576).toFixed(1).replace('.',',')+' Mo · téléversement…';$('#fBar').style.width='0';setTimeout(function(){$('#fBar').style.width='100%';},50);setTimeout(function(){$('#fSize').textContent=(f.size/1048576).toFixed(1).replace('.',',')+' Mo · prêt à publier ✓';},1300);}
+  $('#joFile').addEventListener('change',function(){setFile(this.files[0]);});
+  var dr=$('#drop');['dragover','dragenter'].forEach(function(ev){dr.addEventListener(ev,function(e){e.preventDefault();dr.classList.add('over');});});['dragleave','drop'].forEach(function(ev){dr.addEventListener(ev,function(e){e.preventDefault();dr.classList.remove('over');});});
+  dr.addEventListener('drop',function(e){setFile(e.dataTransfer.files[0]);});
+  $('#artAdd').addEventListener('click',function(){var t=$('#artT').value.trim();if(!t){$('#artT').focus();return;}var li=document.createElement('li');li.innerHTML='<span class="grip" aria-hidden="true">⋮⋮</span><span class="t">'+esc(t)+'</span><span class="st st-draft">Brouillon</span>';$('#artList').appendChild(li);$('#artT').value='';});
+  $('#artT').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();$('#artAdd').click();}});
+  $('#joForm').addEventListener('submit',function(e){e.preventDefault();var m=$('#joM').value;var tr=document.createElement('tr');tr.className='new';tr.innerHTML='<td><strong>'+esc(m)+'</strong><br><small style="color:var(--muted)">Vol. '+esc($('#joV').value)+', n° '+esc($('#joN').value)+'</small></td><td><span class="st st-sched">Programmée</span></td><td class="hide-m">—</td><td>'+EDIT+'</td>';$('#joRows').insertBefore(tr,$('#joRows').firstChild);$$('#artList .st').forEach(function(s){s.className='st st-sched';s.textContent='Programmé';});toast('Édition '+m+' programmée pour le 1er du mois');});
+  /* séances */
+  var SE=[['13 janv.','pub','pub'],['2 févr.','pub','pub'],['19 févr. (extra.)','pub','pub'],['2 mars','pub','pub'],['30 mars (extra.)','pub','pub'],['14 avr.','pub','pub'],['4 mai','pub','pub'],['25 mai (extra.)','pub','pub'],['1er juin','pub','pub'],['6 juil.','pub','pub'],['18 août','pub','pub'],['15 sept.','pub','pub'],['5 oct.','pub','todo'],['2 nov.','todo','na'],['7 déc.','na','na']].reverse();
+  function cell(s,i,k){if(s==='pub')return '<span class="st st-pub">Publié</span>';if(s==='na')return '<span class="empty-note">—</span>';return '<button class="btn btn-sm btn-maple" type="button" data-up="'+i+'" data-k="'+k+'">Téléverser</button>';}
+  function drawSe(){$('#seRows').innerHTML=SE.map(function(s,i){var st=s[0]==='2 nov.'?'<span class="st st-todo">Prochaine</span>':s[2]==='na'&&s[1]==='na'?'<span class="st st-draft">À venir</span>':'<span class="st st-pub">Tenue</span>';return '<tr><td><strong>'+s[0]+'</strong></td><td>'+st+'</td><td>'+cell(s[1],i,1)+'</td><td>'+cell(s[2],i,2)+'</td></tr>';}).join('');}
+  $('#seRows').addEventListener('click',function(e){var b=e.target.closest('[data-up]');if(!b)return;var s=SE[+b.dataset.up];s[+b.dataset.k]='pub';drawSe();toast((b.dataset.k==='1'?'Ordre du jour':'Procès-verbal')+' du '+s[0]+' publié');});
+  drawSe();
+  var MEM=[['DD','Daniel Dumont','Maire','Administration générale, MRC','#C9601A'],['DR','Daniel Rioux','Poste 1','Voirie, déneigement','#3B7A20'],['SB','Sébastien Beaulieu','Poste 2','Loisirs, Mont Biencourt','#1D6A9E'],['KL','Kathleen Lebel','Poste 3','Familles, aînés, OMH','#E8762B'],['FG','Francis Godin','Poste 4','Hygiène du milieu, eau potable','#16405E'],['SJ','Sylvie Jacques','Poste 5','Culture, patrimoine, journal','#2C5A18'],['LL','Linda Lavoie','Poste 6','Développement communautaire','#B4500F']];
+  $('#memRows').innerHTML=MEM.map(function(m,i){return '<div class="mem-row"><span class="av" style="background:'+m[4]+'">'+m[0]+'</span><input class="in" aria-label="Nom" value="'+esc(m[1])+'"><input class="in" aria-label="Fonction" value="'+esc(m[2])+'"><input class="in" aria-label="Dossiers" value="'+esc(m[3])+'"><button class="ibtn" type="button" aria-label="Modifier la photo ou l\'avatar" data-toast="Avatar mis à jour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="12" cy="12" r="3"/></svg></button></div>';}).join('');
+  /* pages */
+  $('#tree').addEventListener('click',function(e){var li=e.target.closest('li[data-p]');if(!li)return;$$('#tree li').forEach(function(x){x.classList.toggle('on',x===li);});var t=li.dataset.p;$('#pgTitle').textContent=t;$('#pgH').value=t;$('#pgBody').innerHTML='<h3>'+esc(t)+'</h3><p>Contenu de la page « '+esc(t)+' ». Cliquez ici pour le modifier directement, comme dans un traitement de texte.</p>';});
+  $('#pgH').addEventListener('input',function(){$('#pgTitle').textContent=this.value;});
+  $('#pgForm').addEventListener('submit',function(e){e.preventDefault();toast('Page « '+$('#pgH').value+' » enregistrée et publiée');});
+  /* répertoire */
+  var RE={com:[['Épicerie Chez Lelou','19, rue Principale Est'],['Coiffure Karo','20, rue Berger'],['Coiffure Linda','4, rue de la Nativité'],['Bureau de poste','14, rue Principale Ouest'],["Office d'habitation",'4, rue St-Marc · 13 logements 50+']],
+          org:[['Comité des loisirs','Yvan Beaulieu'],['Comité Solidarité, partage','Linda Lavoie'],['Chorale de Biencourt','Monique Thériault'],['OPP','Weena Beaulieu'],['Club des 50 ans et plus','Marc Pelletier'],['Cuisines collectives du Haut-Pays','Mercredis, 2, rue St-Marc'],['Club de motoneige','—'],['Fabrique','—']]};
+  var rt='com';
+  function drawRe(){$('#reRows').innerHTML=RE[rt].map(function(r,i){return '<tr><td><strong>'+esc(r[0])+'</strong></td><td class="hide-m">'+esc(r[1])+'</td><td style="white-space:nowrap">'+EDIT+' <button class="ibtn del" type="button" data-rd="'+i+'" aria-label="Supprimer '+esc(r[0])+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></button></td></tr>';}).join('');}
+  $$('.sub-tabs button').forEach(function(b){b.addEventListener('click',function(){rt=b.dataset.t;$$('.sub-tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b);});drawRe();});});
+  $('#reRows').addEventListener('click',function(e){var b=e.target.closest('[data-rd]');if(!b)return;var r=RE[rt].splice(+b.dataset.rd,1)[0];drawRe();toast('Retiré du répertoire : '+r[0]);});
+  $('#reForm').addEventListener('submit',function(e){e.preventDefault();var n=$('#reN').value.trim();if(!n){$('#reN').focus();return;}RE[rt].unshift([n,$('#reA').value.trim()||'—']);drawRe();$('#reRows tr').className='new';$('#reN').value='';$('#reA').value='';toast('Ajouté au répertoire : '+n);});
+  drawRe();
+  /* album */
+  function drawAlb(){var f=$('#alb').value;$('#album').innerHTML=PH.filter(function(p){return f==='Tous les albums'||p[2]===f;}).map(function(p,i){return '<div class="ph-card"><img src="../assets/'+p[0]+'.png" alt="'+esc(p[1])+'"><div class="b"><input class="in" aria-label="Légende" value="'+esc(p[1])+'"><div class="row"><span>'+p[2]+'</span><label class="switch" style="font-size:12.5px"><input type="checkbox"'+(p[0]==='vue_biencourt_montagne_de_la_tour'?' checked':'')+' data-hero> Bannière</label></div></div></div>';}).join('')+'<label class="ph-up"><input type="file" accept="image/*" multiple class="sr-only" id="phUp"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><b>Ajouter des photos</b><br><small>JPG ou PNG · redimensionnées automatiquement</small></span></label>';
+    $('#phUp').addEventListener('change',function(){if(this.files.length)toast(this.files.length+' photo(s) ajoutée(s) à l\'album');});}
+  $('#alb').addEventListener('change',drawAlb);drawAlb();
+  $('#album').addEventListener('change',function(e){if(e.target.matches('[data-hero]')){if(e.target.checked){$$('[data-hero]').forEach(function(x){if(x!==e.target)x.checked=false;});toast("Photo définie comme bannière de l'accueil");}}});
+  $('#prForm').addEventListener('submit',function(e){e.preventDefault();toast('Paramètres enregistrés');});
+})();
+</script>
+</body>
+</html>

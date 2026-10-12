@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le Biencourtois — Journal local de Biencourt</title>
+<meta name="description" content="Le Biencourtois, journal local mensuel de Biencourt : édition courante, articles récents et archives PDF.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Outfit:wght@300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lake-900:#0F2E44; --lake-800:#16405E; --lake-700:#1D6A9E; --lake-500:#2E8BC9; --lake-200:#BFE0F4; --lake-100:#E6F3FB;
+  --forest-800:#2C5A18; --forest-700:#3B7A20; --forest-500:#6DB33F; --forest-200:#CFE8BC; --forest-100:#EDF7E5;
+  --maple-700:#B4500F; --maple-600:#C9601A; --maple-500:#E8762B; --maple-300:#F2A33A; --maple-100:#FEF1E2;
+  --ink:#1B2A33; --ink-2:#34444F; --muted:#5B6B76; --line:#E7E1D6; --line-2:#F0EBE2;
+  --bg:#FBF8F2; --bg-2:#F5F0E6; --surface:#FFFFFF;
+  --r-sm:12px; --r:20px; --r-lg:28px; --r-xl:36px;
+  --sh-1:0 1px 2px rgba(23,45,60,.06),0 2px 8px rgba(23,45,60,.05);
+  --sh-2:0 2px 6px rgba(23,45,60,.05),0 12px 32px -8px rgba(23,45,60,.14);
+  --sh-3:0 4px 10px rgba(23,45,60,.06),0 24px 60px -12px rgba(23,45,60,.22);
+  --f-title:"Fraunces",Georgia,serif; --f-ui:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1200px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--f-ui);font-size:17px;line-height:1.6;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:var(--lake-700);text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{color:var(--lake-900)}
+h1,h2,h3,h4{font-family:var(--f-title);font-weight:600;line-height:1.15;margin:0 0 .5em;color:var(--lake-900);letter-spacing:-.01em;font-variation-settings:"SOFT" 50,"WONK" 0}
+h1{font-size:clamp(2.2rem,5vw,3.9rem)}
+h2{font-size:clamp(1.7rem,3vw,2.5rem)}
+h3{font-size:1.3rem}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--maple-500);outline-offset:3px;border-radius:8px}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--lake-900);color:#fff;padding:10px 16px;border-radius:10px;z-index:200}
+.skip:focus{top:12px}
+
+/* mockup strip */
+.mock-strip{background:var(--lake-900);color:#C9DCE8;font-size:12.5px;letter-spacing:.02em}
+.mock-strip .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:30px}
+.mock-strip a{color:#fff;text-decoration:none;opacity:.85;white-space:nowrap}
+.mock-strip a:hover{opacity:1;text-decoration:underline}
+.mock-strip b{color:var(--maple-300);font-weight:600}
+
+/* alert */
+.alert{background:linear-gradient(90deg,var(--maple-100),#FFF7EC);border-bottom:1px solid #F6D9B8;color:#5B300C;font-size:15px}
+.alert .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
+.alert .pill{flex:none;background:var(--maple-600);color:#fff;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
+.alert p{margin:0;flex:1}
+.alert a{color:#7A3A08;font-weight:600}
+.alert button{flex:none;background:none;border:0;color:#7A3A08;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
+.alert button:hover{background:rgba(200,96,26,.12)}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:50;background:rgba(251,248,242,.88);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid rgba(231,225,214,.8)}
+.site-head .wrap{display:flex;align-items:center;gap:24px;min-height:82px}
+.brand{display:flex;align-items:center;flex:none}
+.brand img{height:60px;width:auto}
+.nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav>ul{display:flex;list-style:none;margin:0;padding:0;gap:2px;align-items:center}
+.nav li{position:relative}
+.nav a.top,.nav button.top{display:flex;align-items:center;gap:6px;font:500 15.5px/1 var(--f-ui);color:var(--ink-2);text-decoration:none;padding:12px 14px;border-radius:99px;background:none;border:0;cursor:pointer;transition:background .2s,color .2s}
+.nav a.top:hover,.nav button.top:hover,.nav li:focus-within>.top{background:var(--bg-2);color:var(--lake-900)}
+.nav .top[aria-current="page"]{color:var(--forest-800);background:var(--forest-100)}
+.nav .chev{width:10px;height:10px;transition:transform .2s}
+.nav li:hover .chev,.nav li:focus-within .chev{transform:rotate(180deg)}
+.mega{position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,6px);background:#fff;border-radius:var(--r);box-shadow:var(--sh-3);padding:22px;display:grid;gap:4px 24px;opacity:0;visibility:hidden;transition:.2s;min-width:260px;border:1px solid var(--line-2)}
+.mega.two{grid-template-columns:1fr 1fr;min-width:520px}
+.mega::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
+.nav li:hover>.mega,.nav li:focus-within>.mega{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.mega h4{grid-column:1/-1;font:600 12px/1 var(--f-ui);text-transform:uppercase;letter-spacing:.1em;color:var(--maple-700);margin:0 0 8px}
+.mega a{display:block;padding:8px 10px;border-radius:10px;text-decoration:none;color:var(--ink);font-size:15px;line-height:1.3}
+.mega a small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.mega a:hover{background:var(--lake-100);color:var(--lake-900)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15.5px/1 var(--f-ui);padding:14px 22px;border-radius:99px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s,color .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--forest-700);color:#fff;box-shadow:0 6px 16px -6px rgba(59,122,32,.6)}
+.btn-primary:hover{background:var(--forest-800);color:#fff}
+.btn-maple{background:var(--maple-600);color:#fff;box-shadow:0 6px 16px -6px rgba(201,96,26,.6)}
+.btn-maple:hover{background:var(--maple-700);color:#fff}
+.btn-ghost{background:#fff;color:var(--lake-900);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--lake-500);color:var(--lake-900)}
+.btn-light{background:rgba(255,255,255,.95);color:var(--lake-900)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.btn svg{width:18px;height:18px}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:20px;height:2px;background:var(--lake-900);border-radius:2px;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:inherit;border-radius:2px}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+
+/* page header (inner pages) */
+.page-hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#FDF3E4 0%,#E9F4F9 100%);padding:64px 0 120px}
+.page-hero .wrap{position:relative;z-index:2}
+.page-hero .scene{position:absolute;inset:auto 0 0 0;height:150px;z-index:1}
+.page-hero .scene svg{width:100%;height:100%}
+.crumbs{font-size:14px;color:var(--muted);margin-bottom:14px;display:flex;gap:8px;flex-wrap:wrap}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--lake-700);text-decoration:underline}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font:600 13px/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--maple-700);margin-bottom:14px}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
+.lead{font-size:1.2rem;color:var(--ink-2);max-width:640px}
+
+.section{padding:88px 0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.section-head h2{margin:0}
+.link-more{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;color:var(--lake-700)}
+.link-more::after{content:"→";transition:transform .2s}
+.link-more:hover::after{transform:translateX(4px)}
+.card{background:var(--surface);border-radius:var(--r);box-shadow:var(--sh-2);border:1px solid rgba(231,225,214,.6)}
+.tag{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--f-ui);letter-spacing:.04em;padding:6px 10px;border-radius:99px;white-space:nowrap}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.t-loisirs{background:var(--forest-100);color:var(--forest-800)}
+.t-communautaire{background:var(--maple-100);color:var(--maple-700)}
+.t-municipal{background:var(--lake-100);color:var(--lake-800)}
+.t-culture{background:#F3EAF7;color:#6A3A86}
+.t-sport{background:#E5F5F1;color:#1C6B5A}
+
+.ic-g{background:var(--forest-100);color:var(--forest-700)}
+.ic-b{background:var(--lake-100);color:var(--lake-700)}
+.ic-o{background:var(--maple-100);color:var(--maple-600)}
+/* photo blocks */
+.photo{position:relative;border-radius:var(--r);overflow:hidden;background:var(--lake-200)}
+.photo svg{width:100%;height:100%}
+.photo figcaption{position:absolute;left:12px;bottom:12px;background:rgba(15,46,68,.72);color:#fff;font-size:12.5px;padding:5px 10px;border-radius:99px;backdrop-filter:blur(4px)}
+
+/* footer */
+.site-foot{position:relative;background:var(--lake-900);color:#C4D6E2;margin-top:40px}
+.site-foot .ridge{position:absolute;left:0;right:0;top:-79px;height:80px}
+.site-foot .ridge svg{width:100%;height:100%}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding:64px 0 40px}
+.site-foot h3{font:600 13px/1 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--maple-300);margin-bottom:18px}
+.site-foot a{color:#fff;text-decoration:none}
+.site-foot a:hover{text-decoration:underline}
+.site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15.5px}
+.foot-logo{background:#fff;border-radius:18px;padding:10px 14px;display:inline-block;margin-bottom:18px}
+.foot-logo img{height:64px}
+.foot-slogan{font-family:var(--f-title);font-style:italic;font-size:1.25rem;color:#fff;margin-bottom:6px}
+.foot-contact{font-size:15.5px;line-height:1.75}
+.social{display:flex;gap:10px;margin-top:18px}
+.social a{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.social a:hover{background:var(--lake-500)}
+.social svg{width:20px;height:20px;fill:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#93AEC0}
+.foot-bottom a{color:#C4D6E2}
+
+@media (max-width:1080px){
+  .nav{position:fixed;inset:0 0 0 auto;width:min(380px,92vw);background:#fff;flex-direction:column;align-items:stretch;padding:96px 20px 24px;box-shadow:var(--sh-3);transform:translateX(105%);transition:transform .3s;overflow-y:auto;z-index:60}
+  .nav.open{transform:none}
+  .nav>ul{flex-direction:column;align-items:stretch}
+  .nav a.top,.nav button.top{width:100%;justify-content:space-between;font-size:17px;padding:14px 16px}
+  .mega{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:0;padding:0 0 8px 12px;min-width:0;display:none}
+  .mega.two{grid-template-columns:1fr;min-width:0}
+  .nav li.open>.mega{display:grid}
+  .nav li:hover>.mega{transform:none}
+  .nav .cta{margin-top:16px}
+  .burger{display:inline-flex;position:relative;z-index:70}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .site-head .wrap{min-height:68px}
+  .brand img{height:46px}
+  .section{padding:60px 0}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+  .mock-strip .hide-sm{display:none}
+  .page-hero{padding:40px 0 96px}
+  .page-hero .scene{height:100px}
+  .alert .wrap{align-items:flex-start;font-size:14px}
+}
+
+/* ===== Journal ===== */
+.mast-title{font:600 clamp(2.8rem,7vw,5.4rem)/1 var(--f-title);letter-spacing:-.03em;color:var(--lake-900);margin:0 0 12px}
+.mast-title em{font-style:italic;font-weight:400;color:var(--maple-600)}
+.feature{margin-top:-80px;position:relative;z-index:3;display:grid;grid-template-columns:340px 1fr;gap:48px;padding:40px 44px;border-radius:var(--r-lg);align-items:center}
+.cover{background:#FFFCF5;border-radius:10px;padding:20px 18px 22px;color:var(--ink);box-shadow:0 30px 60px -24px rgba(15,46,68,.55),0 0 0 1px var(--line);transform:rotate(-2.5deg);transition:transform .3s}
+.cover:hover{transform:rotate(0) scale(1.02)}
+.cover .mast{font:700 1.9rem/1 var(--f-title);color:var(--lake-900);text-align:center;letter-spacing:-.02em;border-bottom:3px double var(--lake-900);padding-bottom:8px}
+.cover .issue{display:flex;justify-content:space-between;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--line);margin-bottom:12px}
+.cover .photo{aspect-ratio:4/3;border-radius:6px;margin:0 0 10px}
+.cover h4{font-size:1.15rem;margin:0 0 8px;line-height:1.2}
+.cover .cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cover .lines i{display:block;height:5px;background:#E8E2D6;border-radius:3px;margin-bottom:5px}
+.cover .lines i:nth-child(3n){width:70%}
+.cover .mini{font:600 10.5px/1.25 var(--f-ui);color:var(--maple-700);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.ed-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.ed-meta span{font-size:13.5px;background:var(--bg-2);padding:6px 11px;border-radius:99px;color:var(--ink-2)}
+.feature h2{margin:0 0 14px;font-size:clamp(1.7rem,3vw,2.5rem)}
+.toc{list-style:none;margin:0 0 26px;padding:0;columns:2;column-gap:32px}
+.toc li{break-inside:avoid;display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15.5px}
+.toc b{font:600 13px/1 var(--f-ui);color:var(--maple-700);min-width:26px}
+.feature .btns{display:flex;gap:12px;flex-wrap:wrap}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font:500 15px/1 var(--f-ui);padding:10px 16px;border-radius:99px;border:1.5px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--lake-900);color:#fff;border-color:var(--lake-900)}
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.art{overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+.art:hover{transform:translateY(-4px);box-shadow:var(--sh-3);color:inherit}
+.art .photo{border-radius:0;aspect-ratio:16/10;margin:0}
+.art .photo svg{width:100%;height:100%}
+.art .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.art h3{font-size:1.25rem;margin:0}
+.art p{margin:0;font-size:15px;color:var(--muted)}
+.art .by{margin-top:auto;padding-top:10px;font-size:13.5px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.art .by i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:600 10.5px var(--f-ui);font-style:normal;color:#fff}
+.art.quote .body{background:linear-gradient(160deg,var(--lake-900),var(--lake-800));color:#D4E4EE;justify-content:center}
+.art.quote h3{color:#fff}
+.art.quote blockquote{margin:0 0 6px;font:italic 500 1.35rem/1.4 var(--f-title);color:#fff}
+.art.quote p{color:#BFD3E0}
+.art.quote .by{color:#BFD3E0}
+
+.arch-layout{display:grid;grid-template-columns:1fr 340px;gap:36px;align-items:start}
+.tabs{display:inline-flex;background:var(--bg-2);padding:4px;border-radius:99px;border:1px solid var(--line)}
+.tabs button{font:600 14.5px/1 var(--f-ui);border:0;background:none;padding:10px 18px;border-radius:99px;cursor:pointer;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--lake-900);box-shadow:var(--sh-1)}
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:24px}
+.mini-cover{text-decoration:none;color:inherit;display:block}
+.mc{background:#FFFCF5;border-radius:8px;padding:10px;box-shadow:var(--sh-2);border:1px solid var(--line);transition:transform .25s,box-shadow .25s;aspect-ratio:3/4;display:flex;flex-direction:column;gap:6px}
+.mini-cover:hover .mc{transform:translateY(-6px) rotate(-1.5deg);box-shadow:var(--sh-3)}
+.mc .m{font:700 .95rem/1 var(--f-title);text-align:center;border-bottom:2px double currentColor;padding-bottom:5px}
+.mc .p{flex:1;border-radius:4px;overflow:hidden;background:var(--lake-200)}
+.mc .p img{width:100%;height:100%;object-fit:cover;display:block}
+.mc .l{height:4px;background:#E8E2D6;border-radius:2px}
+.mc .l.s{width:60%}
+.mini-cover strong{display:block;margin-top:12px;font-size:15.5px}
+.mini-cover small{color:var(--muted);font-size:13.5px;display:flex;align-items:center;gap:6px}
+.mini-cover small svg{width:14px;height:14px}
+
+.side{display:grid;gap:20px}
+.side .card{padding:26px}
+.side h3{font-size:1.25rem}
+.side p{font-size:15px;color:var(--muted)}
+.deadline{display:flex;gap:14px;align-items:center;background:var(--maple-100);border-radius:16px;padding:14px;margin-bottom:16px}
+.deadline b{font:600 2rem/1 var(--f-title);color:var(--maple-700)}
+.deadline span{font-size:14px;color:#6B3A10;line-height:1.35}
+.sub-form{display:flex;flex-direction:column;gap:10px}
+.sub-form input{font:400 16px var(--f-ui);padding:13px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg)}
+.sub-form input:focus{outline:none;border-color:var(--lake-500);box-shadow:0 0 0 4px var(--lake-100);background:#fff}
+.ok{display:none;background:var(--forest-100);color:var(--forest-800);padding:12px 14px;border-radius:12px;font-size:14.5px}
+.ok.show{display:block}
+.rates{width:100%;border-collapse:collapse;font-size:14.5px}
+.rates td{padding:9px 0;border-bottom:1px solid var(--line-2)}
+.rates td:last-child{text-align:right;font-weight:600;color:var(--lake-900)}
+
+@media (max-width:1080px){
+  .feature{grid-template-columns:260px 1fr;gap:32px;padding:32px}
+  .arts{grid-template-columns:1fr 1fr}
+  .arch-layout{grid-template-columns:1fr}
+  .side{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .feature{grid-template-columns:1fr;padding:26px 20px;margin-top:-60px}
+  .cover{max-width:270px;margin:0 auto}
+  .toc{columns:1}
+  .arts{grid-template-columns:1fr}
+  .shelf{grid-template-columns:repeat(2,1fr);gap:16px}
+  .side{grid-template-columns:1fr}
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .chip{flex:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="mock-strip"><div class="wrap"><span>Maquette · <b>Option A<span class="hide-sm"> — « Lac &amp; Montagne »</span></b><span class="hide-sm"> · Municipalité de Biencourt</span></span><a href="../index.html">← Retour aux options</a></div></div>
+<div class="alert" role="region" aria-label="Avis important"><div class="wrap"><span class="pill">Avis</span><p><strong>Collecte des encombrants le samedi 17 octobre.</strong> Déposez vos objets en bordure de rue la veille au soir. <a href="evenements.html">Détails</a></p><button type="button" aria-label="Masquer cet avis">×</button></div></div>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="accueil.html" aria-label="Municipalité de Biencourt — Accueil"><img src="../assets/logo-biencourt.png" alt="Municipalité de Biencourt" width="120" height="60"></a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <ul>
+        <li><a class="top" data-nav="accueil" href="accueil.html">Accueil</a></li>
+        <li>
+          <button class="top" aria-haspopup="true" data-nav="conseil">Municipalité <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+          <div class="mega two">
+            <h4>Municipalité</h4>
+            <a href="conseil.html">Conseil municipal<small>Élus, séances, procès-verbaux</small></a>
+            <a href="#">Administration<small>Taxes, contrats, éthique, plaintes</small></a>
+            <a href="#">Urbanisme<small>Permis et règlements</small></a>
+            <a href="#">Office municipal d'habitation<small>13 logements 50 ans et +</small></a>
+            <a href="#">Politiques<small>Familles, aînés, gestion contractuelle</small></a>
+            <a href="#">Eau potable<small>Avis et qualité de l'eau</small></a>
+            <a href="#">Infos RIDT<small>Collectes et matières résiduelles</small></a>
+            <a href="#">Station de lavage &amp; débarcadère<small>Lac Biencourt</small></a>
+            <a href="#">Cartes et rôles d'évaluation<small>Matrice graphique, rôle</small></a>
+            <a href="#">Liens utiles<small>MRC, gouvernements, services</small></a>
+          </div>
+        </li>
+        <li><a class="top" data-nav="evenements" href="evenements.html">Événements</a></li>
+        <li><a class="top" data-nav="journal" aria-current="page" href="journal.html">Journal</a></li>
+        <li>
+          <button class="top" aria-haspopup="true">Vivre à Biencourt <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+          <div class="mega">
+            <h4>Vivre à Biencourt</h4>
+            <a href="#">Commerces</a>
+            <a href="#">Organismes</a>
+            <a href="#">Album photo</a>
+            <a href="#">Camping &amp; chalets</a>
+            <a href="#">Mont Biencourt</a>
+            <a href="#">Un brin d'histoire</a>
+          </div>
+        </li>
+        <li class="cta"><a class="btn btn-primary btn-sm" href="#joindre">Nous joindre</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="accueil.html">Accueil</a><span aria-hidden="true">/</span><span>Journal local</span></div>
+      <span class="eyebrow">Journal local · mensuel</span>
+      <h1 class="mast-title">Le <em>Biencourtois</em></h1>
+      <p class="lead">Les nouvelles de chez nous, écrites par et pour les gens d'ici, depuis 2015. Distribué gratuitement dans tous les foyers et disponible en ligne.</p>
+    </div>
+    <div class="scene" aria-hidden="true"><svg viewBox="0 0 1440 150" preserveAspectRatio="xMidYMax slice">
+  <defs><symbol id="pn" viewBox="-14 0 28 52"><path d="M0 0 L-9 16 H-4 L-12 30 H-5 L-14 44 H-2 V52 H2 V44 H14 L5 30 H12 L4 16 H9Z"/></symbol>
+  <linearGradient id="lk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BA9DB"/><stop offset="1" stop-color="#2E8BC9"/></linearGradient></defs>
+  <circle cx="1180" cy="58" r="30" fill="#F2A33A" opacity=".85"/>
+  <path d="M0 110 L140 70 L250 92 L380 40 L520 96 L660 64 L780 88 L900 30 L1040 90 L1160 62 L1300 86 L1440 56 V150 H0Z" fill="#BCDDEB"/>
+  <path d="M0 120 C120 96 220 86 330 98 C450 110 520 76 640 72 C760 68 860 100 980 102 C1100 104 1200 80 1320 84 C1380 86 1420 92 1440 96 V150 H0Z" fill="#8CC56A"/>
+  <g fill="#3B7A20"><use href="#pn" x="80" y="88" width="20" height="38"/><use href="#pn" x="104" y="96" width="16" height="30"/><use href="#pn" x="560" y="66" width="22" height="42"/><use href="#pn" x="586" y="78" width="16" height="30"/><use href="#pn" x="1240" y="70" width="22" height="42"/><use href="#pn" x="1266" y="82" width="16" height="30"/><use href="#pn" x="1290" y="78" width="18" height="34"/></g>
+  <path d="M0 126 C200 118 380 122 560 120 C760 118 980 124 1180 120 C1300 118 1400 121 1440 122 V150 H0Z" fill="url(#lk)"/>
+  <g stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55"><path d="M1150 132 h60"/><path d="M1168 140 h30"/><path d="M300 136 h44"/></g>
+</svg></div>
+
+  </section>
+
+  <div class="wrap">
+    <article class="card feature" aria-labelledby="ed-t">
+      <a class="cover" href="#" aria-label="Ouvrir l'édition d'octobre 2026 (PDF)">
+        <div class="mast">Le Biencourtois</div>
+        <div class="issue"><span>Vol. 12 · n° 10</span><span>Octobre 2026</span></div>
+        <figure class="photo"><img src="../assets/centre_de_ski_cours_motoneige.png" alt="Foule rassemblée de nuit devant le chalet illuminé du centre de ski du Mont Biencourt" width="640" height="426"></figure>
+        <h4>Le Mont Biencourt prépare sa saison 2026-2027</h4>
+        <div class="cols">
+          <div><div class="mini">Fête des récoltes</div><div class="lines"><i></i><i></i><i></i></div></div>
+          <div><div class="mini">Mot du maire</div><div class="lines"><i></i><i></i><i></i></div></div>
+        </div>
+      </a>
+      <div>
+        <span class="eyebrow">Édition courante</span>
+        <h2 id="ed-t">Octobre 2026</h2>
+        <div class="ed-meta"><span>Vol. 12, n° 10</span><span>16 pages</span><span>PDF · 3,2 Mo</span><span>Paru le 1<sup>er</sup> octobre</span></div>
+        <ol class="toc">
+          <li><b>p. 2</b>Mot du maire : budget 2027 en préparation</li>
+          <li><b>p. 3</b>Retour sur la Fête des récoltes</li>
+          <li><b>p. 5</b>Le Mont Biencourt prépare sa saison</li>
+          <li><b>p. 7</b>Portrait : 40 ans d'acériculture chez les Beaulieu</li>
+          <li><b>p. 9</b>Collecte des encombrants le 17 octobre</li>
+          <li><b>p. 10</b>Chronique nature : les chevreuils</li>
+          <li><b>p. 12</b>Calendrier des activités</li>
+          <li><b>p. 15</b>Petites annonces et commanditaires</li>
+        </ol>
+        <div class="btns">
+          <a class="btn btn-maple" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Télécharger le PDF</a>
+          <a class="btn btn-ghost" href="#">Feuilleter en ligne</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <section class="section" aria-labelledby="art-t">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">À lire</span><h2 id="art-t">Articles récents</h2></div>
+        <div class="chips" role="group" aria-label="Filtrer par rubrique" id="rub">
+          <button class="chip" type="button" aria-pressed="true" data-r="all">Toutes</button>
+          <button class="chip" type="button" aria-pressed="false" data-r="vie">Vie communautaire</button>
+          <button class="chip" type="button" aria-pressed="false" data-r="muni">Municipal</button>
+          <button class="chip" type="button" aria-pressed="false" data-r="air">Plein air</button>
+          <button class="chip" type="button" aria-pressed="false" data-r="gens">Gens d'ici</button>
+        </div>
+      </div>
+      <div class="arts" id="arts">
+        <a class="card art" href="#" data-r="air">
+          <figure class="photo"><img src="../assets/centre_de_ski_vue_de_la_trois_automne.png" alt="Piste du Mont Biencourt en automne, chalet du centre de ski et lacs au loin" width="640" height="426"></figure>
+          <div class="body"><span class="tag t-sport" style="align-self:flex-start">Plein air</span><h3>Le Mont Biencourt prépare sa saison 2026-2027</h3><p>Nouveau tapis magique, sous-bois élargis et une billetterie en ligne : l'équipe bénévole est prête à accueillir la neige.</p><div class="by"><i style="background:var(--lake-700)">SB</i>Sébastien Beaulieu · 6 min</div></div>
+        </a>
+        <a class="card art quote" href="#" data-r="muni">
+          <div class="body"><span class="tag" style="align-self:flex-start;background:rgba(255,255,255,.12);color:#fff">Mot du maire</span><blockquote>« Un budget 2027 responsable, construit avec vous. »</blockquote><h3 class="sr-only">Mot du maire : budget 2027 en préparation</h3><p>Daniel Dumont fait le point sur les priorités et invite la population à la consultation d'ici le 30 octobre.</p><div class="by"><i style="background:var(--maple-600)">DD</i>Daniel Dumont, maire · 4 min</div></div>
+        </a>
+        <a class="card art" href="#" data-r="vie">
+          <figure class="photo"><img src="../assets/vue_biencourt_montagne_de_la_tour.png" alt="Vue aérienne du village de Biencourt aux couleurs d'automne" width="640" height="426"></figure>
+          <div class="body"><span class="tag t-communautaire" style="align-self:flex-start">Vie communautaire</span><h3>Retour sur la Fête des récoltes</h3><p>Plus de 350 visiteurs, 40 bénévoles et une citrouille géante de 212 livres : une édition record sous le soleil d'automne.</p><div class="by"><i style="background:var(--forest-700)">YB</i>Comité des loisirs · 5 min</div></div>
+        </a>
+        <a class="card art" href="#" data-r="gens">
+          <figure class="photo"><svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#F5D7AE"/><g fill="#E8762B" opacity=".9"><circle cx="70" cy="70" r="56"/><circle cx="330" cy="60" r="60"/></g><g fill="#C9601A"><circle cx="20" cy="110" r="40"/><circle cx="380" cy="110" r="44"/></g><g stroke="#6B4224" stroke-width="10"><path d="M110 250V60M290 250V50"/></g><path d="M0 200H400V250H0Z" fill="#8A5A34"/><g transform="translate(150 120)"><rect width="100" height="70" rx="6" fill="#FFF8EC"/><path d="M0 0 L50 -34 L100 0Z" fill="#B4500F"/><rect x="38" y="30" width="24" height="40" fill="#8A5A34"/><path d="M60 -20 v-24 M66 -24 q6 -14 0 -26" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/></g><g transform="translate(118 132)"><path d="M-6 0h12l-2 16h-8z" fill="#9AA6AE"/></g></svg><figcaption>Illustration : cabane à sucre</figcaption></figure>
+          <div class="body"><span class="tag t-culture" style="align-self:flex-start">Gens d'ici</span><h3>Portrait : 40 ans d'acériculture chez les Beaulieu</h3><p>De 800 entailles en 1986 à 12 000 aujourd'hui, trois générations racontent l'histoire de leur érablière du rang 4.</p><div class="by"><i style="background:#6A3A86">SJ</i>Sylvie Jacques · 8 min</div></div>
+        </a>
+        <a class="card art" href="#" data-r="air">
+          <figure class="photo"><img src="../assets/chevreuille.png" alt="Chevreuils dans la forêt, neige au sol" width="640" height="426"></figure>
+          <div class="body"><span class="tag t-sport" style="align-self:flex-start">Chronique nature</span><h3>Les chevreuils s'approchent du village</h3><p>Pourquoi on les voit davantage à l'automne, et comment cohabiter (et conduire!) prudemment pendant la saison de chasse.</p><div class="by"><i style="background:#1C6B5A">FG</i>Francis Godin · 4 min</div></div>
+        </a>
+        <a class="card art" href="#" data-r="muni">
+          <figure class="photo"><svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#E6F3FB"/><path d="M0 190H400V250H0Z" fill="#BFD3E0"/><g transform="translate(70 110)"><rect width="110" height="80" rx="6" fill="#2E8BC9"/><rect x="10" y="10" width="40" height="30" rx="3" fill="#BFE0F4"/></g><g transform="translate(210 130)"><rect width="70" height="60" rx="6" fill="#E8762B"/><rect x="80" y="20" width="50" height="40" rx="6" fill="#6DB33F"/></g><g fill="#0F2E44"><circle cx="100" cy="196" r="10"/><circle cx="160" cy="196" r="10"/></g></svg><figcaption>Illustration : collecte</figcaption></figure>
+          <div class="body"><span class="tag t-municipal" style="align-self:flex-start">Municipal</span><h3>Collecte des encombrants le 17 octobre</h3><p>Ce qui est accepté, ce qui ne l'est pas, et où apporter vos matériaux de construction et résidus dangereux.</p><div class="by"><i style="background:var(--lake-800)">MB</i>Municipalité · 3 min</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-labelledby="arc-t">
+    <div class="wrap arch-layout">
+      <div>
+        <div class="section-head" style="margin-bottom:0"><div><span class="eyebrow">Archives</span><h2 id="arc-t">Éditions précédentes</h2></div><div class="tabs" role="tablist" aria-label="Année" id="arcY"></div></div>
+        <div class="shelf" id="shelf" role="tabpanel" aria-live="polite"></div>
+      </div>
+      <aside class="side">
+        <div class="card">
+          <h3>Écrivez dans le journal</h3>
+          <div class="deadline"><b>20</b><span>octobre : date de tombée de l'édition de <strong>novembre</strong></span></div>
+          <p>Textes, photos, annonces d'organismes et petites annonces sont les bienvenus.</p>
+          <a class="btn btn-primary btn-sm" href="mailto:info@biencourt.ca">Soumettre un texte</a>
+        </div>
+        <div class="card">
+          <h3>Recevoir le journal par courriel</h3>
+          <p>Chaque nouvelle édition, dès sa parution. Pas de pourriel, promis.</p>
+          <form class="sub-form" id="sub" novalidate>
+            <label class="sr-only" for="em">Adresse courriel</label>
+            <input id="em" type="email" placeholder="votre@courriel.ca" autocomplete="off">
+            <button class="btn btn-maple btn-sm" type="submit">M'abonner</button>
+            <div class="ok" id="ok" role="status">Merci! (maquette : aucune donnée n'est envoyée)</div>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Annoncer dans le journal</h3>
+          <table class="rates"><tbody><tr><td>Carte d'affaires</td><td>15 $</td></tr><tr><td>1/4 de page</td><td>30 $</td></tr><tr><td>1/2 page</td><td>55 $</td></tr><tr><td>Pleine page</td><td>95 $</td></tr></tbody></table>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer class="site-foot" id="joindre">
+  <div class="ridge" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 80 L0 52 C120 40 180 18 270 22 C360 26 420 52 520 50 C640 47 700 8 820 6 C930 4 990 40 1090 44 C1190 48 1260 26 1340 28 C1390 29 1420 36 1440 40 L1440 80Z" fill="#6DB33F" opacity=".35"/><path d="M0 80 L0 62 C160 54 260 40 380 44 C520 49 600 64 760 60 C900 56 980 34 1120 36 C1250 38 1350 54 1440 56 L1440 80Z" fill="#0F2E44"/></svg></div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="../assets/logo-biencourt.png" alt="Municipalité de Biencourt" width="128" height="64"></div>
+        <p class="foot-slogan">« Biencourt, un endroit à découvrir! »</p>
+        <p style="font-size:15px;margin:0">Érigée en 1947 au cœur du Témiscouata, entre lac et montagne.</p>
+        <div class="social">
+          <a href="#" aria-label="Biencourt sur Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6.5c0-.8.2-1.2 1.4-1.2H17V2.2C16.6 2.1 15.6 2 14.5 2 12 2 10.6 3.5 10.6 6.1V8H8v3.2h2.6V22H14V11.2h2.7L17 8h-3z"/></svg></a>
+          <a href="#" aria-label="Infolettre par courriel"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm9 7.2L4 7.3V17h16V7.3l-8 4.9zM19 7H5l7 4.3L19 7z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3>Nous joindre</h3>
+        <div class="foot-contact">5, rue Berger, C.P. 70<br>Biencourt (Québec) G0K 1T0<br><a href="tel:4184992423">418-499-2423</a><br>Téléc. 418-499-2708<br><a href="mailto:info@biencourt.ca">info@biencourt.ca</a></div>
+      </div>
+      <div>
+        <h3>Heures de bureau</h3>
+        <div class="foot-contact">Lundi au jeudi<br>8 h 30 – 12 h<br>13 h – 16 h 30<br><span style="color:#93AEC0">Fermé vendredi, samedi et dimanche</span></div>
+      </div>
+      <div>
+        <h3>Accès rapide</h3>
+        <ul>
+          <li><a href="conseil.html">Conseil municipal</a></li>
+          <li><a href="evenements.html">Activités à venir</a></li>
+          <li><a href="journal.html">Le Biencourtois</a></li>
+          <li><a href="#">Camping municipal · 418-499-2353</a></li>
+          <li><a href="#">Mont Biencourt — montbiencourt.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Municipalité de Biencourt · MRC de Témiscouata</span><span><a href="#">Accessibilité</a> · <a href="#">Confidentialité</a> · <a href="admin.html">Espace administrateur</a></span></div>
+  </div>
+</footer>
+<script>
+(function(){
+  var b=document.querySelector('.burger'),n=document.getElementById('nav');
+  if(b&&n){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu');});
+    n.querySelectorAll('button.top').forEach(function(t){t.addEventListener('click',function(){if(window.innerWidth<=1080){t.parentNode.classList.toggle('open');}});});}
+  var a=document.querySelector('.alert button');
+  if(a)a.addEventListener('click',function(){a.closest('.alert').remove();});
+})();
+</script>
+
+<script>
+(function(){
+  var rub=document.getElementById('rub');
+  rub.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;rub.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b);});var r=b.dataset.r;document.querySelectorAll('#arts .art').forEach(function(a){a.hidden=!(r==='all'||a.dataset.r===r);});});
+  var P=['vue_biencourt_montagne_de_la_tour','Cascade_saut','Pont_saut','centre_de_ski_vue_de_la_trois_automne','chevreuille','centre_de_ski_cours_motoneige'];
+  var ALT={vue_biencourt_montagne_de_la_tour:'Vue du village en automne',Cascade_saut:'Chute du Saut',Pont_saut:'Passerelle du Saut',centre_de_ski_vue_de_la_trois_automne:'Mont Biencourt en automne',chevreuille:'Chevreuils en forêt',centre_de_ski_cours_motoneige:'Soirée au centre de ski'};
+  var C=['#0F2E44','#3B7A20','#B4500F','#1D6A9E','#6A3A86','#2C5A18'];
+  var ED={'2026':[['Septembre 2026','n° 9',2.8],['Juillet-août 2026','n° 7-8',4.1],['Juin 2026','n° 6',2.6],['Mai 2026','n° 5',2.9],['Avril 2026','n° 4',2.4],['Mars 2026','n° 3',2.7],['Février 2026','n° 2',2.2],['Janvier 2026','n° 1',2.5]],
+          '2025':[['Décembre 2025','n° 11',3.4],['Novembre 2025','n° 10',2.6],['Octobre 2025','n° 9',2.9],['Septembre 2025','n° 8',2.3],['Juillet-août 2025','n° 6-7',3.8],['Juin 2025','n° 5',2.4],['Avril-mai 2025','n° 3-4',3.1],['Février-mars 2025','n° 1-2',2.7]],
+          '2024':[['Décembre 2024','n° 11',3.0],['Novembre 2024','n° 10',2.5],['Octobre 2024','n° 9',2.7],['Septembre 2024','n° 8',2.1]]};
+  var y='2026',ty=document.getElementById('arcY');
+  ty.innerHTML=Object.keys(ED).sort().reverse().map(function(k){return '<button role="tab" type="button" aria-selected="'+(k===y)+'" data-y="'+k+'">'+k+'</button>';}).join('');
+  ty.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;y=b.dataset.y;ty.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected',x===b);});draw();});
+  function draw(){
+    document.getElementById('shelf').innerHTML=ED[y].map(function(e,i){var p=P[(i+(y==='2025'?2:y==='2024'?4:0))%P.length],c=C[i%C.length];
+      return '<a class="mini-cover" href="#" aria-label="Télécharger '+e[0]+' (PDF, '+String(e[2]).replace('.',',')+' Mo)"><div class="mc" style="color:'+c+'"><div class="m">Le Biencourtois</div><div class="p"><img src="../assets/'+p+'.png" alt="" loading="lazy"></div><div class="l"></div><div class="l s"></div></div><strong>'+e[0]+'</strong><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>'+e[1]+' · PDF '+String(e[2]).replace('.',',')+' Mo</small></a>';}).join('');
+  }
+  draw();
+  document.getElementById('sub').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').classList.add('show');});
+})();
+</script>
+</body>
+</html>

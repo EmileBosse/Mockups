@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda des activités — Municipalité de Biencourt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5EFE1;
+  --paper-2:#EDE4CF;
+  --paper-3:#E4D8BD;
+  --card:#FBF8F0;
+  --ink:#1D1A15;
+  --ink-2:#3E382E;
+  --ink-3:#6A6152;
+  --rule:#1D1A15;
+  --rule-soft:#CDBF9F;
+  --forest:#24452F;
+  --forest-2:#2F5A3D;
+  --forest-tint:#DCE3D3;
+  --ochre:#A8611A;
+  --ochre-2:#C9822F;
+  --ochre-tint:#F1DDBD;
+  --maple:#E8762B;
+  --leaf:#6DB33F;
+  --sky:#2E8BC9;
+  --red:#9E2B1F;
+  --display:'Playfair Display', 'Times New Roman', serif;
+  --serif:'Source Serif 4', Georgia, serif;
+  --sans:'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+  --wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:17px;line-height:1.6;
+  font-feature-settings:"onum" 1,"kern" 1;
+  background-image:
+    radial-gradient(rgba(120,90,40,.05) 1px, transparent 1px),
+    radial-gradient(rgba(120,90,40,.035) 1px, transparent 1px);
+  background-size:7px 7px, 13px 13px;
+  background-position:0 0, 3px 5px;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-color:var(--ochre-2);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--forest)}
+:focus-visible{outline:3px solid var(--ochre-2);outline-offset:3px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.08;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kicker{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre)}
+.kicker.forest{color:var(--forest)}
+.smallcaps{font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.rule{border:0;border-top:1px solid var(--rule);margin:0}
+.rule-2{border:0;border-top:3px double var(--rule);margin:0}
+.rule-thick{border:0;border-top:4px solid var(--rule);margin:0}
+.dropcap::first-letter{
+  font-family:var(--display);font-weight:900;float:left;font-size:4.6em;line-height:.82;
+  padding:.06em .1em 0 0;color:var(--forest);
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:13px;
+  letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;border:1.5px solid var(--ink);
+  background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer;transition:.2s;
+}
+.btn:hover{background:var(--forest);border-color:var(--forest);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn.ochre{background:var(--ochre);border-color:var(--ochre);color:#fff}
+.btn.ochre:hover{background:#8A4E12;border-color:#8A4E12}
+.more{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--forest);text-decoration:none;border-bottom:1.5px solid var(--ochre-2);padding-bottom:2px}
+.more:hover{color:var(--ochre)}
+
+/* ---------- mockup strip ---------- */
+.mockbar{background:var(--ink);color:#D9CFB8;font-family:var(--sans);font-size:11.5px;letter-spacing:.06em}
+.mockbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:30px}
+.mockbar a{color:#F0E6CF;text-decoration:none}
+.mockbar a:hover{color:var(--ochre-2)}
+.mockbar b{color:var(--ochre-2);font-weight:600}
+
+/* ---------- masthead ---------- */
+.ears{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0 10px;font-family:var(--sans);font-size:12px;color:var(--ink-2);letter-spacing:.04em}
+.ears .ear{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.ears .ear span{white-space:nowrap}
+.ears .fire{display:inline-flex;align-items:center;gap:7px;text-decoration:none}
+.ears .fire i{width:9px;height:9px;border-radius:50%;background:#3F8F3A;box-shadow:0 0 0 3px rgba(63,143,58,.2)}
+.masthead{text-align:center;padding:10px 0 18px;border-top:1px solid var(--rule)}
+.masthead .brand{display:inline-flex;align-items:center;gap:22px;text-decoration:none;color:var(--ink)}
+.masthead .brand img{width:150px;height:auto}
+.masthead .bt{text-align:left;border-left:1px solid var(--rule-soft);padding-left:22px}
+.masthead .bt small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.masthead .bt strong{display:block;font-family:var(--display);font-weight:900;font-size:44px;line-height:1;letter-spacing:-.02em}
+.masthead .bt em{display:block;font-family:var(--display);font-style:italic;font-size:16px;color:var(--ochre);margin-top:4px}
+
+.mainnav{border-top:3px double var(--rule);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:50;background:rgba(245,239,225,.96);backdrop-filter:blur(6px)}
+.mainnav .wrap{display:flex;justify-content:center;align-items:stretch;position:relative}
+.mainnav ul{list-style:none;margin:0;padding:0;display:flex}
+.mainnav > .wrap > ul > li{position:relative}
+.mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{
+  display:flex;align-items:center;gap:6px;height:48px;padding:0 20px;font-family:var(--sans);font-size:13px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:none;border:0;cursor:pointer;
+}
+.mainnav > .wrap > ul > li + li::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:1px;background:var(--rule-soft)}
+.mainnav a[aria-current="page"]{color:var(--forest);box-shadow:inset 0 -3px 0 var(--ochre-2)}
+.mainnav > .wrap > ul > li > a:hover,.mainnav > .wrap > ul > li > button:hover{color:var(--ochre)}
+.mainnav .caret{width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-3px)}
+.mainnav .drop{
+  position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);min-width:300px;background:var(--card);
+  border:1px solid var(--rule);box-shadow:6px 6px 0 var(--paper-3);padding:14px 0;opacity:0;visibility:hidden;transition:.18s;display:block;
+}
+.mainnav li:hover > .drop,.mainnav li:focus-within > .drop,.mainnav li.open > .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.mainnav .drop li a{display:block;padding:7px 22px;font-family:var(--serif);font-size:15.5px;text-decoration:none;color:var(--ink)}
+.mainnav .drop li a:hover{background:var(--paper-2);color:var(--forest)}
+.mainnav .drop .dh{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre);padding:6px 22px 4px}
+.mainnav .drop.wide{min-width:540px;display:grid;grid-template-columns:1fr 1fr;padding:14px 0}
+.mainnav .drop small{display:block;font-family:var(--sans);font-size:11.5px;color:var(--ink-3)}
+.navtoggle{display:none}
+
+/* ---------- alert ribbon ---------- */
+.ribbon{background:var(--forest);color:#F3EEDF;font-family:var(--sans);font-size:13.5px}
+.ribbon .wrap{display:flex;align-items:center;gap:14px;min-height:42px;padding-top:6px;padding-bottom:6px}
+.ribbon .tag{background:var(--ochre-2);color:#1D1A15;font-weight:800;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:4px 9px;flex-shrink:0}
+.ribbon a{color:#fff;font-weight:600}
+.ribbon .x{margin-left:auto;background:none;border:0;color:#F3EEDF;font-size:20px;cursor:pointer;line-height:1;padding:4px 8px}
+
+/* ---------- page head (inner pages) ---------- */
+.pagehead{padding:46px 0 26px;border-bottom:1px solid var(--rule)}
+.pagehead .crumbs{font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:var(--ink-3);margin-bottom:18px}
+.pagehead .crumbs a{color:var(--ink-3);text-decoration:none}
+.pagehead .crumbs a:hover{color:var(--forest)}
+.pagehead h1{font-size:clamp(46px,7vw,96px);font-weight:900;letter-spacing:-.03em;line-height:.95}
+.pagehead h1 em{font-style:italic;font-weight:400;color:var(--forest)}
+.pagehead .dek{font-family:var(--display);font-style:italic;font-size:21px;color:var(--ink-2);max-width:720px;margin-top:16px;line-height:1.4}
+.pagehead .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.secthead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:4px solid var(--rule);padding-top:10px;margin-bottom:22px}
+.secthead h2{font-size:30px;font-weight:800}
+.secthead h2 .num{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--ochre);vertical-align:middle;margin-right:12px}
+
+/* ---------- photo blocks ---------- */
+.photo{position:relative;overflow:hidden;background:var(--paper-3);border:1px solid rgba(29,26,21,.15)}
+.photo svg{display:block;width:100%;height:100%}
+.caption{font-family:var(--sans);font-size:12px;color:var(--ink-3);margin-top:8px;line-height:1.4}
+.caption b{color:var(--ink-2);font-weight:600}
+
+/* ---------- footer ---------- */
+.foot{background:var(--forest);color:#E7E1CF;margin-top:90px;position:relative}
+.foot::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px;background:repeating-linear-gradient(90deg,var(--forest) 0 14px,transparent 14px 18px)}
+.foot .wrap{padding-top:56px;padding-bottom:26px}
+.foot .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px}
+.foot .fname{font-family:var(--display);font-size:34px;font-weight:900;color:#fff;line-height:1}
+.foot .fname em{display:block;font-weight:400;font-style:italic;font-size:17px;color:var(--ochre-2);margin-top:8px}
+.foot .flogo{background:#FBF8F0;display:inline-block;padding:10px 14px;margin-bottom:18px}
+.foot .flogo img{width:120px}
+.foot h4{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre-2);font-weight:700;margin-bottom:14px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin:0 0 7px}
+.foot a{color:#E7E1CF;text-decoration:none}
+.foot a:hover{color:#fff;text-decoration:underline}
+.foot address{font-style:normal;font-size:15px;line-height:1.7}
+.foot .colophon{border-top:1px solid rgba(231,225,207,.25);margin-top:44px;padding-top:18px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:#BFC8B5}
+.foot .fb{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--sans);font-size:13px;font-weight:600;border:1px solid rgba(231,225,207,.4);padding:8px 14px}
+.foot .fb:hover{background:rgba(255,255,255,.08);text-decoration:none}
+
+/* ---------- responsive shell ---------- */
+@media (max-width:1100px){
+  .mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{padding:0 13px;font-size:12px}
+  .foot .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  body{font-size:16.5px}
+  .wrap{padding:0 20px}
+  .ears{font-size:11px;justify-content:center;text-align:center}
+  .ears .ear.r{display:none}
+  .masthead .brand{flex-direction:column;gap:6px}
+  .masthead .bt{border:0;padding:0;text-align:center}
+  .masthead .bt strong{font-size:32px}
+  .masthead .brand img{width:130px}
+  .mainnav .wrap{justify-content:space-between;padding:0}
+  .navtoggle{display:flex;align-items:center;gap:10px;width:100%;justify-content:center;height:48px;background:none;border:0;font-family:var(--sans);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+  .navtoggle .bars{width:18px;height:2px;background:currentColor;position:relative}
+  .navtoggle .bars::before,.navtoggle .bars::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
+  .navtoggle .bars::before{top:-6px}.navtoggle .bars::after{top:6px}
+  .mainnav > .wrap > ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--card);border-bottom:3px double var(--rule);max-height:75vh;overflow:auto}
+  .mainnav.open > .wrap > ul{display:flex}
+  .mainnav > .wrap > ul > li + li::before{display:none}
+  .mainnav > .wrap > ul > li{border-top:1px solid var(--rule-soft)}
+  .mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{width:100%;padding:0 22px;justify-content:space-between;font-size:13px}
+  .mainnav .drop,.mainnav .drop.wide{position:static;transform:none!important;opacity:1;visibility:visible;display:none;box-shadow:none;border:0;border-top:1px dashed var(--rule-soft);min-width:0;background:var(--paper)}
+  .mainnav li.open > .drop{display:block}
+  .mainnav .drop.wide{grid-template-columns:1fr}
+  .foot .fgrid{grid-template-columns:1fr;gap:30px}
+  .pagehead{padding:30px 0 20px}
+  .pagehead .dek{font-size:18px}
+  .secthead h2{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+.mainnav .drop ul{display:block;list-style:none;margin:0;padding:0}
+.mainnav button.is-current{color:var(--forest);box-shadow:inset 0 -3px 0 var(--ochre-2)}
+/* ---------- press photos ---------- */
+.pimg{position:relative;overflow:hidden;background:var(--paper-3);margin:0}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .5s,transform .8s}
+.pimg::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(29,26,21,.22) 1px,transparent 1.2px);background-size:3px 3px;mix-blend-mode:multiply;opacity:.35;transition:opacity .4s}
+.pimg.press img{filter:sepia(.45) saturate(.7) contrast(1.05) brightness(.98)}
+.pimg.press:hover img,a:hover .pimg.press img,button:hover .pimg.press img{filter:none}
+.pimg:hover::after{opacity:.12}
+.pimg.color::after{opacity:.18}
+.credit{position:absolute;right:0;bottom:0;background:rgba(29,26,21,.72);color:#F3EEDF;font-family:var(--sans);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;z-index:1}
+@media (max-width:560px){.mockbar .mk{display:none}.mockbar .wrap{font-size:11px;white-space:nowrap}}
+
+:root{--c-loisirs:#A8611A;--c-communautaire:#24452F;--c-municipal:#1F3B57;--c-culture:#7A3B5E;--c-sport:#2E6E9E}
+.cat-loisirs{--c:var(--c-loisirs)}.cat-communautaire{--c:var(--c-communautaire)}.cat-municipal{--c:var(--c-municipal)}.cat-culture{--c:var(--c-culture)}.cat-sport{--c:var(--c-sport)}
+
+.feature{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border:1px solid var(--rule);background:var(--card);margin:36px 0 44px}
+.feature .photo{border:0;min-height:340px}
+.feature .txt{padding:34px 38px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--rule)}
+.feature .when{display:flex;align-items:flex-end;gap:16px;margin:10px 0 14px}
+.feature .when b{font-family:var(--display);font-weight:900;font-size:110px;line-height:.75;color:var(--ochre);letter-spacing:-.04em}
+.feature .when span{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.5}
+.feature h2{font-size:40px;font-weight:900;margin-bottom:12px}
+.feature p{color:var(--ink-2)}
+.feature .meta{font-family:var(--sans);font-size:13px;color:var(--ink-3);margin-bottom:18px}
+
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:4px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 0;position:sticky;top:49px;background:rgba(245,239,225,.97);z-index:20}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.04em;padding:7px 14px 7px 12px;border:1px solid var(--rule-soft);background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:8px;border-radius:999px;transition:.15s}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--ink))}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip[aria-pressed="true"] i{box-shadow:0 0 0 2px var(--paper)}
+.chip .ct{font-size:11px;opacity:.65}
+.views{display:flex;border:1px solid var(--ink)}
+.views button{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;border:0;background:transparent;cursor:pointer;color:var(--ink);display:flex;gap:8px;align-items:center}
+.views button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;margin-top:10px}
+.month{margin-top:34px}
+.month h2{font-size:56px;font-weight:400;font-style:italic;letter-spacing:-.02em;display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--rule);padding-bottom:6px}
+.month h2 small{font-family:var(--sans);font-style:normal;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.ev{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:26px;padding:22px 0;border-bottom:1px dotted var(--rule-soft);align-items:start;animation:fade .35s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ev .date{text-align:center;position:relative}
+.ev .date b{display:block;font-family:var(--display);font-weight:900;font-size:58px;line-height:.9;letter-spacing:-.03em}
+.ev .date span{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
+.ev .tag{font-family:var(--sans);font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--c);display:inline-flex;align-items:center;gap:7px}
+.ev .tag::before{content:"";width:18px;height:2px;background:var(--c)}
+.ev h3{font-size:27px;font-weight:700;margin:6px 0 6px;line-height:1.12}
+.ev p{margin:0 0 8px;color:var(--ink-2);font-size:16px}
+.ev .meta{font-family:var(--sans);font-size:13px;color:var(--ink-3);display:flex;gap:18px;flex-wrap:wrap}
+.ev .meta span{display:inline-flex;gap:6px;align-items:center}
+.ev .add{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--forest);background:none;border:1px solid var(--rule-soft);padding:8px 12px;cursor:pointer;white-space:nowrap}
+.ev .add:hover{border-color:var(--forest);background:var(--forest);color:#fff}
+.ev .add.done{background:var(--forest-tint);border-color:var(--forest)}
+.ev.past{opacity:.55}
+.evimg{margin:10px 0 12px;max-width:420px}
+.evimg .pimg{aspect-ratio:16/9}
+.evimg figcaption{font-family:var(--sans);font-size:11px;color:var(--ink-3);margin-top:5px}
+.empty{padding:50px 0;text-align:center;font-family:var(--display);font-style:italic;font-size:22px;color:var(--ink-3)}
+
+/* calendar */
+.cal{margin-top:30px}
+.calhead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:0}
+.calhead h2{font-size:52px;font-style:italic;font-weight:400}
+.calhead .nav{display:flex;gap:6px}
+.calhead .nav button{width:40px;height:40px;border:1px solid var(--ink);background:transparent;font-size:18px;cursor:pointer;color:var(--ink)}
+.calhead .nav button:hover{background:var(--ink);color:var(--paper)}
+.calhead .nav button:disabled{opacity:.3;cursor:default;background:transparent;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-left:1px solid var(--rule-soft)}
+.grid .dow{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:10px 8px;border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule);color:var(--ink-3)}
+.grid .cell{min-height:118px;border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);padding:6px 7px;position:relative;background:var(--card)}
+.grid .cell.out{background:transparent}
+.grid .cell .n{font-family:var(--display);font-size:20px;font-weight:700;line-height:1}
+.grid .cell.out .n{color:var(--rule-soft)}
+.grid .cell.today{background:var(--ochre-tint)}
+.grid .cell.today .n{color:#fff;background:var(--ochre);display:inline-block;padding:3px 6px}
+.grid .cell .pill{display:block;margin-top:5px;font-family:var(--sans);font-size:11.5px;line-height:1.25;padding:4px 6px;background:var(--c);color:#fff;text-decoration:none;border-radius:2px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.grid .cell .pill:hover{filter:brightness(1.2)}
+
+/* sidebar */
+.side .box{border-top:4px solid var(--rule);padding-top:12px;margin-bottom:38px}
+.side h3{font-size:22px;margin-bottom:12px}
+.rec{list-style:none;margin:0;padding:0}
+.rec li{padding:10px 0;border-bottom:1px dotted var(--rule-soft)}
+.rec b{display:block;font-family:var(--serif);font-weight:600;font-size:16px}
+.rec span{font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+.side form label{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:12px 0 5px;color:var(--ink-2)}
+.side input,.side select,.side textarea{width:100%;font:inherit;font-size:15px;padding:9px 10px;border:1px solid var(--rule-soft);background:var(--card);color:var(--ink)}
+.side input:focus,.side select:focus,.side textarea:focus{outline:2px solid var(--ochre-2);border-color:var(--ochre-2)}
+.side .ok{display:none;margin-top:12px;font-family:var(--sans);font-size:13px;background:var(--forest-tint);border-left:3px solid var(--forest);padding:10px 12px}
+.side .note{font-size:14px;color:var(--ink-3);font-style:italic}
+
+@media (max-width:1000px){
+  .layout{grid-template-columns:1fr}
+  .feature{grid-template-columns:1fr}
+  .feature .txt{border-left:0;border-top:1px solid var(--rule)}
+  .feature .photo{min-height:240px}
+}
+@media (max-width:860px){
+  .toolbar{top:48px;position:static}
+  .feature .txt{padding:24px 22px}
+  .feature .when b{font-size:80px}
+  .feature h2{font-size:30px}
+  .month h2{font-size:40px}
+  .ev{grid-template-columns:64px minmax(0,1fr);gap:16px}
+  .ev .date b{font-size:42px}
+  .ev .add{grid-column:2;justify-self:start}
+  .ev h3{font-size:22px}
+  .chips{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;max-width:100%}
+  .chip{white-space:nowrap}
+  .grid .cell{min-height:64px;padding:4px}
+  .grid .cell .pill{font-size:0;height:7px;padding:0;margin-top:4px;border-radius:4px}
+  .grid .dow{font-size:9.5px;padding:8px 3px;letter-spacing:.04em}
+  .calhead h2{font-size:34px}
+  .grid .cell .n{font-size:15px}
+}
+</style>
+</head>
+<body>
+<a class="sr-only" href="#contenu">Aller au contenu</a>
+<div class="mockbar">
+  <div class="wrap">
+    <a href="../index.html">← Retour aux options</a>
+    <span><span class="mk">Maquette · </span><b>Option C — « La Gazette »</b></span>
+  </div>
+</div>
+<header>
+  <div class="wrap">
+    <div class="ears">
+      <div class="ear l">
+        <span>Jeudi 8 octobre 2026</span>
+        <span aria-hidden="true">·</span>
+        <span>Biencourt, Témiscouata</span>
+      </div>
+      <div class="ear r">
+        <a class="fire" href="#sopfeu" title="Indice SOPFEU — zone Kamouraska-RDL-Témis-Les Basques"><i aria-hidden="true"></i>Danger d’incendie : <b>&nbsp;Bas</b></a>
+        <span aria-hidden="true">·</span>
+        <span>418 499-2423</span>
+      </div>
+    </div>
+    <div class="masthead">
+      <a class="brand" href="accueil.html" aria-label="Municipalité de Biencourt — accueil">
+        <img src="../assets/logo-biencourt.png" alt="Logo de Biencourt : feuille d’érable, montagne et lettrage bleu" width="150" height="75">
+        <span class="bt">
+          <small>Municipalité de</small>
+          <strong>Biencourt</strong>
+          <em>Un endroit à découvrir — depuis 1947</em>
+        </span>
+      </a>
+    </div>
+  </div>
+  <nav class="mainnav" aria-label="Navigation principale">
+    <div class="wrap">
+      <button class="navtoggle" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"></span> Sommaire</button>
+      <ul id="menu">
+        <li><a href="accueil.html" >Accueil</a></li>
+        <li class="has-drop">
+          <button type="button" aria-expanded="false" >Municipalité <span class="caret" aria-hidden="true"></span></button>
+          <ul class="drop wide">
+            <li><div class="dh">Gouvernance</div>
+              <ul>
+                <li><a href="conseil.html">Conseil municipal<small>Membres, séances, procès-verbaux</small></a></li>
+                <li><a href="#">Administration<small>Taxes, contrats, éthique, eau potable, plaintes</small></a></li>
+                <li><a href="#">Politiques<small>Gestion contractuelle et autres</small></a></li>
+                <li><a href="#">Cartes et rôles d’évaluation</a></li>
+              </ul>
+            </li>
+            <li><div class="dh">Services</div>
+              <ul>
+                <li><a href="#">Urbanisme</a></li>
+                <li><a href="#">Office municipal d’habitation</a></li>
+                <li><a href="#">Infos RIDT</a></li>
+                <li><a href="#">Station de lavage et débarcadère</a></li>
+                <li><a href="#">Liens utiles</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="evenements.html" aria-current="page">Événements</a></li>
+        <li><a href="journal.html" >Le Journal</a></li>
+        <li class="has-drop">
+          <button type="button" aria-expanded="false">Vivre à Biencourt <span class="caret" aria-hidden="true"></span></button>
+          <ul class="drop">
+            <li><a href="#">Commerces</a></li>
+            <li><a href="#">Organismes</a></li>
+            <li><a href="#">Album photo</a></li>
+            <li><a href="#">Camping &amp; chalets</a></li>
+            <li><a href="#">Mont Biencourt</a></li>
+            <li><a href="#">Un brin d’histoire</a></li>
+          </ul>
+        </li>
+        <li><a href="#joindre">Nous joindre</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="contenu" class="wrap">
+  <div class="pagehead">
+    <div class="crumbs"><a href="accueil.html">Accueil</a> / Événements</div>
+    <div class="row">
+      <h1>L’agenda <em>de Biencourt</em></h1>
+      <p class="kicker" style="margin:0 0 10px">Automne – hiver 2026</p>
+    </div>
+    <p class="dek">Soupers, bingos, concerts, séances du conseil et premières neiges : tout ce qui se passe au village, au même endroit.</p>
+  </div>
+
+  <article class="feature cat-loisirs" aria-labelledby="ftitle">
+    <div class="photo" role="img" aria-label="Illustration : citrouilles illuminées sur le parcours d’Halloween au Centre des loisirs">
+      <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs><radialGradient id="nuit" cx=".7" cy=".2" r="1"><stop offset="0" stop-color="#3B4A5E"/><stop offset="1" stop-color="#151C24"/></radialGradient>
+        <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F2A33A" stop-opacity=".7"/><stop offset="1" stop-color="#F2A33A" stop-opacity="0"/></radialGradient></defs>
+        <rect width="600" height="400" fill="url(#nuit)"/>
+        <circle cx="460" cy="90" r="46" fill="#F3E3C0"/><circle cx="478" cy="80" r="44" fill="#26313F" opacity=".9"/>
+        <g fill="#F3E3C0" opacity=".8"><circle cx="80" cy="60" r="1.6"/><circle cx="160" cy="110" r="1.2"/><circle cx="260" cy="40" r="1.6"/><circle cx="330" cy="90" r="1"/><circle cx="560" cy="170" r="1.4"/><circle cx="40" cy="150" r="1"/></g>
+        <path d="M0 260 Q150 210 300 240 T600 230 V400H0Z" fill="#0E1418"/>
+        <g fill="#0B1013"><path d="M40 260 l20 -80 l20 80z"/><path d="M70 262 l26 -110 l26 110z"/><path d="M500 240 l22 -90 l22 90z"/><path d="M530 246 l18 -70 l18 70z"/></g>
+        <path d="M150 400 C220 330 380 320 450 260" stroke="#F3E3C0" stroke-width="22" fill="none" opacity=".12"/>
+        <g>
+          <circle cx="200" cy="330" r="70" fill="url(#glow)"/><ellipse cx="200" cy="335" rx="44" ry="34" fill="#E8762B"/><path d="M200 301 v-10" stroke="#24452F" stroke-width="5"/>
+          <path d="M184 326 l8 -10 l8 10z M208 326 l8 -10 l8 10z" fill="#FFE29A"/><path d="M180 346 q20 14 40 0 l-6 6 l-6 -5 l-8 6 l-8 -6 l-6 5z" fill="#FFE29A"/>
+          <circle cx="340" cy="300" r="50" fill="url(#glow)"/><ellipse cx="340" cy="304" rx="30" ry="24" fill="#E8762B"/><path d="M340 280 v-8" stroke="#24452F" stroke-width="4"/>
+          <path d="M328 299 l6 -8 l6 8z M344 299 l6 -8 l6 8z" fill="#FFE29A"/><path d="M326 313 q14 9 28 0" stroke="#FFE29A" stroke-width="4" fill="none"/>
+          <circle cx="440" cy="270" r="36" fill="url(#glow)"/><ellipse cx="440" cy="272" rx="20" ry="16" fill="#E8762B"/>
+        </g>
+        <g fill="#F2A33A"><circle cx="110" cy="220" r="3"/><circle cx="130" cy="215" r="3"/><circle cx="150" cy="212" r="3"/><circle cx="170" cy="214" r="3"/></g>
+      </svg>
+    </div>
+    <div class="txt">
+      <span class="kicker">À ne pas manquer · Loisirs</span>
+      <div class="when"><b>31</b><span>Samedi<br>octobre 2026<br>dès 17 h</span></div>
+      <h2 id="ftitle">Le Parcours d’Halloween</h2>
+      <p>Le Comité des loisirs transforme le Centre des loisirs en sentier hanté — version familiale. Citrouilles sculptées, maison des bonbons et chocolat chaud pour les grands.</p>
+      <p class="meta">Centre des loisirs · Gratuit · Costume fortement encouragé</p>
+      <div><button class="btn" type="button" data-add="31-10">Ajouter à mon calendrier</button></div>
+    </div>
+  </article>
+
+  <div class="toolbar">
+    <div class="chips" role="group" aria-label="Filtrer par catégorie" id="chips"></div>
+    <div class="views" role="group" aria-label="Mode d’affichage">
+      <button type="button" aria-pressed="true" data-view="list"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M0 2h14M0 7h14M0 12h14" stroke="currentColor" stroke-width="1.8"/></svg>Liste</button>
+      <button type="button" aria-pressed="false" data-view="cal"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="1" y="2" width="12" height="11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M1 6h12M5 6v7M9 6v7" stroke="currentColor" stroke-width="1.2"/></svg>Calendrier</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div>
+      <div id="listView" aria-live="polite"></div>
+      <div id="calView" class="cal" hidden>
+        <div class="calhead">
+          <h2 id="calTitle">Octobre 2026</h2>
+          <div class="nav"><button type="button" id="prev" aria-label="Mois précédent">←</button><button type="button" id="next" aria-label="Mois suivant">→</button></div>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="box">
+        <h3>Chaque semaine</h3>
+        <ul class="rec">
+          <li><b>Cuisines collectives du Haut-Pays</b><span>Mercredis · Salle communautaire, 2, rue St-Marc</span></li>
+          <li><b>Répétition de la Chorale</b><span>Jeudis 19 h · Église de Biencourt</span></li>
+          <li><b>Patinage libre</b><span>Dès l’ouverture de la patinoire · Centre des loisirs</span></li>
+          <li><b>Club des 50 ans et plus — cartes</b><span>Mardis 13 h 30 · Salle communautaire</span></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Votre organisme prépare une activité ?</h3>
+        <p class="note">Envoyez-nous les détails : nous l’ajouterons à l’agenda et au prochain Biencourtois.</p>
+        <form id="propose">
+          <label for="pt">Titre de l’activité</label><input id="pt" required placeholder="ex. Tournoi de cartes">
+          <label for="pd">Date</label><input id="pd" type="date" value="2026-11-21">
+          <label for="pc">Catégorie</label>
+          <select id="pc"><option>Loisirs</option><option>Communautaire</option><option>Culture</option><option>Sport / plein air</option></select>
+          <label for="po">Organisme</label><input id="po" placeholder="ex. Comité des loisirs">
+          <div style="margin-top:16px"><button class="btn" type="submit">Proposer</button></div>
+          <div class="ok" id="pok" role="status">Merci ! Votre proposition a été transmise au bureau municipal (démonstration).</div>
+        </form>
+      </div>
+    </aside>
+  </div>
+</main>
+<footer class="foot" id="joindre">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="flogo"><img src="../assets/logo-biencourt.png" alt="Logo de Biencourt" width="120" height="60"></div>
+        <div class="fname">Municipalité de Biencourt<em>« Biencourt, un endroit à découvrir! »</em></div>
+        <a class="fb" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.6 2 10.7 3.4 10.7 5.8V8H8.5v3h2.2v11H14V11h2.6l.4-3H14z"/></svg>Suivez-nous sur Facebook</a>
+      </div>
+      <div>
+        <h4>Nous joindre</h4>
+        <address>5, rue Berger, C.P. 70<br>Biencourt (Québec) G0K 1T0<br>Tél. <a href="tel:+14184992423">418 499-2423</a><br>Téléc. 418 499-2708<br><a href="mailto:info@biencourt.ca">info@biencourt.ca</a></address>
+      </div>
+      <div>
+        <h4>Heures du bureau</h4>
+        <ul><li>Lundi au jeudi</li><li>8 h 30 – 12 h</li><li>13 h – 16 h 30</li><li style="margin-top:12px;color:#BFC8B5">Fermé le vendredi</li></ul>
+      </div>
+      <div>
+        <h4>Raccourcis</h4>
+        <ul>
+          <li><a href="conseil.html">Conseil municipal</a></li>
+          <li><a href="evenements.html">Agenda des activités</a></li>
+          <li><a href="journal.html">Le Biencourtois</a></li>
+          <li><a href="#">Paiement des taxes</a></li>
+          <li><a href="#">Camping municipal</a></li>
+          <li><a href="admin.html">Accès administrateur</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Municipalité de Biencourt · MRC de Témiscouata · Bas-Saint-Laurent</span>
+      <span>Accessibilité · Confidentialité · Plan du site</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.querySelector('.mainnav');
+  var t=nav.querySelector('.navtoggle');
+  t.addEventListener('click',function(){var o=nav.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+  nav.querySelectorAll('.has-drop > button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var li=b.parentNode,o=!li.classList.contains('open');
+      nav.querySelectorAll('.has-drop.open').forEach(function(x){if(x!==li){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')}});
+      li.classList.toggle('open',o);b.setAttribute('aria-expanded',o);
+    });
+  });
+  document.addEventListener('click',function(e){if(!nav.contains(e.target)){nav.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')})}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){nav.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open')})}});
+  var r=document.querySelector('.ribbon .x');
+  if(r)r.addEventListener('click',function(){r.closest('.ribbon').remove()});
+})();
+</script>
+
+<script>
+(function(){
+  var CATS={loisirs:'Loisirs',communautaire:'Communautaire',municipal:'Municipal',culture:'Culture',sport:'Sport / plein air'};
+  var EV=[
+    {d:'2026-10-10',t:'Souper spaghetti du Club des 50 ans et plus',c:'communautaire',l:'Salle communautaire',h:'17 h 30',x:'Spaghetti, salade et dessert maison. 15 $ adultes, 7 $ enfants. Billets à l’épicerie Chez Lelou.'},
+    {d:'2026-10-14',t:'Cuisines collectives du Haut-Pays',c:'communautaire',l:'2, rue St-Marc',h:'9 h',x:'Au menu : soupes et sauces pour l’hiver. Inscription la veille.'},
+    {d:'2026-10-17',t:'Collecte des encombrants',c:'municipal',l:'Tout le territoire',h:'Dès 7 h',x:'Objets en bordure de rue la veille au soir. Pas de pneus, ni de matériaux de construction.'},
+    {d:'2026-10-18',t:'Randonnée des couleurs au Mont Biencourt',c:'sport',l:'Chalet du Mont Biencourt',h:'10 h',img:['centre_de_ski_vue_de_la_trois_automne.png','Vue automnale depuis le haut d’une piste du Mont Biencourt, chalet et lacs au loin'],x:'Montée guidée jusqu’au sommet pour admirer les dernières couleurs. Bonnes chaussures requises.'},
+    {d:'2026-10-19',t:'Échéance du 6e versement de taxes',c:'municipal',l:'En ligne ou au bureau',h:'Avant 16 h 30',x:'Dernier versement de l’année. Référence : matricule à 10 chiffres.'},
+    {d:'2026-10-24',t:'Bingo de l’Halloween pour les familles',c:'loisirs',l:'Centre des loisirs',h:'18 h 30',x:'Cartes à 1 $, prix pour petits et grands. Organisé par le Comité des loisirs.'},
+    {d:'2026-10-31',t:'Parcours d’Halloween',c:'loisirs',l:'Centre des loisirs',h:'17 h',x:'Sentier hanté familial, citrouilles et chocolat chaud.'},
+    {d:'2026-11-02',t:'Séance ordinaire du conseil',c:'municipal',l:'Salle du conseil, 5, rue Berger',h:'19 h 30',x:'Séance publique. Période de questions en fin de séance.'},
+    {d:'2026-11-14',t:'Concert de la Chorale de Biencourt',c:'culture',l:'Église de Biencourt',h:'19 h',x:'« Chants d’automne et de lumière ». Contribution volontaire au profit de la Fabrique.'},
+    {d:'2026-11-28',t:'Marché de Noël artisanal',c:'culture',l:'Salle communautaire',h:'10 h à 16 h',x:'Une vingtaine d’artisans de la région, produits de l’érable et tirage de paniers.'},
+    {d:'2026-12-06',t:'Ouverture prévue du Mont Biencourt',c:'sport',l:'Mont Biencourt',h:'9 h',img:['centre_de_ski_cours_motoneige.png','Foule de nuit dans la cour enneigée du centre de ski, devant le chalet illuminé'],x:'Selon les conditions de neige. Abonnements de saison en prévente jusqu’au 30 novembre.'},
+    {d:'2026-12-07',t:'Séance ordinaire du conseil',c:'municipal',l:'Salle du conseil, 5, rue Berger',h:'19 h 30',x:'Dernière séance de l’année et présentation du budget 2027.'},
+    {d:'2026-12-13',t:'Fête de Noël des enfants (0-12 ans)',c:'loisirs',l:'Centre des loisirs',h:'13 h',x:'Visite du père Noël, bricolages et collation. Inscription avant le 1er décembre.'}
+  ];
+  var MONTHS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var DOW=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  var TODAY=new Date(2026,9,8);
+  var filter='all',view='list',calM=9;
+  function pd(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2])}
+  function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+  var chips=document.getElementById('chips');
+  function chip(k,label,n){var b=document.createElement('button');b.type='button';b.className='chip'+(k!=='all'?' cat-'+k:'');b.dataset.k=k;b.setAttribute('aria-pressed',k===filter);b.innerHTML=(k!=='all'?'<i></i>':'')+label+' <span class="ct">'+n+'</span>';chips.appendChild(b)}
+  chip('all','Toutes',EV.length);
+  Object.keys(CATS).forEach(function(k){chip(k,CATS[k],EV.filter(function(e){return e.c===k}).length)});
+  chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;filter=b.dataset.k;chips.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed',c===b)});render()});
+  function list(){return EV.filter(function(e){return filter==='all'||e.c===filter})}
+  var added={};
+  function renderList(){
+    var out='',cur=-1,L=list();
+    if(!L.length){document.getElementById('listView').innerHTML='<p class="empty">Aucune activité dans cette catégorie pour le moment.</p>';return}
+    L.forEach(function(e){
+      var d=pd(e.d);
+      if(d.getMonth()!==cur){if(cur>-1)out+='</section>';cur=d.getMonth();var n=L.filter(function(x){return pd(x.d).getMonth()===cur}).length;out+='<section class="month"><h2>'+cap(MONTHS[cur])+' <small>'+n+' activité'+(n>1?'s':'')+'</small></h2>'}
+      var key=d.getDate()+'-'+(d.getMonth()+1);
+      out+='<article class="ev cat-'+e.c+'"><div class="date"><b>'+d.getDate()+'</b><span>'+DOW[d.getDay()].slice(0,3)+'.</span></div><div><span class="tag">'+CATS[e.c]+'</span><h3>'+e.t+'</h3><p>'+e.x+'</p>'+(e.img?'<figure class="evimg"><div class="pimg press"><img src="../assets/'+e.img[0]+'" alt="'+e.img[1]+'" width="640" height="426" loading="lazy"></div><figcaption>Photo : Municipalité de Biencourt</figcaption></figure>':'')+'<div class="meta"><span>◷ '+e.h+'</span><span>⌖ '+e.l+'</span></div></div><button type="button" class="add'+(added[key]?' done':'')+'" data-add="'+key+'">'+(added[key]?'✓ Ajouté':'+ Calendrier')+'</button></article>';
+    });
+    document.getElementById('listView').innerHTML=out+'</section>';
+  }
+  function renderCal(){
+    document.getElementById('calTitle').textContent=cap(MONTHS[calM])+' 2026';
+    document.getElementById('prev').disabled=calM<=9;document.getElementById('next').disabled=calM>=11;
+    var g='',first=new Date(2026,calM,1),start=(first.getDay()+6)%7,days=new Date(2026,calM+1,0).getDate();
+    ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'].forEach(function(d){g+='<div class="dow">'+d+'</div>'});
+    var total=Math.ceil((start+days)/7)*7;
+    for(var i=0;i<total;i++){
+      var dn=i-start+1,inM=dn>=1&&dn<=days,dt=new Date(2026,calM,dn);
+      var isT=inM&&dt.getTime()===TODAY.getTime();
+      g+='<div class="cell'+(inM?'':' out')+(isT?' today':'')+'"><span class="n">'+dt.getDate()+'</span>';
+      if(inM)list().forEach(function(e){if(pd(e.d).getTime()===dt.getTime())g+='<a href="#" class="pill cat-'+e.c+'" title="'+e.t+' — '+e.h+'">'+e.t+'</a>'});
+      g+='</div>';
+    }
+    document.getElementById('grid').innerHTML=g;
+  }
+  function render(){renderList();renderCal()}
+  document.getElementById('prev').onclick=function(){calM--;renderCal()};
+  document.getElementById('next').onclick=function(){calM++;renderCal()};
+  document.querySelectorAll('.views button').forEach(function(b){b.addEventListener('click',function(){
+    view=b.dataset.view;document.querySelectorAll('.views button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    document.getElementById('listView').hidden=view!=='list';document.getElementById('calView').hidden=view!=='cal';
+  })});
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-add]');if(!b)return;added[b.dataset.add]=true;b.classList.add('done');b.textContent='✓ Ajouté'});
+  document.getElementById('propose').addEventListener('submit',function(e){e.preventDefault();document.getElementById('pok').style.display='block'});
+  render();
+})();
+</script>
+</body>
+</html>

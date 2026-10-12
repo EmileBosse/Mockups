@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conseil municipal — Municipalité de Biencourt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5EFE1;
+  --paper-2:#EDE4CF;
+  --paper-3:#E4D8BD;
+  --card:#FBF8F0;
+  --ink:#1D1A15;
+  --ink-2:#3E382E;
+  --ink-3:#6A6152;
+  --rule:#1D1A15;
+  --rule-soft:#CDBF9F;
+  --forest:#24452F;
+  --forest-2:#2F5A3D;
+  --forest-tint:#DCE3D3;
+  --ochre:#A8611A;
+  --ochre-2:#C9822F;
+  --ochre-tint:#F1DDBD;
+  --maple:#E8762B;
+  --leaf:#6DB33F;
+  --sky:#2E8BC9;
+  --red:#9E2B1F;
+  --display:'Playfair Display', 'Times New Roman', serif;
+  --serif:'Source Serif 4', Georgia, serif;
+  --sans:'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+  --wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:17px;line-height:1.6;
+  font-feature-settings:"onum" 1,"kern" 1;
+  background-image:
+    radial-gradient(rgba(120,90,40,.05) 1px, transparent 1px),
+    radial-gradient(rgba(120,90,40,.035) 1px, transparent 1px);
+  background-size:7px 7px, 13px 13px;
+  background-position:0 0, 3px 5px;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-color:var(--ochre-2);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--forest)}
+:focus-visible{outline:3px solid var(--ochre-2);outline-offset:3px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.08;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kicker{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre)}
+.kicker.forest{color:var(--forest)}
+.smallcaps{font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.rule{border:0;border-top:1px solid var(--rule);margin:0}
+.rule-2{border:0;border-top:3px double var(--rule);margin:0}
+.rule-thick{border:0;border-top:4px solid var(--rule);margin:0}
+.dropcap::first-letter{
+  font-family:var(--display);font-weight:900;float:left;font-size:4.6em;line-height:.82;
+  padding:.06em .1em 0 0;color:var(--forest);
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:13px;
+  letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;border:1.5px solid var(--ink);
+  background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer;transition:.2s;
+}
+.btn:hover{background:var(--forest);border-color:var(--forest);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn.ochre{background:var(--ochre);border-color:var(--ochre);color:#fff}
+.btn.ochre:hover{background:#8A4E12;border-color:#8A4E12}
+.more{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--forest);text-decoration:none;border-bottom:1.5px solid var(--ochre-2);padding-bottom:2px}
+.more:hover{color:var(--ochre)}
+
+/* ---------- mockup strip ---------- */
+.mockbar{background:var(--ink);color:#D9CFB8;font-family:var(--sans);font-size:11.5px;letter-spacing:.06em}
+.mockbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:30px}
+.mockbar a{color:#F0E6CF;text-decoration:none}
+.mockbar a:hover{color:var(--ochre-2)}
+.mockbar b{color:var(--ochre-2);font-weight:600}
+
+/* ---------- masthead ---------- */
+.ears{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0 10px;font-family:var(--sans);font-size:12px;color:var(--ink-2);letter-spacing:.04em}
+.ears .ear{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.ears .ear span{white-space:nowrap}
+.ears .fire{display:inline-flex;align-items:center;gap:7px;text-decoration:none}
+.ears .fire i{width:9px;height:9px;border-radius:50%;background:#3F8F3A;box-shadow:0 0 0 3px rgba(63,143,58,.2)}
+.masthead{text-align:center;padding:10px 0 18px;border-top:1px solid var(--rule)}
+.masthead .brand{display:inline-flex;align-items:center;gap:22px;text-decoration:none;color:var(--ink)}
+.masthead .brand img{width:150px;height:auto}
+.masthead .bt{text-align:left;border-left:1px solid var(--rule-soft);padding-left:22px}
+.masthead .bt small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.masthead .bt strong{display:block;font-family:var(--display);font-weight:900;font-size:44px;line-height:1;letter-spacing:-.02em}
+.masthead .bt em{display:block;font-family:var(--display);font-style:italic;font-size:16px;color:var(--ochre);margin-top:4px}
+
+.mainnav{border-top:3px double var(--rule);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:50;background:rgba(245,239,225,.96);backdrop-filter:blur(6px)}
+.mainnav .wrap{display:flex;justify-content:center;align-items:stretch;position:relative}
+.mainnav ul{list-style:none;margin:0;padding:0;display:flex}
+.mainnav > .wrap > ul > li{position:relative}
+.mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{
+  display:flex;align-items:center;gap:6px;height:48px;padding:0 20px;font-family:var(--sans);font-size:13px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:none;border:0;cursor:pointer;
+}
+.mainnav > .wrap > ul > li + li::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:1px;background:var(--rule-soft)}
+.mainnav a[aria-current="page"]{color:var(--forest);box-shadow:inset 0 -3px 0 var(--ochre-2)}
+.mainnav > .wrap > ul > li > a:hover,.mainnav > .wrap > ul > li > button:hover{color:var(--ochre)}
+.mainnav .caret{width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-3px)}
+.mainnav .drop{
+  position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);min-width:300px;background:var(--card);
+  border:1px solid var(--rule);box-shadow:6px 6px 0 var(--paper-3);padding:14px 0;opacity:0;visibility:hidden;transition:.18s;display:block;
+}
+.mainnav li:hover > .drop,.mainnav li:focus-within > .drop,.mainnav li.open > .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.mainnav .drop li a{display:block;padding:7px 22px;font-family:var(--serif);font-size:15.5px;text-decoration:none;color:var(--ink)}
+.mainnav .drop li a:hover{background:var(--paper-2);color:var(--forest)}
+.mainnav .drop .dh{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre);padding:6px 22px 4px}
+.mainnav .drop.wide{min-width:540px;display:grid;grid-template-columns:1fr 1fr;padding:14px 0}
+.mainnav .drop small{display:block;font-family:var(--sans);font-size:11.5px;color:var(--ink-3)}
+.navtoggle{display:none}
+
+/* ---------- alert ribbon ---------- */
+.ribbon{background:var(--forest);color:#F3EEDF;font-family:var(--sans);font-size:13.5px}
+.ribbon .wrap{display:flex;align-items:center;gap:14px;min-height:42px;padding-top:6px;padding-bottom:6px}
+.ribbon .tag{background:var(--ochre-2);color:#1D1A15;font-weight:800;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:4px 9px;flex-shrink:0}
+.ribbon a{color:#fff;font-weight:600}
+.ribbon .x{margin-left:auto;background:none;border:0;color:#F3EEDF;font-size:20px;cursor:pointer;line-height:1;padding:4px 8px}
+
+/* ---------- page head (inner pages) ---------- */
+.pagehead{padding:46px 0 26px;border-bottom:1px solid var(--rule)}
+.pagehead .crumbs{font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:var(--ink-3);margin-bottom:18px}
+.pagehead .crumbs a{color:var(--ink-3);text-decoration:none}
+.pagehead .crumbs a:hover{color:var(--forest)}
+.pagehead h1{font-size:clamp(46px,7vw,96px);font-weight:900;letter-spacing:-.03em;line-height:.95}
+.pagehead h1 em{font-style:italic;font-weight:400;color:var(--forest)}
+.pagehead .dek{font-family:var(--display);font-style:italic;font-size:21px;color:var(--ink-2);max-width:720px;margin-top:16px;line-height:1.4}
+.pagehead .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.secthead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:4px solid var(--rule);padding-top:10px;margin-bottom:22px}
+.secthead h2{font-size:30px;font-weight:800}
+.secthead h2 .num{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--ochre);vertical-align:middle;margin-right:12px}
+
+/* ---------- photo blocks ---------- */
+.photo{position:relative;overflow:hidden;background:var(--paper-3);border:1px solid rgba(29,26,21,.15)}
+.photo svg{display:block;width:100%;height:100%}
+.caption{font-family:var(--sans);font-size:12px;color:var(--ink-3);margin-top:8px;line-height:1.4}
+.caption b{color:var(--ink-2);font-weight:600}
+
+/* ---------- footer ---------- */
+.foot{background:var(--forest);color:#E7E1CF;margin-top:90px;position:relative}
+.foot::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px;background:repeating-linear-gradient(90deg,var(--forest) 0 14px,transparent 14px 18px)}
+.foot .wrap{padding-top:56px;padding-bottom:26px}
+.foot .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px}
+.foot .fname{font-family:var(--display);font-size:34px;font-weight:900;color:#fff;line-height:1}
+.foot .fname em{display:block;font-weight:400;font-style:italic;font-size:17px;color:var(--ochre-2);margin-top:8px}
+.foot .flogo{background:#FBF8F0;display:inline-block;padding:10px 14px;margin-bottom:18px}
+.foot .flogo img{width:120px}
+.foot h4{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre-2);font-weight:700;margin-bottom:14px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin:0 0 7px}
+.foot a{color:#E7E1CF;text-decoration:none}
+.foot a:hover{color:#fff;text-decoration:underline}
+.foot address{font-style:normal;font-size:15px;line-height:1.7}
+.foot .colophon{border-top:1px solid rgba(231,225,207,.25);margin-top:44px;padding-top:18px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:#BFC8B5}
+.foot .fb{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--sans);font-size:13px;font-weight:600;border:1px solid rgba(231,225,207,.4);padding:8px 14px}
+.foot .fb:hover{background:rgba(255,255,255,.08);text-decoration:none}
+
+/* ---------- responsive shell ---------- */
+@media (max-width:1100px){
+  .mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{padding:0 13px;font-size:12px}
+  .foot .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  body{font-size:16.5px}
+  .wrap{padding:0 20px}
+  .ears{font-size:11px;justify-content:center;text-align:center}
+  .ears .ear.r{display:none}
+  .masthead .brand{flex-direction:column;gap:6px}
+  .masthead .bt{border:0;padding:0;text-align:center}
+  .masthead .bt strong{font-size:32px}
+  .masthead .brand img{width:130px}
+  .mainnav .wrap{justify-content:space-between;padding:0}
+  .navtoggle{display:flex;align-items:center;gap:10px;width:100%;justify-content:center;height:48px;background:none;border:0;font-family:var(--sans);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+  .navtoggle .bars{width:18px;height:2px;background:currentColor;position:relative}
+  .navtoggle .bars::before,.navtoggle .bars::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
+  .navtoggle .bars::before{top:-6px}.navtoggle .bars::after{top:6px}
+  .mainnav > .wrap > ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--card);border-bottom:3px double var(--rule);max-height:75vh;overflow:auto}
+  .mainnav.open > .wrap > ul{display:flex}
+  .mainnav > .wrap > ul > li + li::before{display:none}
+  .mainnav > .wrap > ul > li{border-top:1px solid var(--rule-soft)}
+  .mainnav > .wrap > ul > li > a,.mainnav > .wrap > ul > li > button{width:100%;padding:0 22px;justify-content:space-between;font-size:13px}
+  .mainnav .drop,.mainnav .drop.wide{position:static;transform:none!important;opacity:1;visibility:visible;display:none;box-shadow:none;border:0;border-top:1px dashed var(--rule-soft);min-width:0;background:var(--paper)}
+  .mainnav li.open > .drop{display:block}
+  .mainnav .drop.wide{grid-template-columns:1fr}
+  .foot .fgrid{grid-template-columns:1fr;gap:30px}
+  .pagehead{padding:30px 0 20px}
+  .pagehead .dek{font-size:18px}
+  .secthead h2{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+.mainnav .drop ul{display:block;list-style:none;margin:0;padding:0}
+.mainnav button.is-current{color:var(--forest);box-shadow:inset 0 -3px 0 var(--ochre-2)}
+/* ---------- press photos ---------- */
+.pimg{position:relative;overflow:hidden;background:var(--paper-3);margin:0}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .5s,transform .8s}
+.pimg::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(29,26,21,.22) 1px,transparent 1.2px);background-size:3px 3px;mix-blend-mode:multiply;opacity:.35;transition:opacity .4s}
+.pimg.press img{filter:sepia(.45) saturate(.7) contrast(1.05) brightness(.98)}
+.pimg.press:hover img,a:hover .pimg.press img,button:hover .pimg.press img{filter:none}
+.pimg:hover::after{opacity:.12}
+.pimg.color::after{opacity:.18}
+.credit{position:absolute;right:0;bottom:0;background:rgba(29,26,21,.72);color:#F3EEDF;font-family:var(--sans);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;z-index:1}
+@media (max-width:560px){.mockbar .mk{display:none}.mockbar .wrap{font-size:11px;white-space:nowrap}}
+
+section.block{margin-top:72px}
+/* prochaine séance */
+.next{display:grid;grid-template-columns:auto 1fr 320px;gap:0;border:1px solid var(--rule);background:var(--card);margin-top:36px;position:relative}
+.next::before{content:"Prochaine séance";position:absolute;top:-11px;left:24px;background:var(--paper);padding:0 10px;font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre)}
+.next .big{padding:30px 36px;border-right:1px solid var(--rule);text-align:center;background:var(--forest);color:#F3EEDF}
+.next .big small{display:block;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre-2)}
+.next .big b{display:block;font-family:var(--display);font-weight:900;font-size:120px;line-height:.85;letter-spacing:-.04em;margin:8px 0}
+.next .big span{font-family:var(--display);font-style:italic;font-size:24px}
+.next .mid{padding:30px 36px}
+.next h2{font-size:34px;margin:6px 0 12px}
+.next ul{margin:0;padding:0;list-style:none;font-family:var(--sans);font-size:14px}
+.next ul li{padding:6px 0;border-bottom:1px dotted var(--rule-soft);display:flex;gap:10px}
+.next ul li b{min-width:90px;color:var(--ink-3);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding-top:2px}
+.next .cd{padding:30px 30px;border-left:1px solid var(--rule-soft);display:flex;flex-direction:column;justify-content:center;gap:14px}
+.count{display:flex;gap:10px}
+.count div{flex:1;text-align:center;border:1px solid var(--rule);padding:10px 0;background:var(--paper)}
+.count b{display:block;font-family:var(--display);font-weight:900;font-size:40px;line-height:1}
+.count span{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+
+/* membres */
+.members{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.mem{padding:26px 22px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);text-align:center;position:relative;background:transparent;transition:background .2s}
+.mem:hover{background:var(--card)}
+.mem.maire{grid-row:span 2;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--card)}
+.av{width:96px;height:96px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-style:italic;font-size:36px;color:var(--paper);background:var(--forest);position:relative;box-shadow:0 0 0 4px var(--paper),0 0 0 5px var(--forest)}
+.av::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px dashed rgba(245,239,225,.45)}
+.av.o{background:var(--ochre);box-shadow:0 0 0 4px var(--paper),0 0 0 5px var(--ochre)}
+.mem.maire .av{width:150px;height:150px;font-size:58px}
+.mem .poste{font-family:var(--sans);font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre)}
+.mem h3{font-size:22px;margin:6px 0 6px}
+.mem.maire h3{font-size:34px}
+.mem p{font-size:14px;color:var(--ink-3);margin:0;line-height:1.45}
+.mem .mail{display:inline-block;margin-top:10px;font-family:var(--sans);font-size:12px;font-weight:600;color:var(--forest)}
+.mem.maire blockquote{font-family:var(--display);font-style:italic;font-size:18px;line-height:1.4;margin:16px 0 0;color:var(--ink-2);max-width:300px}
+
+/* calendrier */
+.months{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.mo{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 14px 16px;position:relative;min-height:150px}
+.mo .m{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.mo b{display:block;font-family:var(--display);font-weight:900;font-size:58px;line-height:1;margin:8px 0 2px;letter-spacing:-.03em}
+.mo .w{font-family:var(--display);font-style:italic;font-size:16px;color:var(--ink-2)}
+.mo .st{position:absolute;left:14px;bottom:12px;font-family:var(--sans);font-size:11px;font-weight:600;color:var(--forest)}
+.mo.past b{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--ochre-2)}
+.mo.next-s{background:var(--forest);color:#fff}
+.mo.next-s .m,.mo.next-s .w{color:#E5DEC9}
+.mo.next-s .st{color:var(--ochre-2)}
+.mo.next-s::after{content:"Prochaine";position:absolute;top:12px;right:12px;font-family:var(--sans);font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--ochre-2);color:var(--ink);padding:3px 6px}
+.legend{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:12px}
+
+/* PV */
+.pvwrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:50px}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+.tabs button{font-family:var(--display);font-size:24px;font-weight:700;padding:8px 22px 10px;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-1px;cursor:pointer;color:var(--ink-3)}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ochre-2)}
+.tabs button:hover{color:var(--forest)}
+.pvsearch{display:flex;align-items:center;gap:10px;margin:18px 0 6px;border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.pvsearch input{flex:1;border:0;background:transparent;font:inherit;font-size:16px;padding:6px 0;color:var(--ink)}
+.pvsearch input:focus{outline:none}
+.pvsearch:focus-within{border-bottom-color:var(--ochre-2)}
+.pv{list-style:none;margin:0;padding:0}
+.pv li{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:20px;align-items:center;padding:14px 0;border-bottom:1px dotted var(--rule-soft)}
+.pv .d{font-family:var(--display);font-weight:700;font-size:20px}
+.pv .d small{display:block;font-family:var(--sans);font-size:11px;font-weight:600;color:var(--ink-3);letter-spacing:.06em}
+.pv .t{font-size:16px}
+.pv .badge{display:inline-block;font-family:var(--sans);font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--forest);color:var(--forest);margin-right:8px;vertical-align:2px}
+.pv .badge.x{border-color:var(--ochre);color:var(--ochre)}
+.pv a.dl{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.06em;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--ink);white-space:nowrap}
+.pv a.dl:hover{background:var(--ink);color:var(--paper)}
+.pv a.dl small{font-weight:500;color:inherit;opacity:.7}
+.info{background:var(--card);border:1px solid var(--rule);padding:22px 22px}
+.info h3{font-size:22px;margin-bottom:10px}
+.info p{font-size:15px;color:var(--ink-2)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.avis{list-style:none;margin:0;padding:0}
+.avis li{padding:16px 0;border-bottom:1px dotted var(--rule-soft);display:grid;grid-template-columns:70px 1fr;gap:16px}
+.avis .dd{font-family:var(--display);text-align:center;border-right:1px solid var(--rule-soft);padding-right:12px}
+.avis .dd b{display:block;font-size:34px;font-weight:900;line-height:1}
+.avis .dd span{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.avis h3{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.3;margin:0 0 4px}
+.avis h3 a{text-decoration:none}.avis h3 a:hover{text-decoration:underline}
+.avis p{margin:0;font-size:14px;color:var(--ink-3)}
+.regl{list-style:none;margin:0;padding:0}
+.regl li{display:grid;grid-template-columns:112px 1fr auto;gap:14px;padding:13px 0;border-bottom:1px dotted var(--rule-soft);align-items:baseline}
+.regl .no{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--ochre);letter-spacing:.04em}
+.regl a{font-size:16px;text-decoration:none}
+.regl a:hover{text-decoration:underline}
+.regl span{font-family:var(--sans);font-size:11.5px;color:var(--ink-3)}
+
+@media (max-width:1100px){
+  .next{grid-template-columns:auto 1fr}
+  .next .cd{grid-column:1 / -1;border-left:0;border-top:1px solid var(--rule)}
+  .members{grid-template-columns:repeat(3,1fr)}
+  .mem.maire{grid-row:auto;grid-column:1 / -1}
+  .months{grid-template-columns:repeat(4,1fr)}
+  .pvwrap{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .next{grid-template-columns:1fr}
+  .next .big{border-right:0;border-bottom:1px solid var(--rule);padding:24px}
+  .next .big b{font-size:90px}
+  .next .mid,.next .cd{padding:22px}
+  .next h2{font-size:26px}
+  .members{grid-template-columns:1fr 1fr}
+  .mem{padding:20px 12px}
+  .av{width:72px;height:72px;font-size:28px}
+  .mem h3{font-size:18px}
+  .months{grid-template-columns:repeat(3,1fr)}
+  .mo{min-height:120px;padding:10px}
+  .mo b{font-size:40px}
+  .mo .st{position:static;margin-top:6px;font-size:10px;line-height:1.3}
+  .mo{min-height:0}
+  .mo.next-s::after{display:none}
+  .tabs button{font-size:19px;padding:8px 12px}
+  .pv li{grid-template-columns:1fr auto;gap:6px 14px}
+  .pv .d{grid-column:1 / -1}
+  .two{grid-template-columns:1fr;gap:40px}
+  .regl li{grid-template-columns:1fr auto}
+  .regl .no{grid-column:1 / -1}
+}
+</style>
+</head>
+<body>
+<a class="sr-only" href="#contenu">Aller au contenu</a>
+<div class="mockbar">
+  <div class="wrap">
+    <a href="../index.html">← Retour aux options</a>
+    <span><span class="mk">Maquette · </span><b>Option C — « La Gazette »</b></span>
+  </div>
+</div>
+<header>
+  <div class="wrap">
+    <div class="ears">
+      <div class="ear l">
+        <span>Jeudi 8 octobre 2026</span>
+        <span aria-hidden="true">·</span>
+        <span>Biencourt, Témiscouata</span>
+      </div>
+      <div class="ear r">
+        <a class="fire" href="#sopfeu" title="Indice SOPFEU — zone Kamouraska-RDL-Témis-Les Basques"><i aria-hidden="true"></i>Danger d’incendie : <b>&nbsp;Bas</b></a>
+        <span aria-hidden="true">·</span>
+        <span>418 499-2423</span>
+      </div>
+    </div>
+    <div class="masthead">
+      <a class="brand" href="accueil.html" aria-label="Municipalité de Biencourt — accueil">
+        <img src="../assets/logo-biencourt.png" alt="Logo de Biencourt : feuille d’érable, montagne et lettrage bleu" width="150" height="75">
+        <span class="bt">
+          <small>Municipalité de</small>
+          <strong>Biencourt</strong>
+          <em>Un endroit à découvrir — depuis 1947</em>
+        </span>
+      </a>
+    </div>
+  </div>
+  <nav class="mainnav" aria-label="Navigation principale">
+    <div class="wrap">
+      <button class="navtoggle" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"></span> Sommaire</button>
+      <ul id="menu">
+        <li><a href="accueil.html" >Accueil</a></li>
+        <li class="has-drop">
+          <button type="button" aria-expanded="false" class="is-current">Municipalité <span class="caret" aria-hidden="true"></span></button>
+          <ul class="drop wide">
+            <li><div class="dh">Gouvernance</div>
+              <ul>
+                <li><a href="conseil.html">Conseil municipal<small>Membres, séances, procès-verbaux</small></a></li>
+                <li><a href="#">Administration<small>Taxes, contrats, éthique, eau potable, plaintes</small></a></li>
+                <li><a href="#">Politiques<small>Gestion contractuelle et autres</small></a></li>
+                <li><a href="#">Cartes et rôles d’évaluation</a></li>
+              </ul>
+            </li>
+            <li><div class="dh">Services</div>
+              <ul>
+                <li><a href="#">Urbanisme</a></li>
+                <li><a href="#">Office municipal d’habitation</a></li>
+                <li><a href="#">Infos RIDT</a></li>
+                <li><a href="#">Station de lavage et débarcadère</a></li>
+                <li><a href="#">Liens utiles</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="evenements.html" >Événements</a></li>
+        <li><a href="journal.html" >Le Journal</a></li>
+        <li class="has-drop">
+          <button type="button" aria-expanded="false">Vivre à Biencourt <span class="caret" aria-hidden="true"></span></button>
+          <ul class="drop">
+            <li><a href="#">Commerces</a></li>
+            <li><a href="#">Organismes</a></li>
+            <li><a href="#">Album photo</a></li>
+            <li><a href="#">Camping &amp; chalets</a></li>
+            <li><a href="#">Mont Biencourt</a></li>
+            <li><a href="#">Un brin d’histoire</a></li>
+          </ul>
+        </li>
+        <li><a href="#joindre">Nous joindre</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="contenu" class="wrap">
+  <div class="pagehead">
+    <div class="crumbs"><a href="accueil.html">Accueil</a> / Municipalité / Conseil municipal</div>
+    <h1>Le Conseil <em>municipal</em></h1>
+    <p class="dek">Sept élus au service de la communauté. Les séances sont publiques : venez poser vos questions, consulter les procès-verbaux ou suivre les avis publics.</p>
+  </div>
+
+  <section class="next" aria-label="Prochaine séance du conseil">
+    <div class="big"><small>Lundi</small><b>2</b><span>novembre 2026</span></div>
+    <div class="mid">
+      <span class="kicker">Séance ordinaire</span>
+      <h2>Séance ordinaire du conseil — novembre</h2>
+      <ul>
+        <li><b>Heure</b> 19 h 30</li>
+        <li><b>Lieu</b> Salle du conseil, 5, rue Berger</li>
+        <li><b>Ordre du jour</b> Publié le vendredi 30 octobre</li>
+        <li><b>Au menu</b> Dépôt des états comparatifs, déneigement 2026-2027</li>
+      </ul>
+    </div>
+    <div class="cd">
+      <span class="kicker forest">Dans</span>
+      <div class="count" aria-label="Dans 25 jours"><div><b>25</b><span>jours</span></div><div><b>11</b><span>heures</span></div></div>
+      <a class="btn" href="#">Ajouter à mon calendrier</a>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="t1">
+    <div class="secthead"><h2 id="t1"><span class="num">N° 01</span>Les membres du conseil</h2><span class="kicker">Mandat 2025 – 2029</span></div>
+    <div class="members">
+      <article class="mem maire">
+        <div class="av" aria-hidden="true">DD</div>
+        <span class="poste">Maire</span>
+        <h3>Daniel Dumont</h3>
+        <p>Administration générale, finances, représentant à la MRC de Témiscouata</p>
+        <blockquote>« Un petit village, mais une grande table où tout le monde a sa place. »</blockquote>
+        <a class="mail" href="#">Écrire au maire →</a>
+      </article>
+      <article class="mem"><div class="av o" aria-hidden="true">DR</div><span class="poste">Poste 1</span><h3>Daniel Rioux</h3><p>Voirie et déneigement</p><a class="mail" href="#">Écrire</a></article>
+      <article class="mem"><div class="av" aria-hidden="true">SB</div><span class="poste">Poste 2</span><h3>Sébastien Beaulieu</h3><p>Mont Biencourt, plein air</p><a class="mail" href="#">Écrire</a></article>
+      <article class="mem"><div class="av o" aria-hidden="true">KL</div><span class="poste">Poste 3</span><h3>Kathleen Lebel</h3><p>Famille, aînés, Journal local</p><a class="mail" href="#">Écrire</a></article>
+      <article class="mem"><div class="av" aria-hidden="true">FG</div><span class="poste">Poste 4</span><h3>Francis Godin</h3><p>Eau potable, hygiène du milieu</p><a class="mail" href="#">Écrire</a></article>
+      <article class="mem"><div class="av o" aria-hidden="true">SJ</div><span class="poste">Poste 5</span><h3>Sylvie Jacques</h3><p>Loisirs, culture, camping</p><a class="mail" href="#">Écrire</a></article>
+      <article class="mem"><div class="av" aria-hidden="true">LL</div><span class="poste">Poste 6</span><h3>Linda Lavoie</h3><p>Développement social et communautaire</p><a class="mail" href="#">Écrire</a></article>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="t2">
+    <div class="secthead"><h2 id="t2"><span class="num">N° 02</span>Calendrier des séances 2026</h2><span class="kicker">19 h 30 · salle du conseil</span></div>
+    <div class="months" id="months"></div>
+    <p class="legend">Les dates barrées sont passées · « PV » indique que le procès-verbal adopté est disponible.</p>
+  </section>
+
+  <section class="block" aria-labelledby="t3">
+    <div class="secthead"><h2 id="t3"><span class="num">N° 03</span>Procès-verbaux</h2><span class="kicker">Format PDF</span></div>
+    <div class="pvwrap">
+      <div>
+        <div class="tabs" role="tablist" aria-label="Année">
+          <button role="tab" aria-selected="true" data-y="2026">2026</button>
+          <button role="tab" aria-selected="false" data-y="2025">2025</button>
+          <button role="tab" aria-selected="false" data-y="2024">2024</button>
+          <button role="tab" aria-selected="false" data-y="2023">2023</button>
+        </div>
+        <label class="pvsearch"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg><span class="sr-only">Filtrer</span><input id="pvq" placeholder="Filtrer par mois ou type (ex. « mars », « extraordinaire »)"></label>
+        <ul class="pv" id="pv" role="tabpanel" aria-live="polite"></ul>
+      </div>
+      <aside>
+        <div class="info">
+          <span class="kicker">Bon à savoir</span>
+          <h3>Assister à une séance</h3>
+          <p>Les séances ordinaires ont lieu à 19 h 30. Une période de questions est réservée aux citoyens au début et à la fin de chaque séance.</p>
+          <p>Le procès-verbal est publié après son adoption, à la séance suivante.</p>
+          <p style="margin:0;font-family:var(--sans);font-size:13px"><b>Greffe :</b> 418 499-2423 · info@biencourt.ca</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block two">
+    <div>
+      <div class="secthead"><h2><span class="num">N° 04</span>Avis publics</h2><a class="more" href="#">Archives</a></div>
+      <ul class="avis">
+        <li><div class="dd"><b>05</b><span>oct.</span></div><div><h3><a href="#">Avis public — Dépôt du rôle d’évaluation foncière triennal 2027-2029</a></h3><p>Le rôle peut être consulté au bureau municipal aux heures d’ouverture.</p></div></li>
+        <li><div class="dd"><b>02</b><span>oct.</span></div><div><h3><a href="#">Levée de l’avis d’ébullition préventif</a></h3><p>Secteur de la rue Principale et de la rue Berger.</p></div></li>
+        <li><div class="dd"><b>22</b><span>sept.</span></div><div><h3><a href="#">Demande de dérogation mineure — 12, chemin du Lac</a></h3><p>Le conseil statuera lors de la séance du 2 novembre.</p></div></li>
+        <li><div class="dd"><b>08</b><span>sept.</span></div><div><h3><a href="#">Calendrier des séances ordinaires 2026 (modifié)</a></h3><p>Séance d’août déplacée au mardi 18 août.</p></div></li>
+      </ul>
+    </div>
+    <div>
+      <div class="secthead"><h2><span class="num">N° 05</span>Règlements</h2><a class="more" href="#">Tous</a></div>
+      <ul class="regl">
+        <li><span class="no">N° 2026-04</span><a href="#">Gestion contractuelle (mise à jour)</a><span>PDF</span></li>
+        <li><span class="no">N° 2026-03</span><a href="#">Taux de taxation et tarification 2026</a><span>PDF</span></li>
+        <li><span class="no">N° 2026-02</span><a href="#">Code d’éthique et de déontologie des élus</a><span>PDF</span></li>
+        <li><span class="no">N° 2026-01</span><a href="#">Utilisation de l’eau potable</a><span>PDF</span></li>
+        <li><span class="no">N° 2025-07</span><a href="#">Nuisances et colportage</a><span>PDF</span></li>
+        <li><span class="no">N° 2025-05</span><a href="#">Zonage — secteur du lac Biencourt</a><span>PDF</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+<footer class="foot" id="joindre">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="flogo"><img src="../assets/logo-biencourt.png" alt="Logo de Biencourt" width="120" height="60"></div>
+        <div class="fname">Municipalité de Biencourt<em>« Biencourt, un endroit à découvrir! »</em></div>
+        <a class="fb" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.6 2 10.7 3.4 10.7 5.8V8H8.5v3h2.2v11H14V11h2.6l.4-3H14z"/></svg>Suivez-nous sur Facebook</a>
+      </div>
+      <div>
+        <h4>Nous joindre</h4>
+        <address>5, rue Berger, C.P. 70<br>Biencourt (Québec) G0K 1T0<br>Tél. <a href="tel:+14184992423">418 499-2423</a><br>Téléc. 418 499-2708<br><a href="mailto:info@biencourt.ca">info@biencourt.ca</a></address>
+      </div>
+      <div>
+        <h4>Heures du bureau</h4>
+        <ul><li>Lundi au jeudi</li><li>8 h 30 – 12 h</li><li>13 h – 16 h 30</li><li style="margin-top:12px;color:#BFC8B5">Fermé le vendredi</li></ul>
+      </div>
+      <div>
+        <h4>Raccourcis</h4>
+        <ul>
+          <li><a href="conseil.html">Conseil municipal</a></li>
+          <li><a href="evenements.html">Agenda des activités</a></li>
+          <li><a href="journal.html">Le Biencourtois</a></li>
+          <li><a href="#">Paiement des taxes</a></li>
+          <li><a href="#">Camping municipal</a></li>
+          <li><a href="admin.html">Accès administrateur</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Municipalité de Biencourt · MRC de Témiscouata · Bas-Saint-Laurent</span>
+      <span>Accessibilité · Confidentialité · Plan du site</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.querySelector('.mainnav');
+  var t=nav.querySelector('.navtoggle');
+  t.addEventListener('click',function(){var o=nav.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+  nav.querySelectorAll('.has-drop > button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var li=b.parentNode,o=!li.classList.contains('open');
+      nav.querySelectorAll('.has-drop.open').forEach(function(x){if(x!==li){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')}});
+      li.classList.toggle('open',o);b.setAttribute('aria-expanded',o);
+    });
+  });
+  document.addEventListener('click',function(e){if(!nav.contains(e.target)){nav.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')})}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){nav.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open')})}});
+  var r=document.querySelector('.ribbon .x');
+  if(r)r.addEventListener('click',function(){r.closest('.ribbon').remove()});
+})();
+</script>
+
+<script>
+(function(){
+  var S=[['janv.',13,'mardi',1],['févr.',2,'lundi',1],['mars',2,'lundi',1],['avril',14,'mardi',1],['mai',4,'lundi',1],['juin',1,'lundi',1],['juil.',6,'lundi',1],['août',18,'mardi',1],['sept.',15,'mardi',1],['oct.',5,'lundi',0],['nov.',2,'lundi',2],['déc.',7,'lundi',3]];
+  var h='';
+  S.forEach(function(s){
+    var cls=s[3]===1?'past':s[3]===0?'past':s[3]===2?'next-s':'';
+    var st=s[3]===1?'✓ PV disponible':s[3]===0?'PV à adopter le 2 nov.':s[3]===2?'Dans 25 jours':'Budget 2027';
+    h+='<div class="mo '+cls+'"><div class="m">'+s[0]+'</div><b>'+(s[1]===1?'1<sup style="font-size:.4em">er</sup>':s[1])+'</b><div class="w">'+s[2]+'</div><div class="st">'+st+'</div></div>';
+  });
+  document.getElementById('months').innerHTML=h;
+
+  var PV={
+    '2026':[['13 janv.','Séance ordinaire',0,'186 Ko'],['2 févr.','Séance ordinaire',0,'204 Ko'],['19 févr.','Séance extraordinaire — budget',1,'92 Ko'],['2 mars','Séance ordinaire',0,'231 Ko'],['30 mars','Séance extraordinaire — travaux de voirie',1,'88 Ko'],['14 avril','Séance ordinaire',0,'198 Ko'],['4 mai','Séance ordinaire',0,'215 Ko'],['25 mai','Séance extraordinaire — camping',1,'76 Ko'],['1er juin','Séance ordinaire',0,'240 Ko'],['6 juill.','Séance ordinaire',0,'189 Ko'],['18 août','Séance ordinaire',0,'207 Ko'],['15 sept.','Séance ordinaire',0,'222 Ko']],
+    '2025':[['14 janv.','Séance ordinaire',0,'181 Ko'],['3 févr.','Séance ordinaire',0,'176 Ko'],['3 mars','Séance ordinaire',0,'190 Ko'],['7 avril','Séance ordinaire',0,'203 Ko'],['5 mai','Séance ordinaire',0,'188 Ko'],['2 juin','Séance ordinaire',0,'214 Ko'],['7 juill.','Séance ordinaire',0,'172 Ko'],['18 août','Séance ordinaire',0,'195 Ko'],['8 sept.','Séance ordinaire',0,'201 Ko'],['6 oct.','Séance ordinaire',0,'187 Ko'],['17 nov.','Séance ordinaire',0,'226 Ko'],['1er déc.','Séance ordinaire',0,'219 Ko'],['15 déc.','Séance extraordinaire — budget 2026',1,'94 Ko']],
+    '2024':[['15 janv.','Séance ordinaire',0,'170 Ko'],['5 févr.','Séance ordinaire',0,'168 Ko'],['4 mars','Séance ordinaire',0,'183 Ko'],['8 avril','Séance ordinaire',0,'177 Ko'],['6 mai','Séance ordinaire',0,'190 Ko'],['3 juin','Séance ordinaire',0,'199 Ko'],['2 juill.','Séance ordinaire',0,'164 Ko'],['19 août','Séance ordinaire',0,'181 Ko'],['9 sept.','Séance ordinaire',0,'176 Ko'],['7 oct.','Séance ordinaire',0,'188 Ko'],['4 nov.','Séance ordinaire',0,'192 Ko'],['2 déc.','Séance ordinaire',0,'210 Ko']],
+    '2023':[['16 janv.','Séance ordinaire',0,'160 Ko'],['6 févr.','Séance ordinaire',0,'158 Ko'],['6 mars','Séance ordinaire',0,'171 Ko'],['3 avril','Séance ordinaire',0,'166 Ko'],['1er mai','Séance ordinaire',0,'174 Ko'],['5 juin','Séance ordinaire',0,'181 Ko'],['4 juill.','Séance ordinaire',0,'159 Ko'],['21 août','Séance ordinaire',0,'170 Ko'],['11 sept.','Séance ordinaire',0,'165 Ko'],['2 oct.','Séance ordinaire',0,'177 Ko'],['6 nov.','Séance ordinaire',0,'183 Ko'],['4 déc.','Séance ordinaire',0,'196 Ko']]
+  };
+  var year='2026';
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+  function render(){
+    var q=norm(document.getElementById('pvq').value.trim());
+    var rows=PV[year].slice().reverse().filter(function(r){return !q||norm(r[0]+' '+r[1]+(r[2]?' extraordinaire':' ordinaire')).indexOf(q)>-1});
+    document.getElementById('pv').innerHTML=rows.length?rows.map(function(r){
+      return '<li><div class="d">'+r[0]+'<small>'+year+'</small></div><div class="t"><span class="badge'+(r[2]?' x':'')+'">'+(r[2]?'Extraordinaire':'Ordinaire')+'</span>'+(function(){var x=r[1].replace(/^Séance (extra)?ordinaire( — )?/,'');return x?'Procès-verbal — '+x:'Procès-verbal de la séance ordinaire'})()+'</div><a class="dl" href="#" aria-label="Télécharger le procès-verbal du '+r[0]+' '+year+'">↓ PDF <small>'+r[3]+'</small></a></li>';
+    }).join(''):'<li style="display:block;font-style:italic;color:var(--ink-3)">Aucun procès-verbal ne correspond.</li>';
+  }
+  document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){year=b.dataset.y;document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});render()})});
+  document.getElementById('pvq').addEventListener('input',render);
+  render();
+})();
+</script>
+</body>
+</html>

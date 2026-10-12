@@ -1,225 +1,160 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr-CA">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>J2B - Maquettes PWA Gestion de temps</title>
-<style>body{margin:0;background:#0B0B0C;color:#F4F2EE;font-family:system-ui,sans-serif;}</style>
+<title>Biencourt — Propositions de design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2430; --muted:#5b6675; --line:#e3e7ec; --bg:#f6f7f9; --card:#fff;
+    --blue:#2E8BC9; --green:#5a9f33; --orange:#E8762B;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  header{background:#fff;border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;gap:20px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap}
+  header img{height:72px;width:auto}
+  header h1{font-family:Fraunces,serif;font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);margin:0;line-height:1.15}
+  header p{margin:4px 0 0;color:var(--muted)}
+  .intro{padding:40px 0 10px;max-width:760px}
+  .intro h2{font-family:Fraunces,serif;font-size:1.6rem;margin:0 0 8px}
+  .intro p{color:var(--muted);margin:0}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:28px 0 20px}
+  @media (max-width:960px){.grid{grid-template-columns:1fr}}
+  .opt{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s, box-shadow .2s}
+  .opt:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(20,30,50,.10)}
+  .swatch{height:170px;position:relative;display:flex;align-items:flex-end;padding:18px;color:#fff}
+  .swatch .tag{position:absolute;top:14px;left:14px;font:600 .75rem Inter;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--ink);padding:5px 10px;border-radius:99px}
+  .a .swatch{background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.45)),url(assets/centre_de_ski_vue_de_la_trois_automne.png) center/cover}
+  .a .swatch .t{font-family:Fraunces,serif;font-size:1.6rem;text-shadow:0 2px 10px rgba(0,0,0,.25)}
+  .b .swatch{background:linear-gradient(rgba(19,41,75,.82),rgba(19,41,75,.92)),url(assets/vue_biencourt_montagne_de_la_tour.png) center/cover}
+  .b .swatch .t{font:700 1.5rem Inter}
+  .b .fake-search{position:absolute;left:18px;right:18px;top:62px;background:#fff;border-radius:8px;height:44px;display:flex;align-items:center;padding:0 14px;color:#6b7686;font-size:.95rem;border:3px solid #E8762B}
+  .c .swatch{background:#f4ede0;color:#1f3a2b;border-bottom:3px double #1f3a2b}
+  .c .swatch .t{font-family:Fraunces,serif;font-style:italic;font-size:1.9rem}
+  .c .swatch .rule{position:absolute;left:18px;right:18px;top:60px;border-top:1px solid #1f3a2b;border-bottom:1px solid #1f3a2b;padding:4px 0;font:500 .7rem Inter;letter-spacing:.2em;text-transform:uppercase;text-align:center}
+  .body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .body h3{margin:0;font-size:1.15rem}
+  .body p{margin:0;color:var(--muted);font-size:.95rem}
+  .pages{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+  .pages a{display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-weight:500;font-size:.93rem}
+  .pages a:hover,.pages a:focus-visible{border-color:var(--ink);outline:none}
+  .pages a span{color:var(--muted);font-weight:400;font-size:.8rem}
+  .pages a.prem{background:#fff7ef;border-color:#f3d2b4}
+  .cta{margin-top:auto;display:inline-block;text-align:center;text-decoration:none;font-weight:600;padding:12px 16px;border-radius:10px;color:#fff}
+  .a .cta{background:#2E8BC9}.b .cta{background:#13294b}.c .cta{background:#1f3a2b}
+  section.offres{padding:30px 0 50px}
+  section.offres h2{font-family:Fraunces,serif;font-size:1.6rem;margin:0 0 6px}
+  section.offres > .wrap > p{color:var(--muted);margin:0 0 20px}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.95rem}
+  th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#fafbfc;font-weight:600}
+  th small{display:block;font-weight:400;color:var(--muted)}
+  td.y{color:var(--green);font-weight:600}
+  td.n{color:#a3acb8}
+  .tbl{overflow-x:auto}
+  footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:.85rem;background:#fff}
+</style>
 </head>
 <body>
-  <header style="padding:40px 40px 28px 40px;border-bottom:1px solid #1C1A16;">
-    <img src="assets/logo_transparent.png" alt="Excavation J2B" style="display:block;width:220px;height:124px;object-fit:contain;">
-    <h1 style="font:600 28px/1.2 system-ui,sans-serif;margin:18px 0 6px 0;">Maquettes - PWA de gestion de temps</h1>
-    <p style="font:400 14px/1.6 system-ui,sans-serif;color:#A7A7A7;margin:0;max-width:70ch;">Trois directions de design (A, B, C), chacune declinee par role (bluehat, whitehat, admin) : saisie du temps, des voyages, du materiel et des photos, calendrier, ajout de chantier, configuration admin en mobile et en version PC, plus la synchronisation manuelle.</p>
-  </header>
-  <main style="padding:32px 40px;">
-    <section style="padding:0 0 48px 0;">
-      <h2 style="font:600 22px/1.2 system-ui,sans-serif;margin:0 0 4px 0;color:#F4F2EE;">Option A</h2>
-      <p style="font:400 14px/1.5 system-ui,sans-serif;margin:0 0 18px 0;color:#A7A7A7;">Cadran — hub de boutons rondes, inspiré du croquis</p>
-      <div style="display:flex;gap:28px;align-items:flex-start;overflow-x:auto;padding-bottom:10px;">
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Bluehat — accueil</figcaption>
-        <div style="width:405px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="Main.html" title="A · Bluehat — accueil" style="width:405px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="Main.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Whitehat — accueil</figcaption>
-        <div style="width:403px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Whitehat-Accueil.html" title="A · Whitehat — accueil" style="width:403px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Whitehat-Accueil.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Admin — accueil</figcaption>
-        <div style="width:407px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Admin-Accueil.html" title="A · Admin — accueil" style="width:407px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Admin-Accueil.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Entrer du temps</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Temps.html" title="A · Entrer du temps" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Temps.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Ajouter un voyage</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Voyage.html" title="A · Ajouter un voyage" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Voyage.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Ajouter du matériel</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Materiaux.html" title="A · Ajouter du matériel" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Materiaux.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Calendrier (whitehat)</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Calendrier.html" title="A · Calendrier (whitehat)" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Calendrier.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Ajouter un chantier</figcaption>
-        <div style="width:390px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Chantier-Add.html" title="A · Ajouter un chantier" style="width:390px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Chantier-Add.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Configuration (admin)</figcaption>
-        <div style="width:391px;height:858px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Config.html" title="A · Configuration (admin)" style="width:391px;height:858px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Config.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">A · Configuration — version PC</figcaption>
-        <div style="width:797px;height:499px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="A-Config-PC.html" title="A · Configuration — version PC" style="width:1287px;height:805px;border:0;transform:scale(0.62);transform-origin:top left;"></iframe>
-        </div>
-        <a href="A-Config-PC.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
+<header>
+  <div class="wrap">
+    <img src="assets/logo-biencourt.png" alt="Logo de la Municipalité de Biencourt">
+    <div>
+      <h1>Nouveau site web — propositions de design</h1>
+      <p>Municipalité de Biencourt · Maquettes présentées en octobre 2026</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="intro">
+    <h2>Trois directions, un même contenu</h2>
+    <p>Chaque option présente les pages principales du futur site : Accueil, Événements, Conseil municipal, Journal local et l'interface d'administration. Toutes conservent les fonctions actuelles (avis publics, procès-verbaux, taxes, danger d'incendie SOPFEU, camping, Mont Biencourt…) et ajoutent le journal <em>Le Biencourtois</em> et le calendrier des activités à venir. Les données sont illustratives.</p>
+  </div>
+
+  <div class="grid">
+    <article class="opt a">
+      <div class="swatch"><span class="tag">Option A</span><span class="t">Lac &amp; Montagne</span></div>
+      <div class="body">
+        <h3>Chaleureux et accueillant</h3>
+        <p>Grandes illustrations du paysage, couleurs du logo, accès rapides en tuiles. Met en valeur la fierté locale et l'attrait touristique (lac, camping, Mont Biencourt).</p>
+        <ul class="pages">
+          <li><a href="option-a/accueil.html">Accueil <span>→</span></a></li>
+          <li><a href="option-a/evenements.html">Événements <span>→</span></a></li>
+          <li><a href="option-a/conseil.html">Conseil municipal <span>→</span></a></li>
+          <li><a href="option-a/journal.html">Journal <span>→</span></a></li>
+          <li><a class="prem" href="option-a/admin.html">Administration <span>Premium</span></a></li>
+        </ul>
+        <a class="cta" href="option-a/accueil.html">Voir l'option A</a>
       </div>
-    </section>
-    <section style="padding:0 0 48px 0;">
-      <h2 style="font:600 22px/1.2 system-ui,sans-serif;margin:0 0 4px 0;color:#F4F2EE;">Option B</h2>
-      <p style="font:400 14px/1.5 system-ui,sans-serif;margin:0 0 18px 0;color:#A7A7A7;">Chantier — clair, barre d'onglets, listes denses</p>
-      <div style="display:flex;gap:28px;align-items:flex-start;overflow-x:auto;padding-bottom:10px;">
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Bluehat — ma journée</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Bluehat-Journee.html" title="B · Bluehat — ma journée" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Bluehat-Journee.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Calendrier (whitehat)</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Whitehat-Calendrier.html" title="B · Calendrier (whitehat)" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Whitehat-Calendrier.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Chantier — tout le détail</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Chantier-Detail.html" title="B · Chantier — tout le détail" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Chantier-Detail.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Entrer du temps</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Temps.html" title="B · Entrer du temps" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Temps.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Ajouter un voyage</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Voyage.html" title="B · Ajouter un voyage" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Voyage.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Ajouter du matériel</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Materiaux.html" title="B · Ajouter du matériel" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Materiaux.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Ajouter un chantier</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Chantier-Add.html" title="B · Ajouter un chantier" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Chantier-Add.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Configuration (admin)</figcaption>
-        <div style="width:390px;height:855px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Admin-Config.html" title="B · Configuration (admin)" style="width:390px;height:855px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Admin-Config.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">B · Configuration — version PC</figcaption>
-        <div style="width:797px;height:498px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="B-Config-PC.html" title="B · Configuration — version PC" style="width:1286px;height:804px;border:0;transform:scale(0.62);transform-origin:top left;"></iframe>
-        </div>
-        <a href="B-Config-PC.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
+    </article>
+
+    <article class="opt b">
+      <div class="swatch"><span class="tag">Option B</span><div class="fake-search">🔍 Rechercher : taxes, procès-verbaux…</div><span class="t">Portail citoyen</span></div>
+      <div class="body">
+        <h3>Clair, rapide, axé sur les services</h3>
+        <p>Inspiré des portails gouvernementaux modernes. Une barre de recherche couvre tout le contenu du site : pages, avis, procès-verbaux, événements, journal, commerces.</p>
+        <ul class="pages">
+          <li><a href="option-b/accueil.html">Accueil <span>→</span></a></li>
+          <li><a href="option-b/evenements.html">Événements <span>→</span></a></li>
+          <li><a href="option-b/conseil.html">Conseil municipal <span>→</span></a></li>
+          <li><a href="option-b/journal.html">Journal <span>→</span></a></li>
+          <li><a class="prem" href="option-b/admin.html">Administration <span>Premium</span></a></li>
+        </ul>
+        <a class="cta" href="option-b/accueil.html">Voir l'option B</a>
       </div>
-    </section>
-    <section style="padding:0 0 48px 0;">
-      <h2 style="font:600 22px/1.2 system-ui,sans-serif;margin:0 0 4px 0;color:#F4F2EE;">Option C</h2>
-      <p style="font:400 14px/1.5 system-ui,sans-serif;margin:0 0 18px 0;color:#A7A7A7;">Journée — sombre, fil du jour, feuilles de saisie</p>
-      <div style="display:flex;gap:28px;align-items:flex-start;overflow-x:auto;padding-bottom:10px;">
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Bluehat — aujourd'hui</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Bluehat-Aujourdhui.html" title="C · Bluehat — aujourd'hui" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Bluehat-Aujourdhui.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Semaine (whitehat)</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Whitehat-Semaine.html" title="C · Semaine (whitehat)" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Whitehat-Semaine.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Entrer du temps</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Temps.html" title="C · Entrer du temps" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Temps.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Ajouter un voyage</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Voyage-Sheet.html" title="C · Ajouter un voyage" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Voyage-Sheet.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Ajouter du matériel</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Materiaux.html" title="C · Ajouter du matériel" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Materiaux.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Ajouter un chantier</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Chantier-Add.html" title="C · Ajouter un chantier" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Chantier-Add.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Console (admin)</figcaption>
-        <div style="width:390px;height:852px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Admin-Console.html" title="C · Console (admin)" style="width:390px;height:852px;border:0;transform:scale(1.0);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Admin-Console.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
-      <figure style="margin:0;flex:0 0 auto;">
-        <figcaption style="font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.06em;color:#A7A7A7;padding:0 0 8px 2px;text-transform:uppercase;">C · Configuration — version PC</figcaption>
-        <div style="width:798px;height:497px;border:1px solid #2A2823;border-radius:10px;overflow:hidden;background:#000;">
-          <iframe src="C-Config-PC.html" title="C · Configuration — version PC" style="width:1288px;height:803px;border:0;transform:scale(0.62);transform-origin:top left;"></iframe>
-        </div>
-        <a href="C-Config-PC.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font:500 12px system-ui,sans-serif;color:#E9A82C;">Ouvrir en plein ecran</a>
-      </figure>
+    </article>
+
+    <article class="opt c">
+      <div class="swatch"><span class="tag">Option C</span><div class="rule">Vol. 12 · No 10 · Octobre 2026</div><span class="t">La Gazette</span></div>
+      <div class="body">
+        <h3>Éditorial et patrimonial</h3>
+        <p>Une mise en page de journal qui place la vie communautaire et <em>Le Biencourtois</em> au cœur du site. Typographie raffinée, ton authentique, très distinct des sites municipaux habituels.</p>
+        <ul class="pages">
+          <li><a href="option-c/accueil.html">Accueil <span>→</span></a></li>
+          <li><a href="option-c/evenements.html">Événements <span>→</span></a></li>
+          <li><a href="option-c/conseil.html">Conseil municipal <span>→</span></a></li>
+          <li><a href="option-c/journal.html">Journal <span>→</span></a></li>
+          <li><a class="prem" href="option-c/admin.html">Administration <span>Premium</span></a></li>
+        </ul>
+        <a class="cta" href="option-c/accueil.html">Voir l'option C</a>
       </div>
-    </section>
-  </main>
+    </article>
+  </div>
+</main>
+
+<section class="offres">
+  <div class="wrap">
+    <h2>Deux formules</h2>
+    <p>Le design choisi peut être livré selon l'une ou l'autre formule.</p>
+    <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>Fonctionnalité</th><th>Essentiel<small>Site web statique</small></th><th>Premium<small>Site + interface d'administration</small></th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Design sur mesure, adapté au mobile</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Toutes les pages et fonctions du site actuel</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Section Journal local et calendrier des activités</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Widget danger d'incendie SOPFEU</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Mises à jour du contenu</td><td>Par le consultant, au taux horaire</td><td>Par le personnel municipal, en autonomie</td></tr>
+        <tr><td>Publier avis, nouvelles et événements</td><td class="n">Sur demande</td><td class="y">✓ En quelques clics</td></tr>
+        <tr><td>Téléverser le journal et les procès-verbaux (PDF)</td><td class="n">Sur demande</td><td class="y">✓</td></tr>
+        <tr><td>Modifier le conseil, les séances, les commerces, les organismes</td><td class="n">Sur demande</td><td class="y">✓</td></tr>
+        <tr><td>Bandeau d'alerte (avis d'ébullition, fermeture de route…)</td><td class="n">Sur demande</td><td class="y">✓ Immédiat</td></tr>
+        <tr><td>Comptes utilisateurs pour le personnel</td><td class="n">—</td><td class="y">✓</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Maquettes à des fins de présentation — contenu et données illustratifs.</div></footer>
 </body>
 </html>
